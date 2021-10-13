@@ -15,6 +15,8 @@ public partial class PageSettings : ContentPage
     public PageSettings()
     {
         InitializeComponent();
-    }
+            NavigationPage.SetHasNavigationBar(this, false);
+            anim.IsAnimationPlaying = true;
+        }
 }
 }

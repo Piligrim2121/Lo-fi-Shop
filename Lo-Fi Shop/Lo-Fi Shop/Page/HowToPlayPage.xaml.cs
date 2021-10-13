@@ -14,6 +14,8 @@ public partial class HowToPlayPage : ContentPage
     public HowToPlayPage()
     {
         InitializeComponent();
-    }
+            NavigationPage.SetHasNavigationBar(this, false);
+            anim.IsAnimationPlaying = true;
+        }
 }
 }

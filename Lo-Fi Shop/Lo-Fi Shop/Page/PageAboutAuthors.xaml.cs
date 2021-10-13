@@ -15,6 +15,8 @@ public partial class PageAboutAuthors : ContentPage
     public PageAboutAuthors()
     {
         InitializeComponent();
-    }
+            NavigationPage.SetHasNavigationBar(this, false);
+            anim.IsAnimationPlaying = true;
+        }
 }
 }
