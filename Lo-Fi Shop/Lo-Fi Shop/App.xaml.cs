@@ -9,8 +9,8 @@ namespace Lo_Fi_Shop
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainMenuPage();
+            MainPage = new NavigationPage(new MainMenuPage());
+            //MainPage = new MainMenuPage();
         }
 
         protected override void OnStart()

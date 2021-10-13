@@ -7,7 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,13 +22,13 @@
             Grid.ColumnSpan="3"
             />
         <Image x:Name="anim" Source="Resources/drawable/logo.gif"  IsAnimationPlaying="False" Grid.Column="1"></Image>
-        <StackLayout x:Name="sl" Grid.Column="1" Grid.Row="1" Spacing="0" >
-            <Button x:Name="BtnPlay" Text="Играть" Font="Default" />
-            <Button x:Name="BtnSetting" Text="Настройки"></Button>
-            <Button x:Name="BtnAbout" Text="Об Авторах"></Button>
+        <FlexLayout x:Name="sl" Grid.Column="1" Grid.Row="1" >
+            <Button x:Name="BtnPlay" Clicked="BtnPlay_Clicked" Text="Играть" Font="Default" />
+            <Button x:Name="BtnSetting" Clicked="BtnSetting_Clicked" Text="Настройки"></Button>
+            <Button x:Name="BtnAbout" Clicked="BtnAbout_Clicked" Text="Об Авторах"></Button>
             <Button x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
-            <Button x:Name="BtnExit" Text="Выход"></Button>
-        </StackLayout>
+            <Button x:Name="BtnExit" Clicked="BtnExit_Clicked" Text="Выход"></Button>
+        </FlexLayout>
         
     </Grid>
     

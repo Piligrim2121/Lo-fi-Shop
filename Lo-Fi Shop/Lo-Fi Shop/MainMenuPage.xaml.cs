@@ -14,8 +14,7 @@ namespace Lo_Fi_Shop
         public MainMenuPage()
         {
             InitializeComponent();
-            
-           test();
+            test();
         }
         
         private void Button_Clicked(object sender, EventArgs e)
@@ -32,8 +31,27 @@ namespace Lo_Fi_Shop
 
         private void BtnHowToPlay_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine("puk");
-           
+            Navigation.PushAsync(new Page.HowToPlayPage());
+        }
+
+        private void BtnPlay_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.PagePlay());
+        }
+
+        private void BtnSetting_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.PageSettings());
+        }
+
+        private void BtnAbout_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.PageAboutAuthors());
+        }
+
+        private void BtnExit_Clicked(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
 }
