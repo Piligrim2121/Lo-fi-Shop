@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Lo_Fi_Shop.Page;
 
 namespace Lo_Fi_Shop
 {
@@ -22,11 +23,17 @@ namespace Lo_Fi_Shop
 
         }
        public void test()
-      {
+       {
             anim.IsAnimationPlaying = true;
            //BacgroundGif.IsAnimationPlaying = true;
             // sl.Children.Add(new Image { Source = "Resources/drawable/logo.gif", 
             //   isAnimationPlaying});
+       }
+
+        private void BtnHowToPlay_Clicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("puk");
+            new NavigationPage(new HowToPlayPage());
         }
     }
 }

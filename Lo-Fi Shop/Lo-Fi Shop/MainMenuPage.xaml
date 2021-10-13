@@ -25,7 +25,7 @@
             <Button x:Name="BtnPlay" Text="Играть" ></Button>
             <Button x:Name="BtnSetting" Text="Настройки"></Button>
             <Button x:Name="BtnAbout" Text="Об Авторах"></Button>
-            <Button x:Name="BtnHowToPlay" Text="Как Играть"></Button>
+            <Button x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
             <Button x:Name="BtnExit" Text="Выход"></Button>
         </StackLayout>
         
