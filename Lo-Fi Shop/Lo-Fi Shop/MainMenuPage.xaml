@@ -1,28 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.MainMenuPage">
-    <!--<Image Source="Menu.gif" Aspect="AspectFit" IsAnimationPlaying="True"/>-->
-    <Grid>
+    
+    <Grid >
         <Grid.RowDefinitions>
-            
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackLayout x:Name="sl" Grid.Column="1">
-            <Image
+        <Image
             x:Name="BacgroundGif"
             Source="Resources/drawable/Menu.gif"  
-            
-            Grid.ColumnSpan="2"
+          
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="3"
             />
-            <Image x:Name="anim" Source="Resources/drawable/logo.gif"  IsAnimationPlaying="False"></Image>
-            
-            <!--тут должен быть логотип-->
-            <Button x:Name="BtnPlay" Text="Играть" ></Button>
+        <Image x:Name="anim" Source="Resources/drawable/logo.gif"  IsAnimationPlaying="False" Grid.Column="1"></Image>
+        <StackLayout x:Name="sl" Grid.Column="1" Grid.Row="1" Spacing="0" >
+            <Button x:Name="BtnPlay" Text="Играть" Font="Default" />
             <Button x:Name="BtnSetting" Text="Настройки"></Button>
             <Button x:Name="BtnAbout" Text="Об Авторах"></Button>
             <Button x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
