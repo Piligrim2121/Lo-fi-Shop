@@ -23,6 +23,7 @@ namespace Lo_Fi_Shop
         }
        public void test()
        {
+
             anim.IsAnimationPlaying = true;
            //BacgroundGif.IsAnimationPlaying = true;
             // sl.Children.Add(new Image { Source = "Resources/drawable/logo.gif", 
