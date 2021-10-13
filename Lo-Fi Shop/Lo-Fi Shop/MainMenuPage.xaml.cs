@@ -33,7 +33,7 @@ namespace Lo_Fi_Shop
         private void BtnHowToPlay_Clicked(object sender, EventArgs e)
         {
             Console.WriteLine("puk");
-            new NavigationPage(new HowToPlayPage());
+           
         }
     }
 }
