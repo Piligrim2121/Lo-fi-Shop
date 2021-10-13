@@ -14,6 +14,7 @@ namespace Lo_Fi_Shop
         public MainMenuPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             test();
         }
         
@@ -29,7 +30,7 @@ namespace Lo_Fi_Shop
             // sl.Children.Add(new Image { Source = "Resources/drawable/logo.gif", 
             //   isAnimationPlaying});
        }
-
+        
         private void BtnHowToPlay_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.HowToPlayPage());
