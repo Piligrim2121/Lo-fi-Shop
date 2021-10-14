@@ -15,9 +15,10 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Image Grid.RowSpan="3" Grid.ColumnSpan="3" Source="Resources/drawable/empty_background.jpg" ScaleY="0.9"/>
-            <Image Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Tolyan.jpg" ScaleY="0.9"/>
-            <Image Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Table.jpg" ScaleY="0.9"/>
+                <Image x:Name="hz" Grid.RowSpan="3" Grid.ColumnSpan="3" Source="Resources/drawable/empty_background.jpg" ScaleY="0.9"/>
+            <Image x:Name="Tolyan" Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Tolyan.jpg" ScaleY="0.9"/>
+            <Image x:Name="Table" Margin="0,40,0,0" Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Table.jpg" ScaleY="0.9"/>
+            <Image x:Name="Door" Margin="0,40,0,0" Scale="0.3" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/DoorClosed.png" ScaleY="0.9"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
