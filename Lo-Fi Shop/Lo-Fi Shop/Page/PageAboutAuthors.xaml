@@ -4,20 +4,23 @@
              x:Class="Lo_Fi_Shop.Page.PageAboutAuthors"
              BackgroundImage="Resources/drawable/empty.png">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="АРДАМАНА"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Grid>
-                <Image
-            x:Name="BacgroundGif"
-            Source="Resources/drawable/menuAndr.gif"  
-          
-            Grid.RowSpan="2"
-            Grid.ColumnSpan="3"
-            />
-                <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" Grid.Row="0"  IsAnimationPlaying="False" Grid.Column="1"></Image>
-            </Grid>
-        </StackLayout>
+        <AbsoluteLayout>
+            <Image
+                x:Name="BacgroundGif"
+                Source="Resources/drawable/menuAndr.gif"  
+                AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFit" IsAnimationPlaying="False"></Image>
+                <Label Text="Об авторах" HorizontalOptions="Center" FontSize="24"/>
+                <StackLayout>
+                    <Label Text="· Рашитов Артур: Менеджер программы, логистик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Панин Данил: Менеджер продукта, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Командов Максим: Инструктор, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Гирфанов Наиль: Тестер, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
