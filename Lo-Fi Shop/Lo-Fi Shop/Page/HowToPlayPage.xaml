@@ -7,6 +7,7 @@
     <ContentPage.Content>
 
         <StackLayout >
+            
             <Image
             x:Name="BacgroundGif"
             Source="Resources/drawable/menuAndr.gif"  
@@ -14,8 +15,9 @@
             Grid.RowSpan="2"
             Grid.ColumnSpan="3"
             />
+            
             <Image  x:Name="anim" Source="Resources/drawable/x_logo.gif" IsAnimationPlaying="False" ></Image>
-            <Label Margin="10,0,0,0"  TextColor="White" >Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200 000₽.
+            <Label Margin="10,0,0,0"  Text="Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200 000₽." TextColor="White" >
             </Label>
        
            
