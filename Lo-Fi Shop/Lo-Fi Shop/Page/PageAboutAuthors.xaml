@@ -12,13 +12,17 @@
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
             <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
+               
                 <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFit" IsAnimationPlaying="False"></Image>
-                <Label TextColor="White" Text="Об авторах" HorizontalOptions="Center" FontSize="24"/>
+                <Label Text="Об авторах" HorizontalOptions="Center" FontSize="24"/>
+                
                 <StackLayout>
-                    <Label TextColor="White" Text="· Рашитов Артур: Менеджер программы, логистик" HorizontalOptions="Start" FontSize="20"/>
-                    <Label TextColor="White" Text="· Панин Данил: Менеджер продукта, разработчик" HorizontalOptions="Start" FontSize="20"/>
-                    <Label TextColor="White" Text="· Командов Максим: Инструктор, разработчик" HorizontalOptions="Start" FontSize="20"/>
-                    <Label TextColor="White" Text="· Гирфанов Наиль: Тестер, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    
+                    <Label Text="· Рашитов Артур: Менеджер программы, логистик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Панин Данил: Менеджер продукта, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Командов Максим: Инструктор, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    <Label Text="· Гирфанов Наиль: Тестер, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    
                 </StackLayout>
             </StackLayout>
         </AbsoluteLayout>

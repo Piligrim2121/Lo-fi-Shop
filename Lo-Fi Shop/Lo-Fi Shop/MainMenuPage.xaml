@@ -14,14 +14,20 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <Image
             x:Name="BacgroundGif"
-            Source="Resources/drawable/menuAndr.gif"  
-          
+            Source="Resources/drawable/menuAndr.gif"   
             Grid.RowSpan="2"
             Grid.ColumnSpan="3"
             />
-        <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" Grid.Row="0"  IsAnimationPlaying="False" Grid.Column="1"></Image>
+        <Image x:Name="anim" 
+               Source="Resources/drawable/x_logo.gif" 
+               Grid.Row="0" Grid.Column="1"
+               IsAnimationPlaying="False" >
+            
+        </Image>
+
         <Grid Padding="0" RowSpacing="0" x:Name="sl" Margin="20,-40,30,0" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -29,7 +35,6 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-
             </Grid.RowDefinitions>
 
             <Button  Grid.Row="0" x:Name="BtnPlay"  Clicked="BtnPlay_Clicked" Text="Играть" Font="Default" />
@@ -37,6 +42,7 @@
             <Button Grid.Row="2" x:Name="BtnAbout" Clicked="BtnAbout_Clicked" Text="Об Авторах"></Button>
             <Button Grid.Row="3" x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
             <Button Grid.Row="4" x:Name="BtnExit" Clicked="BtnExit_Clicked" Text="Выход"></Button>
+            
         </Grid>
     </Grid>
 </ContentPage>

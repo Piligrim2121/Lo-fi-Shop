@@ -15,42 +15,49 @@ namespace Lo_Fi_Shop
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            test();
-        }
-        
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
-        }
-       public void test()
-       {
-
             anim.IsAnimationPlaying = true;
-           //BacgroundGif.IsAnimationPlaying = true;
-            // sl.Children.Add(new Image { Source = "Resources/drawable/logo.gif", 
-            //   isAnimationPlaying});
-       }
-        
+        }
+        /// <summary>
+        /// Переход к экрану "Как Играть"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnHowToPlay_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.HowToPlayPage());
         }
-
+        /// <summary>
+        /// Переход к главному  экрану игры
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.PagePlay());
         }
-
+        /// <summary>
+        /// Переход к экрану "настройки"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSetting_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.PageSettings());
         }
-
+        /// <summary>
+        /// Переход к экрану об авторах
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAbout_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.PageAboutAuthors());
         }
-
+        /// <summary>
+        /// Выход из приложения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnExit_Clicked(object sender, EventArgs e)
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

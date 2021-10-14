@@ -3,28 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.Page.HowToPlayPage"
              BackgroundImage="Resources/drawable/empty.png">
-
+   
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <StackLayout >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            
             
             <Image
             x:Name="BacgroundGif"
             Source="Resources/drawable/menuAndr.gif"  
-          
-            Grid.RowSpan="2"
+            Grid.RowSpan="7"
             Grid.ColumnSpan="3"
             />
             
-            <Image  x:Name="anim" Source="Resources/drawable/x_logo.gif" IsAnimationPlaying="False" ></Image>
-            <Label Margin="10,0,0,0"  Text="Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200 000₽." TextColor="White" >
+            <Image x:Name="anim" 
+                   Scale="0.5" 
+                   Source="Resources/drawable/x_logo.gif"    
+                   IsAnimationPlaying="False" 
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2" >
+            </Image>
+
+            <Label TextColor="White" Margin="6,0,0,0"  Grid.Column="1" Grid.Row="2" 
+                   Text="Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200 000₽.
+" >
             </Label>
-       
-           
-            
-            
-            
-        
             <!--<Label Grid.Row="2"></Label>
             <Label Grid.Row=""></Label>
             <Label Grid.Row=""></Label>
@@ -32,6 +49,6 @@
             <Label Grid.Row=""></Label>
             <Label Grid.Row=""></Label>-->
             
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
