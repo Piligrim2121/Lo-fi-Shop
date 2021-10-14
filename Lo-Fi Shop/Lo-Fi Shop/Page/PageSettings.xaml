@@ -7,16 +7,19 @@
         <AbsoluteLayout>
             <Image
                 x:Name="BacgroundGif"
-                Margin="0,30,0,0"
                 Source="Resources/drawable/menuAndr.gif"  
                 AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
             <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
-                
-                    <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" WidthRequest="55" IsAnimationPlaying="False"></Image>
-                
-                <Label Text="НАСТРОЙКИ" HorizontalOptions="Center" />
+                <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFill" IsAnimationPlaying="False"></Image>
+                <Label Text="НАСТРОЙКИ" HorizontalOptions="Center" FontSize="24"/>
+                <Label Text="Общая громкость" HorizontalOptions="Center" FontSize="24"/>
+                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
+                <Label Text="Громкость музыки" HorizontalOptions="Center" FontSize="24"/>
+                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
+                <Label Text="Громкость звуков" HorizontalOptions="Center" FontSize="24"/>
+                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>

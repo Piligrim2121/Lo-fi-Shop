@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.MainMenuPage"
              BackgroundImage="Resources/drawable/empty.png">
-    
+
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="0.8*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-          
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -30,9 +29,8 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                
+
             </Grid.RowDefinitions>
-            
 
             <Button  Grid.Row="0" x:Name="BtnPlay"  Clicked="BtnPlay_Clicked" Text="Играть" Font="Default" />
             <Button Grid.Row="1" x:Name="BtnSetting" Clicked="BtnSetting_Clicked" Text="Настройки"></Button>
@@ -40,8 +38,5 @@
             <Button Grid.Row="3" x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
             <Button Grid.Row="4" x:Name="BtnExit" Clicked="BtnExit_Clicked" Text="Выход"></Button>
         </Grid>
-        
     </Grid>
-    
-
 </ContentPage>
