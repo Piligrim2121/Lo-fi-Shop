@@ -15,6 +15,7 @@ public partial class PagePlay : ContentPage
     public PagePlay()
     {
         InitializeComponent();
-    }
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
 }
 }

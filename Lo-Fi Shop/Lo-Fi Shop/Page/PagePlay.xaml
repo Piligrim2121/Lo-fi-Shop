@@ -3,10 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.Page.PagePlay">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="ИГРА"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid >
+        
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.RowSpan="3" Grid.ColumnSpan="3" Source="Resources/drawable/empty_background.jpg" ScaleY="0.9"/>
+            <Image Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Tolyan.jpg" ScaleY="0.9"/>
+            <Image Scale="0.3" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Source="Resources/drawable/Table.jpg" ScaleY="0.9"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
