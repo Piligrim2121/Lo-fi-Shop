@@ -12,20 +12,20 @@
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
             
-            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
+            <StackLayout AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional" Spacing="0">
                 <Image x:Name="anim" 
                        Source="Resources/drawable/x_logo.gif" 
                        HeightRequest="130" 
                        Aspect="AspectFit" 
                        IsAnimationPlaying="False"
               ></Image>
-                
-                <Label Text="НАСТРОЙКИ" HorizontalOptions="Center" FontSize="24"/>
-                <Label Text="Общая громкость" HorizontalOptions="Center" FontSize="24"/>
+
+                <Label TextColor="White"  Text="НАСТРОЙКИ" HorizontalOptions="Center" FontSize="24"/>
+                <Label TextColor="White" Text="Общая громкость" HorizontalOptions="Center" FontSize="20"/>
                 <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
-                <Label Text="Громкость музыки" HorizontalOptions="Center" FontSize="24"/>
+                <Label TextColor="White" Text="Громкость музыки" HorizontalOptions="Center" FontSize="20"/>
                 <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
-                <Label Text="Громкость звуков" HorizontalOptions="Center" FontSize="24"/>
+                <Label TextColor="White" Text="Громкость звуков" HorizontalOptions="Center" FontSize="20"/>
                 <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
            
             </StackLayout>
