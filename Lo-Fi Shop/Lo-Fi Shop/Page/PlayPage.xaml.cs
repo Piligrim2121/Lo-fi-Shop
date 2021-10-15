@@ -17,5 +17,31 @@ public partial class PlayPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-}
+
+        private void ImageShkaf_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.InventoryPage());
+        }
+
+        private void ImageTable_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.CraftPage());
+        }
+
+        private void ImageKassa_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Page.ShopPage());
+        }
+
+        private void TableOfQuest_Open(object sender, EventArgs e)
+        {
+            ImageTableOfQuestOpen.IsVisible = true;
+        }
+
+        private void TableOfQuest_Clouse(object sender, EventArgs e)
+        {
+            ImageTableOfQuestOpen.IsVisible = false;
+
+        }
+    }
 }
