@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.Page.InventoryPage">
     <ContentPage.Content>
-        <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Label Text="Тут должен быть инвентарь"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+            <TableView x:Name="InventoryTableView" Grid.Column="1"></TableView>
+
+            <Label x:Name="DescreptionLabel" Grid.Column="0"></Label>
+            <Label x:Name="PriceLabel" Grid.Column="0"></Label>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
