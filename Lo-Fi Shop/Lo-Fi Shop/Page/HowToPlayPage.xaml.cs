@@ -18,19 +18,19 @@ public partial class HowToPlayPage : ContentPage
             NavigationPage.SetHasNavigationBar(this, false);
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             Add_Al();
-            this.BackgroundImageSource = "Resources/drawable/empty.png";
+            
         }
 
         public void Add_Al()
         {
             //var AbsoluteLayoutMain = new AbsoluteLayout();
-            AbsoluteLayout.SetLayoutFlags(ImgBack, AbsoluteLayoutFlags.PositionProportional);
+          /*  AbsoluteLayout.SetLayoutFlags(ImgBack, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(ImgBack, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            //AbsoluteLayoutMain.Children.Add(ImgBack);
+            //AbsoluteLayoutMain.Children.Add(ImgBack);*/
             var StackMain = new StackLayout() { Spacing=0 };
             AbsoluteLayout.SetLayoutFlags(StackMain, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(StackMain, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            Image Logo = new Image { Source = "Resources/drawable/x_logo.gif", HeightRequest = 130, Aspect = Aspect.AspectFill, IsAnimationPlaying=false};
+            Image Logo = new Image { Source = "Resources/drawable/x_logo.gif", HeightRequest = 130, Aspect = Aspect.AspectFit, IsAnimationPlaying=false};
             StackMain.Children.Add(Logo);
             StackMain.Children.Add(new Xamarin.Forms.Label { Text = "Как играть", HorizontalOptions = LayoutOptions.Center, FontSize = 18, TextColor = Color.White });
 
@@ -43,8 +43,9 @@ public partial class HowToPlayPage : ContentPage
             Stack.Children.Add(new Xamarin.Forms.Label { Text = "· При принятии заказа он добавляется в «Список задач».", HorizontalOptions = LayoutOptions.Start, FontSize = 14, TextColor = Color.White });
             Stack.Children.Add(new Xamarin.Forms.Label { Text = "· При отклонении заказа клиент уходит. При регулярном отказе снимается процент от текущего уровня. На первом уровне у игрока снимается 5% опыта от необходимого количества опыта для повышения уровня. С каждым следящим уровней опыт убавка опыта увеличивается на 3%.Тем самым, чем выше уровень, тем больше опыта теряет игрок. Если у игрока уровень больше чем первый и его опыт упал до 0, то его уровень понижается на 1. Уровень не может упасть ниже 1. На первом уровне опыт не может уйти в минус.", HorizontalOptions = LayoutOptions.Start, FontSize = 14, TextColor = Color.White });
             StackMain.Children.Add(Stack);
-            Content = new ScrollView { Content = StackMain };
-            //Logo.IsAnimationPlaying = true;
+            AL.Children.Add(StackMain);
+            Content = new ScrollView { Content = AL };
+            
         }
 
 

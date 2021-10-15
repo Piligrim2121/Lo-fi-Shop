@@ -4,7 +4,7 @@
              x:Class="Lo_Fi_Shop.Page.HowToPlayPage"
              BackgroundImage="Resources/drawable/empty.png">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout x:Name="AL">
             <Image
                 x:Name="ImgBack"
                 Source="Resources/drawable/menuAndr.gif"  
