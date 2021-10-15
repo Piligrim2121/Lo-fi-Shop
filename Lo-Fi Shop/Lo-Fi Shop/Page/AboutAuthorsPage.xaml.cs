@@ -10,12 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace Lo_Fi_Shop.Page
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class PagePlay : ContentPage
+public partial class AboutAuthorsPage : ContentPage
 {
-    public PagePlay()
+    public AboutAuthorsPage()
     {
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            ImageLogotip.IsAnimationPlaying = true;
         }
 }
 }

@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Lo_Fi_Shop.Page
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class PageSettings : ContentPage
+public partial class SettingsPage : ContentPage
 {
-    public PageSettings()
+    public SettingsPage()
     {
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);

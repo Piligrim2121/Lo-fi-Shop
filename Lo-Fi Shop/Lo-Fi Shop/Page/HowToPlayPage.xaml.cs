@@ -17,7 +17,7 @@ public partial class HowToPlayPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
-            //anim.IsAnimationPlaying = true;
+            ImageLogotip.IsAnimationPlaying = true;
         }
     }
 }

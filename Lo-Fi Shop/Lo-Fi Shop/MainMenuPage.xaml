@@ -21,7 +21,7 @@
             Grid.RowSpan="2"
             Grid.ColumnSpan="3"
             />
-        <Image x:Name="anim" 
+        <Image x:Name="ImageLogotip" 
                Source="Resources/drawable/x_logo.gif" 
                Grid.Row="0" Grid.Column="1"
                IsAnimationPlaying="False" >

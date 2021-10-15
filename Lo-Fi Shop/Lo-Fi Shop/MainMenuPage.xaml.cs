@@ -15,7 +15,7 @@ namespace Lo_Fi_Shop
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            anim.IsAnimationPlaying = true;
+            ImageLogotip.IsAnimationPlaying = true;
         }
         /// <summary>
         /// Переход к экрану "Как Играть"
@@ -33,25 +33,25 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page.PagePlay());
+            Navigation.PushAsync(new Page.PlayPage());
         }
         /// <summary>
-        /// Переход к экрану "настройки"
+        /// Переход к экрану "Настройки"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnSetting_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page.PageSettings());
+            Navigation.PushAsync(new Page.SettingsPage());
         }
         /// <summary>
-        /// Переход к экрану об авторах
+        /// Переход к экрану "Об авторах"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnAbout_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page.PageAboutAuthors());
+            Navigation.PushAsync(new Page.AboutAuthorsPage());
         }
         /// <summary>
         /// Выход из приложения

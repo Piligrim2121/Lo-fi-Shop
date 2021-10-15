@@ -12,7 +12,7 @@
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
             <StackLayout Spacing="0" AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
-                <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFit" IsAnimationPlaying="False"></Image>
+                <Image x:Name="ImageLogotip" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFit" IsAnimationPlaying="False"></Image>
                 <Label TextColor="White" Text="Как играть" HorizontalOptions="Center" FontSize="24"/>
                 <ScrollView VerticalOptions="FillAndExpand"  VerticalScrollBarVisibility="Always">
                     <StackLayout Spacing="0">
