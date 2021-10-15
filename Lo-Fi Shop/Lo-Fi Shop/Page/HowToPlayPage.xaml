@@ -3,52 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.Page.HowToPlayPage"
              BackgroundImage="Resources/drawable/empty.png">
-   
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-            
-            
+        <AbsoluteLayout>
             <Image
-            x:Name="BacgroundGif"
-            Source="Resources/drawable/menuAndr.gif"  
-            Grid.RowSpan="7"
-            Grid.ColumnSpan="3"
-            />
-            
-            <Image x:Name="anim" 
-                   Scale="0.5" 
-                   Source="Resources/drawable/x_logo.gif"    
-                   IsAnimationPlaying="False" 
-                   Grid.Row="0"
-                   Grid.ColumnSpan="2" >
-            </Image>
-
-            <Label TextColor="White" Margin="6,0,0,0"  Grid.Column="1" Grid.Row="2" 
-                   Text="Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200 000₽.
-" >
-            </Label>
-            <!--<Label Grid.Row="2"></Label>
-            <Label Grid.Row=""></Label>
-            <Label Grid.Row=""></Label>
-            <Label Grid.Row=""></Label>
-            <Label Grid.Row=""></Label>
-            <Label Grid.Row=""></Label>-->
-            
-        </Grid>
+                x:Name="BacgroundGif"
+                Source="Resources/drawable/menuAndr.gif"  
+                AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                />
+            <StackLayout Spacing="0" AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Image x:Name="anim" Source="Resources/drawable/x_logo.gif" HeightRequest="130" Aspect="AspectFit" IsAnimationPlaying="False"></Image>
+                <Label TextColor="White" Text="Как играть" HorizontalOptions="Center" FontSize="24"/>
+                <ScrollView VerticalOptions="FillAndExpand"  VerticalScrollBarVisibility="Always">
+                    <StackLayout Spacing="0">
+                        <Label TextColor="White" Text="· Пользователь начинает свою игру в роли продавца 1 уровня и имеет стартовый капитал в размере 200.000$" HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· Продавец имеет «Инвентарь», в котором он может хранить купленные в «Магазине» предметы." HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· В «Магазине» продавец может приобретать необходимые компоненты для сборки ПК." HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· В определенные моменты времени в помещение магазина заходят покупатели." HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· Игрок имеет возможность взаимодействовать с покупателями, посредством диалога. При взаимодействии с покупателем открывается диалоговое окно." HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· При принятии заказа он добавляется в «Список задач»." HorizontalOptions="Start" FontSize="Micro"/>
+                        <Label TextColor="White" Text="· При отклонении заказа клиент уходит. При регулярном отказе снимается процент от текущего уровня. На первом уровне у игрока снимается 5% опыта от необходимого количества опыта для повышения уровня. С каждым следящим уровней опыт убавка опыта увеличивается на 3%.Тем самым, чем выше уровень, тем больше опыта теряет игрок. Если у игрока уровень больше чем первый и его опыт упал до 0, то его уровень понижается на 1. Уровень не может упасть ниже 1. На первом уровне опыт не может уйти в минус." HorizontalOptions="Start" FontSize="Micro"/>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

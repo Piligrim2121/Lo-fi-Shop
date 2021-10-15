@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace Lo_Fi_Shop.Page
@@ -15,7 +16,8 @@ public partial class HowToPlayPage : ContentPage
     {
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            anim.IsAnimationPlaying = true;
+            Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
+            //anim.IsAnimationPlaying = true;
         }
-}
+    }
 }
