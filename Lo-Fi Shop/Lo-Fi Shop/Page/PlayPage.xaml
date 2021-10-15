@@ -23,15 +23,54 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image x:Name="hz" Grid.RowSpan="6" Grid.ColumnSpan="6" Source="Resources/drawable/empty_background.jpg"  />
-            <Image Grid.ColumnSpan="2" Grid.Column="1" Margin="53,26,107,27" Grid.RowSpan="4" Source="Resources/drawable/Shkaf.png" Grid.Row="1"/>
-            <Image x:Name="Tolyan"  Grid.Column="0" Grid.Row="3" Grid.RowSpan="2" Source="Resources/drawable/Tolyan.png" Margin="90,10,95,27" Grid.ColumnSpan="2" />
-            <Image x:Name="Table" Margin="33,60,21,10.833"  Grid.Column="0" Grid.Row="3" Grid.RowSpan="3" Source="Resources/drawable/Table.png" Grid.ColumnSpan="2" />
+            <Image x:Name="hz" 
+                   Grid.RowSpan="6" 
+                   Grid.ColumnSpan="6" 
+                   Source="Resources/drawable/empty_background.jpg"  />
+            <ImageButton x:Name="ImageShkaf"
+                           Clicked="ImageShkaf_Clicked"
+                           Grid.ColumnSpan="2" 
+                           Grid.Column="1" 
+                           Margin="53,26,107,27" 
+                           Grid.RowSpan="4" 
+                           Source="Resources/drawable/Shkaf.png" 
+                           Grid.Row="1"/>
+            <Image x:Name="Tolyan"  
+                   Grid.Column="0" 
+                   Grid.Row="3" 
+                   Grid.RowSpan="2" 
+                   Source="Resources/drawable/Tolyan.png" 
+                   Margin="90,10,95,27" 
+                   Grid.ColumnSpan="2" />
+            <ImageButton x:Name="ImageTable"
+                       Clicked="ImageTable_Clicked"
+                       Margin="33,60,21,10.833"  
+                       Grid.Column="0" 
+                       Grid.Row="3" 
+                       Grid.RowSpan="3" 
+                       Source="Resources/drawable/Table.png" 
+                       Grid.ColumnSpan="2" />
 
             <Image Grid.Column="5" Margin="41,36,31,11" Grid.RowSpan="3" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
             <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
-            <Image Grid.Column="1" Margin="5,43,79,62" Grid.Row="3" Source="Resources/drawable/Kassa.png"  Grid.RowSpan="2"/>
-            <Image Margin="36,26,22,50" Grid.Row="2" Grid.RowSpan="2" Source="Resources/drawable/Table_of_quests.png" />
+            <ImageButton x:Name="ImageKassa"
+                         Clicked="ImageKassa_Clicked"
+                         Grid.Column="1" 
+                         Margin="5,43,79,62" 
+                         Grid.Row="3" 
+                         Source="Resources/drawable/Kassa.png"  
+                         Grid.RowSpan="2"/>
+            <ImageButton x:Name="ImageTableOfQuest" 
+                         Clicked="TableOfQuest_Open"
+                         Margin="36,26,22,50" 
+                         Grid.Row="2" 
+                         Grid.RowSpan="2" 
+                         Source="Resources/drawable/Table_of_quests.png" />
+            
+            <ImageButton x:Name="ImageTableOfQuestOpen" 
+                         Clicked="TableOfQuest_Clouse" 
+                         IsVisible="false"
+                         Source="Resources/drawable/Table_of_quests_open.png"></ImageButton>
 
         </Grid>
     </ContentPage.Content>
