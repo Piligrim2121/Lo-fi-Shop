@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lo_Fi_Shop.Page.PlayPage">
+             x:Class="Lo_Fi_Shop.Page.PlayPage"
+             BackgroundImageSource="Resources/drawable/empty_background.jpg">
     <ContentPage.Content>
         <Grid>
 
@@ -23,17 +24,15 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image x:Name="hz" 
-                   Grid.RowSpan="6" 
-                   Grid.ColumnSpan="6" 
-                   Source="Resources/drawable/empty_background.jpg"  />
+            
             <ImageButton x:Name="ImageShkaf"
                            Clicked="ImageShkaf_Clicked"
                            Grid.ColumnSpan="2" 
                            Grid.Column="1" 
-                           Margin="53,26,107,27" 
+                           Margin="53,60,107,27" 
                            Grid.RowSpan="4" 
-                           Source="Resources/drawable/Shkaf.png" 
+                           Source="Resources/drawable/Shkaf.png"
+                         BackgroundColor="Transparent"
                            Grid.Row="1"/>
             <Image x:Name="Tolyan" 
                    Scale="1.4"
@@ -41,7 +40,7 @@
                    Grid.Row="3" 
                    Grid.RowSpan="2" 
                    Source="Resources/drawable/Tolyan.png" 
-                   Margin="90,10,95,27" 
+                   Margin="90,15,95,27" 
                    Grid.ColumnSpan="2"
                    
                     />
@@ -52,32 +51,33 @@
                        Grid.Column="0" 
                        Grid.Row="3" 
                        Grid.RowSpan="3" 
+                         BackgroundColor="Transparent"
                        Source="Resources/drawable/Table.png" 
                        Grid.ColumnSpan="2" />
 
-            <Image Grid.Column="5" Margin="41,36,31,11" Grid.RowSpan="3" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
+            <Image Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
             <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
             <ImageButton x:Name="ImageKassa"
                          Clicked="ImageKassa_Clicked"
                          Grid.Column="1" 
-                         Margin="5,43,79,62" 
+                         Margin="5,43,79,60" 
                          Grid.Row="3" 
+                          BackgroundColor="Transparent"
                          Scale="2.5"
+                         
                          Source="Resources/drawable/Kassa.png"  
                          Grid.RowSpan="2"/>
             <ImageButton x:Name="ImageTableOfQuest" 
                          Clicked="TableOfQuest_Open"
-                         Margin="36,26,22,50" 
+                         Margin="30,20,10,50" 
+                          BackgroundColor="Transparent"
                          Grid.Row="2" 
                          Grid.RowSpan="2" 
                          
                          Source="Resources/drawable/Table_of_quests.png" />
-            
-            <ImageButton x:Name="ImageTableOfQuestOpen" 
-                         Clicked="TableOfQuest_Clouse" 
-                         IsVisible="false"
-                         Source="Resources/drawable/Table_of_quests_open.png"></ImageButton>
 
+            <ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />
+            <Label x:Name="Money" TextColor="Green"  Text="200.000₽" Grid.Column="5"  Margin="40,10,0,10" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

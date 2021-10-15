@@ -16,7 +16,6 @@ namespace Lo_Fi_Shop
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
-           
             ImageLogotip.IsAnimationPlaying = true;
         }
         /// <summary>
