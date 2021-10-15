@@ -15,6 +15,7 @@ public partial class CraftPage : ContentPage
     public CraftPage()
     {
         InitializeComponent();
-    }
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
 }
 }

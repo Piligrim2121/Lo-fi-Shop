@@ -35,13 +35,17 @@
                            Grid.RowSpan="4" 
                            Source="Resources/drawable/Shkaf.png" 
                            Grid.Row="1"/>
-            <Image x:Name="Tolyan"  
+            <Image x:Name="Tolyan" 
+                   Scale="1.4"
                    Grid.Column="0" 
                    Grid.Row="3" 
                    Grid.RowSpan="2" 
                    Source="Resources/drawable/Tolyan.png" 
                    Margin="90,10,95,27" 
-                   Grid.ColumnSpan="2" />
+                   Grid.ColumnSpan="2"
+                   
+                    />
+            
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
                        Margin="33,60,21,10.833"  
@@ -58,6 +62,7 @@
                          Grid.Column="1" 
                          Margin="5,43,79,62" 
                          Grid.Row="3" 
+                         Scale="2.5"
                          Source="Resources/drawable/Kassa.png"  
                          Grid.RowSpan="2"/>
             <ImageButton x:Name="ImageTableOfQuest" 
@@ -65,6 +70,7 @@
                          Margin="36,26,22,50" 
                          Grid.Row="2" 
                          Grid.RowSpan="2" 
+                         
                          Source="Resources/drawable/Table_of_quests.png" />
             
             <ImageButton x:Name="ImageTableOfQuestOpen" 

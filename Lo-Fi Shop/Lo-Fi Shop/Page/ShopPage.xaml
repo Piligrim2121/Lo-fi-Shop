@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lo_Fi_Shop.Page.ShopPage">
-    <ContentPage.Content>
+             x:Class="Lo_Fi_Shop.Page.ShopPage"
+             BackgroundImageSource="Resources/drawable/Shop.png">
+    
+    <ContentPage.Content >
         <StackLayout>
-            <Label Text="Тут должен быть Магазин"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            
+            <Image x:Name="hz" 
+                   Grid.RowSpan="6" 
+                   Grid.ColumnSpan="6" 
+                   Source=""  />
+           
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
