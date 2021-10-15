@@ -17,16 +17,16 @@ public partial class HowToPlayPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
-            add_ck();
+            Add_Al();
+            this.BackgroundImageSource = "Resources/drawable/empty.png";
         }
 
-        public void add_ck()
+        public void Add_Al()
         {
-            var AbsoluteLayoutMain = new AbsoluteLayout();
-            Image ImgBack = new Image { Source = "Resources/drawable/menuAndr.gif" };
+            //var AbsoluteLayoutMain = new AbsoluteLayout();
             AbsoluteLayout.SetLayoutFlags(ImgBack, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(ImgBack, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            AbsoluteLayoutMain.Children.Add(ImgBack);
+            //AbsoluteLayoutMain.Children.Add(ImgBack);
             var StackMain = new StackLayout() { Spacing=0 };
             AbsoluteLayout.SetLayoutFlags(StackMain, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(StackMain, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
@@ -46,5 +46,7 @@ public partial class HowToPlayPage : ContentPage
             Content = new ScrollView { Content = StackMain };
             //Logo.IsAnimationPlaying = true;
         }
+
+
     }
 }
