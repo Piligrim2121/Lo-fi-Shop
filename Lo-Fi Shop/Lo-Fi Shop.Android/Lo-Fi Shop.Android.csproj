@@ -137,9 +137,6 @@
     <AndroidResource Include="Resources\drawable\EmptyInventory.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\NoTitleTheme.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\CraftDefault.png" />
   </ItemGroup>
   <ItemGroup>

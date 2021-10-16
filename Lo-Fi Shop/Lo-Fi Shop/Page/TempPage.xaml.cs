@@ -18,9 +18,9 @@ public partial class TempPage : ContentPage
         // путь к месту хранения файлов
         string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public TempPage()
-    {
+        {
         InitializeComponent();
-    }
+        }
         
         
 
