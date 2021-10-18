@@ -69,5 +69,18 @@ namespace Lo_Fi_Shop.Class
             PersonClass Player = new PersonClass(Money, Exp, Inv, Settings);
             return Player;
         }
+
+        public static void First_Write_TXT()
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            if (!File.Exists(Path.Combine(folderPath, filename)))
+            {
+                string text = "Money:200000;Exp:0;Inventory:0;Settings:10,10,10;";
+                File.WriteAllText(Path.Combine(folderPath, filename), text);
+                OverwriteData();
+            }
+        }
+
     }
 }

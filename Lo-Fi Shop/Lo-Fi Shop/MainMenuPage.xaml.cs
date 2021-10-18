@@ -1,4 +1,5 @@
 ﻿using System;
+using Lo_Fi_Shop.Class;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Lo_Fi_Shop
         public MainMenuPage()
         {
             InitializeComponent();
-
+            PersonClass.First_Write_TXT();
             NavigationPage.SetHasNavigationBar(this, false);
             ImageLogotip.IsAnimationPlaying = true;
         }
@@ -34,8 +35,8 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new Page.PlayPage());
-            Navigation.PushAsync(new Page.TempPage());
+            Navigation.PushAsync(new Page.PlayPage());
+            //Navigation.PushAsync(new Page.TempPage());
         }
         /// <summary>
         /// Переход к экрану "Настройки"
