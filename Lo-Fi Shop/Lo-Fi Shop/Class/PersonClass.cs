@@ -11,10 +11,10 @@ namespace Lo_Fi_Shop.Class
 {
     class PersonClass
     {
-        private int _Money;
-        private int _Exp;
-        private List<string> _Inventory;
-        private List<int> _Settings;
+        public int _Money;
+        public int _Exp;
+        public List<string> _Inventory;
+        public List<int> _Settings;
         private PersonClass(int Money, int Exp, List<string> Inventory, List<int> Settings)
         {
             _Money = Money;
@@ -36,7 +36,7 @@ namespace Lo_Fi_Shop.Class
             // код сохранения в файл
         }
         // код сохранения и вывода данных в конструктор
-        public static void OverwriteData()
+        public static PersonClass OverwriteData()
         {
             string Data = Read_TXT();
             int Money = Convert.ToInt32(Data.Split(';')[0].Split(':')[1]);
@@ -52,6 +52,7 @@ namespace Lo_Fi_Shop.Class
                 Settings.Add(Convert.ToInt32(i));
             }
             PersonClass Player = new PersonClass(Money, Exp, Inv, Settings);
+            return Player;
         }
     }
 }

@@ -44,7 +44,7 @@
                    Grid.ColumnSpan="2"
                     />
             
-            <Label x:Name="Test_Lable"></Label>
+            <Label x:Name="Exp"></Label>
             
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"

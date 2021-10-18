@@ -22,7 +22,9 @@ public partial class PlayPage : ContentPage
 
         private void Get_data()
         {
-            Test_Lable.Text = PersonClass.Read_TXT();
+            PersonClass Player = PersonClass.OverwriteData();
+            Money.Text = Player._Money.ToString() + "₽";
+            Exp.Text = Player._Exp.ToString() + "exp";
         }
 
         private void ImageShkaf_Clicked(object sender, EventArgs e)

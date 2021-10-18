@@ -1,5 +1,4 @@
-﻿using Android.Media;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,14 +11,12 @@ namespace Lo_Fi_Shop
 {
     public partial class MainMenuPage : ContentPage
     {
-        protected MediaPlayer Player;
         public MainMenuPage()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
             ImageLogotip.IsAnimationPlaying = true;
-            StartPlayer(@"Resources\drawable\a047e4121758725520431275a.mp3");
         }
         /// <summary>
         /// Переход к экрану "Как Играть"
@@ -69,20 +66,5 @@ namespace Lo_Fi_Shop
         }
 
         // Метод дл фоновой музыки
-        public void StartPlayer(string filePath)
-        {
-            if (Player == null)
-            {
-                Player = new MediaPlayer();
-            }
-            else
-            {
-                // запуск аудио
-                Player.Reset();
-                Player.SetDataSource(filePath);
-                Player.Prepare();
-                Player.Start();
-            }
-        }
     }
 }
