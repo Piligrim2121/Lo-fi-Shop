@@ -37,7 +37,7 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button  Grid.Row="0" x:Name="BtnPlay"  Clicked="BtnPlay_Clicked" Text="Играть" Font="Default" />
+            <Button Grid.Row="0" x:Name="BtnPlay"  Clicked="BtnPlay_Clicked" Text="Играть" Font="Default" />
             <Button Grid.Row="1" x:Name="BtnSetting" Clicked="BtnSetting_Clicked" Text="Настройки"></Button>
             <Button Grid.Row="2" x:Name="BtnAbout" Clicked="BtnAbout_Clicked" Text="Об Авторах"></Button>
             <Button Grid.Row="3" x:Name="BtnHowToPlay" Text="Как Играть" Clicked="BtnHowToPlay_Clicked"></Button>
