@@ -77,6 +77,7 @@ namespace Lo_Fi_Shop
             }
             else
             {
+                // запуск аудио
                 Player.Reset();
                 Player.SetDataSource(filePath);
                 Player.Prepare();
