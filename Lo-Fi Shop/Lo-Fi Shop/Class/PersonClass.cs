@@ -18,8 +18,8 @@ namespace Lo_Fi_Shop.Class
         {
             _Money = Money;
             _Exp = Exp;
-            _Inventory = Inventory;
-            _Settings = Settings;
+            _Inventory = Inventory; // без ограничений
+            _Settings = Settings; // list с 3 значениями
         }
 
         public static string Read_TXT()
