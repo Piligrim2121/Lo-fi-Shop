@@ -66,6 +66,6 @@ namespace Lo_Fi_Shop
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
-        // Метод дл фоновой музыки
+        // Метод для фоновой музыки
     }
 }

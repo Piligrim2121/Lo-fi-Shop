@@ -17,13 +17,17 @@ namespace Lo_Fi_Shop.Class
         public List<int> _Settings;
         private PersonClass(int Money, int Exp, List<string> Inventory, List<int> Settings)
         {
+
             _Money = Money;
             _Exp = Exp;
             _Inventory = Inventory; // без ограничений
             _Settings = Settings; // list с 3 значениями от 1 до 10
         }
 
-        // код чтения из файл
+        /// <summary>
+        /// Чтение данных из файла 
+        /// </summary>
+        /// <returns></returns>
         public static string Read_TXT()
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -31,7 +35,13 @@ namespace Lo_Fi_Shop.Class
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
-        // код сохранения в файл
+        /// <summary>
+        /// Сохранения данных в файл
+        /// </summary>
+        /// <param name="Money">Количество денег для сохранения </param>
+        /// <param name="Exp">Количество опыта для сохранения</param>
+        /// <param name="Inventory">Список предметов содержащихся в инвентаре</param>
+        /// <param name="Settings">Внутри игровые настройки</param>
         public static void Write_TXT(int Money, int Exp, List<string> Inventory, List<int> Settings)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -50,7 +60,10 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
-
+        /// <summary>
+        ///  Перезапись файла новыми данными
+        /// </summary>
+        /// <returns></returns>
         public static PersonClass OverwriteData()
         {
             string Data = Read_TXT();
@@ -69,7 +82,9 @@ namespace Lo_Fi_Shop.Class
             PersonClass Player = new PersonClass(Money, Exp, Inv, Settings);
             return Player;
         }
-
+        /// <summary>
+        /// Создание начальных данных при первом запуске игры
+        /// </summary>
         public static void First_Write_TXT()
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
