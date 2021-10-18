@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,14 @@ namespace Lo_Fi_Shop.Page
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class PlayPage : ContentPage
 {
-    public PlayPage()
-    {
-        InitializeComponent();
+
+        
+        public PlayPage()
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-        }
+            
+        }   
 
         private void ImageShkaf_Clicked(object sender, EventArgs e)
         {
@@ -43,5 +47,8 @@ public partial class PlayPage : ContentPage
             ImageTableOfQuestOpen.IsVisible = false;
 
         }
+
+
+       
     }
 }
