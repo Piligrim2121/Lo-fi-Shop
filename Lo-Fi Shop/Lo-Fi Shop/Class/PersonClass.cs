@@ -31,11 +31,26 @@ namespace Lo_Fi_Shop.Class
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
+        // код сохранения в файл
         public static void Write_TXT(int Money, int Exp, List<string> Inventory, List<int> Settings)
         {
-            // код сохранения в файл
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            string SubInv = "";
+            foreach(string i in Inventory)
+            {
+                SubInv += (i+",");
+            }
+            string SubSett = "";
+            foreach (int i in Settings)
+            {
+                SubSett += (i.ToString() + ",");
+            }
+            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";Inventory:" + SubInv + ";Settings:" + SubSett + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            OverwriteData();
         }
-        // код сохранения и вывода данных в конструктор
+
         public static PersonClass OverwriteData()
         {
             string Data = Read_TXT();
@@ -47,7 +62,7 @@ namespace Lo_Fi_Shop.Class
                 Inv.Add(i);
             }
             List<int> Settings = new List<int> { };
-            foreach(string i in Data.Split(';')[2].Split(':')[1].Split(','))
+            foreach(string i in Data.Split(';')[3].Split(':')[1].Split(','))
             {
                 Settings.Add(Convert.ToInt32(i));
             }
