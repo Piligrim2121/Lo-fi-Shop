@@ -1,9 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lo_Fi_Shop.Class;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,14 +13,17 @@ namespace Lo_Fi_Shop.Page
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class PlayPage : ContentPage
 {
-
-        
-        public PlayPage()
-        {
-            InitializeComponent();
+    public PlayPage()
+    {
+        InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            
-        }   
+            Get_data();
+        }
+
+        private void Get_data()
+        {
+            Test_Lable.Text = PersonClass.Read_TXT();
+        }
 
         private void ImageShkaf_Clicked(object sender, EventArgs e)
         {
@@ -47,8 +50,5 @@ public partial class PlayPage : ContentPage
             ImageTableOfQuestOpen.IsVisible = false;
 
         }
-
-
-       
     }
 }

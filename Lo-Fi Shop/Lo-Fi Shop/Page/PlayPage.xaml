@@ -42,8 +42,9 @@
                    Source="Resources/drawable/Tolyan.png" 
                    Margin="90,15,95,27" 
                    Grid.ColumnSpan="2"
-                   
                     />
+            
+            <Label x:Name="Test_Lable"></Label>
             
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
