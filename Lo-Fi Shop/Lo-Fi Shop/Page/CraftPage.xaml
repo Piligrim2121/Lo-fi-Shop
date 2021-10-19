@@ -5,11 +5,52 @@
              BackgroundImageSource="Resources/drawable/CraftDefault.png">
     <ContentPage.Content>
         <Grid>
-            <Image x:Name="hz" 
-                   Grid.RowSpan="5" 
-                   Grid.ColumnSpan="5" 
-                   Source=""  />
-           
+            <ImageButton x:Name="Sborka" Grid.Row="1" Grid.Column="1"
+                         Margin="-210,30,100,70"
+                         BackgroundColor="Transparent"
+                         Clicked="Sborka_Clicked"
+                  
+                   Source="Resource/drawable/Sborka.png"  />
+            <Grid Margin="762,110,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="84*"/>
+                    <RowDefinition Height="105*"/>
+                    <RowDefinition Height="99*"/>
+                    <RowDefinition Height="99*"/>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="42*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="85*"/>
+                    <ColumnDefinition Width="87*"/>
+                    <ColumnDefinition Width="87*"/>
+                    <ColumnDefinition Width="91*"/>
+                </Grid.ColumnDefinitions>
+                
+
+            </Grid>
+            <Grid Margin="79,26,645,25">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="447*"/>
+                    <ColumnDefinition Width="101*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="57*"/>
+                    <RowDefinition Height="69*"/>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="65*"/>
+                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="69*"/>
+                    <RowDefinition Height="69*"/>
+                    <RowDefinition Height="68*"/>
+                    <RowDefinition Height="63*"/>
+                    <RowDefinition Height="44*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

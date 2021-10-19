@@ -11697,14 +11697,14 @@ namespace Lo_Fi_Shop.Droid
 			// aapt resource value: 0x7F070071
 			public const int empty = 2131165297;
 			
-			// aapt resource value: 0x7F070074
-			public const int EmptyInventory = 2131165300;
+			// aapt resource value: 0x7F070073
+			public const int EmptyInventory = 2131165299;
 			
 			// aapt resource value: 0x7F070072
 			public const int empty_background = 2131165298;
 			
-			// aapt resource value: 0x7F070073
-			public const int Empty_mess = 2131165299;
+			// aapt resource value: 0x7F070074
+			public const int full_back2 = 2131165300;
 			
 			// aapt resource value: 0x7F070075
 			public const int ic_mtrl_checked_circle = 2131165301;

@@ -17,5 +17,10 @@ public partial class CraftPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-}
+
+        private void Sborka_Clicked(object sender, EventArgs e)
+        {
+            //tut code sborki
+        }
+    }
 }
