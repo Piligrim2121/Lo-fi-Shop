@@ -11692,7 +11692,7 @@ namespace Lo_Fi_Shop.Droid
 			public const int DoorClosed = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int doska = 2131165296;
+			public const int doska2 = 2131165296;
 			
 			// aapt resource value: 0x7F070071
 			public const int empty = 2131165297;
