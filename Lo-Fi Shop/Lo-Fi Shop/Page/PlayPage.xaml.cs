@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lo_Fi_Shop.Class;
+using static System.Math;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,7 +28,8 @@ public partial class PlayPage : ContentPage
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            Exp.Text = Player.Exp.ToString() + "exp";
+            Lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
+            //Exp.Progress = (Player.Exp - ( Convert.ToInt32(Lvl.Text.Replace("lvl","")) - 1) * 10) / 10;
         }
         /// <summary> 
         /// Открытие инвентаря

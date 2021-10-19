@@ -43,9 +43,9 @@
                    Margin="90,15,95,27" 
                    Grid.ColumnSpan="2"
                     />
-            
-            <Label x:Name="Exp"></Label>
-            
+            <Image Source="Resources/drawable/progressbar"></Image>
+            <Label x:Name="Lvl"></Label>
+            <ProgressBar x:Name="Exp" ProgressColor ="Violet" Progress="0.9"/>
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
                        Margin="33,60,21,10.833"  
