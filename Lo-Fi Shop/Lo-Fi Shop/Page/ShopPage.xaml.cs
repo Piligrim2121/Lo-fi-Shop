@@ -13,10 +13,11 @@ namespace Lo_Fi_Shop.Page
 
 
 
-        public Item[] MassAllItems = Item.CreateItems();
-        PersonClass Player = PersonClass.OverwriteData();
+       
+        
         public ShopPage()
         {
+            PersonClass Player = PersonClass.OverwriteData();
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
            
@@ -97,7 +98,9 @@ namespace Lo_Fi_Shop.Page
                 PersonClass.Write_TXT(intMoney);
                 Console.WriteLine("Совершаю покупку");
                 BuyInfo.Text = "Покупка Успешна!";
-                
+                PersonClass Player = PersonClass.OverwriteData();
+                Money.Text = Player.Money.ToString() + "₽";
+                Navigation.PushAsync(new Page.PlayPage());
             }
         }
 

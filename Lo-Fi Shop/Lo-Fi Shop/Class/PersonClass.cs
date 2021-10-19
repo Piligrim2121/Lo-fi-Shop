@@ -77,8 +77,6 @@ namespace Lo_Fi_Shop.Class
             string Data = Read_TXT();
             string[] words = Data.Split(new char[] { ';' });
 
-          
-            
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             Console.WriteLine("testtt"+Data);
