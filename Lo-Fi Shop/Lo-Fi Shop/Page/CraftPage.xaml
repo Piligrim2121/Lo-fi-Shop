@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <Grid>
             <ImageButton x:Name="Sborka" Grid.Row="1" Grid.Column="1"
-                         Margin="-210,30,100,70"
+                         Margin="-190,-80,100,70"
+                         Padding="50"
                          BackgroundColor="Transparent"
                          Clicked="Sborka_Clicked"
-                  
                    Source="Resource/drawable/Sborka.png"  />
             <Grid Margin="762,110,0,0">
                 <Grid.RowDefinitions>
