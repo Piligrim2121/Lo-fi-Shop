@@ -28,7 +28,41 @@ namespace Lo_Fi_Shop.Page
         private void Item_Clicked(object sender, EventArgs e)
         {
             ImageButton tempBtn = sender as ImageButton;
-            Console.WriteLine("<SENDER> " +tempBtn.Id);
+            if (VideoCard.Id == tempBtn.Id)
+            {
+                Console.WriteLine(1);
+            }
+            else if (CPU.Id == tempBtn.Id)
+            {
+                Console.WriteLine(2);
+            }
+            else if (Kuller.Id == tempBtn.Id)
+            {
+                Console.WriteLine(3);
+            }
+            else if (OZU.Id == tempBtn.Id)
+            {
+                Console.WriteLine(4);
+            }
+            else if (MotherBoard.Id == tempBtn.Id)
+            {
+                Console.WriteLine(5);
+            }
+            else if (Corpus.Id == tempBtn.Id)
+            {
+                Console.WriteLine(6);
+            }
+            else if (BP.Id == tempBtn.Id)
+            {
+                Console.WriteLine(7);
+
+            }
+            else if (HDD.Id == tempBtn.Id)
+            {
+                Console.WriteLine(8);
+            }
+            else Console.WriteLine("ИД нет");
+            
         }
 
         private void BuyBtn_Clicked(object sender, EventArgs e)
