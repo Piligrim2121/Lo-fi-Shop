@@ -157,12 +157,10 @@
     <AndroidResource Include="Resources\drawable\doska.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\dialogue.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cloud.png" />
-=======
     <AndroidResource Include="Resources\drawable\Viduha.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\progressbar.png" />
->>>>>>> 3986ebb99fea7bd406ac084d4176b301816dce08
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
