@@ -24,6 +24,13 @@ namespace Lo_Fi_Shop.Page
             //Exp.Text = Player.Exp.ToString() + "exp";
            
         }
+
+        private void Item_Clicked(object sender, EventArgs e)
+        {
+            ImageButton tempBtn = sender as ImageButton;
+            Console.WriteLine("<SENDER> " +tempBtn.Id);
+        }
+
         private void BuyBtn_Clicked(object sender, EventArgs e)
         {
             if (intMoney - intSell < 0)

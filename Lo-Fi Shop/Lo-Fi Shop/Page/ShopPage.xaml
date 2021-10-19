@@ -22,6 +22,7 @@
                 <ColumnDefinition Width="123*"/>
                 <ColumnDefinition Width="126*"/>
                 <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="126*"/>
                 <ColumnDefinition Width="313*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
@@ -30,14 +31,14 @@
                    Grid.RowSpan="6" 
                    Grid.ColumnSpan="6" 
                    Source=""  />
-            <ImageButton x:Name="VideoCard" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="CPU" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="Kuller" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="OZU" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="MotherBoard" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="Corpus" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="BP" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
-            <ImageButton x:Name="HDD" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="VideoCard" Source="" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="CPU" Source="" Grid.Column="2" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="Kuller" Source="" Grid.Column="3" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="OZU" Source="" Grid.Column="4" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="MotherBoard" Source="" Grid.Column="5" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="Corpus" Source="" Grid.Column="6" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="BP" Source="" Grid.Column="7" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton x:Name="HDD" Source="" Grid.Column="8" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
         </Grid>
         
     </ContentPage.Content>
