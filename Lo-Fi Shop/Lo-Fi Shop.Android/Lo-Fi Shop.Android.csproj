@@ -182,6 +182,9 @@
     <AndroidResource Include="Resources\drawable\doska2.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\PC.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\full_back2.png" />
   </ItemGroup>
   <ItemGroup>
