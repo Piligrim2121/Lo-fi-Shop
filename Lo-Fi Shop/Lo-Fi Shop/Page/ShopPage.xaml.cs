@@ -13,23 +13,23 @@ namespace Lo_Fi_Shop.Page
 
 
 
-       
-        
+
+
         public ShopPage()
         {
             PersonClass Player = PersonClass.OverwriteData();
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-           
-             intMoney = Convert.ToInt32(Player.Money.ToString());
+
+            intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
             //Exp.Text = Player.Exp.ToString() + "exp";
-           
+
         }
 
         private void Item_Clicked(object sender, EventArgs e)
         {
-            
+
             ImageButton tempBtn = sender as ImageButton;
             if (VideoCard.Id == tempBtn.Id)
             {
@@ -86,14 +86,15 @@ namespace Lo_Fi_Shop.Page
 
             }
             else Console.WriteLine("ИД нет");
-            
+
+            ComponentPrice.Text = intSell.ToString() + "₽";
         }
 
         private void EmpetyMessage_Clicked(object sender, EventArgs e)
         {
             EmpetyMessage.IsVisible = false;
             BuyInfo.IsVisible = false;
-           
+
         }
 
         private void BuyBtn_Clicked(object sender, EventArgs e)
@@ -105,7 +106,7 @@ namespace Lo_Fi_Shop.Page
                 Console.WriteLine("У пользователя недостаточно денег для данной операции");
                 BuyInfo.Text = "Покупка не удалась - недостаточно средств";
             }
-            else 
+            else
             {
                 intMoney = intMoney - intSell;
                 PersonClass.Write_TXT(intMoney);
