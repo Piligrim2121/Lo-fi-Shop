@@ -76,7 +76,7 @@
                     <ColumnDefinition Width="70"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ButtonYes" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
-                <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1"></Button>
+                <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1" Clicked="ButtonNo_Clicked"></Button>
             </Grid>
            
             <Image Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
