@@ -116,7 +116,7 @@ namespace Lo_Fi_Shop.Page
                 PersonClass Player = PersonClass.OverwriteData();
                 Money.Text = Player.Money.ToString() + "₽";
 
-                Thread.Sleep(2000);
+               // Thread.Sleep(2000);
                 Navigation.PushAsync(new Page.PlayPage());
             }
         }
