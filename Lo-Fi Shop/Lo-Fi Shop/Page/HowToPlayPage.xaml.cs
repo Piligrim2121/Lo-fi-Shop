@@ -20,7 +20,9 @@ public partial class HowToPlayPage : ContentPage
             Add_Al();
             
         }
-
+        /// <summary>
+        /// Создание Скролл-списка
+        /// </summary>
         public void Add_Al()
         {
             
