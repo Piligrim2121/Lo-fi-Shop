@@ -18,6 +18,7 @@ public partial class PlayPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
+
         }
 
         private void Get_data()

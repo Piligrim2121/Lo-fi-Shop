@@ -1,23 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Name="CP_Inv" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lo_Fi_Shop.Page.InventoryPage"
-             BackgroundImageSource="Resources/drawable/EmptyInventory.jpg">
+             BackgroundImageSource="Resources/drawable/EmptyInventory.png">
     <ContentPage.Content>
-        <Grid>
+        <Grid x:Name="Inv_Grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="43*"/>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="48*" />
+                <RowDefinition Height="48*" />
+                <RowDefinition Height="37*" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="332*"/>
+                <ColumnDefinition Width="117*"/>
+                <ColumnDefinition Width="135*"/>
+                <ColumnDefinition Width="123*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="313*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="hz" 
+            <!--<Image x:Name="hz" 
                    Grid.RowSpan="6" 
                    Grid.ColumnSpan="6" 
-                   Source=""  />
-
-            <TableView x:Name="InventoryTableView" Grid.Column="1"></TableView>
+                   Source=""  />-->
+            <ImageButton Clicked="TestVideoCard_Clicked"   x:Name="EasyVid1" Grid.Column="2"  Grid.Row="2" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>
+            <ImageButton Grid.Column="2"  Grid.Row="5" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>
+            <Image x:Name="Obvodka1" IsVisible="true" Grid.Column="5" Margin="-57,-3,7,25" Source="Resources/drawable/Obvodka.png"  Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Image x:Name="Obvodka2" IsVisible="false" Grid.Column="5" Margin="-50,40,16,-17" Source="Resources/drawable/Obvodka.png"  Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <!--<TableView x:Name="InventoryTableView" Grid.Column="1">
+              
+            </TableView>
 
             <Label x:Name="DescreptionLabel" Grid.Column="0"></Label>
-            <Label x:Name="PriceLabel" Grid.Column="0"></Label>
+            <Label x:Name="PriceLabel" Grid.Column="0"></Label>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

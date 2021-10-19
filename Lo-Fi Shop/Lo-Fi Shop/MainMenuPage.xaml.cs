@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Lo_Fi_Shop.Page;
 
+
 namespace Lo_Fi_Shop
 {
     public partial class MainMenuPage : ContentPage
     {
+
         public MainMenuPage()
         {
             InitializeComponent();
@@ -35,8 +37,8 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page.PlayPage());
-            //Navigation.PushAsync(new Page.TempPage());
+          Navigation.PushAsync(new Page.PlayPage());
+           // Navigation.PushAsync(new Page.TempPage());
         }
         /// <summary>
         /// Переход к экрану "Настройки"
@@ -65,6 +67,7 @@ namespace Lo_Fi_Shop
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
+        
 
         // Метод дл фоновой музыки
     }

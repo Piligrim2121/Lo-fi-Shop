@@ -78,7 +78,7 @@
                          Source="Resources/drawable/Table_of_quests.png" />
 
             <ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />
-            <Label x:Name="Money" TextColor="Green"  Text="200.000₽" Grid.Column="5"  Margin="40,10,0,10" />
+            <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
