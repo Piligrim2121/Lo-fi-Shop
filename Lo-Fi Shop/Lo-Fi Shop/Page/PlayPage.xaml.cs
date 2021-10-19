@@ -100,13 +100,12 @@ public partial class PlayPage : ContentPage
         }
 
         private void Sky_Clicked(object sender, EventArgs e)
-        {
-                              
+        {                  
             Sky.IsVisible = false;
             Dialog.IsVisible = true;
             Answer.IsVisible=true;
             GridBtn.IsVisible= true;
-
+            Answer.Text = "Сделаете комп за 180.000Р, пожуй листа?";
         }
 
         private void ButtonYes_Clicked(object sender, EventArgs e)
@@ -130,7 +129,7 @@ public partial class PlayPage : ContentPage
                
             }    
 
-            if (ButtonNo.Text == "Ок")
+            else if (ButtonNo.Text == "Ок")
             {
                 ButtonYes.IsVisible = true;
                 Dialog.IsVisible = false;
