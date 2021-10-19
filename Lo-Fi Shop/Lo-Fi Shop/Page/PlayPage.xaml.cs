@@ -16,8 +16,8 @@ namespace Lo_Fi_Shop.Page
 public partial class PlayPage : ContentPage
 {
         bool Alive = true;
-
-    public PlayPage()
+        public Item[] MassAllItems = Item.CreateItems();
+        public PlayPage()
     {
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
