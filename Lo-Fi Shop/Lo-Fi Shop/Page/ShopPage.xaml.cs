@@ -27,7 +27,8 @@ namespace Lo_Fi_Shop.Page
 
         private void Item_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine("<SENDER> " +sender.ToString());
+            ImageButton tempBtn = sender as ImageButton;
+            Console.WriteLine("<SENDER> " +tempBtn.Id);
         }
 
         private void BuyBtn_Clicked(object sender, EventArgs e)
