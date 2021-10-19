@@ -1,5 +1,6 @@
 ﻿using Lo_Fi_Shop.Class;
 using System;
+using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -114,6 +115,8 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.Text = "Покупка Успешна!";
                 PersonClass Player = PersonClass.OverwriteData();
                 Money.Text = Player.Money.ToString() + "₽";
+
+                Thread.Sleep(2000);
                 Navigation.PushAsync(new Page.PlayPage());
             }
         }
