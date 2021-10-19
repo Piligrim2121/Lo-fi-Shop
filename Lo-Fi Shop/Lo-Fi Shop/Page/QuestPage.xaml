@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Lo_Fi_Shop.Page.QuestPage">
+             x:Class="Lo_Fi_Shop.Page.QuestPage"
+             BackgroundImageSource="Resources/drawable/full_back2.png">
     <ContentPage.Content>
         <AbsoluteLayout>
             <Image
@@ -10,7 +11,7 @@
                 AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
-            <Label x:Name="Quest"></Label>
+            <Label Margin="245,125,100,0" x:Name="Quest"></Label>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -11,12 +11,14 @@ namespace Lo_Fi_Shop.Page
         public QuestPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             Quest.Text = zadacha;
         }
         public static string zadacha;
         public QuestPage(string text)
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             zadacha = text;
             Quest.Text = zadacha;
         }
