@@ -43,21 +43,26 @@ namespace Lo_Fi_Shop.Class
         /// <param name="Exp">Количество опыта для сохранения</param>
         /// <param name="Inventory">Список предметов содержащихся в инвентаре</param>
         /// <param name="Settings">Внутри игровые настройки</param>
-        public static void Write_TXT(int Money, int Exp, List<string> Inventory, List<int> Settings)
+        public static void Write_TXT(int Money, int Exp, List<string> InventoryParts, List<string> InventoryWhole, List<int> Settings)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             string SubInv = "";
-            foreach(string i in Inventory)
+            foreach(string i in InventoryParts)
             {
                 SubInv += (i+",");
+            }
+            string SubInv2 = "";
+            foreach (string i in InventoryWhole)
+            {
+                SubInv2 += (i + ",");
             }
             string SubSett = "";
             foreach (int i in Settings)
             {
                 SubSett += (i.ToString() + ",");
             }
-            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";Inventory:" + SubInv + ";Settings:" + SubSett + ";";
+            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }

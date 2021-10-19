@@ -26,8 +26,8 @@ public partial class PlayPage : ContentPage
         private void Get_data()
         {
             PersonClass Player = PersonClass.OverwriteData();
-            Money.Text = Player._Money.ToString() + "₽";
-            Exp.Text = Player._Exp.ToString() + "exp";
+            Money.Text = Player.Money.ToString() + "₽";
+            Exp.Text = Player.Exp.ToString() + "exp";
         }
         /// <summary> 
         /// Открытие инвентаря
