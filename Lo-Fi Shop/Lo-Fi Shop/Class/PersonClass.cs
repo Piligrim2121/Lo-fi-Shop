@@ -11,19 +11,24 @@ namespace Lo_Fi_Shop.Class
 {
     class PersonClass
     {
-        public int _Money;
-        public int _Exp;
-        public List<string> _Inventory;
-        public List<int> _Settings;
-        private PersonClass(int Money, int Exp, List<string> Inventory, List<int> Settings)
+        public int Money;
+        public int Exp;
+        public List<string> InventoryPath;
+        public List<string> InventoryWhole;
+        public List<int> Settings;
+        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings)
         {
-            _Money = Money;
-            _Exp = Exp;
-            _Inventory = Inventory; // без ограничений
-            _Settings = Settings; // list с 3 значениями от 1 до 10
+            this.Money = Money;
+            this.Exp = Exp;
+            this.InventoryPath = InventoryPath; // без ограничений
+            this.InventoryWhole = InventoryWhole; // без ограничений
+            this.Settings = Settings; // list с 3 значениями от 1 до 10
         }
 
-        // код чтения из файл
+        /// <summary>
+        /// Чтение данных из файла 
+        /// </summary>
+        /// <returns></returns>
         public static string Read_TXT()
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -31,7 +36,13 @@ namespace Lo_Fi_Shop.Class
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
-        // код сохранения в файл
+        /// <summary>
+        /// Сохранения данных в файл
+        /// </summary>
+        /// <param name="Money">Количество денег для сохранения </param>
+        /// <param name="Exp">Количество опыта для сохранения</param>
+        /// <param name="Inventory">Список предметов содержащихся в инвентаре</param>
+        /// <param name="Settings">Внутри игровые настройки</param>
         public static void Write_TXT(int Money, int Exp, List<string> Inventory, List<int> Settings)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -50,7 +61,10 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
-
+        /// <summary>
+        ///  Перезапись файла новыми данными
+        /// </summary>
+        /// <returns></returns>
         public static PersonClass OverwriteData()
         {
             string Data = Read_TXT();
@@ -61,22 +75,29 @@ namespace Lo_Fi_Shop.Class
             {
                 Inv.Add(i);
             }
+            List<string> Inv2 = new List<string> { };
+            foreach (string i in Data.Split(';')[3].Split(':')[1].Split(','))
+            {
+                Inv2.Add(i);
+            }
             List<int> Settings = new List<int> { };
-            foreach(string i in Data.Split(';')[3].Split(':')[1].Split(','))
+            foreach(string i in Data.Split(';')[4].Split(':')[1].Split(','))
             {
                 Settings.Add(Convert.ToInt32(i));
             }
-            PersonClass Player = new PersonClass(Money, Exp, Inv, Settings);
+            PersonClass Player = new PersonClass(Money, Exp, Inv, Inv2, Settings);
             return Player;
         }
-
+        /// <summary>
+        /// Создание начальных данных при первом запуске игры
+        /// </summary>
         public static void First_Write_TXT()
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             if (!File.Exists(Path.Combine(folderPath, filename)))
             {
-                string text = "Money:200000;Exp:0;Inventory:0;Settings:10,10,10;";
+                string text = "Money:200000;Exp:0;InventoryParts:0;InventoryWhole:0;Settings:10,10,10;";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
                 OverwriteData();
             }
