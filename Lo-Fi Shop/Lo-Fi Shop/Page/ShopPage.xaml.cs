@@ -35,42 +35,55 @@ namespace Lo_Fi_Shop.Page
             {
                 Console.WriteLine(1);
                 intSell = 30000;
+                ComponentName.Text = "Видеокарта";
             }
             else if (CPU.Id == tempBtn.Id)
             {
                 Console.WriteLine(2);
                 intSell = 10000;
+                ComponentName.Text = "Процессор";
+
             }
             else if (Kuller.Id == tempBtn.Id)
             {
                 Console.WriteLine(3);
                 intSell = 800;
+                ComponentName.Text = "Система охлаждения";
+
             }
             else if (OZU.Id == tempBtn.Id)
             {
                 Console.WriteLine(4);
                 intSell = 1500;
+                ComponentName.Text = "Оперативная память";
+
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
                 Console.WriteLine(5);
                 intSell = 9000;
+                ComponentName.Text = "Материнская плата";
+
             }
             else if (Corpus.Id == tempBtn.Id)
             {
                 Console.WriteLine(6);
                 intSell = 500;
+                ComponentName.Text = "Корпус";
+
             }
             else if (BP.Id == tempBtn.Id)
             {
                 Console.WriteLine(7);
                 intSell = 5500;
-
+                ComponentName.Text = "Блок Питания";
             }
             else if (HDD.Id == tempBtn.Id)
             {
                 Console.WriteLine(8);
                 intSell = 4500;
+                ComponentName.Text = "Жёсткий диск";
+
             }
             else Console.WriteLine("ИД нет");
             

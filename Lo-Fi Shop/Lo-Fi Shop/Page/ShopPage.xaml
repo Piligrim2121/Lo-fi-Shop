@@ -32,10 +32,12 @@
                 <RowDefinition Height="85*"/>
             </Grid.RowDefinitions>
             <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-20,0,0,0" />
+
+            <Label x:Name="ComponentName" Text="Добро пожаловать!"></Label>
             <ImageButton x:Name="BuyBtn" Clicked="BuyBtn_Clicked"></ImageButton>
 
+            
             <ImageButton x:Name="EmpetyMessage" IsVisible="false" Clicked="EmpetyMessage_Clicked"></ImageButton>
-           
             <Label x:Name="BuyInfo" IsVisible="false">Покупка не удалась - недостаточно средств</Label>
             
             <ImageButton x:Name="VideoCard" Source="" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
