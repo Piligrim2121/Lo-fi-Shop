@@ -43,9 +43,9 @@
                    Margin="90,15,95,27" 
                    Grid.ColumnSpan="2"
                     />
-            
-            <Label x:Name="Exp"></Label>
-            
+            <Image Source="Resources/drawable/progressbar"></Image>
+            <Label x:Name="Lvl"></Label>
+            <ProgressBar x:Name="Exp" ProgressColor ="Violet" Progress="0.9"/>
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
                        Margin="33,60,21,10.833"  
@@ -55,9 +55,9 @@
                          BackgroundColor="Transparent"
                        Source="Resources/drawable/Table.png" 
                        Grid.ColumnSpan="2" />
-
-            <Image Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
-            <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
+           
+            <Image x:Name="Client" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="Resources/drawable/Tolyan.png" BackgroundColor="Transparent" IsVisible="false"/>
+            <ImageButton x:Name="Sky" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
             <ImageButton x:Name="ImageKassa"
                          Clicked="ImageKassa_Clicked"
                          Grid.Column="1" 
@@ -68,6 +68,20 @@
                          
                          Source="Resources/drawable/Kassa.png"  
                          Grid.RowSpan="2"/>
+            <Image x:Name="Dialog"   Grid.ColumnSpan="6" IsVisible="false" Grid.RowSpan="6" Source="Resources/drawable/dialogue.jpg" Margin="60, 250, 60, 0" ScaleY="1.5"/>
+            <Label x:Name="Answer"  Grid.Column="1" Grid.Row="5" IsVisible="false" Text="Сделаете комп за 180.000Р, пожуйлиста?" Grid.ColumnSpan="5"/>
+            <Grid x:Name="GridBtn" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" IsVisible="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonYes" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
+                <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1"></Button>
+            </Grid>
+           
+            <Image Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
+            <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
+            
             <ImageButton x:Name="ImageTableOfQuest" 
                          Clicked="TableOfQuest_Open"
                          Margin="30,20,10,50" 
@@ -79,6 +93,8 @@
 
             <ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
+  
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

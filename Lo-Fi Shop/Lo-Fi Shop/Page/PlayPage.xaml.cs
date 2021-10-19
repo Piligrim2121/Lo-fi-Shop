@@ -1,21 +1,35 @@
-﻿using Lo_Fi_Shop.Class;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using Lo_Fi_Shop.Class;
+using static System.Math;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Lo_Fi_Shop.Page
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PlayPage : ContentPage
-    {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class PlayPage : ContentPage
+{
+        bool Alive = true;
         public Item[] MassAllItems = Item.CreateItems();
-
         public PlayPage()
-        {
-            InitializeComponent();
+    {
+        InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+            /*var assembly = typeof(App).GetTypeInfo().Assembly;
+            System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
 
+
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load(audioStream);
+            player.Play();*/
         }
         /// <summary>
         /// Заполнение значений в игровом окне(деньги опыт)
@@ -24,7 +38,8 @@ namespace Lo_Fi_Shop.Page
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            Exp.Text = Player.Exp.ToString() + "exp";
+            Lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
+            Exp.Progress = (Player.Exp - (Convert.ToInt32(Lvl.Text.Replace("lvl", "")) - 1) * 10) / 10;
         }
         /// <summary> 
         /// Открытие инвентаря
@@ -71,6 +86,38 @@ namespace Lo_Fi_Shop.Page
         {
             ImageTableOfQuestOpen.IsVisible = false;
 
+        }
+
+        // Таймер
+        private bool OnTimerTick()
+        {
+            Client.IsVisible = true;
+            Sky.IsVisible = true;
+            Alive = false;
+            return Alive;
+        }
+
+        private void Sky_Clicked(object sender, EventArgs e)
+        {
+           
+            Alive = true;
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+            Sky.IsVisible = false;
+            Dialog.IsVisible = true;
+            Answer.IsVisible=true;
+            GridBtn.IsVisible= true;
+
+        }
+
+        private void ButtonYes_Clicked(object sender, EventArgs e)
+        {
+            Dialog.IsVisible =false;
+            Answer.IsVisible = false;
+            GridBtn.IsVisible = false;
+            Client.IsVisible = false;
+            Sky.IsVisible = false;
+            Alive = true;
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
         }
     }
 }
