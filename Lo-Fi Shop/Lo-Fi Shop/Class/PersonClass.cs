@@ -75,44 +75,16 @@ namespace Lo_Fi_Shop.Class
 
 
             string Data = Read_TXT();
-           
-            int Exp = Convert.ToInt32(Data.Split(';')[1].Split(':')[1]);
-            List<string> InventoryParts = new List<string> { };
-            foreach (string i in Data.Split(';')[2].Split(':')[1].Split(','))
-            {
-                InventoryParts.Add(i);
-            }
-            List<string> InventoryWhole = new List<string> { };
-            foreach (string i in Data.Split(';')[3].Split(':')[1].Split(','))
-            {
-                InventoryWhole.Add(i);
-            }
-            List<int> Settings = new List<int> { };
-            foreach (string i in Data.Split(';')[4].Split(':')[1].Split(','))
-            {
-                Settings.Add(Convert.ToInt32(i));
-            }
+            string[] words = Data.Split(new char[] { ';' });
+
+          
             
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
-            string SubInv = "";
-            foreach (string i in InventoryParts)
-            {
-                SubInv += (i + ",");
-            }
-            string SubInv2 = "";
-            foreach (string i in InventoryWhole)
-            {
-                SubInv2 += (i + ",");
-            }
-            string SubSett = "";
-            foreach (int i in Settings)
-            {
-                SubSett += (i.ToString() + ",");
-            }
-            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";";
+            Console.WriteLine("testtt"+Data);
+            string text = "Money:" + Money.ToString() + ";"+words[1]+";"+words[2] + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            OverwriteData();
+           // OverwriteData();
         }
 
         /// <summary>

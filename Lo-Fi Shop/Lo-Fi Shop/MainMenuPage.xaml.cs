@@ -37,8 +37,8 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-          Navigation.PushAsync(new Page.PlayPage());
-           // Navigation.PushAsync(new Page.TempPage());
+        Navigation.PushAsync(new Page.PlayPage());
+        // Navigation.PushAsync(new Page.TempPage());
         }
         /// <summary>
         /// Переход к экрану "Настройки"

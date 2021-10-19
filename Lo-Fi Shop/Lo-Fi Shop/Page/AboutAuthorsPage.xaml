@@ -21,6 +21,7 @@
                     <Label TextColor="White" Text="· Панин Данил: Менеджер продукта, разработчик" HorizontalOptions="Start" FontSize="20"/>
                     <Label TextColor="White" Text="· Командов Максим: Инструктор, разработчик" HorizontalOptions="Start" FontSize="20"/>
                     <Label TextColor="White" Text="· Гирфанов Наиль: Тестер, разработчик" HorizontalOptions="Start" FontSize="20"/>
+                    <Button Text="0" Clicked="Button_Clicked" BackgroundColor="Transparent"/>
                 </StackLayout>
                 
             </StackLayout>

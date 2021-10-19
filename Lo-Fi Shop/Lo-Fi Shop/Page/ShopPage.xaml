@@ -31,7 +31,7 @@
                 <RowDefinition Height="83*"/>
                 <RowDefinition Height="85*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
+            <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-20,0,0,0" />
             <ImageButton x:Name="BuyBtn" Clicked="BuyBtn_Clicked"></ImageButton>
 
             <ImageButton x:Name="EmpetyMessage" IsVisible="false" Clicked="EmpetyMessage_Clicked"></ImageButton>
