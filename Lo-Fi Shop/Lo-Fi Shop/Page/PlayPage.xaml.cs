@@ -23,7 +23,7 @@ public partial class PlayPage : ContentPage
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
-            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+            Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
 
@@ -77,18 +77,19 @@ public partial class PlayPage : ContentPage
         /// <param name="e"></param>
         private void TableOfQuest_Open(object sender, EventArgs e)
         {
-            ImageTableOfQuestOpen.IsVisible = true;
+            //ImageTableOfQuestOpen.IsVisible = true;
+            Navigation.PushAsync(new Page.QuestPage());
         }
         /// <summary>
         /// Закрытие доски задач
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TableOfQuest_Clouse(object sender, EventArgs e)
-        {
-            ImageTableOfQuestOpen.IsVisible = false;
+        //private void TableOfQuest_Clouse(object sender, EventArgs e)
+        //{
+            //ImageTableOfQuestOpen.IsVisible = false;
 
-        }
+        //}
 
         // Таймер
         private bool OnTimerTick()
@@ -116,7 +117,8 @@ public partial class PlayPage : ContentPage
             Client.IsVisible = false;
             Sky.IsVisible = false;
             Alive = true;
-            Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+            Navigation.PushAsync(new Page.QuestPage(Answer.Text));
+            Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
         }
 
         private void ButtonNo_Clicked(object sender, EventArgs e)
