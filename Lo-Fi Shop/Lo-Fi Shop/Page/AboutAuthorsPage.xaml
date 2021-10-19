@@ -7,7 +7,7 @@
         <AbsoluteLayout>
             <Image
                 x:Name="BacgroundGif"
-                Source="Resources/drawable/menuAndr.gif"  
+                Source="Resources/drawable/empt_menu.png"  
                 AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
