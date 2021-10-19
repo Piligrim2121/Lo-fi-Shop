@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lo_Fi_Shop.Class;
-
+﻿using Lo_Fi_Shop.Class;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Lo_Fi_Shop.Page
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class PlayPage : ContentPage
-{
-    public PlayPage()
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PlayPage : ContentPage
     {
-        InitializeComponent();
+        public Item[] MassAllItems = Item.CreateItems();
+
+        public PlayPage()
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
 

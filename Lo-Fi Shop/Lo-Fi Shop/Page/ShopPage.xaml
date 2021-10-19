@@ -5,14 +5,40 @@
              BackgroundImageSource="Resources/drawable/Shop.png">
     
     <ContentPage.Content >
-        <StackLayout>
-            
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="43*"/>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="48*" />
+                <RowDefinition Height="48*" />
+                <RowDefinition Height="37*" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="332*"/>
+                <ColumnDefinition Width="117*"/>
+                <ColumnDefinition Width="135*"/>
+                <ColumnDefinition Width="123*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="126*"/>
+                <ColumnDefinition Width="313*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
+            <ImageButton x:Name="BuyBtn" Clicked="BuyBtn_Clicked"></ImageButton>
             <Image x:Name="hz" 
                    Grid.RowSpan="6" 
                    Grid.ColumnSpan="6" 
                    Source=""  />
-           
-        </StackLayout>
+            <ImageButton x:Name="VideoCard" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="CPU" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="Kuller" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="OZU" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="MotherBoard" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="Corpus" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="BP" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+            <ImageButton x:Name="HDD" Source="" Grid.Column="" Grid.Row="1"></ImageButton>
+        </Grid>
         
     </ContentPage.Content>
 </ContentPage>
