@@ -6,31 +6,38 @@
     
     <ContentPage.Content >
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="43*"/>
-                <RowDefinition Height="50*" />
-                <RowDefinition Height="48*" />
-                <RowDefinition Height="48*" />
-                <RowDefinition Height="37*" />
-                <RowDefinition/>
-            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="332*"/>
-                <ColumnDefinition Width="117*"/>
-                <ColumnDefinition Width="135*"/>
-                <ColumnDefinition Width="123*"/>
-                <ColumnDefinition Width="126*"/>
-                <ColumnDefinition Width="126*"/>
-                <ColumnDefinition Width="126*"/>
-                <ColumnDefinition Width="313*"/>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="81*"/>
+                <ColumnDefinition Width="95*"/>
+                <ColumnDefinition Width="178*"/>
+                <ColumnDefinition Width="80*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="146*"/>
+                <RowDefinition Height="82*"/>
+                <RowDefinition Height="96*"/>
+                <RowDefinition Height="101*"/>
+                <RowDefinition Height="97*"/>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="85*"/>
+            </Grid.RowDefinitions>
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
             <ImageButton x:Name="BuyBtn" Clicked="BuyBtn_Clicked"></ImageButton>
-            <Image x:Name="hz" 
-                   Grid.RowSpan="6" 
-                   Grid.ColumnSpan="6" 
-                   Source=""  />
+
+            <ImageButton x:Name="EmpetyMessage" IsVisible="false" Clicked="EmpetyMessage_Clicked"></ImageButton>
+           
+            <Label x:Name="BuyInfo" IsVisible="false">Покупка не удалась - недостаточно средств</Label>
+            
             <ImageButton x:Name="VideoCard" Source="" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton x:Name="CPU" Source="" Grid.Column="2" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton x:Name="Kuller" Source="" Grid.Column="3" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
@@ -39,6 +46,7 @@
             <ImageButton x:Name="Corpus" Source="" Grid.Column="6" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton x:Name="BP" Source="" Grid.Column="7" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton x:Name="HDD" Source="" Grid.Column="8" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+        
         </Grid>
         
     </ContentPage.Content>
