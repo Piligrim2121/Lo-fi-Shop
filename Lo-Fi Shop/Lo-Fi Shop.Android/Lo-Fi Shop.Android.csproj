@@ -157,6 +157,10 @@
     <AndroidResource Include="Resources\drawable\doska.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dialogue.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cloud.png" />
     <AndroidResource Include="Resources\drawable\Viduha.jpg" />
   </ItemGroup>
   <ItemGroup>
