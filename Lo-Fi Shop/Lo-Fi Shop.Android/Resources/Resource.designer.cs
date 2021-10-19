@@ -11857,10 +11857,13 @@ namespace Lo_Fi_Shop.Droid
 			public const int tooltip_frame_light = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int Viduha = 2131165351;
+			public const int Vasyok = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int x_logo = 2131165352;
+			public const int Viduha = 2131165352;
+			
+			// aapt resource value: 0x7F0700A9
+			public const int x_logo = 2131165353;
 			
 			static Drawable()
 			{

@@ -38,8 +38,8 @@ public partial class PlayPage : ContentPage
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            Lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
-            Exp.Progress = (Player.Exp - (Convert.ToInt32(Lvl.Text.Replace("lvl", "")) - 1) * 10) / 10;
+            lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
+            Exp.Progress = (Player.Exp - (Convert.ToInt32(lvl.Text.Replace("lvl", "")) - 1) * 10) / 10;
         }
         /// <summary> 
         /// Открытие инвентаря

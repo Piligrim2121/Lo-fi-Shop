@@ -178,5 +178,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dialogue.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Vasyok.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
