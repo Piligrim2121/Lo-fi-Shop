@@ -11,17 +11,18 @@ namespace Lo_Fi_Shop.Class
 {
     class PersonClass
     {
-        public int _Money;
-        public int _Exp;
-        public List<string> _Inventory;
-        public List<int> _Settings;
-        private PersonClass(int Money, int Exp, List<string> Inventory, List<int> Settings)
+        public int Money;
+        public int Exp;
+        public List<string> InventoryPath;
+        public List<string> InventoryWhole;
+        public List<int> Settings;
+        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings)
         {
-
-            _Money = Money;
-            _Exp = Exp;
-            _Inventory = Inventory; // без ограничений
-            _Settings = Settings; // list с 3 значениями от 1 до 10
+            this.Money = Money;
+            this.Exp = Exp;
+            this.InventoryPath = InventoryPath; // без ограничений
+            this.InventoryWhole = InventoryWhole; // без ограничений
+            this.Settings = Settings; // list с 3 значениями от 1 до 10
         }
 
         /// <summary>
@@ -42,21 +43,26 @@ namespace Lo_Fi_Shop.Class
         /// <param name="Exp">Количество опыта для сохранения</param>
         /// <param name="Inventory">Список предметов содержащихся в инвентаре</param>
         /// <param name="Settings">Внутри игровые настройки</param>
-        public static void Write_TXT(int Money, int Exp, List<string> Inventory, List<int> Settings)
+        public static void Write_TXT(int Money, int Exp, List<string> InventoryParts, List<string> InventoryWhole, List<int> Settings)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             string SubInv = "";
-            foreach(string i in Inventory)
+            foreach(string i in InventoryParts)
             {
                 SubInv += (i+",");
+            }
+            string SubInv2 = "";
+            foreach (string i in InventoryWhole)
+            {
+                SubInv2 += (i + ",");
             }
             string SubSett = "";
             foreach (int i in Settings)
             {
                 SubSett += (i.ToString() + ",");
             }
-            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";Inventory:" + SubInv + ";Settings:" + SubSett + ";";
+            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
@@ -74,12 +80,17 @@ namespace Lo_Fi_Shop.Class
             {
                 Inv.Add(i);
             }
+            List<string> Inv2 = new List<string> { };
+            foreach (string i in Data.Split(';')[3].Split(':')[1].Split(','))
+            {
+                Inv2.Add(i);
+            }
             List<int> Settings = new List<int> { };
-            foreach(string i in Data.Split(';')[3].Split(':')[1].Split(','))
+            foreach(string i in Data.Split(';')[4].Split(':')[1].Split(','))
             {
                 Settings.Add(Convert.ToInt32(i));
             }
-            PersonClass Player = new PersonClass(Money, Exp, Inv, Settings);
+            PersonClass Player = new PersonClass(Money, Exp, Inv, Inv2, Settings);
             return Player;
         }
         /// <summary>
@@ -91,7 +102,7 @@ namespace Lo_Fi_Shop.Class
             string filename = "data";
             if (!File.Exists(Path.Combine(folderPath, filename)))
             {
-                string text = "Money:200000;Exp:0;Inventory:0;Settings:10,10,10;";
+                string text = "Money:200000;Exp:0;InventoryParts:0;InventoryWhole:0;Settings:10,10,10;";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
                 OverwriteData();
             }

@@ -11710,7 +11710,11 @@ namespace Lo_Fi_Shop.Droid
 			public const int ic_mtrl_chip_checked_circle = 2131165301;
 			
 			// aapt resource value: 0x7F070076
+<<<<<<< HEAD
 			public const int ic_mtrl_chip_close_circle = 2131165302;
+=======
+			public const int InventoryDefault = 2131165302;
+>>>>>>> 3986ebb99fea7bd406ac084d4176b301816dce08
 			
 			// aapt resource value: 0x7F070077
 			public const int Kassa = 2131165303;
@@ -11812,6 +11816,7 @@ namespace Lo_Fi_Shop.Droid
 			public const int notify_panel_notification_icon_bg = 2131165335;
 			
 			// aapt resource value: 0x7F070098
+<<<<<<< HEAD
 			public const int Okno = 2131165336;
 			
 			// aapt resource value: 0x7F070099
@@ -11846,6 +11851,51 @@ namespace Lo_Fi_Shop.Droid
 			
 			// aapt resource value: 0x7F0700A3
 			public const int x_logo = 2131165347;
+=======
+			public const int Obvodka = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int Okno = 2131165337;
+			
+			// aapt resource value: 0x7F07009A
+			public const int progressbar = 2131165338;
+			
+			// aapt resource value: 0x7F07009B
+			public const int Sborka = 2131165339;
+			
+			// aapt resource value: 0x7F07009C
+			public const int Shkaf = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int Shop = 2131165341;
+			
+			// aapt resource value: 0x7F07009E
+			public const int Table = 2131165342;
+			
+			// aapt resource value: 0x7F07009F
+			public const int Table_of_quests = 2131165343;
+			
+			// aapt resource value: 0x7F0700A0
+			public const int Table_of_quests_open = 2131165344;
+			
+			// aapt resource value: 0x7F0700A1
+			public const int test_custom_background = 2131165345;
+			
+			// aapt resource value: 0x7F0700A2
+			public const int Tolyan = 2131165346;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int tooltip_frame_dark = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int tooltip_frame_light = 2131165348;
+			
+			// aapt resource value: 0x7F0700A5
+			public const int Viduha = 2131165349;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int x_logo = 2131165350;
+>>>>>>> 3986ebb99fea7bd406ac084d4176b301816dce08
 			
 			static Drawable()
 			{

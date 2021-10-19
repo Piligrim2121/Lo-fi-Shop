@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lo_Fi_Shop.Class;
+using static System.Math;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +21,7 @@ public partial class PlayPage : ContentPage
         InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
+
         }
         /// <summary>
         /// Заполнение значений в игровом окне(деньги опыт)
@@ -27,9 +29,15 @@ public partial class PlayPage : ContentPage
         private void Get_data()
         {
             PersonClass Player = PersonClass.OverwriteData();
+<<<<<<< HEAD
             Money.Text = Player._Money.ToString() + "₽";
             //Exp.Text = Player._Exp.ToString() + "exp";
             Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+=======
+            Money.Text = Player.Money.ToString() + "₽";
+            Lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
+            //Exp.Progress = (Player.Exp - ( Convert.ToInt32(Lvl.Text.Replace("lvl","")) - 1) * 10) / 10;
+>>>>>>> 3986ebb99fea7bd406ac084d4176b301816dce08
         }
         /// <summary> 
         /// Открытие инвентаря
@@ -89,7 +97,7 @@ public partial class PlayPage : ContentPage
 
         private void Sky_Clicked(object sender, EventArgs e)
         {
-            //Client.Opacity = 0;
+           
             Alive = true;
             Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
             Sky.Opacity = 0;

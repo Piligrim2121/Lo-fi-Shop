@@ -6,6 +6,12 @@ using Android.OS;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Android.Views;
 
+using Android.Webkit;
+using Plugin.SimpleAudioPlayer;
+using System.Reflection;
+using System.IO;
+using Android.Media;
+
 namespace Lo_Fi_Shop.Droid
 {
     [Activity
@@ -25,6 +31,9 @@ namespace Lo_Fi_Shop.Droid
         /// Метод при создании активити
         /// </summary>
         /// <param name="savedInstanceState"></param>
+        ///
+ 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,15 +45,24 @@ namespace Lo_Fi_Shop.Droid
             uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
 
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
-           
 
-            
+
+            //var assembly = typeof(App).GetTypeInfo().Assembly;
+            //System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
+
+
+            //var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //player.Load(audioStream);
+            //player.Play();
+
+
             //Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
-  
+
+       
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

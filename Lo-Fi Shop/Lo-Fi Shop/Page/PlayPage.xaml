@@ -43,9 +43,9 @@
                    Margin="90,15,95,27" 
                    Grid.ColumnSpan="2"
                     />
-            
-            <Label x:Name="Exp"></Label>
-            
+            <Image Source="Resources/drawable/progressbar"></Image>
+            <Label x:Name="Lvl"></Label>
+            <ProgressBar x:Name="Exp" ProgressColor ="Violet" Progress="0.9"/>
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
                        Margin="33,60,21,10.833"  
@@ -93,7 +93,7 @@
                          Source="Resources/drawable/Table_of_quests.png" />
 
             <ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />
-            <Label x:Name="Money" TextColor="Green"  Text="200.000₽" Grid.Column="5"  Margin="40,10,0,10" />
+            <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
