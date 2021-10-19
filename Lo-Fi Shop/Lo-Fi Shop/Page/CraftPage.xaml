@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <Grid>
             <ImageButton x:Name="Sborka" Grid.Row="1" Grid.Column="1"
-                         Margin="-210,30,100,70"
+                         Margin="-230,-80,100,70"
+                         Padding="50"
                          BackgroundColor="Transparent"
                          Clicked="Sborka_Clicked"
-                  
                    Source="Resource/drawable/Sborka.png"  />
             <Grid Margin="762,110,0,0">
                 <Grid.RowDefinitions>
@@ -49,6 +49,15 @@
                     <RowDefinition Height="63*"/>
                     <RowDefinition Height="44*"/>
                 </Grid.RowDefinitions>
+
+                <ImageButton x:Name="Proc" Grid.Row="1" Grid.Column="1" Clicked="Sborka_Proc"></ImageButton>
+                <ImageButton x:Name="Video" Grid.Row="2" Grid.Column="1" Clicked="Sborka_Video"></ImageButton>
+                <ImageButton x:Name="Mat" Grid.Row="3" Grid.Column="1" Clicked="Sborka_Mat"></ImageButton>
+                <ImageButton x:Name="OP" Grid.Row="4" Grid.Column="1" Clicked="Sborka_OP"></ImageButton>
+                <ImageButton x:Name="HDD" Grid.Row="5" Grid.Column="1" Clicked="Sborka_HDD"></ImageButton>
+                <ImageButton x:Name="Pit" Grid.Row="6" Grid.Column="1" Clicked="Sborka_Pit"></ImageButton>
+                <ImageButton x:Name="Kyler" Grid.Row="7" Grid.Column="1" Clicked="Sborka_Kyler"></ImageButton>
+                <ImageButton x:Name="Korpus" Grid.Row="8" Grid.Column="1" Clicked="Sborka_Korpus"></ImageButton>
             </Grid>
             
         </Grid>
