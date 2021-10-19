@@ -17,9 +17,10 @@ public partial class PlayPage : ContentPage
 {
         bool Alive = true;
         public Item[] MassAllItems = Item.CreateItems();
+        private Random rnd;
         public PlayPage()
-    {
-        InitializeComponent();
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Get_data();
             Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
@@ -30,6 +31,7 @@ public partial class PlayPage : ContentPage
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load(audioStream);
             player.Play();*/
+            rnd = new Random();
         }
         /// <summary>
         /// Заполнение значений в игровом окне(деньги опыт)
@@ -99,9 +101,7 @@ public partial class PlayPage : ContentPage
 
         private void Sky_Clicked(object sender, EventArgs e)
         {
-           
-            Alive = true;
-            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+                              
             Sky.IsVisible = false;
             Dialog.IsVisible = true;
             Answer.IsVisible=true;
@@ -117,7 +117,31 @@ public partial class PlayPage : ContentPage
             Client.IsVisible = false;
             Sky.IsVisible = false;
             Alive = true;
-            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+            Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+        }
+
+        private void ButtonNo_Clicked(object sender, EventArgs e)
+        {
+            if (ButtonNo.Text == "Нет")
+            {
+                ButtonNo.Text = "Ок";
+                ButtonYes.IsVisible = false;
+                Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
+               
+            }    
+
+            if (ButtonNo.Text == "Ок")
+            {
+                ButtonYes.IsVisible = true;
+                Dialog.IsVisible = false;
+                Answer.IsVisible = false;
+                GridBtn.IsVisible = false;
+                Client.IsVisible = false;
+                Sky.IsVisible = false;
+                Alive = true;
+                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+            }    
+           
         }
     }
 }
