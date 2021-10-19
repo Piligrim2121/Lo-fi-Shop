@@ -13,6 +13,8 @@ namespace Lo_Fi_Shop.Page
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class PlayPage : ContentPage
 {
+        bool Alive = true;
+
     public PlayPage()
     {
         InitializeComponent();
@@ -26,7 +28,8 @@ public partial class PlayPage : ContentPage
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player._Money.ToString() + "₽";
-            Exp.Text = Player._Exp.ToString() + "exp";
+            //Exp.Text = Player._Exp.ToString() + "exp";
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
         }
         /// <summary> 
         /// Открытие инвентаря
@@ -73,6 +76,37 @@ public partial class PlayPage : ContentPage
         {
             ImageTableOfQuestOpen.IsVisible = false;
 
+        }
+
+        // Таймер
+        private bool OnTimerTick()
+        {
+            Client.Opacity = 100;
+            Sky.Opacity = 100;
+            Alive = false;
+            return Alive;
+        }
+
+        private void Sky_Clicked(object sender, EventArgs e)
+        {
+            //Client.Opacity = 0;
+            Alive = true;
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
+            Sky.Opacity = 0;
+            Dialog.Opacity = 100;
+            Answer.Opacity = 100;
+            GridBtn.Opacity = 100;
+
+        }
+
+        private void ButtonYes_Clicked(object sender, EventArgs e)
+        {
+            Dialog.Opacity = 0;
+            Answer.Opacity = 0;
+            GridBtn.Opacity = 0;
+            Client.Opacity = 0;
+            Alive = true;
+            Device.StartTimer(TimeSpan.FromSeconds(20), OnTimerTick);
         }
     }
 }

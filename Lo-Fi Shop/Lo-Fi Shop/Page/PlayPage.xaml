@@ -55,6 +55,21 @@
                          BackgroundColor="Transparent"
                        Source="Resources/drawable/Table.png" 
                        Grid.ColumnSpan="2" />
+            <Image x:Name="Client" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="Resources/drawable/Tolyan.png" BackgroundColor="Transparent" Opacity="0"/>
+            <ImageButton x:Name="Sky" Grid.Column="2" Opacity="0" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
+            <Image x:Name="Dialog"  Grid.ColumnSpan="6" Opacity="0" Grid.RowSpan="6" Source="Resources/drawable/dialogue.jpg" Margin="60, 250, 60, 0" ScaleY="1.5"/>
+            <Label x:Name="Answer"  Grid.Column="1" Grid.Row="5" Opacity="0" Text="Сделаете комп за 25000Р, пожуйлиста?" Grid.ColumnSpan="5"/>
+            <Grid x:Name="GridBtn" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" Opacity="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonYes" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
+                <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1"></Button>
+            </Grid>
+            
+
+
 
             <Image Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
             <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
