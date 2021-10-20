@@ -16,8 +16,10 @@ namespace Lo_Fi_Shop.Page
 public partial class PlayPage : ContentPage
 {
         bool Alive = true;
+        bool h = true;
         public Item[] MassAllItems = Item.CreateItems();
         private Random rnd;
+        private int MoneyClient;
         public PlayPage()
         {
             InitializeComponent();
@@ -103,46 +105,101 @@ public partial class PlayPage : ContentPage
         private void Sky_Clicked(object sender, EventArgs e)
         {                  
             Sky.IsVisible = false;
+            SkyBuy.IsVisible = true;
             Dialog.IsVisible = true;
             Answer.IsVisible=true;
             GridBtn.IsVisible= true;
-            Answer.Text = "Сделаете комп за 180.000Р, пожуй листа?";
+            MoneyClient = rnd.Next(50000, 150000);
+            Answer.Text = "Сделаете комп за " + MoneyClient + ", пожуй листа?";
         }
 
         private void ButtonYes_Clicked(object sender, EventArgs e)
         {
-            Dialog.IsVisible =false;
-            Answer.IsVisible = false;
-            GridBtn.IsVisible = false;
-            Client.IsVisible = false;
-            Sky.IsVisible = false;
-            Alive = true;
-            Navigation.PushAsync(new Page.QuestPage(Answer.Text));
-            Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
+            if (h == true)
+            {
+                Dialog.IsVisible = false;
+                Answer.IsVisible = false;
+                GridBtn.IsVisible = false;                                
+                Alive = true;
+                Navigation.PushAsync(new Page.QuestPage(Answer.Text));
+                // Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
+                h = false;
+            }
+
+            else if (h == false)
+            {
+                Dialog.IsVisible = false;
+                Answer.IsVisible = false;
+                GridBtn.IsVisible = false;
+                int M = Convert.ToInt32(Money.Text) + MoneyClient;
+                Money.Text = M.ToString();
+                PersonClass.Write_TXT(M);
+                Alive = true;
+                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
+                h = true;
+            }
         }
 
         private void ButtonNo_Clicked(object sender, EventArgs e)
         {
-            if (ButtonNo.Text == "Нет")
+            if (h == true)
             {
-                ButtonNo.Text = "Ок";
-                ButtonYes.IsVisible = false;
-                Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
-               
-            }    
+                if (ButtonNo.Text == "Нет")
+                {
+                    ButtonNo.Text = "Ок";
+                    ButtonYes.IsVisible = false;
+                    Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
 
-            else if (ButtonNo.Text == "Ок")
+                }
+
+                else if (ButtonNo.Text == "Ок")
+                {
+                    ButtonYes.IsVisible = true;
+                    Dialog.IsVisible = false;
+                    Answer.IsVisible = false;
+                    GridBtn.IsVisible = false;
+                    Client.IsVisible = false;
+                    Sky.IsVisible = false;
+                    Alive = true;
+                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+                    h = false;
+                }
+
+            }
+
+            if (h == false)
             {
-                ButtonYes.IsVisible = true;
-                Dialog.IsVisible = false;
-                Answer.IsVisible = false;
-                GridBtn.IsVisible = false;
-                Client.IsVisible = false;
-                Sky.IsVisible = false;
-                Alive = true;
-                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
-            }    
+                if (ButtonNo.Text == "Нет")
+                {
+                    ButtonNo.Text = "Ок";
+                    ButtonYes.IsVisible = false;
+                    Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
+
+                }
+
+                else if (ButtonNo.Text == "Ок")
+                {
+                    ButtonYes.IsVisible = true;
+                    Dialog.IsVisible = false;
+                    Answer.IsVisible = false;
+                    GridBtn.IsVisible = false;
+                    Client.IsVisible = false;
+                    Sky.IsVisible = false;
+                    Alive = true;
+                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+                    h = true;
+                }
+            }
            
+        }
+
+        private void SkyBuy_Clicked(object sender, EventArgs e)
+        {
+            SkyBuy.IsVisible = false;
+            Dialog.IsVisible = true;
+            Answer.IsVisible = true;
+            GridBtn.IsVisible = true;
+            Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
         }
     }
 }
