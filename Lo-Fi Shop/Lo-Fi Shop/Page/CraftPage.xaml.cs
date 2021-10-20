@@ -19,6 +19,9 @@ namespace Lo_Fi_Shop.Page
 
         static PersonClass Players;
         public static List<string> InvPart { get; set; }
+        public static List<string> Items { get; set; }
+
+        public int Cost;
         private void DisplayInvPath()
         {
             PersonClass Player = PersonClass.OverwriteData();
@@ -38,9 +41,29 @@ namespace Lo_Fi_Shop.Page
         }
         private void Sborka_Clicked(object sender, EventArgs e)
         {
+            Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
-                Console.WriteLine(Proverka().ToString());
+                InvPart = new List<string>();
+                string name = "";
+                if (Cost <= 30000)
+                {
+                    name = "Начальный корпус";
+                }
+                else if ((Cost >= 30000) && (Cost <= 100000))
+                {
+                    name = "Средний корпус";
+                }
+                else
+                {
+                    name = "Дорогой корпус";
+                }
+                Item item = new Item(name, Cost);
+                PersonClass Player = PersonClass.OverwriteData();
+                InvPart = Player.InventoryWhole;
+                InvPart.Add(item.Name);
+                PersonClass.Write_TXT2(InvPart);
+
             }
         }
         private bool Proverka() // крестик по умолчанию когда не выбран
@@ -62,9 +85,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach(string i in komponent)
             {
-                if (i.Contains("Процессор"))
+                if (i.Contains("Начальный Процессор"))
                 {
                     Proc.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[1].Sell;
+                }
+                else if (i.Contains("Средний Процессор"))
+                {
+                    Proc.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогой Процессор"))
+                {
+                    Proc.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -73,9 +109,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Видеокарта"))
+                if (i.Contains("Начальная Видеокарта"))
                 {
                     Video.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[0].Sell;
+                }
+                else if (i.Contains("Средняя Видеокарта"))
+                {
+                    Video.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогая Видеокарта"))
+                {
+                    Video.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -84,9 +133,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Материнская плата"))
+                if (i.Contains("Начальная Материнская плата"))
                 {
                     Mat.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[5].Sell;
+                }
+                else if (i.Contains("Средняя Материнская плата"))
+                {
+                    Mat.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогая Материнская плата"))
+                {
+                    Mat.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -95,9 +157,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Оперативная память"))
+                if (i.Contains("Начальная Оперативная память"))
                 {
                     OP.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[3].Sell;
+                }
+                else if (i.Contains("Средняя Оперативная память"))
+                {
+                    OP.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогая Оперативная память"))
+                {
+                    OP.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -106,9 +181,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Жёсткий диск"))
+                if (i.Contains("Начальный Жёсткий диск"))
                 {
                     HDD.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[7].Sell;
+                }
+                else if (i.Contains("Средний Жёсткий диск"))
+                {
+                    HDD.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогой Жёсткий диск"))
+                {
+                    HDD.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -117,9 +205,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Блок Питания"))
+                if (i.Contains("Начальный Блок Питания"))
                 {
                     Pit.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[6].Sell;
+                }
+                else if (i.Contains("Средний Блок Питания"))
+                {
+                    Pit.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогой Блок Питания"))
+                {
+                    Pit.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -128,9 +229,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Система охлаждения"))
+                if (i.Contains("Начальная Система охлаждения"))
                 {
                     Kyler.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[2].Sell;
+                }
+                else if (i.Contains("Средняя Система охлаждения"))
+                {
+                    Kyler.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогая Система охлаждения"))
+                {
+                    Kyler.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }
@@ -139,9 +253,22 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Корпус"))
+                if (i.Contains("Начальный Корпус"))
                 {
                     Korpus.Source = @"Resource/drawable/Viduha.jpg";
+                    Cost += Item.CreateItems()[5].Sell;
+                }
+                else if (i.Contains("Средний Корпус"))
+                {
+                    Korpus.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else if (i.Contains("Дорогой Корпус"))
+                {
+                    Korpus.Source = @"Resource/drawable/Viduha.jpg";
+                }
+                else
+                {
+                    // меняем бэк на красный
                 }
             }
         }

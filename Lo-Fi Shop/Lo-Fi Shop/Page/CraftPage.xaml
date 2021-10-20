@@ -5,12 +5,17 @@
              BackgroundImageSource="Resources/drawable/CraftDefault.png">
     <ContentPage.Content>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
             <ImageButton x:Name="Sborka" Grid.Row="3" Grid.Column="1"
-                         BackgroundColor="Transparent"
-                         Margin="-350,0,0,0"
+                         BackgroundColor="Gold"
+
                          Clicked="Sborka_Clicked"
                    Source="Resource/drawable/Sborka.png"  />
-            <Grid x:Name="InvCraft" Grid.Column="1" Grid.RowSpan="6" Grid.Row="1">
+            <Grid x:Name="InvCraft" Grid.Column="2" Grid.RowSpan="6" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -30,7 +35,7 @@
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Grid Margin="0,0,0,0" Grid.RowSpan="6">
+            <Grid Margin="0,0,0,0" Grid.RowSpan="6" Grid.Column="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="447*"/>
                     <ColumnDefinition Width="101*"/>

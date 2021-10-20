@@ -176,6 +176,7 @@ public partial class PlayPage : ContentPage
                     ButtonNo.Text = "Ок";
                     ButtonYes.IsVisible = false;
                     Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
+                    ButtonHide.IsVisible = true;
 
                 }
 
@@ -201,7 +202,7 @@ public partial class PlayPage : ContentPage
             Dialog.IsVisible = true;
             Answer.IsVisible = true;
             GridBtn.IsVisible = true;
-            ButtonHide.IsVisible = true;
+            
             h = false;
             Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
         }

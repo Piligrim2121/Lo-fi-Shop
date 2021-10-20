@@ -46,7 +46,7 @@ namespace Lo_Fi_Shop.Page
                 {
                     continue;
                 }
-                ImageButton imageButton = new ImageButton { Source = "Resources/drawable/Viduha.jpg" };
+                ImageButton imageButton = new ImageButton { Source = "Resources/drawable/Viduha.jpg", BackgroundColor = Color.Transparent};
                 imageButton.Clicked += TestVideoCard_Clicked;
                 Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
                 LenInv++;
