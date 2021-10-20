@@ -79,6 +79,7 @@
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ButtonYes" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
                 <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1" Clicked="ButtonNo_Clicked"></Button>
+                <Button x:Name="ButtonHide" Text="Скрыть" IsVisible="false" Grid.Column="0" Clicked="ButtonHide_Clicked"></Button>
             </Grid>
            
            

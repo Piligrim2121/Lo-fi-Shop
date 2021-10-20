@@ -105,9 +105,9 @@ public partial class PlayPage : ContentPage
         private void Sky_Clicked(object sender, EventArgs e)
         {                  
             Sky.IsVisible = false;
-            SkyBuy.IsVisible = true;
             Dialog.IsVisible = true;
             Answer.IsVisible=true;
+            h = true;
             GridBtn.IsVisible= true;
             MoneyClient = rnd.Next(50000, 150000);
             Answer.Text = "Сделаете комп за " + MoneyClient + ", пожуй листа?";
@@ -121,6 +121,7 @@ public partial class PlayPage : ContentPage
                 Answer.IsVisible = false;
                 GridBtn.IsVisible = false;                                
                 Alive = true;
+                SkyBuy.IsVisible = true;
                 Navigation.PushAsync(new Page.QuestPage(Answer.Text));
                 // Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
                 h = false;
@@ -160,10 +161,10 @@ public partial class PlayPage : ContentPage
                     Answer.IsVisible = false;
                     GridBtn.IsVisible = false;
                     Client.IsVisible = false;
-                    Sky.IsVisible = false;
+                    ButtonNo.Text = "Нет";
                     Alive = true;
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
-                    h = false;
+                    
                 }
 
             }
@@ -185,10 +186,10 @@ public partial class PlayPage : ContentPage
                     Answer.IsVisible = false;
                     GridBtn.IsVisible = false;
                     Client.IsVisible = false;
-                    Sky.IsVisible = false;
+                    ButtonNo.Text = "Нет";
                     Alive = true;
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
-                    h = true;
+                    
                 }
             }
            
@@ -200,7 +201,20 @@ public partial class PlayPage : ContentPage
             Dialog.IsVisible = true;
             Answer.IsVisible = true;
             GridBtn.IsVisible = true;
+            ButtonHide.IsVisible = true;
+            h = false;
             Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
+        }
+
+        private void ButtonHide_Clicked(object sender, EventArgs e)
+        {
+            SkyBuy.IsVisible = true;
+            ButtonYes.IsVisible = true;
+            ButtonHide.IsVisible = false;
+            Dialog.IsVisible = false;
+            Answer.IsVisible = false;
+            GridBtn.IsVisible = false;
+            ButtonNo.Text = "Нет";
         }
     }
 }
