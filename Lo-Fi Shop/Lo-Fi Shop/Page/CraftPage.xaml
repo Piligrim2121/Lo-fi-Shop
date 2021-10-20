@@ -10,23 +10,24 @@
                          Margin="-350,0,0,0"
                          Clicked="Sborka_Clicked"
                    Source="Resource/drawable/Sborka.png"  />
-            <Grid >
+            <Grid x:Name="InvCraft" Grid.Column="1" Grid.RowSpan="6" Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70*"/>
-                    <RowDefinition Height="84*"/>
-                    <RowDefinition Height="105*"/>
-                    <RowDefinition Height="99*"/>
-                    <RowDefinition Height="99*"/>
-                    <RowDefinition Height="80*"/>
-                    <RowDefinition Height="42*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="90*"/>
-                    <ColumnDefinition Width="85*"/>
-                    <ColumnDefinition Width="87*"/>
-                    <ColumnDefinition Width="87*"/>
-                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
             <Grid Margin="0,0,0,0" Grid.RowSpan="6">

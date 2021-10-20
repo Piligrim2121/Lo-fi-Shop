@@ -35,16 +35,23 @@ namespace Lo_Fi_Shop.Page
 
         }
 
-        private static void DisplayInvPath()
+        private void DisplayInvPath()
         {
-
             PersonClass Player = PersonClass.OverwriteData();
             InvPart = Player.InventoryPath;
-            int LenInv = 1;
+            int LenInv = 0;
             foreach (string i in InvPart)
             {
-                // Inv_Grid.Children.Add(new ImageButton { Background=Color.Transparent, Inv_Grid.Column = LenInv - (LenInv / 5) * 5, Inv_Grid.Row = (LenInv / 5) + 1, Clicked = "TestVideoCard_Clicked", Source = "Resources/drawable/Viduha.jpg"});
+                if (i == "")
+                {
+                    continue;
+                }
+                ImageButton imageButton = new ImageButton { Source = "Resources/drawable/Viduha.jpg" };
+                imageButton.Clicked += TestVideoCard_Clicked;
+                Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                LenInv++;
             }
+            LenInv = 0;
         }
         public static void AddToInv(string Part)
         {

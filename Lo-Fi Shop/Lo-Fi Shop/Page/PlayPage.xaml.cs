@@ -128,10 +128,11 @@ public partial class PlayPage : ContentPage
 
             else if (h == false)
             {
+                Client.IsVisible = false;
                 Dialog.IsVisible = false;
                 Answer.IsVisible = false;
                 GridBtn.IsVisible = false;
-                int M = Convert.ToInt32(Money.Text) + MoneyClient;
+                int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
                 Money.Text = M.ToString();
                 PersonClass.Write_TXT(M);
                 Alive = true;

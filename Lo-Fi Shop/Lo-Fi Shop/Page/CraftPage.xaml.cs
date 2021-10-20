@@ -14,9 +14,28 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Players = PersonClass.OverwriteData();
-            Console.WriteLine(Players.InventoryPath.Count);
+            DisplayInvPath();
         }
+
         static PersonClass Players;
+        public static List<string> InvPart { get; set; }
+        private void DisplayInvPath()
+        {
+            PersonClass Player = PersonClass.OverwriteData();
+            InvPart = Player.InventoryPath;
+            int LenInv = 0;
+            foreach (string i in InvPart)
+            {
+                if (i == "")
+                {
+                    continue;
+                }
+                ImageButton imageButton = new ImageButton { Source = "Resources/drawable/Viduha.jpg" };
+                InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                LenInv++;
+            }
+            LenInv = 0;
+        }
         private void Sborka_Clicked(object sender, EventArgs e)
         {
             if (Proverka())
