@@ -14,6 +14,7 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Players = PersonClass.OverwriteData();
+            Console.WriteLine(Players.InventoryPath.Count);
         }
         static PersonClass Players;
         private void Sborka_Clicked(object sender, EventArgs e)
@@ -39,7 +40,6 @@ namespace Lo_Fi_Shop.Page
         }
         private void Sborka_Proc(object sender, EventArgs e)
         {
-            Console.WriteLine(Proc.Source.ToString());
             List<string> komponent = Players.InventoryPath;
             foreach(string i in komponent)
             {
