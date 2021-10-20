@@ -20,27 +20,32 @@ namespace Lo_Fi_Shop.Page
         {
             if (Proverka())
             {
-                // удаляем элементы из инвентаря и добавляем комп
+                Console.WriteLine(Proverka().ToString());
             }
         }
         private bool Proverka() // крестик по умолчанию когда не выбран
         {
-            if (Proc.Resources.ToString() == "крестик" || Video.Resources.ToString() == "крестик" ||
-                Mat.Resources.ToString() == "крестик" || OP.Resources.ToString() == "крестик" ||
-                HDD.Resources.ToString() == "крестик" || Pit.Resources.ToString() == "крестик" ||
-                Kyler.Resources.ToString() == "крестик" || Korpus.Resources.ToString() == "крестик")
+            if (Proc.Source.ToString() == "File: Resource/drawable/Sborka.png" 
+                || Video.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                Mat.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                OP.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                HDD.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                Pit.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                Kyler.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
+                Korpus.Resources.ToString() == "File: Resource/drawable/Sborka.png")
                 return false;
             else
                 return true;
         }
         private void Sborka_Proc(object sender, EventArgs e)
         {
+            Console.WriteLine(Proc.Source.ToString());
             List<string> komponent = Players.InventoryPath;
             foreach(string i in komponent)
             {
                 if (i.Contains("Процессор"))
                 {
-                    // меняем ресурс на проц
+                    Proc.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -51,7 +56,7 @@ namespace Lo_Fi_Shop.Page
             {
                 if (i.Contains("Видеокарта"))
                 {
-                    // меняем ресурс на 
+                    Video.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -60,9 +65,9 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Материнская Плата"))
+                if (i.Contains("Материнская плата"))
                 {
-                    // меняем ресурс на 
+                    Mat.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -71,9 +76,9 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("ОП"))
+                if (i.Contains("Оперативная память"))
                 {
-                    // меняем ресурс на 
+                    OP.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -82,9 +87,9 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Диск"))
+                if (i.Contains("Жёсткий диск"))
                 {
-                    // меняем ресурс на 
+                    HDD.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -95,7 +100,7 @@ namespace Lo_Fi_Shop.Page
             {
                 if (i.Contains("Блок Питания"))
                 {
-                    // меняем ресурс на 
+                    Pit.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -104,9 +109,9 @@ namespace Lo_Fi_Shop.Page
             List<string> komponent = Players.InventoryPath;
             foreach (string i in komponent)
             {
-                if (i.Contains("Кулер"))
+                if (i.Contains("Система охлаждения"))
                 {
-                    // меняем ресурс на 
+                    Kyler.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }
@@ -117,7 +122,7 @@ namespace Lo_Fi_Shop.Page
             {
                 if (i.Contains("Корпус"))
                 {
-                    // меняем ресурс на 
+                    Korpus.Source = @"Resource/drawable/Viduha.jpg";
                 }
             }
         }

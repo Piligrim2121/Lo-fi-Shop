@@ -1,39 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Lo_Fi_Shop.Class;
 
 namespace Lo_Fi_Shop.Page
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class InventoryPage : ContentPage
-{
-    public InventoryPage()
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class InventoryPage : ContentPage
     {
-        InitializeComponent();
+        public InventoryPage()
+        {
+            InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            if (Inv_Grid.Children.Count > 1) {
+            if (Inv_Grid.Children.Count > 1)
+            {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
-                    }
+            }
             else
             {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
             }
 
         }
-
+        public static List<string> InvPart;
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
-            switch ((sender as ImageButton).GetType().GUID.ToString()) {
-               case "00000000-0000-0000-0000-000000000000":
-            Console.WriteLine("lol");
+            switch ((sender as ImageButton).GetType().GUID.ToString())
+            {
+                case "00000000-0000-0000-0000-000000000000":
+                    Console.WriteLine("lol");
                     break;
-                    }
-        
+            }
+
+        }
+
+        public static void AddToInv(string Part)
+        {
+            InvPart.Add(Part);
+            PersonClass.Write_TXT(InvPart);
         }
     }
 }

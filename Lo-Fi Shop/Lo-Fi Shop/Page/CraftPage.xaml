@@ -5,13 +5,12 @@
              BackgroundImageSource="Resources/drawable/CraftDefault.png">
     <ContentPage.Content>
         <Grid>
-            <ImageButton x:Name="Sborka" Grid.Row="1" Grid.Column="1"
-                         Margin="-230,-80,100,70"
-                         Padding="50"
+            <ImageButton x:Name="Sborka" Grid.Row="3" Grid.Column="1"
                          BackgroundColor="Transparent"
+                         Margin="-350,0,0,0"
                          Clicked="Sborka_Clicked"
                    Source="Resource/drawable/Sborka.png"  />
-            <Grid Margin="762,110,0,0">
+            <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70*"/>
                     <RowDefinition Height="84*"/>
@@ -29,35 +28,33 @@
                     <ColumnDefinition Width="87*"/>
                     <ColumnDefinition Width="91*"/>
                 </Grid.ColumnDefinitions>
-                
-
             </Grid>
-            <Grid Margin="79,26,645,25">
+            <Grid Margin="0,0,0,0" Grid.RowSpan="6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="447*"/>
                     <ColumnDefinition Width="101*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="57*"/>
-                    <RowDefinition Height="69*"/>
-                    <RowDefinition Height="70*"/>
-                    <RowDefinition Height="65*"/>
-                    <RowDefinition Height="64*"/>
-                    <RowDefinition Height="69*"/>
-                    <RowDefinition Height="69*"/>
-                    <RowDefinition Height="68*"/>
-                    <RowDefinition Height="63*"/>
-                    <RowDefinition Height="44*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
+                    <RowDefinition Height="100*"/>
                 </Grid.RowDefinitions>
 
-                <ImageButton x:Name="Proc" Grid.Row="1" Grid.Column="1" Clicked="Sborka_Proc"></ImageButton>
-                <ImageButton x:Name="Video" Grid.Row="2" Grid.Column="1" Clicked="Sborka_Video"></ImageButton>
-                <ImageButton x:Name="Mat" Grid.Row="3" Grid.Column="1" Clicked="Sborka_Mat"></ImageButton>
-                <ImageButton x:Name="OP" Grid.Row="4" Grid.Column="1" Clicked="Sborka_OP"></ImageButton>
-                <ImageButton x:Name="HDD" Grid.Row="5" Grid.Column="1" Clicked="Sborka_HDD"></ImageButton>
-                <ImageButton x:Name="Pit" Grid.Row="6" Grid.Column="1" Clicked="Sborka_Pit"></ImageButton>
-                <ImageButton x:Name="Kyler" Grid.Row="7" Grid.Column="1" Clicked="Sborka_Kyler"></ImageButton>
-                <ImageButton x:Name="Korpus" Grid.Row="8" Grid.Column="1" Clicked="Sborka_Korpus"></ImageButton>
+                <ImageButton x:Name="Proc" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1" Clicked="Sborka_Proc" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="Video" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1" Clicked="Sborka_Video" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="Mat" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="1" Clicked="Sborka_Mat" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="OP" BackgroundColor="Transparent" Grid.Row="4" Grid.Column="1" Clicked="Sborka_OP" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="HDD" BackgroundColor="Transparent" Grid.Row="5" Grid.Column="1" Clicked="Sborka_HDD" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="Pit" BackgroundColor="Transparent" Grid.Row="6" Grid.Column="1" Clicked="Sborka_Pit" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="Kyler" BackgroundColor="Transparent" Grid.Row="7" Grid.Column="1" Clicked="Sborka_Kyler" Source="Resource/drawable/Sborka.png"></ImageButton>
+                <ImageButton x:Name="Korpus" BackgroundColor="Transparent" Grid.Row="8" Grid.Column="1" Clicked="Sborka_Korpus" Source="Resource/drawable/Sborka.png"></ImageButton>
             </Grid>
             
         </Grid>

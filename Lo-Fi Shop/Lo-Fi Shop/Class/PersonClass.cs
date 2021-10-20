@@ -66,14 +66,27 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
+        public static void Write_TXT(List<string> InventoryParts)
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+            string SubInv = "";
+            foreach (string i in InventoryParts)
+            {
+                SubInv += (i + ",");
+            }
+            string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            //OverwriteData();
+        }
         /// <summary>
         /// Сохранения данных в файл
         /// </summary>
         /// <param name="Money">Количество денег для сохранения</param>
         public static void Write_TXT(int Money)
         {
-
-
             string Data = Read_TXT();
             string[] words = Data.Split(new char[] { ';' });
 
@@ -126,6 +139,5 @@ namespace Lo_Fi_Shop.Class
                 OverwriteData();
             }
         }
-
     }
 }

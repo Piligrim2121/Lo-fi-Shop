@@ -1,6 +1,5 @@
 ﻿using Lo_Fi_Shop.Class;
 using System;
-using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,11 +10,6 @@ namespace Lo_Fi_Shop.Page
     {
         private int intMoney = 0, intSell = 0;
 
-
-
-
-
-
         public ShopPage()
         {
             PersonClass Player = PersonClass.OverwriteData();
@@ -24,8 +18,6 @@ namespace Lo_Fi_Shop.Page
 
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
-            //Exp.Text = Player.Exp.ToString() + "exp";
-
         }
 
         private void Item_Clicked(object sender, EventArgs e)
@@ -111,12 +103,11 @@ namespace Lo_Fi_Shop.Page
             {
                 intMoney = intMoney - intSell;
                 PersonClass.Write_TXT(intMoney);
-                Console.WriteLine("Совершаю покупку");
                 BuyInfo.Text = "Покупка Успешна!";
                 PersonClass Player = PersonClass.OverwriteData();
                 Money.Text = Player.Money.ToString() + "₽";
-
-               // Thread.Sleep(2000);
+                InventoryPage.AddToInv(ComponentName.Text);
+                // Thread.Sleep(2000);
                 Navigation.PushAsync(new Page.PlayPage());
             }
         }
