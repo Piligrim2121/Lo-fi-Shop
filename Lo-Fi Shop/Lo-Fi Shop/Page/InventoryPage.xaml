@@ -27,8 +27,8 @@
                    Grid.RowSpan="6" 
                    Grid.ColumnSpan="6" 
                    Source=""  />-->
-            <ImageButton Clicked="TestVideoCard_Clicked"   x:Name="EasyVid1" Grid.Column="2"  Grid.Row="2" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>
-            <ImageButton Grid.Column="2"  Grid.Row="5" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>
+            <!--<ImageButton Clicked="TestVideoCard_Clicked"   x:Name="EasyVid1" Grid.Column="2"  Grid.Row="2" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>
+            <ImageButton Grid.Column="2"  Grid.Row="5" Source="Resources/drawable/Viduha.jpg"  Margin="10,10,3,10"/>-->
             <Image x:Name="Obvodka1" IsVisible="true" Grid.Column="5" Margin="-57,-3,7,25" Source="Resources/drawable/Obvodka.png"  Grid.RowSpan="2" Grid.ColumnSpan="2"/>
             <Image x:Name="Obvodka2" IsVisible="false" Grid.Column="5" Margin="-50,40,16,-17" Source="Resources/drawable/Obvodka.png"  Grid.RowSpan="2" Grid.ColumnSpan="2"/>
             <!--<TableView x:Name="InventoryTableView" Grid.Column="1">

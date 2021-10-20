@@ -21,7 +21,7 @@ namespace Lo_Fi_Shop.Page
             {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
             }
-
+            DisplayInvPath();
         }
         public static List<string> InvPart { get; set; }
         private void TestVideoCard_Clicked(object sender, EventArgs e)
@@ -35,7 +35,17 @@ namespace Lo_Fi_Shop.Page
 
         }
 
+        private static void DisplayInvPath()
+        {
 
+            PersonClass Player = PersonClass.OverwriteData();
+            InvPart = Player.InventoryPath;
+            int LenInv = 1;
+            foreach (string i in InvPart)
+            {
+                // Inv_Grid.Children.Add(new ImageButton { Background=Color.Transparent, Inv_Grid.Column = LenInv - (LenInv / 5) * 5, Inv_Grid.Row = (LenInv / 5) + 1, Clicked = "TestVideoCard_Clicked", Source = "Resources/drawable/Viduha.jpg"});
+            }
+        }
         public static void AddToInv(string Part)
         {
             InvPart = new List<string>();
