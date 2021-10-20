@@ -100,7 +100,6 @@ namespace Lo_Fi_Shop.Page
         {
             EmpetyMessage.IsVisible = false;
             BuyInfo.IsVisible = false;
-
         }
         /// <summary>
         /// Покупка предмета и перенос его в инвентарь
