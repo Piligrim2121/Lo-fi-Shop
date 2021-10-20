@@ -20,9 +20,13 @@ namespace Lo_Fi_Shop.Page
             Money.Text = Player.Money.ToString() + "₽";
         }
 
+        /// <summary>
+        /// Выбор предмета для покупки
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Item_Clicked(object sender, EventArgs e)
         {
-
             ImageButton tempBtn = sender as ImageButton;
             if (VideoCard.Id == tempBtn.Id)
             {
@@ -78,18 +82,30 @@ namespace Lo_Fi_Shop.Page
                 ComponentName.Text = "Жёсткий диск";
 
             }
-            else Console.WriteLine("ИД нет");
+            else
+            {
+                Console.WriteLine("ИД нет");
+                ComponentName.Text = "";
+                intSell = 0;
+            }
 
             ComponentPrice.Text = intSell.ToString() + "₽";
         }
-
+        /// <summary>
+        /// Закрытие сообщения о покупке
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmpetyMessage_Clicked(object sender, EventArgs e)
         {
             EmpetyMessage.IsVisible = false;
             BuyInfo.IsVisible = false;
-
         }
-
+        /// <summary>
+        /// Покупка предмета и перенос его в инвентарь
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuyBtn_Clicked(object sender, EventArgs e)
         {
             EmpetyMessage.IsVisible = true;
