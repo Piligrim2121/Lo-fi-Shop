@@ -58,7 +58,7 @@
            
             <Image ScaleX="0.8" x:Name="Client" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="Resources/drawable/Vasyok.png" BackgroundColor="Transparent" IsVisible="false"/>
             <ImageButton x:Name="Sky" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
-            <ImageButton x:Name="SkyBuy" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/PC.jpg"  Clicked="SkyBuy_Clicked" />
+            <ImageButton x:Name="SkyBuy" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud_Vopros.png"  Clicked="SkyBuy_Clicked" />
             <ImageButton x:Name="ImageKassa"
                          Clicked="ImageKassa_Clicked"
                          Grid.Column="1" 
