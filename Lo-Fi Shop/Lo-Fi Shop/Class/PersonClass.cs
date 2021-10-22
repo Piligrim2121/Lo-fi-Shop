@@ -16,7 +16,7 @@ namespace Lo_Fi_Shop.Class
         public List<string> InventoryPath;
         public List<string> InventoryWhole;
         public List<int> Settings;
-       
+        public int Lvl;
         /// <summary>
         /// Конструктор класса PersonClass
         /// </summary>
@@ -25,8 +25,6 @@ namespace Lo_Fi_Shop.Class
         /// <param name="InventoryPath"></param>
         /// <param name="InventoryWhole"></param>
         /// <param name="Settings"></param>
-        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings)
-        public int Lvl;
         private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings, int Lvl)
         {
             this.Money = Money;
@@ -54,9 +52,9 @@ namespace Lo_Fi_Shop.Class
         /// <param name="Money">Количество денег для сохранения </param>
         /// <param name="Exp">Количество опыта для сохранения</param>
         /// <param name="InventoryParts">Список с названием компонентов</param>
-        /// <param name="InventoryWhole"></param>
+        /// <param name="InventoryWhole">Список с названием готовых ПК</param>
         /// <param name="Settings">Внутри игровые настройки(list с 3 значениями от 1 до 10)</param>
-        public static void Write_TXT(int Money, int Exp, List<string> InventoryParts, List<string> InventoryWhole, List<int> Settings)
+        public static void Write_TXT(int Money, int Exp, List<string> InventoryParts, List<string> InventoryWhole, List<int> Settings, int Lvl)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
@@ -75,7 +73,7 @@ namespace Lo_Fi_Shop.Class
             {
                 SubSett += (i.ToString() + ",");
             }
-            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";";
+            string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";Lvl:" + Lvl;
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
@@ -94,7 +92,7 @@ namespace Lo_Fi_Shop.Class
             {
                 SubInv += (i + ",");
             }
-            string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";";
+            string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";" + words[5] +";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             //OverwriteData();
         }
@@ -125,7 +123,7 @@ namespace Lo_Fi_Shop.Class
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             Console.WriteLine("testtt"+Data);
-            string text = "Money:" + Money.ToString() + ";"+words[1]+";"+words[2] + ";" + words[3] + ";" + words[4] + ";";
+            string text = "Money:" + Money.ToString() + ";"+words[1]+";"+words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
            // OverwriteData();
         }
@@ -138,7 +136,19 @@ namespace Lo_Fi_Shop.Class
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             Console.WriteLine("testtt" + Data);
-            string text = words[0] + "; Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
+            string text = words[0] + ";Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            // OverwriteData();
+        }
+
+        public static void Write_TXT3(int Lvl)
+        {
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            Console.WriteLine("testtt" + Data);
+            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";Lvl:" + Lvl;
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // OverwriteData();
         }

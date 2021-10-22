@@ -47,13 +47,17 @@ public partial class PlayPage : ContentPage
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            Level = Convert.ToInt32(lvl.Text.Replace("lvl",""));
+            Level = Player.Lvl;
+            lvl.Text = Level + " lvl";
             //lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 100 + 1)).ToString() + "lvl";
             //if((Player.Exp - (100 * Level)) / 100 >= Level - 1)
-            if(Player.Exp >= (100* Level))
+            if (Player.Exp >= (100* Level))
             {
                 Level++;
                 lvl.Text = Level + " lvl";
+                PersonClass.Write_TXT3(Level);
+                PersonClass.Write_TXT2(0);
+                Player = PersonClass.OverwriteData();
             }
             Exp.Progress = Convert.ToDouble(Player.Exp) / (100 * Level);
         }
@@ -148,6 +152,11 @@ public partial class PlayPage : ContentPage
                 Money.Text = M.ToString() + "₽";
                 PersonClass Player = PersonClass.OverwriteData();
                 PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
+                if (Player.Exp >= (100 * Level - 1))
+                {
+                    PersonClass.Write_TXT3(Level);
+                    PersonClass.Write_TXT2(0);
+                }
                 PersonClass.Write_TXT(M);
                 Get_data();
                 Alive = true;
