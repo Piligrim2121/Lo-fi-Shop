@@ -184,6 +184,7 @@ public partial class PlayPage : ContentPage
                     ButtonYes.IsVisible = true;
                     Dialog.IsVisible = false;
                     Answer.IsVisible = false;
+                    ButtonHide.IsVisible = false;
                     GridBtn.IsVisible = false;
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
