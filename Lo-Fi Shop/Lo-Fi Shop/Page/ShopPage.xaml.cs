@@ -31,55 +31,55 @@ namespace Lo_Fi_Shop.Page
             if (VideoCard.Id == tempBtn.Id)
             {
                 Console.WriteLine(1);
-                intSell = 30000;
-                ComponentName.Text = "Видеокарта";
+                intSell = 10000;
+                ComponentName.Text = "Начальная Видеокарта";
             }
             else if (CPU.Id == tempBtn.Id)
             {
                 Console.WriteLine(2);
-                intSell = 10000;
-                ComponentName.Text = "Процессор";
+                intSell = 6000;
+                ComponentName.Text = "Начальный Процессор";
 
             }
             else if (Kuller.Id == tempBtn.Id)
             {
                 Console.WriteLine(3);
-                intSell = 800;
-                ComponentName.Text = "Система охлаждения";
+                intSell = 300;
+                ComponentName.Text = "Начальная Система охлаждения";
 
             }
             else if (OZU.Id == tempBtn.Id)
             {
                 Console.WriteLine(4);
                 intSell = 1500;
-                ComponentName.Text = "Оперативная память";
+                ComponentName.Text = "Начальная Оперативная память";
 
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
                 Console.WriteLine(5);
-                intSell = 9000;
-                ComponentName.Text = "Материнская плата";
+                intSell = 3000;
+                ComponentName.Text = "Начальная Материнская плата";
 
             }
             else if (Corpus.Id == tempBtn.Id)
             {
                 Console.WriteLine(6);
-                intSell = 500;
-                ComponentName.Text = "Корпус";
+                intSell = 1100;
+                ComponentName.Text = "Начальный Корпус";
 
             }
             else if (BP.Id == tempBtn.Id)
             {
                 Console.WriteLine(7);
-                intSell = 5500;
-                ComponentName.Text = "Блок Питания";
+                intSell = 900;
+                ComponentName.Text = "Начальный Блок Питания";
             }
             else if (HDD.Id == tempBtn.Id)
             {
                 Console.WriteLine(8);
-                intSell = 4500;
-                ComponentName.Text = "Жёсткий диск";
+                intSell = 2500;
+                ComponentName.Text = "Начальный Жёсткий диск";
 
             }
             else

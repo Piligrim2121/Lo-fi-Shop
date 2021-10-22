@@ -41,14 +41,14 @@
             <ImageButton x:Name="EmpetyMessage" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false" Clicked="EmpetyMessage_Clicked"></ImageButton>
             <Label x:Name="BuyInfo" Margin="10,10,0,0" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false">Покупка не удалась - недостаточно средств</Label>
 
-            <ImageButton x:Name="VideoCard" Source="Resources\drawable\Viduha.jpg" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="CPU" Source="" Grid.Column="2" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="Kuller" Source="" Grid.Column="3" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="OZU" Source="" Grid.Column="4" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="MotherBoard" Source="" Grid.Column="5" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="Corpus" Source="Resources\drawable\PC.jpg" Grid.Column="6" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="BP" Source="" Grid.Column="7" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-            <ImageButton x:Name="HDD" Source="" Grid.Column="8" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="VideoCard" Source="Resources/drawable/Easy_Vid.png" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="CPU" Source="Resources/drawable/Easy_Proc.png" Grid.Column="2" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="Kuller" Source="Resources/drawable/Easy_Cooler.png" Grid.Column="3" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="OZU" Source="Resources/drawable/Easy_ram.png" Grid.Column="4" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MotherBoard" Source="Resources/drawable/Easy_Mother.png" Grid.Column="5" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="Corpus" Source="Resources/drawable/Easy_corpus.png" Grid.Column="6" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="BP" Source="Resources/drawable/Easy_Power.png" Grid.Column="7" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HDD" Source="Resources/drawable/Easy_mem.png" Grid.Column="8" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
         
         </Grid>
         
