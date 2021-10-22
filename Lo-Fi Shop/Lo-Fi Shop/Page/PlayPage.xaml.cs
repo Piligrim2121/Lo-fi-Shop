@@ -123,8 +123,7 @@ public partial class PlayPage : ContentPage
                 Alive = true;
                 SkyBuy.IsVisible = true;
                 Navigation.PushAsync(new Page.QuestPage(Answer.Text));
-                // Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
-                h = false;
+
             }
 
             else if (h == false)
@@ -134,11 +133,11 @@ public partial class PlayPage : ContentPage
                 Answer.IsVisible = false;
                 GridBtn.IsVisible = false;
                 int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
-                Money.Text = M.ToString();
+                Money.Text = M.ToString() + "₽";
                 PersonClass.Write_TXT(M);
                 Alive = true;
-                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 100)), OnTimerTick);
-                h = true;
+                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
+
             }
         }
 
@@ -163,7 +162,7 @@ public partial class PlayPage : ContentPage
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
-                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
                     
                 }
 
@@ -189,7 +188,7 @@ public partial class PlayPage : ContentPage
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
-                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(50, 200)), OnTimerTick);
+                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
                     
                 }
             }
@@ -215,6 +214,8 @@ public partial class PlayPage : ContentPage
             Dialog.IsVisible = false;
             Answer.IsVisible = false;
             GridBtn.IsVisible = false;
+
+            ButtonYes.Text = "Да";
             ButtonNo.Text = "Нет";
         }
     }
