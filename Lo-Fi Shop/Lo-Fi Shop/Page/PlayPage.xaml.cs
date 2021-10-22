@@ -68,7 +68,7 @@ public partial class PlayPage : ContentPage
         /// <param name="e"></param>
         private void ImageShkaf_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Page.InventoryPage());
+            Navigation.PushAsync(new Page.InventoryPage(false));
         }
         /// <summary>
         /// Переход к  странице крафта
@@ -144,23 +144,24 @@ public partial class PlayPage : ContentPage
 
             else if (h == false)
             {
-                Client.IsVisible = false;
-                Dialog.IsVisible = false;
-                Answer.IsVisible = false;
-                GridBtn.IsVisible = false;
-                int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
-                Money.Text = M.ToString() + "₽";
-                PersonClass Player = PersonClass.OverwriteData();
-                PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
-                if (Player.Exp >= (100 * Level - 1))
-                {
-                    PersonClass.Write_TXT3(Level);
-                    PersonClass.Write_TXT2(0);
-                }
-                PersonClass.Write_TXT(M);
-                Get_data();
-                Alive = true;
-                Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
+                Navigation.PushAsync(new Page.InventoryPage(true));
+                //Client.IsVisible = false;
+                //Dialog.IsVisible = false;
+                //Answer.IsVisible = false;
+                //GridBtn.IsVisible = false;
+                //int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
+                //Money.Text = M.ToString() + "₽";
+                //PersonClass Player = PersonClass.OverwriteData();
+                //PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
+                //if (Player.Exp >= (100 * Level - 1))
+                //{
+                //    PersonClass.Write_TXT3(Level);
+                //    PersonClass.Write_TXT2(0);
+                //}
+                //PersonClass.Write_TXT(M);
+                //Get_data();
+                //Alive = true;
+                //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
             }
         }
 
