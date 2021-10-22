@@ -8,7 +8,7 @@
         public string Description;
         public int Sell;
         public string Path;
-        public bool InInvenrory;
+        public bool InInventory;
 
         /// <summary>
         /// Конструктор класса Item
@@ -23,7 +23,7 @@
             this.Name = Name;
             this.Sell = Sell;
             this.Description = Description;
-            this.InInvenrory = InInvenrory;
+            this.InInventory = InInvenrory;
             this.Path = Path;
         }
         /// <summary>
@@ -40,7 +40,6 @@
             Item Corpus = new Item(/*5,*/ "Начальный Корпус", 1100, "Resources/drawable/Easy_corpus.png");
             Item BP = new Item(/*6,*/ "Начальный Блок Питания", 900, "Resources/drawable/Easy_Power.png");
             Item HDD = new Item(/*7,*/ "Начальный Жёсткий диск", 2500, "Resources/drawable/Easy_mem.png");
-
             Item[] items = { VideoCard, CPU, Kuller, OZU, MotherBoard, Corpus, BP, HDD };
             return items;
 
