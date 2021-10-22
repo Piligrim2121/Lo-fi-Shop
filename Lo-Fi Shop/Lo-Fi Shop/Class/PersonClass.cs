@@ -28,7 +28,7 @@ namespace Lo_Fi_Shop.Class
         /// <summary>
         /// Чтение данных из файла 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Строка содержащиеся в файле</returns>
         public static string Read_TXT()
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -41,8 +41,9 @@ namespace Lo_Fi_Shop.Class
         /// </summary>
         /// <param name="Money">Количество денег для сохранения </param>
         /// <param name="Exp">Количество опыта для сохранения</param>
-        /// <param name="Inventory">Список предметов содержащихся в инвентаре</param>
-        /// <param name="Settings">Внутри игровые настройки</param>
+        /// <param name="InventoryParts">Список с названием компонентов</param>
+        /// <param name="InventoryWhole"></param>
+        /// <param name="Settings">Внутри игровые настройки(list с 3 значениями от 1 до 10)</param>
         public static void Write_TXT(int Money, int Exp, List<string> InventoryParts, List<string> InventoryWhole, List<int> Settings)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -66,6 +67,10 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             OverwriteData();
         }
+        /// <summary>
+        /// Сохранение данных в файл
+        /// </summary>
+        /// <param name="InventoryParts">Список с названиями компонентов</param>
         public static void Write_TXT(List<string> InventoryParts)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -113,10 +118,23 @@ namespace Lo_Fi_Shop.Class
            // OverwriteData();
         }
 
+        public static void Write_TXT2(int Exp)
+        {
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            Console.WriteLine("testtt" + Data);
+            string text = words[0] + "; Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            // OverwriteData();
+        }
+
         /// <summary>
         ///  Перезапись файла новыми данными
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Класс игрока</returns>
         public static PersonClass OverwriteData()
         {
             string Data = Read_TXT();

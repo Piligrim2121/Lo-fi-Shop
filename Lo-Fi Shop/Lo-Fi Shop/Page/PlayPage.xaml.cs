@@ -20,6 +20,7 @@ public partial class PlayPage : ContentPage
         public Item[] MassAllItems = Item.CreateItems();
         private Random rnd;
         private int MoneyClient;
+        private int Level ;
         public PlayPage()
         {
             InitializeComponent();
@@ -38,12 +39,23 @@ public partial class PlayPage : ContentPage
         /// <summary>
         /// Заполнение значений в игровом окне(деньги опыт)
         /// </summary>
+        /// 
+
+       
+
         private void Get_data()
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 10 + 1)).ToString() + "lvl";
-            Exp.Progress = (Player.Exp - (Convert.ToInt32(lvl.Text.Replace("lvl", "")) - 1) * 10) / 10;
+            Level = Convert.ToInt32(lvl.Text) ;
+            lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 50 + 1)).ToString() + "lvl";
+            if((Exp.Progress - (100 * Level)) / 100 >= Level)
+            {
+                Level++;
+                lvl.Text = Level + " lvl";
+            }
+
+            Exp.Progress = Player.Exp;
         }
         /// <summary> 
         /// Открытие инвентаря
@@ -134,6 +146,8 @@ public partial class PlayPage : ContentPage
                 GridBtn.IsVisible = false;
                 int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
                 Money.Text = M.ToString() + "₽";
+                Get_data();
+                PersonClass.Write_TXT2(Convert.ToInt32(Exp.Progress));
                 PersonClass.Write_TXT(M);
                 Alive = true;
                 Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
