@@ -16,6 +16,16 @@ namespace Lo_Fi_Shop.Class
         public List<string> InventoryPath;
         public List<string> InventoryWhole;
         public List<int> Settings;
+       
+        /// <summary>
+        /// Конструктор класса PersonClass
+        /// </summary>
+        /// <param name="Money"></param>
+        /// <param name="Exp"></param>
+        /// <param name="InventoryPath"></param>
+        /// <param name="InventoryWhole"></param>
+        /// <param name="Settings"></param>
+        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings)
         public int Lvl;
         private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings, int Lvl)
         {

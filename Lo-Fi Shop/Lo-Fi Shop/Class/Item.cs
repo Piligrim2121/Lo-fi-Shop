@@ -10,7 +10,13 @@
         public string Path;
         public bool InInvenrory;
 
-
+        /// <summary>
+        /// Конструктор класса Item
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Sell"></param>
+        /// <param name="Description"></param>
+        /// <param name="InInvenrory"></param>
         public Item(/*ushort ID,*/ string Name, int Sell, string Path, string Description = "", bool InInvenrory = false)
         {
             //this.ID = ID;
@@ -21,7 +27,7 @@
             this.Path = Path;
         }
         /// <summary>
-        /// Создание массива всех существующих объектов
+        /// Создание массива всех существующих предметов
         /// </summary>
         /// <returns>Массив всех существующих предметов </returns>
         public static Item[] CreateItems()
