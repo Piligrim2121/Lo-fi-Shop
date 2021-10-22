@@ -29,11 +29,56 @@ namespace Lo_Fi_Shop.Page
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
                 Sell.IsVisible = true;
             }
+            
+            
             DisplayInvPath();
         }
+        ImageButton tempBtn;
         public static List<string> InvPart { get; set; }
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
+            tempBtn = sender as ImageButton;
+            
+            if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
+            {
+                Description.Text = Item.InInvItems[0].Description;
+                Info_name.Text = Item.InInvItems[0].Name;
+            }
+           else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
+            {
+                Description.Text = Item.InInvItems[1].Description;
+                Info_name.Text = Item.InInvItems[1].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
+            {
+                Description.Text = Item.InInvItems[2].Description;
+                Info_name.Text = Item.InInvItems[2].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[3].Path)
+            {
+                Description.Text = Item.InInvItems[3].Description;
+                Info_name.Text = Item.InInvItems[3].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[4].Path)
+            {
+                Description.Text = Item.InInvItems[4].Description;
+                Info_name.Text = Item.InInvItems[4].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[5].Path)
+            {
+                Description.Text = Item.InInvItems[5].Description;
+                Info_name.Text = Item.InInvItems[5].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[6].Path)
+            {
+                Description.Text = Item.InInvItems[6].Description;
+                Info_name.Text = Item.InInvItems[6].Name;
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[7].Path)
+            {
+                Description.Text = Item.InInvItems[7].Description;
+                Info_name.Text = Item.InInvItems[7].Name;
+            }
             //switch ((sender as ImageButton).GetType().GUID.ToString())
             //{
             //    case "00000000-0000-0000-0000-000000000000":
@@ -44,23 +89,30 @@ namespace Lo_Fi_Shop.Page
 
         private void DisplayInvPath()
         {
-            Console.WriteLine(Inv_Grid.Children.Count);
+             Console.WriteLine(Inv_Grid.Children.Count);
             Inv_Grid.Children.Clear();
             Console.WriteLine(Inv_Grid.Children.Count);
             if (Obvodka1.Source != null)
             {
                 PersonClass Player = PersonClass.OverwriteData();
                 InvPart = Player.InventoryPath;
+                
                 int LenInv = 0;
                 foreach (string i in InvPart)
                 {
+
                     if (i == "")
                     {
                         continue;
                     }
-                    ImageButton imageButton = new ImageButton { Source = "Resources/drawable/Viduha.jpg", BackgroundColor = Color.Transparent };
-                    imageButton.Clicked += TestVideoCard_Clicked;
-                    Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                    for (int c = 0; c < Item.InInvItems.Length; c++) {
+                        if (i == Item.InInvItems[c].Name)
+                        {
+                            ImageButton imageButton = new ImageButton {Margin= new Thickness(20,-20,0,-65),Scale =1.0 ,Source = Item.InInvItems[c].Path, BackgroundColor = Color.Transparent };
+                            imageButton.Clicked += TestVideoCard_Clicked;
+                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                        }
+                    }
                     LenInv++;
                 }
                 LenInv = 0;
@@ -85,13 +137,15 @@ namespace Lo_Fi_Shop.Page
             }
         }
 
-        public static void AddToInv(string Part)
+        
+
+        public static void AddToInv(string Part, Item SelectItem)
         {
-            InvPart = new List<string>();
+            InvPart = new List<string>();        
             PersonClass Player = PersonClass.OverwriteData();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);
-            PersonClass.Write_TXT(InvPart);
+            PersonClass.Write_TXT(InvPart);       
         }
 
         private void Obvodka_Clicked(object sender, EventArgs e)

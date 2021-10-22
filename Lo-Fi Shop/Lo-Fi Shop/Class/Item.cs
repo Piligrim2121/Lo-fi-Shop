@@ -1,4 +1,6 @@
-﻿namespace Lo_Fi_Shop.Class
+﻿using System.Collections.Generic;
+
+namespace Lo_Fi_Shop.Class
 {
     public class Item
     {
