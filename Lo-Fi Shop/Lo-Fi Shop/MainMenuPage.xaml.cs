@@ -13,7 +13,9 @@ namespace Lo_Fi_Shop
 {
     public partial class MainMenuPage : ContentPage
     {
-
+        /// <summary>
+        /// Инициализация компонентов и загрузка главного меню 
+        /// </summary>
         public MainMenuPage()
         {
             InitializeComponent();
