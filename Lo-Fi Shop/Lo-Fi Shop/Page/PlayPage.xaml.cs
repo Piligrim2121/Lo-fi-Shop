@@ -47,15 +47,15 @@ public partial class PlayPage : ContentPage
         {
             PersonClass Player = PersonClass.OverwriteData();
             Money.Text = Player.Money.ToString() + "₽";
-            Level = Convert.ToInt32(lvl.Text) ;
-            lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 50 + 1)).ToString() + "lvl";
-            if((Exp.Progress - (100 * Level)) / 100 >= Level)
+            Level = Convert.ToInt32(lvl.Text.Replace("lvl",""));
+            //lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 100 + 1)).ToString() + "lvl";
+            //if((Player.Exp - (100 * Level)) / 100 >= Level - 1)
+            if(Player.Exp >= (100* Level))
             {
                 Level++;
                 lvl.Text = Level + " lvl";
             }
-
-            Exp.Progress = Player.Exp;
+            Exp.Progress = Convert.ToDouble(Player.Exp) / (100 * Level);
         }
         /// <summary> 
         /// Открытие инвентаря
@@ -121,7 +121,7 @@ public partial class PlayPage : ContentPage
             Answer.IsVisible=true;
             h = true;
             GridBtn.IsVisible= true;
-            MoneyClient = rnd.Next(50000, 150000);
+            MoneyClient = rnd.Next(20000, 30000);
             Answer.Text = "Сделаете комп за " + MoneyClient + ", пожуй листа?";
         }
 
@@ -146,12 +146,12 @@ public partial class PlayPage : ContentPage
                 GridBtn.IsVisible = false;
                 int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
                 Money.Text = M.ToString() + "₽";
-                Get_data();
-                PersonClass.Write_TXT2(Convert.ToInt32(Exp.Progress));
+                PersonClass Player = PersonClass.OverwriteData();
+                PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
                 PersonClass.Write_TXT(M);
+                Get_data();
                 Alive = true;
                 Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
-
             }
         }
 

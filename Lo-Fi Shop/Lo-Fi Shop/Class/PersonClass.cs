@@ -16,13 +16,15 @@ namespace Lo_Fi_Shop.Class
         public List<string> InventoryPath;
         public List<string> InventoryWhole;
         public List<int> Settings;
-        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings)
+        public int Lvl;
+        private PersonClass(int Money, int Exp, List<string> InventoryPath, List<string> InventoryWhole, List<int> Settings, int Lvl)
         {
             this.Money = Money;
             this.Exp = Exp;
             this.InventoryPath = InventoryPath; // без ограничений
             this.InventoryWhole = InventoryWhole; // без ограничений
             this.Settings = Settings; // list с 3 значениями от 1 до 10
+            this.Lvl = Lvl;
         }
 
         /// <summary>
@@ -155,7 +157,8 @@ namespace Lo_Fi_Shop.Class
             {
                 Settings.Add(Convert.ToInt32(i));
             }
-            PersonClass Player = new PersonClass(Money, Exp, Inv, Inv2, Settings);
+            int Lvl = Convert.ToInt32(Data.Split(';')[5].Split(':')[1]);
+            PersonClass Player = new PersonClass(Money, Exp, Inv, Inv2, Settings, Lvl);
             return Player;
         }
         /// <summary>
@@ -167,7 +170,7 @@ namespace Lo_Fi_Shop.Class
             string filename = "data";
             if (!File.Exists(Path.Combine(folderPath, filename)))
             {
-                string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;";
+                string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;Lvl:1";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
                 OverwriteData();
             }
