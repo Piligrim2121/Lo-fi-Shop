@@ -8,8 +8,9 @@ namespace Lo_Fi_Shop.Page
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShopPage : ContentPage
     {
-        private int intMoney = 0, intSell = 0;
+        
         private Item SelectItem;
+        private int intMoney;
         public ShopPage()
         {
             PersonClass Player = PersonClass.OverwriteData();
@@ -33,67 +34,66 @@ namespace Lo_Fi_Shop.Page
             {
                 SelectItem = Item.items[0];
                 Console.WriteLine(1);
-                intSell = 10000;
-                ComponentName.Text = "Начальная Видеокарта";
+
             }
             else if (CPU.Id == tempBtn.Id)
             {
                 SelectItem = Item.items[1];
                 Console.WriteLine(2);
-                intSell = 6000;
-                ComponentName.Text = "Начальный Процессор";
+               
 
             }
             else if (Kuller.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[2];
                 Console.WriteLine(3);
-                intSell = 300;
-                ComponentName.Text = "Начальная Система охлаждения";
+                
 
             }
             else if (OZU.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[3];
                 Console.WriteLine(4);
-                intSell = 1500;
-                ComponentName.Text = "Начальная Оперативная память";
+                
 
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[4];
                 Console.WriteLine(5);
-                intSell = 3000;
-                ComponentName.Text = "Начальная Материнская плата";
+                
 
             }
             else if (Corpus.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[5];
                 Console.WriteLine(6);
-                intSell = 1100;
-                ComponentName.Text = "Начальный Корпус";
+                
 
             }
             else if (BP.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[6];
                 Console.WriteLine(7);
-                intSell = 900;
-                ComponentName.Text = "Начальный Блок Питания";
+               
             }
             else if (HDD.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[7];
                 Console.WriteLine(8);
-                intSell = 2500;
-                ComponentName.Text = "Начальный Жёсткий диск";
+                
 
             }
             else
             {
                 Console.WriteLine("ИД нет");
                 ComponentName.Text = "";
-                intSell = 0;
+                return;
             }
 
             ComponentPrice.Text = SelectItem.Sell.ToString();
             ComponentName.Text = SelectItem.Name;
+            Console.WriteLine(SelectItem.Name + SelectItem.Sell + SelectItem.Path);
         }
         /// <summary>
         /// Закрытие сообщения о покупке
@@ -114,14 +114,14 @@ namespace Lo_Fi_Shop.Page
         {
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
-            if (intMoney - intSell < 0)
+            if (intMoney - SelectItem.Sell < 0)
             {
                 Console.WriteLine("У пользователя недостаточно денег для данной операции");
                 BuyInfo.Text = "Покупка не удалась - недостаточно средств";
             }
             else
             {
-                intMoney = intMoney - intSell;
+                intMoney = intMoney - SelectItem.Sell;
                 PersonClass.Write_TXT(intMoney);
                 BuyInfo.Text = "Покупка Успешна!";
                 PersonClass Player = PersonClass.OverwriteData();
