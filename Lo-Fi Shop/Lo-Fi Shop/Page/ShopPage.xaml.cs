@@ -9,7 +9,7 @@ namespace Lo_Fi_Shop.Page
     public partial class ShopPage : ContentPage
     {
         private int intMoney = 0, intSell = 0;
-
+        private Item SelectItem;
         public ShopPage()
         {
             PersonClass Player = PersonClass.OverwriteData();
@@ -25,17 +25,20 @@ namespace Lo_Fi_Shop.Page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        ImageButton tempBtn;
         private void Item_Clicked(object sender, EventArgs e)
         {
-            ImageButton tempBtn = sender as ImageButton;
+            tempBtn = sender as ImageButton;
             if (VideoCard.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[0];
                 Console.WriteLine(1);
                 intSell = 10000;
                 ComponentName.Text = "Начальная Видеокарта";
             }
             else if (CPU.Id == tempBtn.Id)
             {
+                SelectItem = Item.items[1];
                 Console.WriteLine(2);
                 intSell = 6000;
                 ComponentName.Text = "Начальный Процессор";
@@ -89,7 +92,8 @@ namespace Lo_Fi_Shop.Page
                 intSell = 0;
             }
 
-            ComponentPrice.Text = intSell.ToString() + "₽";
+            ComponentPrice.Text = SelectItem.Sell.ToString();
+            ComponentName.Text = SelectItem.Name;
         }
         /// <summary>
         /// Закрытие сообщения о покупке

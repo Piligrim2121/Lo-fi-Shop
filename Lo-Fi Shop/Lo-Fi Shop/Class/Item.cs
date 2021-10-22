@@ -8,8 +8,8 @@
         public string Description;
         public int Sell;
         public string Path;
-        public bool InInventory;
-
+        public bool InInvenrory;
+        public static Item[] items;
         /// <summary>
         /// Конструктор класса Item
         /// </summary>
