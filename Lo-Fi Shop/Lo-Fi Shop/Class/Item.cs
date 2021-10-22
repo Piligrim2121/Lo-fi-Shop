@@ -8,22 +8,22 @@
         public string Description;
         public int Sell;
         public string Path;
-        public bool InInvenrory;
-        public static Item[] items;
+        public bool InInventory;
+        public static Item[] InInvItems = CreateItems();
         /// <summary>
         /// Конструктор класса Item
         /// </summary>
         /// <param name="Name"></param>
         /// <param name="Sell"></param>
         /// <param name="Description"></param>
-        /// <param name="InInvenrory"></param>
-        public Item(/*ushort ID,*/ string Name, int Sell, string Path, string Description = "", bool InInvenrory = false)
+        /// <param name="InInventory"></param>
+        public Item(/*ushort ID,*/ string Name, int Sell, string Path, string Description = "", bool InInventory = false)
         {
             //this.ID = ID;
             this.Name = Name;
             this.Sell = Sell;
             this.Description = Description;
-            this.InInventory = InInvenrory;
+            this.InInventory = InInventory;
             this.Path = Path;
         }
         /// <summary>
