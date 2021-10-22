@@ -123,7 +123,7 @@ namespace Lo_Fi_Shop.Page
             {
                 intMoney = intMoney - SelectItem.Sell;
                 PersonClass.Write_TXT(intMoney);
-                BuyInfo.Text = "Покупка Успешна!";
+                BuyInfo.Text = "Покупка успешна!";
                 PersonClass Player = PersonClass.OverwriteData();
                 Money.Text = Player.Money.ToString() + "₽";
                 string TempTXT = ComponentName.Text;

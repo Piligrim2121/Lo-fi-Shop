@@ -16,10 +16,12 @@ namespace Lo_Fi_Shop.Page
             if (Inv_Grid.Children.Count > 1)
             {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
+               
             }
             else
             {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
+                
             }
             if (Da)
             {

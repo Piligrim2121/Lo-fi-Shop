@@ -27,8 +27,9 @@
                     <ColumnDefinition Width="126*"/>
                     <ColumnDefinition Width="126*"/>
                 </Grid.ColumnDefinitions>
-            
+                
             </Grid>
+            <Image Margin="-350,10,0,20" Grid.Row="1" Grid.RowSpan="3" Source="Resources/drawable/InvInfo.png" />
             <StackLayout Grid.Column="1" Grid.RowSpan="1" Spacing="-40">
                 <ImageButton x:Name="Obvodka1" Scale="0.5" Padding="0" Margin="-7,-20,0,0" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Transparent" IsVisible="true" Source="Resources/drawable/Obvodka.png" Clicked="Obvodka_Clicked"/>
                 <ImageButton x:Name="Obvodka2" Scale="0.5" Padding="0" Margin="-7,0,0,0" VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Transparent" IsVisible="false" Source="Resources/drawable/Obvodka.png" Clicked="Obvodka2_Clicked"/>
