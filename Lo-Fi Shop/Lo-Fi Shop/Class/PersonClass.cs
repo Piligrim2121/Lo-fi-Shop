@@ -113,6 +113,19 @@ namespace Lo_Fi_Shop.Class
            // OverwriteData();
         }
 
+        public static void Write_TXT2(int Exp)
+        {
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            Console.WriteLine("testtt" + Data);
+            string text = words[0] + "; Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            // OverwriteData();
+        }
+
         /// <summary>
         ///  Перезапись файла новыми данными
         /// </summary>
