@@ -20,6 +20,16 @@ namespace Lo_Fi_Shop.Page
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
         }
+        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.Back)
+            {
+                SetContentView(Resource.Layout.Login)
+               return false;
+            }
+
+            return true;
+        }
 
         /// <summary>
         /// Выбор предмета для покупки
@@ -34,28 +44,21 @@ namespace Lo_Fi_Shop.Page
             {
                 SelectItem = Item.InInvItems[0];
                 Console.WriteLine(1);
-
             }
             else if (CPU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[1];
                 Console.WriteLine(2);
-               
-
             }
             else if (Kuller.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[2];
                 Console.WriteLine(3);
-                
-
             }
             else if (OZU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[3];
                 Console.WriteLine(4);
-                
-
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
@@ -68,21 +71,16 @@ namespace Lo_Fi_Shop.Page
             {
                 SelectItem = Item.InInvItems[5];
                 Console.WriteLine(6);
-                
-
             }
             else if (BP.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[6];
-                Console.WriteLine(7);
-               
+                Console.WriteLine(7); 
             }
             else if (HDD.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[7];
                 Console.WriteLine(8);
-                
-
             }
             else
             {
@@ -115,11 +113,12 @@ namespace Lo_Fi_Shop.Page
         {
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
-
+            
             if (ComponentName.Text == "Добро пожаловать!")
-                BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки";
-            else
             {
+                BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки";
+                return;
+            }
                 if (intMoney - SelectItem.Sell < 0)
                 {
                     Console.WriteLine("У пользователя недостаточно денег для данной операции");
@@ -133,10 +132,11 @@ namespace Lo_Fi_Shop.Page
                     PersonClass Player = PersonClass.OverwriteData();
                     Money.Text = Player.Money.ToString() + "₽";
                     InventoryPage.AddToInv(ComponentName.Text);
-                    // Thread.Sleep(2000);
+                // Thread.Sleep(2000);
+                
                     Navigation.PushAsync(new Page.PlayPage());
                 }
-            }
+            
             
         }
 
