@@ -32,54 +32,54 @@ namespace Lo_Fi_Shop.Page
             tempBtn = sender as ImageButton;
             if (VideoCard.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[0];
+                SelectItem = Item.InInvItems[0];
                 Console.WriteLine(1);
 
             }
             else if (CPU.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[1];
+                SelectItem = Item.InInvItems[1];
                 Console.WriteLine(2);
                
 
             }
             else if (Kuller.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[2];
+                SelectItem = Item.InInvItems[2];
                 Console.WriteLine(3);
                 
 
             }
             else if (OZU.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[3];
+                SelectItem = Item.InInvItems[3];
                 Console.WriteLine(4);
                 
 
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[4];
+                SelectItem = Item.InInvItems[4];
                 Console.WriteLine(5);
                 
 
             }
             else if (Corpus.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[5];
+                SelectItem = Item.InInvItems[5];
                 Console.WriteLine(6);
                 
 
             }
             else if (BP.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[6];
+                SelectItem = Item.InInvItems[6];
                 Console.WriteLine(7);
                
             }
             else if (HDD.Id == tempBtn.Id)
             {
-                SelectItem = Item.items[7];
+                SelectItem = Item.InInvItems[7];
                 Console.WriteLine(8);
                 
 
@@ -91,7 +91,7 @@ namespace Lo_Fi_Shop.Page
                 return;
             }
 
-            ComponentPrice.Text = SelectItem.Sell.ToString();
+            ComponentPrice.Text = SelectItem.Sell.ToString() + "₽";
             ComponentName.Text = SelectItem.Name;
             Console.WriteLine(SelectItem.Name + SelectItem.Sell + SelectItem.Path);
         }
@@ -132,7 +132,7 @@ namespace Lo_Fi_Shop.Page
                     PersonClass Player = PersonClass.OverwriteData();
                     Money.Text = Player.Money.ToString() + "₽";
                     string TempTXT = ComponentName.Text;
-                    InventoryPage.AddToInv(TempTXT);
+                    InventoryPage.AddToInv(TempTXT, SelectItem);
                     // Thread.Sleep(2000);
                     Navigation.PushAsync(new Page.PlayPage());
                 }
