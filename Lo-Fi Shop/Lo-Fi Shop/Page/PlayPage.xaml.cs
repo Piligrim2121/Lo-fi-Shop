@@ -36,13 +36,17 @@ public partial class PlayPage : ContentPage
             player.Play();*/
             rnd = new Random();
         }
+        protected override bool OnBackButtonPressed()
+        {
+            //return base.OnBackButtonPressed
+            Navigation.PushAsync(new MainMenuPage());
+            return true;
+        }
+
         /// <summary>
         /// Заполнение значений в игровом окне(деньги опыт)
         /// </summary>
         /// 
-
-       
-
         private void Get_data()
         {
             PersonClass Player = PersonClass.ReturnPerson();
