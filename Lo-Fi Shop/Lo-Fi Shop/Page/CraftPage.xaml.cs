@@ -112,10 +112,12 @@ namespace Lo_Fi_Shop.Page
                     {
                         if (Text[j] == i)
                         {
-                            Text[j] = "";
+                            Text[j] = null;
+                            continue;
                         }
                     }
                 }
+                UseKomponents.Clear();
                 List<string> list = Text.ToList<string>();
                 PersonClass.Write_TXT(list);
                 Navigation.PushAsync(new Page.PlayPage());
@@ -123,14 +125,14 @@ namespace Lo_Fi_Shop.Page
         }
         private bool Proverka() // крестик по умолчанию когда не выбран
         {
-            if (Proc.Source.ToString() == "File: Resource/drawable/Sborka.png"
-                || Video.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                Mat.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                OP.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                HDD.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                Pit.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                Kyler.Resources.ToString() == "File: Resource/drawable/Sborka.png" ||
-                Korpus.Resources.ToString() == "File: Resource/drawable/Sborka.png")
+            if (Proc.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                Video.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                Mat.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                OP.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                HDD.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                Pit.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                Kyler.Source.ToString() == "File: Resource/drawable/ItemPlace.png" ||
+                Korpus.Source.ToString() == "File: Resource/drawable/ItemPlace.png")
                 return false;
             else
                 return true;
@@ -144,15 +146,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Proc.Source = @"Resource/drawable/Easy_Proc.png";
                     Cost += Item.CreateItems()[1].Sell;
+                    if (UseKomponents.Contains("Начальный Процессор"))
+                        UseKomponents.Remove("Начальный Процессор");
                     UseKomponents.Add(Item.CreateItems()[1].Name);
                 }
                 else if (i.Contains("Средний Процессор"))
                 {
-                    Proc.Source = @"Resource/drawable/Viduha.jpg";
+                    //Proc.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогой Процессор"))
                 {
-                    Proc.Source = @"Resource/drawable/Viduha.jpg";
+                    //Proc.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -169,15 +173,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Video.Source = @"Resource/drawable/Easy_Vid.png";
                     Cost += Item.CreateItems()[0].Sell;
+                    if (UseKomponents.Contains("Начальная Видеокарта"))
+                        UseKomponents.Remove("Начальная Видеокарта");
                     UseKomponents.Add(Item.CreateItems()[0].Name);
                 }
                 else if (i.Contains("Средняя Видеокарта"))
                 {
-                    Video.Source = @"Resource/drawable/Viduha.jpg";
+                    //Video.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогая Видеокарта"))
                 {
-                    Video.Source = @"Resource/drawable/Viduha.jpg";
+                    //Video.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -194,15 +200,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Mat.Source = @"Resource/drawable/Easy_Mother.png";
                     Cost += Item.CreateItems()[4].Sell;
+                    if (UseKomponents.Contains("Начальная Материнская плата"))
+                        UseKomponents.Remove("Начальная Материнская плата");
                     UseKomponents.Add(Item.CreateItems()[4].Name);
                 }
                 else if (i.Contains("Средняя Материнская плата"))
                 {
-                    Mat.Source = @"Resource/drawable/Viduha.jpg";
+                    //Mat.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогая Материнская плата"))
                 {
-                    Mat.Source = @"Resource/drawable/Viduha.jpg";
+                    //Mat.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -219,15 +227,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     OP.Source = @"Resource/drawable/Easy_ram.png";
                     Cost += Item.CreateItems()[3].Sell;
+                    if (UseKomponents.Contains("Начальная Оперативная память"))
+                        UseKomponents.Remove("Начальная Оперативная память");
                     UseKomponents.Add(Item.CreateItems()[3].Name);
                 }
                 else if (i.Contains("Средняя Оперативная память"))
                 {
-                    OP.Source = @"Resource/drawable/Viduha.jpg";
+                    //OP.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогая Оперативная память"))
                 {
-                    OP.Source = @"Resource/drawable/Viduha.jpg";
+                    //OP.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -244,15 +254,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     HDD.Source = @"Resource/drawable/Easy_mem.png";
                     Cost += Item.CreateItems()[7].Sell;
+                    if (UseKomponents.Contains("Начальный Жёсткий диск"))
+                        UseKomponents.Remove("Начальный Жёсткий диск");
                     UseKomponents.Add(Item.CreateItems()[7].Name);
                 }
                 else if (i.Contains("Средний Жёсткий диск"))
                 {
-                    HDD.Source = @"Resource/drawable/Viduha.jpg";
+                    //HDD.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогой Жёсткий диск"))
                 {
-                    HDD.Source = @"Resource/drawable/Viduha.jpg";
+                    //HDD.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -269,15 +281,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Pit.Source = @"Resource/drawable/Easy_Power.png";
                     Cost += Item.CreateItems()[6].Sell;
+                    if (UseKomponents.Contains("Начальный Блок Питания"))
+                        UseKomponents.Remove("Начальный Блок Питания");
                     UseKomponents.Add(Item.CreateItems()[6].Name);
                 }
                 else if (i.Contains("Средний Блок Питания"))
                 {
-                    Pit.Source = @"Resource/drawable/Viduha.jpg";
+                    //Pit.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогой Блок Питания"))
                 {
-                    Pit.Source = @"Resource/drawable/Viduha.jpg";
+                    //Pit.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -294,15 +308,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Kyler.Source = @"Resource/drawable/Easy_Cooler.png";
                     Cost += Item.CreateItems()[2].Sell;
+                    if (UseKomponents.Contains("Начальная Система охлаждения"))
+                        UseKomponents.Remove("Начальная Система охлаждения");
                     UseKomponents.Add(Item.CreateItems()[2].Name);
                 }
                 else if (i.Contains("Средняя Система охлаждения"))
                 {
-                    Kyler.Source = @"Resource/drawable/Viduha.jpg";
+                    //Kyler.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогая Система охлаждения"))
                 {
-                    Kyler.Source = @"Resource/drawable/Viduha.jpg";
+                    //Kyler.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {
@@ -319,15 +335,17 @@ namespace Lo_Fi_Shop.Page
                 {
                     Korpus.Source = @"Resource/drawable/Easy_corpus.png";
                     Cost += Item.CreateItems()[5].Sell;
+                    if (UseKomponents.Contains("Начальный Корпус"))
+                        UseKomponents.Remove("Начальный Корпус");
                     UseKomponents.Add(Item.CreateItems()[5].Name);
                 }
                 else if (i.Contains("Средний Корпус"))
                 {
-                    Korpus.Source = @"Resource/drawable/Viduha.jpg";
+                    //Korpus.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else if (i.Contains("Дорогой Корпус"))
                 {
-                    Korpus.Source = @"Resource/drawable/Viduha.jpg";
+                    //Korpus.Source = @"Resource/drawable/Viduha.jpg";
                 }
                 else
                 {

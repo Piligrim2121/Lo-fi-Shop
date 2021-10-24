@@ -90,7 +90,8 @@ namespace Lo_Fi_Shop.Class
             string SubInv = "";
             foreach (string i in InventoryParts)
             {
-                SubInv += (i + ",");
+                if (i != "")
+                    SubInv += (i + ",");
             }
             string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";" + words[5] +";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
@@ -148,7 +149,7 @@ namespace Lo_Fi_Shop.Class
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             Console.WriteLine("testtt" + Data);
-            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";Lvl:" + Lvl;
+            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";Lvl:" + Lvl + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // OverwriteData();
         }
@@ -190,7 +191,7 @@ namespace Lo_Fi_Shop.Class
             string filename = "data";
             if (!File.Exists(Path.Combine(folderPath, filename)))
             {
-                string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;Lvl:1";
+                string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;Lvl:1;";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
                 OverwriteData();
             }

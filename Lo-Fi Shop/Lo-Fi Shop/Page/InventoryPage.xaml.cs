@@ -111,7 +111,6 @@ namespace Lo_Fi_Shop.Page
                 int LenInv = 0;
                 foreach (string i in InvPart)
                 {
-
                     if (i == "")
                     {
                         continue;
@@ -150,9 +149,9 @@ namespace Lo_Fi_Shop.Page
 
         
 
-        public static void AddToInv(string Part, Item SelectItem)
+        public static void AddToInv(string Part)
         {
-            InvPart = new List<string>();        
+            //InvPart = new List<string>();    
             PersonClass Player = PersonClass.OverwriteData();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);

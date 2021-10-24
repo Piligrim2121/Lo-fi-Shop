@@ -126,8 +126,7 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.Text = "Покупка успешна!";
                 PersonClass Player = PersonClass.OverwriteData();
                 Money.Text = Player.Money.ToString() + "₽";
-                string TempTXT = ComponentName.Text;
-                InventoryPage.AddToInv(TempTXT, SelectItem);
+                InventoryPage.AddToInv(ComponentName.Text);
                 // Thread.Sleep(2000);
                 Navigation.PushAsync(new Page.PlayPage());
             }
