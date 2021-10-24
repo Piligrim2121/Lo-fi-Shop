@@ -136,7 +136,7 @@ namespace Lo_Fi_Shop.Page
                             ImageButton imageButton = new ImageButton { Margin = new Thickness(20, 0, 0, 0), Source = Item.InInvItems[c].Path, BackgroundColor = color };
                             //if(LenInv%5==0)
                             //lol += 20;
-                            imageButton.Clicked += PC_Clicked;
+                            imageButton.Clicked += TestVideoCard_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }
@@ -159,7 +159,7 @@ namespace Lo_Fi_Shop.Page
                     for (int c = 0; c < Item.CreatePC().Length; c++) {
                         if (i == Item.CreatePC()[c].Name) {
                             ImageButton imageButton = new ImageButton { Source = Item.CreatePC()[c].Path, BackgroundColor = Color.Transparent };
-                            imageButton.Clicked += TestVideoCard_Clicked;
+                            imageButton.Clicked += PC_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }

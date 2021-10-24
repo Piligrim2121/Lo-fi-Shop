@@ -9,6 +9,7 @@ using static System.Math;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Threading;
 
 namespace Lo_Fi_Shop.Page
 {
@@ -25,12 +26,10 @@ public partial class PlayPage : ContentPage
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Get_data();
             Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
-
-
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load(audioStream);
             player.Play();*/
@@ -47,7 +46,7 @@ public partial class PlayPage : ContentPage
         /// Заполнение значений в игровом окне(деньги опыт)
         /// </summary>
         /// 
-        private void Get_data()
+        public bool Get_data()
         {
             PersonClass Player = PersonClass.ReturnPerson();
             Money.Text = Player.Money.ToString() + "₽";
@@ -64,7 +63,14 @@ public partial class PlayPage : ContentPage
                 Player = PersonClass.ReturnPerson();
             }
             Exp.Progress = Convert.ToDouble(Player.Exp) / (100 * Level);
+            return true;
         }
+        //public static PGetData()
+        //{
+            
+        //}
+
+
         /// <summary> 
         /// Открытие инвентаря
         /// </summary>
