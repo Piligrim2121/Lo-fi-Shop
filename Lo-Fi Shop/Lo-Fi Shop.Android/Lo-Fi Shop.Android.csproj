@@ -241,5 +241,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\DoorOpen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\raw\Music.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
