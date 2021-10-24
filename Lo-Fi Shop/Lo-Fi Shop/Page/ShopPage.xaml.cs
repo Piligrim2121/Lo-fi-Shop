@@ -9,7 +9,7 @@ namespace Lo_Fi_Shop.Page
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShopPage : ContentPage
     {
-        
+
         private Item SelectItem;
         private int intMoney;
         public ShopPage()
@@ -62,7 +62,7 @@ namespace Lo_Fi_Shop.Page
             {
                 SelectItem = Item.InInvItems[4];
                 Console.WriteLine(5);
-                
+
 
             }
             else if (Corpus.Id == tempBtn.Id)
@@ -73,7 +73,7 @@ namespace Lo_Fi_Shop.Page
             else if (BP.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[6];
-                Console.WriteLine(7); 
+                Console.WriteLine(7);
             }
             else if (HDD.Id == tempBtn.Id)
             {
@@ -109,11 +109,11 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void BuyBtn_Clicked(object sender, EventArgs e)
         {
-            PersonClass player =PersonClass.ReturnPerson();
+            PersonClass player = PersonClass.ReturnPerson();
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
-            
-            if(player.InventoryPath.Count>=25)
+
+            if (player.InventoryPath.Count >= 25)
             {
                 BuyInfo.Text = "Покупка не удалась. Инвентарь переполнен комплектующими.";
                 return;
@@ -123,25 +123,25 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки.";
                 return;
             }
-                if (intMoney - SelectItem.Sell < 0)
-                {
-                    Console.WriteLine("У пользователя недостаточно денег для данной операции");
-                    BuyInfo.Text = "Покупка не удалась - недостаточно средств";
-                }
-                else
-                {
-                    intMoney = intMoney - SelectItem.Sell;
-                    PersonClass.Write_TXT(intMoney);
-                    BuyInfo.Text = "Покупка успешна!";
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    Money.Text = Player.Money.ToString() + "₽";
-                    InventoryPage.AddToInv(ComponentName.Text);
-                    // Thread.Sleep(2000);
-                
-                    //Navigation.PushAsync(new Page.PlayPage());
-                }
-            
-            
+            if (intMoney - SelectItem.Sell < 0)
+            {
+                Console.WriteLine("У пользователя недостаточно денег для данной операции");
+                BuyInfo.Text = "Покупка не удалась - недостаточно средств";
+            }
+            else
+            {
+                intMoney = intMoney - SelectItem.Sell;
+                PersonClass.Write_TXT(intMoney);
+                BuyInfo.Text = "Покупка успешна!";
+                PersonClass Player = PersonClass.ReturnPerson();
+                Money.Text = Player.Money.ToString() + "₽";
+                InventoryPage.AddToInv(ComponentName.Text);
+                // Thread.Sleep(2000);
+
+                //Navigation.PushAsync(new Page.PlayPage());
+            }
+
+
         }
 
     }
