@@ -45,7 +45,7 @@ public partial class PlayPage : ContentPage
 
         private void Get_data()
         {
-            PersonClass Player = PersonClass.OverwriteData();
+            PersonClass Player = PersonClass.ReturnPerson();
             Money.Text = Player.Money.ToString() + "₽";
             Level = Player.Lvl;
             lvl.Text = Level + " lvl";
@@ -57,7 +57,7 @@ public partial class PlayPage : ContentPage
                 lvl.Text = Level + " lvl";
                 PersonClass.Write_TXT3(Level);
                 PersonClass.Write_TXT2(0);
-                Player = PersonClass.OverwriteData();
+                Player = PersonClass.ReturnPerson();
             }
             Exp.Progress = Convert.ToDouble(Player.Exp) / (100 * Level);
         }
@@ -151,7 +151,7 @@ public partial class PlayPage : ContentPage
                 //GridBtn.IsVisible = false;
                 //int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
                 //Money.Text = M.ToString() + "₽";
-                //PersonClass Player = PersonClass.OverwriteData();
+                //PersonClass Player = PersonClass.ReturnPerson();
                 //PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
                 //if (Player.Exp >= (100 * Level - 1))
                 //{

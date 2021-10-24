@@ -105,7 +105,7 @@ namespace Lo_Fi_Shop.Page
             Console.WriteLine(Inv_Grid.Children.Count);
             if (Obvodka1.Source != null)
             {
-                PersonClass Player = PersonClass.OverwriteData();
+                PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryPath;
                 
                 int LenInv = 0;
@@ -129,7 +129,7 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-                PersonClass Player = PersonClass.OverwriteData();
+                PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryWhole;
                 int LenInv = 0;
                 foreach (string i in InvPart)
@@ -152,7 +152,7 @@ namespace Lo_Fi_Shop.Page
         public static void AddToInv(string Part)
         {
             //InvPart = new List<string>();    
-            PersonClass Player = PersonClass.OverwriteData();
+            PersonClass Player = PersonClass.ReturnPerson();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);
             PersonClass.Write_TXT(InvPart);       

@@ -1,4 +1,5 @@
-﻿using Lo_Fi_Shop.Class;
+﻿using EO.WebBrowser;
+using Lo_Fi_Shop.Class;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,23 +14,24 @@ namespace Lo_Fi_Shop.Page
         private int intMoney;
         public ShopPage()
         {
-            PersonClass Player = PersonClass.OverwriteData();
+            PersonClass Player = PersonClass.ReturnPerson();
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
         }
-        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        /*ПЕРЕОПРЕделение кнопки назад
+        public override bool OnKeyDown(KeyCode keyCode, KeyEvent e)
         {
             if (keyCode == Keycode.Back)
             {
-                SetContentView(Resource.Layout.Login)
+                //SetContentView(Resource.Layout.Login)
                return false;
             }
 
             return true;
-        }
+        }*/
 
         /// <summary>
         /// Выбор предмета для покупки
@@ -111,12 +113,18 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void BuyBtn_Clicked(object sender, EventArgs e)
         {
+            PersonClass player =PersonClass.ReturnPerson();
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
             
+            if(player.InventoryPath.Count>=25)
+            {
+                BuyInfo.Text = "Покупка не удалась. Инвентарь переполнен комплектующими.";
+                return;
+            }
             if (ComponentName.Text == "Добро пожаловать!")
             {
-                BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки";
+                BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки.";
                 return;
             }
                 if (intMoney - SelectItem.Sell < 0)
@@ -129,7 +137,7 @@ namespace Lo_Fi_Shop.Page
                     intMoney = intMoney - SelectItem.Sell;
                     PersonClass.Write_TXT(intMoney);
                     BuyInfo.Text = "Покупка успешна!";
-                    PersonClass Player = PersonClass.OverwriteData();
+                    PersonClass Player = PersonClass.ReturnPerson();
                     Money.Text = Player.Money.ToString() + "₽";
                     InventoryPage.AddToInv(ComponentName.Text);
                 // Thread.Sleep(2000);

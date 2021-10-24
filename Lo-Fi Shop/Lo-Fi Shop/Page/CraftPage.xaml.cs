@@ -14,7 +14,7 @@ namespace Lo_Fi_Shop.Page
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Players = PersonClass.OverwriteData();
+            Players = PersonClass.ReturnPerson();
             DisplayInvPath();
         }
 
@@ -28,7 +28,7 @@ namespace Lo_Fi_Shop.Page
 
         private void DisplayInvPath()
         {
-            PersonClass Player = PersonClass.OverwriteData();
+            PersonClass Player = PersonClass.ReturnPerson();
             InvPart = Player.InventoryPath;
             int LenInv = 0;
             foreach (string i in InvPart)
@@ -101,7 +101,7 @@ namespace Lo_Fi_Shop.Page
                     name = "Дорогой корпус";
                 }
                 Item item = new Item(name, Cost, "Resources/drawable/PC.jpg");
-                PersonClass Player = PersonClass.OverwriteData();
+                PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryWhole;
                 InvPart.Add(item.Name);
                 PersonClass.Write_TXT2(InvPart);

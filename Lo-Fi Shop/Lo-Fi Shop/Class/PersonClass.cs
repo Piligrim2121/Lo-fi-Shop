@@ -13,7 +13,13 @@ namespace Lo_Fi_Shop.Class
     {
         public int Money;
         public int Exp;
+        /// <summary>
+        /// Список комплектующих
+        /// </summary>
         public List<string> InventoryPath;
+        /// <summary>
+        /// Список готовых пк
+        /// </summary>
         public List<string> InventoryWhole;
         public List<int> Settings;
         public int Lvl;
@@ -75,7 +81,7 @@ namespace Lo_Fi_Shop.Class
             }
             string text = "Money:" + Money.ToString() + ";Exp:" + Exp.ToString() + ";InventoryParts:" + SubInv + ";InventoryWhole:" + SubInv2 + ";Settings:" + SubSett + ";Lvl:" + Lvl;
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            OverwriteData();
+            ReturnPerson();
         }
         /// <summary>
         /// Сохранение данных в файл
@@ -98,7 +104,7 @@ namespace Lo_Fi_Shop.Class
             }
             string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";" + words[5] +";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            //OverwriteData();
+            //ReturnPerson();
         }
         public static void Write_TXT2(List<string> InventoryWhole)
         {
@@ -117,7 +123,7 @@ namespace Lo_Fi_Shop.Class
             }
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";InventoryWhole:" + SubInv + ";" + words[4] + ";" + words[5] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            //OverwriteData();
+            //ReturnPerson();
         }
         /// <summary>
         /// Сохранения данных в файл
@@ -133,7 +139,7 @@ namespace Lo_Fi_Shop.Class
             Console.WriteLine("testtt"+Data);
             string text = "Money:" + Money.ToString() + ";"+words[1]+";"+words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-           // OverwriteData();
+           // ReturnPerson();
         }
 
         public static void Write_TXT2(int Exp)
@@ -146,7 +152,7 @@ namespace Lo_Fi_Shop.Class
             Console.WriteLine("testtt" + Data);
             string text = words[0] + ";Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            // OverwriteData();
+            // ReturnPerson();
         }
 
         public static void Write_TXT3(int Lvl)
@@ -158,14 +164,14 @@ namespace Lo_Fi_Shop.Class
             Console.WriteLine("testtt" + Data);
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";Lvl:" + Lvl + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            // OverwriteData();
+            // ReturnPerson();
         }
 
         /// <summary>
-        ///  Перезапись файла новыми данными
+        ///  Преобразование данных файла в характеристики игрока
         /// </summary>
         /// <returns>Класс игрока</returns>
-        public static PersonClass OverwriteData()
+        public static PersonClass ReturnPerson()
         {
             string Data = Read_TXT();
             int Money = Convert.ToInt32(Data.Split(';')[0].Split(':')[1]);
@@ -200,7 +206,7 @@ namespace Lo_Fi_Shop.Class
             {
                 string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;Lvl:1;";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
-                OverwriteData();
+                ReturnPerson();
             }
         }
     }
