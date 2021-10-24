@@ -13,16 +13,20 @@ namespace Lo_Fi_Shop.Page
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            
-            
+
+
             if (Da)
             {
-                Obvodka1.Source = null;
+                Obvodka1.IsVisible = false;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
-                Sell.IsVisible = true;
             }
-            
-            
+            else
+            {
+                Obvodka1.IsVisible = true;
+            }
+            Prod = Da;
+
+
             DisplayInvPath();
             if (Inv_Grid.Children.Count > 0)
             {
@@ -37,17 +41,18 @@ namespace Lo_Fi_Shop.Page
         }
         ImageButton tempBtn;
         public static List<string> InvPart { get; set; }
+        bool Prod = false;
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
-            
+
             if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
             {
                 Description.Text = "Устройство начального уровня, преобразующее графический образ, хранящийся как содержимое памяти компьютера, в форму, пригодную для дальнейшего вывода на экран монитора."; //Item.InInvItems[0].Description;
                 Info_name.Text = Item.InInvItems[0].Name;
-                Cost.Text = Item.InInvItems[0].Sell.ToString()+ "₽";
+                Cost.Text = Item.InInvItems[0].Sell.ToString() + "₽";
             }
-           else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
             {
                 Description.Text = "Центральная часть компьютера начального уровня, выполняющая заданные программой преобразования информации и осуществляющая управление всем вычислительным процессом.";
                 Info_name.Text = Item.InInvItems[1].Name;
@@ -100,14 +105,15 @@ namespace Lo_Fi_Shop.Page
 
         private void DisplayInvPath()
         {
-             Console.WriteLine(Inv_Grid.Children.Count);
+            Description.Text = "";
+            Info_name.Text = "";
+            Cost.Text = "";
             Inv_Grid.Children.Clear();
-            Console.WriteLine(Inv_Grid.Children.Count);
             if (Obvodka1.Source != null)
             {
                 PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryPath;
-                
+
                 int LenInv = 0;
                 foreach (string i in InvPart)
                 {
@@ -115,12 +121,16 @@ namespace Lo_Fi_Shop.Page
                     {
                         continue;
                     }
-                    for (int c = 0; c < Item.InInvItems.Length; c++) {
+                    for (int c = 0; c < Item.InInvItems.Length; c++)
+                    {
                         if (i == Item.InInvItems[c].Name)
                         {
-                            ImageButton imageButton = new ImageButton {Margin= new Thickness(20,-20,0,-65),Scale =1.0 ,Source = Item.InInvItems[c].Path, BackgroundColor = Color.Transparent };
+                            Color color = Color.Transparent;
+                            if (LenInv <= 4)
+                                color = Color.Red;
+                            ImageButton imageButton = new ImageButton { Margin = new Thickness(20, -20, 0, -65), Source = Item.InInvItems[c].Path, BackgroundColor = color };
                             imageButton.Clicked += TestVideoCard_Clicked;
-                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }
                     LenInv++;
@@ -140,22 +150,19 @@ namespace Lo_Fi_Shop.Page
                     }
                     ImageButton imageButton = new ImageButton { Source = "Resources/drawable/PC.jpg", BackgroundColor = Color.Transparent };
                     imageButton.Clicked += TestVideoCard_Clicked;
-                    Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5) + 1));
+                    Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                     LenInv++;
                 }
                 LenInv = 0;
             }
         }
-
-        
-
         public static void AddToInv(string Part)
         {
             //InvPart = new List<string>();    
             PersonClass Player = PersonClass.ReturnPerson();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);
-            PersonClass.Write_TXT(InvPart);       
+            PersonClass.Write_TXT(InvPart);
         }
 
         private void Obvodka_Clicked(object sender, EventArgs e)
@@ -170,10 +177,10 @@ namespace Lo_Fi_Shop.Page
 
         private void Obvodka2_Clicked(object sender, EventArgs e)
         {
-          
+
             if (Obvodka2.Source == null)
             {
-                
+
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
 
@@ -183,7 +190,32 @@ namespace Lo_Fi_Shop.Page
 
         private void Sell_Clicked(object sender, EventArgs e)
         {
-            //2
+            if (Prod)
+            {
+                // проверка на выбранный пк потом:
+
+                //Client.IsVisible = false;
+                //Dialog.IsVisible = false;
+                //Answer.IsVisible = false;
+                //GridBtn.IsVisible = false;
+                //int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
+                //Money.Text = M.ToString() + "₽";
+                //PersonClass Player = PersonClass.OverwriteData();
+                //PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
+                //if (Player.Exp >= (100 * Level - 1))
+                //{
+                //    PersonClass.Write_TXT3(Level);
+                //    PersonClass.Write_TXT2(0);
+                //}
+                //PersonClass.Write_TXT(M);
+                //Get_data();
+                //Alive = true;
+                //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
+            }
+            else
+            {
+                // Продаем выбранный компонент за 70% от себестоимости
+            }
         }
     }
 }
