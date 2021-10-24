@@ -40,10 +40,12 @@ namespace Lo_Fi_Shop.Page
 
             }
         }
+
         ImageButton tempBtn;
         public static List<string> InvPart { get; set; }
-        public static List<string> InvPC { get; set; }
+        public static List<Item> InvPC { get; set; }
         bool Prod = false;
+      
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -106,12 +108,36 @@ namespace Lo_Fi_Shop.Page
         }
         private void PC_Clicked(object sender, EventArgs e)
         {
-            
-          
+            tempBtn = sender as ImageButton;
+            if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[0].Path)
+            {
+                Description.Text = InvPC[0].Description;
+                Info_name.Text = InvPC[0].Name;
+                Cost.Text = InvPC[0].Sell.ToString() + "₽";
+            }
+          else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[1].Path)
+            {
+                Description.Text = InvPC[1].Description;
+                Info_name.Text = InvPC[1].Name;
+                Cost.Text = InvPC[1].Sell.ToString() + "₽";
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[2].Path)
+            {
+                Description.Text = InvPC[2].Description;
+                Info_name.Text = InvPC[2].Name;
+                Cost.Text = InvPC[2].Sell.ToString() + "₽";
+            }
+            else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[3].Path)
+            {
+                Description.Text = InvPC[3].Description;
+                Info_name.Text = InvPC[3].Name;
+                Cost.Text = InvPC[3].Sell.ToString() + "₽";
+            }
         }
 
         private void DisplayInvPath()
         {
+            InvPC = new List<Item>();
             Description.Text = "";
             Info_name.Text = "";
             Cost.Text = "";
@@ -149,7 +175,7 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-
+               
                 PersonClass Player = PersonClass.ReturnPerson();
                 //InvPC = Item.PC;
                string pcs = PersonClass.Read_PC();
@@ -165,13 +191,15 @@ namespace Lo_Fi_Shop.Page
                     //for (int c = 0; c < Item.PC.Count; c++)
                     //{
                     //if (i == "Name:"+Item.PC[c].Name+";"+"Cost:"+Item.PC[c].Sell+";"+"Source:"+Item.PC[c].Path+";"+"Description:"+Item.PC[c].Description+";")
-                    string Name = i.Split(';')[0].Split(':')[1];
-                    string Cost = i.Split(';')[1].Split(':')[1];
-                    string Source = i.Split(';')[2].Split(':')[1];
-                    string Description = i.Split(';')[3].Split(':')[1];
-                            //ImageButton imageButton = new ImageButton { Source = Item.PC[c].Path, BackgroundColor = Color.Transparent };
-                            //imageButton.Clicked += PC_Clicked;
-                            //Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
+                     string NameG = i.Split(';')[0].Split(':')[1];
+                    string CostG = i.Split(';')[1].Split(':')[1];
+                    string SourceG = i.Split(';')[2].Split(':')[1];
+                    string DescriptionG = i.Split(';')[3].Split(':')[1];
+                    
+                    InvPC.Add(new Item(NameG, Convert.ToInt32(CostG), SourceG, DescriptionG));
+                            ImageButton imageButton = new ImageButton { Source = SourceG, BackgroundColor = Color.Transparent };
+                            imageButton.Clicked += PC_Clicked;
+                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         
                     //}
 
