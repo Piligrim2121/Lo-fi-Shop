@@ -96,8 +96,9 @@
 
             <!--<ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />-->
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
-  
 
+            <ImageButton x:Name="WinButton" Source="Resources/drawable/Empty_mess.png" IsVisible="false"></ImageButton>
+            <Label x:Name="WinLable" Text="Поздравляю вы победили. Ваш прогресс сохраниться, вы можете играть дальше. Ждите новых обновлений!!!" IsVisible="false"></Label>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

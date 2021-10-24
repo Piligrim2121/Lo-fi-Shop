@@ -62,9 +62,20 @@ namespace Lo_Fi_Shop.Class
             for(int i =0; i<Item.PC.Count; i++)
             {
                 
-                 text2 = "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
+                 text2 += "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
+        }
+        public static void Delet_PC(List<string> PC)
+        {
+            string text2 = "";
+            string folderPath2 = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename2 = "pcs";
+            for (int i = 0; i < PC.Count; i++)
+            {
+                text2 += "Name:" + PC[i].Split(';')[0].Split(':')[1] + ";" + "Cost:" + PC[i].Split(';')[1].Split(':')[1] + ";" + "Source:" + PC[i].Split(';')[2].Split(':')[1] + ";" + "Description:" + PC[i].Split(';')[3].Split(':')[1] + ";" + "*";
+            }
+            File.WriteAllText(Path.Combine(folderPath2, filename2), text2);
         }
         /// <summary>
         /// Сохранения данных в файл

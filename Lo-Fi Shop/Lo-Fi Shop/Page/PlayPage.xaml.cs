@@ -35,6 +35,20 @@ public partial class PlayPage : ContentPage
             player.Play();*/
             rnd = new Random();
         }
+        bool win = false;
+        private void Win()
+        {
+            if (!win)
+            {
+                PersonClass Player = PersonClass.ReturnPerson();
+                if (Player.Lvl >= 10 && Player.Money >= 1000000)
+                {
+                    WinButton.IsVisible = true;
+                    WinLable.IsVisible = true;
+                    win = true;
+                }
+            }
+        }
         protected override bool OnBackButtonPressed()
         {
             //return base.OnBackButtonPressed

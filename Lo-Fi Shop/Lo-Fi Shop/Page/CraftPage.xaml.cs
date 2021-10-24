@@ -162,6 +162,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Процессор"))
                         UseKomponents.Remove("Начальный Процессор");
                     UseKomponents.Add(Item.CreateItems()[1].Name);
+                    Proc.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Процессор"))
                 {
@@ -189,6 +191,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Видеокарта"))
                         UseKomponents.Remove("Начальная Видеокарта");
                     UseKomponents.Add(Item.CreateItems()[0].Name);
+                    Video.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Видеокарта"))
                 {
@@ -216,6 +220,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Материнская плата"))
                         UseKomponents.Remove("Начальная Материнская плата");
                     UseKomponents.Add(Item.CreateItems()[4].Name);
+                    Mat.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Материнская плата"))
                 {
@@ -243,6 +249,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Оперативная память"))
                         UseKomponents.Remove("Начальная Оперативная память");
                     UseKomponents.Add(Item.CreateItems()[3].Name);
+                    OP.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Оперативная память"))
                 {
@@ -270,6 +278,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Жёсткий диск"))
                         UseKomponents.Remove("Начальный Жёсткий диск");
                     UseKomponents.Add(Item.CreateItems()[7].Name);
+                    HDD.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Жёсткий диск"))
                 {
@@ -297,6 +307,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Блок Питания"))
                         UseKomponents.Remove("Начальный Блок Питания");
                     UseKomponents.Add(Item.CreateItems()[6].Name);
+                    Pit.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Блок Питания"))
                 {
@@ -324,6 +336,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Система охлаждения"))
                         UseKomponents.Remove("Начальная Система охлаждения");
                     UseKomponents.Add(Item.CreateItems()[2].Name);
+                    Kyler.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Система охлаждения"))
                 {
@@ -351,6 +365,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Корпус"))
                         UseKomponents.Remove("Начальный Корпус");
                     UseKomponents.Add(Item.CreateItems()[5].Name);
+                    Korpus.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Корпус"))
                 {
