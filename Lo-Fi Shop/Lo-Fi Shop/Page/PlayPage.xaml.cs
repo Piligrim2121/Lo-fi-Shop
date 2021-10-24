@@ -271,5 +271,11 @@ public partial class PlayPage : ContentPage
             Thread.Sleep(2000);
             Navigation.PushAsync(new MainMenuPage());
         }
+
+        private void WinButton_Clicked(object sender, EventArgs e)
+        {
+            WinLable.IsVisible = false;
+            WinButton.IsVisible = false;
+        }
     }
 }

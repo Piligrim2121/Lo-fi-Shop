@@ -24,7 +24,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <ImageButton x:Name="ImageShkaf"
                            Clicked="ImageShkaf_Clicked"
                            Grid.ColumnSpan="2" 
@@ -55,7 +55,7 @@
                          BackgroundColor="Transparent"
                        Source="Resources/drawable/Table.png" 
                        Grid.ColumnSpan="2" />
-           
+
             <Image ScaleX="0.8" x:Name="Client" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="Resources/drawable/Vasyok.png" BackgroundColor="Transparent" IsVisible="false"/>
             <ImageButton x:Name="Sky" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
             <ImageButton x:Name="SkyBuy" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud_Vopros.png"  Clicked="SkyBuy_Clicked" />
@@ -81,10 +81,10 @@
                 <Button x:Name="ButtonNo" Margin="0,10,0,0" Text="Нет" Grid.Column="1" Clicked="ButtonNo_Clicked"></Button>
                 <Button x:Name="ButtonHide" Margin="-40,10,0,0" Text="Скрыть" IsVisible="false" Grid.Column="0" Clicked="ButtonHide_Clicked"></Button>
             </Grid>
-           
-           
+
+
             <Image Grid.ColumnSpan="2" Grid.Column="3" Margin="106,0,22,21" Source="Resources/drawable/Okno.jpg"  Grid.Row="2" Grid.RowSpan="2"/>
-            
+
             <ImageButton x:Name="ImageTableOfQuest" 
                          Clicked="TableOfQuest_Open"
                          Margin="30,20,10,50" 
@@ -96,9 +96,9 @@
 
             <!--<ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />-->
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
-
-            <ImageButton x:Name="WinButton" Source="Resources/drawable/Empty_mess.png" IsVisible="false"></ImageButton>
-            <Label x:Name="WinLable" Text="Поздравляю вы победили. Ваш прогресс сохраниться, вы можете играть дальше. Ждите новых обновлений!!!" IsVisible="false"></Label>
+            
+            <ImageButton Clicked="WinButton_Clicked" Grid.ColumnSpan="5" HorizontalOptions="Center" Margin="100,0,0,0" Grid.RowSpan="5" x:Name="WinButton" Source="Resources/drawable/Empty_mess.png" IsVisible="false" BackgroundColor="Transparent"></ImageButton>
+            <Label x:Name="WinLable" Grid.Column="1" Grid.ColumnSpan="3"   Grid.Row="2" HorizontalOptions="Center" Margin="50,0,0,0"  Text="Поздравляем, вы победили. Ваш прогресс сохранится, вы можете играть дальше. Ждите новых обновлений!!!" IsVisible="false"></Label>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
