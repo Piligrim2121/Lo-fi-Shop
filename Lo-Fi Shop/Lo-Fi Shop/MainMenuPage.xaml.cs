@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Lo_Fi_Shop.Page;
 
-
 namespace Lo_Fi_Shop
 {
     public partial class MainMenuPage : ContentPage
@@ -22,6 +21,22 @@ namespace Lo_Fi_Shop
             PersonClass.First_Write_TXT();
             NavigationPage.SetHasNavigationBar(this, false);
             ImageLogotip.IsAnimationPlaying = true;
+            StartPlayer(@"Resources\raw\Music.mp3");
+        }
+        protected MediaPlayer player;
+        public void StartPlayer(String filePath)
+        {
+            if (player == null)
+            {
+                player = new MediaPlayer();
+            }
+            else
+            {
+                player.Reset();
+                player.SetDataSource(filePath);
+                player.Prepare();
+                player.Start();
+            }
         }
         /// <summary>
         /// Переход к экрану "Как Играть"
