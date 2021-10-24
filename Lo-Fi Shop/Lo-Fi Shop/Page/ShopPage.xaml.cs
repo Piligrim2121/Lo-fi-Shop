@@ -87,7 +87,7 @@ namespace Lo_Fi_Shop.Page
             else
             {
                 Console.WriteLine("ИД нет");
-                ComponentName.Text = "";
+                ComponentName.Text = default;
                 return;
             }
 
@@ -114,22 +114,30 @@ namespace Lo_Fi_Shop.Page
         {
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
-            if (intMoney - SelectItem.Sell < 0)
-            {
-                Console.WriteLine("У пользователя недостаточно денег для данной операции");
-                BuyInfo.Text = "Покупка не удалась - недостаточно средств";
-            }
+
+            if (ComponentName.Text == default)
+                BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки";
             else
             {
-                intMoney = intMoney - SelectItem.Sell;
-                PersonClass.Write_TXT(intMoney);
-                BuyInfo.Text = "Покупка успешна!";
-                PersonClass Player = PersonClass.OverwriteData();
-                Money.Text = Player.Money.ToString() + "₽";
-                InventoryPage.AddToInv(ComponentName.Text);
-                // Thread.Sleep(2000);
-                Navigation.PushAsync(new Page.PlayPage());
+                if (intMoney - SelectItem.Sell < 0)
+                {
+                    Console.WriteLine("У пользователя недостаточно денег для данной операции");
+                    BuyInfo.Text = "Покупка не удалась - недостаточно средств";
+                }
+                else
+                {
+                    intMoney = intMoney - SelectItem.Sell;
+                    PersonClass.Write_TXT(intMoney);
+                    BuyInfo.Text = "Покупка успешна!";
+                    PersonClass Player = PersonClass.OverwriteData();
+                    Money.Text = Player.Money.ToString() + "₽";
+                    string TempTXT = ComponentName.Text;
+                    InventoryPage.AddToInv(TempTXT, SelectItem);
+                    // Thread.Sleep(2000);
+                    Navigation.PushAsync(new Page.PlayPage());
+                }
             }
+            
         }
 
     }
