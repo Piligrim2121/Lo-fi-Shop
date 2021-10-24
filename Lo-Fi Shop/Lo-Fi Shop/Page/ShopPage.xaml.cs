@@ -1,4 +1,4 @@
-﻿using EO.WebBrowser;
+﻿
 using Lo_Fi_Shop.Class;
 using System;
 using Xamarin.Forms;

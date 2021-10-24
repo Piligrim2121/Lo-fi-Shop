@@ -60,7 +60,7 @@ namespace Lo_Fi_Shop.Page
             }
             else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
             {
-                Description.Text = "Сборка вентилятора с радиатором, устанавливаемая для воздушного охлаждения электронных компонентов компьютера с повышенным тепловыделением (обычно более 5 Вт)";
+                Description.Text = "Сборка вентилятора с радиатором начального уровня, устанавливаемая для воздушного охлаждения электронных компонентов компьютера с повышенным тепловыделением (обычно более 5 Вт)";
                 Info_name.Text = Item.InInvItems[2].Name;
                 Cost.Text = Item.InInvItems[2].Sell.ToString() + "₽";
             }
@@ -108,6 +108,7 @@ namespace Lo_Fi_Shop.Page
             Description.Text = "";
             Info_name.Text = "";
             Cost.Text = "";
+            //int lol=-20;
             Inv_Grid.Children.Clear();
             if (Obvodka1.Source != null)
             {
@@ -129,6 +130,8 @@ namespace Lo_Fi_Shop.Page
                             if (LenInv <= 4)
                                 color = Color.Red;
                             ImageButton imageButton = new ImageButton { Margin = new Thickness(20, -20, 0, -65), Source = Item.InInvItems[c].Path, BackgroundColor = color };
+                            //if(LenInv%5==0)
+                            //lol += 20;
                             imageButton.Clicked += TestVideoCard_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
