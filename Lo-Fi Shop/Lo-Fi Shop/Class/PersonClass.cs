@@ -21,6 +21,7 @@ namespace Lo_Fi_Shop.Class
         /// Список готовых пк
         /// </summary>
         public List<string> InventoryWhole;
+      
         public List<int> Settings;
         public int Lvl;
         /// <summary>
@@ -39,6 +40,7 @@ namespace Lo_Fi_Shop.Class
             this.InventoryWhole = InventoryWhole; // без ограничений
             this.Settings = Settings; // list с 3 значениями от 1 до 10
             this.Lvl = Lvl;
+            
         }
 
         /// <summary>
@@ -225,6 +227,13 @@ namespace Lo_Fi_Shop.Class
                 File.WriteAllText(Path.Combine(folderPath, "pcs"), "");
                 ReturnPerson();
             }
+        }
+        public static string Read_PC()
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
+            string text = File.ReadAllText(Path.Combine(folderPath, "pcs"));
+            return text;
         }
     }
 }

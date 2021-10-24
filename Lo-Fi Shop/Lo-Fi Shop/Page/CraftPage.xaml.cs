@@ -104,7 +104,7 @@ namespace Lo_Fi_Shop.Page
                     name = "Мощный ПК";
                     Source= "Resource/drawable/Hard_DonePC.png";
                 }
-                Item.PC = new List<Item>();
+               
                 Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0]+"\n"+UseKomponents[1]+"\n"+ UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
                 PersonClass.Write_PC(Item.PC);
                 PersonClass Player = PersonClass.ReturnPerson();

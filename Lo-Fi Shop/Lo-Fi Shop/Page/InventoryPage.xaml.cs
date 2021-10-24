@@ -42,6 +42,7 @@ namespace Lo_Fi_Shop.Page
         }
         ImageButton tempBtn;
         public static List<string> InvPart { get; set; }
+        public static List<string> InvPC { get; set; }
         bool Prod = false;
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
@@ -150,23 +151,29 @@ namespace Lo_Fi_Shop.Page
             {
 
                 PersonClass Player = PersonClass.ReturnPerson();
-                InvPart = Player.InventoryWhole;
+                //InvPC = Item.PC;
+               string pcs = PersonClass.Read_PC();
+
+                
                 int LenInv = 0;
-                foreach (string i in InvPart)
+                foreach (string i in pcs.Split('*'))
                 {
                     if (i == "")
                     {
                         continue;
                     }
-                    for (int c = 0; c < Item.CreatePC().Length; c++)
-                    {
-                        if (i == Item.CreatePC()[c].Name)
-                        {
-                            ImageButton imageButton = new ImageButton { Source = Item.CreatePC()[c].Path, BackgroundColor = Color.Transparent };
+                    //for (int c = 0; c < Item.PC.Count; c++)
+                    //{
+                    //if (i == "Name:"+Item.PC[c].Name+";"+"Cost:"+Item.PC[c].Sell+";"+"Source:"+Item.PC[c].Path+";"+"Description:"+Item.PC[c].Description+";")
+                    string Name = i.Split(';')[0].Split(':')[1];
+                    string Cost = i.Split(';')[1].Split(':')[1];
+                    string Source = i.Split(';')[2].Split(':')[1];
+                    string Description = i.Split(';')[3].Split(':')[1];
+                            ImageButton imageButton = new ImageButton { Source = Item.PC[c].Path, BackgroundColor = Color.Transparent };
                             imageButton.Clicked += PC_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
-                        }
-                    }
+                        
+                    //}
 
                     LenInv++;
                 }
