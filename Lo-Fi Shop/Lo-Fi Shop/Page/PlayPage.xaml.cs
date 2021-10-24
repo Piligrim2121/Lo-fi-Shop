@@ -223,6 +223,20 @@ public partial class PlayPage : ContentPage
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    int LastExp = Player.Exp;
+                    Console.WriteLine(LastExp);
+                    if ((LastExp - 30) <= 0)
+                    {
+                        Console.WriteLine(100 * (Level - 1) - LastExp);
+                        PersonClass.Write_TXT2(100 * (Level-1) - LastExp);
+                        PersonClass.Write_TXT3(Level - 1);
+                    }
+                    else
+                    {
+                        Console.WriteLine(LastExp - 30);
+                        PersonClass.Write_TXT2(LastExp - 30);
+                    }
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
                     
                 }
