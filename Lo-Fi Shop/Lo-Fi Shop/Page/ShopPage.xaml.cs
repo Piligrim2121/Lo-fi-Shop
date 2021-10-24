@@ -24,7 +24,9 @@ namespace Lo_Fi_Shop.Page
         protected override bool OnBackButtonPressed()
         {
             // чё то добавить
-            return base.OnBackButtonPressed();
+            //return base.OnBackButtonPressed
+            Navigation.PushAsync(new Page.PlayPage());
+            return true;
         }
 
         /// <summary>
@@ -136,7 +138,7 @@ namespace Lo_Fi_Shop.Page
                     InventoryPage.AddToInv(ComponentName.Text);
                 // Thread.Sleep(2000);
                 
-                    Navigation.PushAsync(new Page.PlayPage());
+                    //Navigation.PushAsync(new Page.PlayPage());
                 }
             
             
