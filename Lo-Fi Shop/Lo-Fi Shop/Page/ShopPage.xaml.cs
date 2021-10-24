@@ -102,6 +102,7 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void EmpetyMessage_Clicked(object sender, EventArgs e)
         {
+            Console.WriteLine("1233213213");
             EmpetyMessage.IsVisible = false;
             BuyInfo.IsVisible = false;
         }
@@ -115,7 +116,7 @@ namespace Lo_Fi_Shop.Page
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
 
-            if (ComponentName.Text == default)
+            if (ComponentName.Text == "Добро пожаловать!")
                 BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки";
             else
             {
@@ -131,8 +132,7 @@ namespace Lo_Fi_Shop.Page
                     BuyInfo.Text = "Покупка успешна!";
                     PersonClass Player = PersonClass.OverwriteData();
                     Money.Text = Player.Money.ToString() + "₽";
-                    string TempTXT = ComponentName.Text;
-                    InventoryPage.AddToInv(TempTXT, SelectItem);
+                    InventoryPage.AddToInv(ComponentName.Text);
                     // Thread.Sleep(2000);
                     Navigation.PushAsync(new Page.PlayPage());
                 }

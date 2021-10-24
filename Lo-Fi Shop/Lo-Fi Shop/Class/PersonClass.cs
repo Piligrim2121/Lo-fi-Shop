@@ -90,8 +90,11 @@ namespace Lo_Fi_Shop.Class
             string SubInv = "";
             foreach (string i in InventoryParts)
             {
-                if (i != "")
-                    SubInv += (i + ",");
+                if (i != "" && i != null)
+                    if (SubInv.Length == 0)
+                        SubInv += i;
+                    else
+                        SubInv += ("," + i);
             }
             string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";" + words[5] +";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
@@ -106,9 +109,13 @@ namespace Lo_Fi_Shop.Class
             string SubInv = "";
             foreach (string i in InventoryWhole)
             {
-                SubInv += (i + ",");
+                if (i != "" && i != null)
+                    if (SubInv.Length == 0)
+                        SubInv += i;
+                    else
+                        SubInv += ("," + i);
             }
-            string text = words[0] + ";" + words[1] + ";" + words[2] + ";InventoryWhole:" + SubInv + ";" + words[4] + ";";
+            string text = words[0] + ";" + words[1] + ";" + words[2] + ";InventoryWhole:" + SubInv + ";" + words[4] + ";" + words[5] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             //OverwriteData();
         }

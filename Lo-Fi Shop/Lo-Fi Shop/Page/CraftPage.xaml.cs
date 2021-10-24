@@ -113,12 +113,19 @@ namespace Lo_Fi_Shop.Page
                         if (Text[j] == i)
                         {
                             Text[j] = null;
-                            continue;
+                            break;
                         }
                     }
                 }
                 UseKomponents.Clear();
                 List<string> list = Text.ToList<string>();
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if(list[j] == null)
+                    {
+                        list.RemoveAt(j);
+                    }
+                }    
                 PersonClass.Write_TXT(list);
                 Navigation.PushAsync(new Page.PlayPage());
             }
