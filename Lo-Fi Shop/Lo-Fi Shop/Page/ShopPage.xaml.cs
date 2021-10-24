@@ -21,17 +21,11 @@ namespace Lo_Fi_Shop.Page
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
         }
-        /*ПЕРЕОПРЕделение кнопки назад
-        public override bool OnKeyDown(KeyCode keyCode, KeyEvent e)
+        protected override bool OnBackButtonPressed()
         {
-            if (keyCode == Keycode.Back)
-            {
-                //SetContentView(Resource.Layout.Login)
-               return false;
-            }
-
-            return true;
-        }*/
+            // чё то добавить
+            return base.OnBackButtonPressed();
+        }
 
         /// <summary>
         /// Выбор предмета для покупки
