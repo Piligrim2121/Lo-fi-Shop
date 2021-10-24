@@ -20,16 +20,16 @@ namespace Lo_Fi_Shop.Page
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
         }
-        public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
-        {
-            if (keyCode == Keycode.Back)
-            {
-                SetContentView(Resource.Layout.Login)
-               return false;
-            }
+        //public override bool OnKeyDown(Keycode keyCode, KeyEvent e)
+        //{
+        //    if (keyCode == Keycode.Back)
+        //    {
+        //        SetContentView(Resource.Layout.Login)
+        //       return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         /// <summary>
         /// Выбор предмета для покупки
