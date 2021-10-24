@@ -105,7 +105,8 @@ namespace Lo_Fi_Shop.Page
         }
         private void PC_Clicked(object sender, EventArgs e)
         {
-
+            
+          
         }
 
         private void DisplayInvPath()

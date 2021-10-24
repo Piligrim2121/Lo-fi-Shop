@@ -52,6 +52,18 @@ namespace Lo_Fi_Shop.Class
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
+        public static void Write_PC(List<Item> PC)
+        {
+            string text2="";
+            string folderPath2 = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename2 = "pcs";
+            for(int i =0; i<Item.PC.Count; i++)
+            {
+                
+                 text2 = "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
+            }
+            File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
+        }
         /// <summary>
         /// Сохранения данных в файл
         /// </summary>
@@ -206,6 +218,11 @@ namespace Lo_Fi_Shop.Class
             {
                 string text = "Money:200000;Exp:0;InventoryParts:;InventoryWhole:;Settings:10,10,10;Lvl:1;";
                 File.WriteAllText(Path.Combine(folderPath, filename), text);
+                ReturnPerson();
+            }
+            if (!File.Exists(Path.Combine(folderPath, "pcs")))
+            {
+                File.WriteAllText(Path.Combine(folderPath, "pcs"), "");
                 ReturnPerson();
             }
         }
