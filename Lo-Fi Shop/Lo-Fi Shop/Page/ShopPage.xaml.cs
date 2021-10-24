@@ -21,13 +21,13 @@ namespace Lo_Fi_Shop.Page
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
         }
-        protected override bool OnBackButtonPressed()
-        {
-            // чё то добавить
-            //return base.OnBackButtonPressed
-            Navigation.PushAsync(new Page.PlayPage());
-            return true;
-        }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    // чё то добавить
+        //    //return base.OnBackButtonPressed
+        //    Navigation.PushAsync(new Page.PlayPage());
+        //    return true;
+        //}
 
         /// <summary>
         /// Выбор предмета для покупки

@@ -70,16 +70,16 @@
                          Source="Resources/drawable/Kassa.png"  
                          Grid.RowSpan="2"/>
             <Image x:Name="Door" Grid.Column="5" Margin="31,36,15,70" Grid.RowSpan="4" Source="Resources/drawable/DoorClosed.png"  Grid.Row="2"/>
-            <Image x:Name="Dialog"   Grid.ColumnSpan="6" IsVisible="false" Grid.RowSpan="6" Source="Resources/drawable/dialogue.jpg" Margin="60, 250, 60, 0" ScaleY="1.5"/>
-            <Label x:Name="Answer"  Grid.Column="1" Grid.Row="5" IsVisible="false" Text="Сделаете комп за 180.000Р, пожуйлиста?" Grid.ColumnSpan="5"/>
-            <Grid x:Name="GridBtn" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" IsVisible="false">
+            <Image x:Name="Dialog"   Grid.ColumnSpan="6"   IsVisible="false" Grid.RowSpan="6" Source="Resources/drawable/dialogue.jpg" Margin="60, 250, 60, 0" ScaleY="1.5"/>
+            <Label x:Name="Answer"  Grid.Column="1" Margin="0,-20,0,0" Grid.Row="5" IsVisible="false" Text="Сделаете комп за 180.000Р, пожуйлиста?" Grid.ColumnSpan="5"/>
+            <Grid x:Name="GridBtn" Scale="0.8"  Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" IsVisible="false">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"></ColumnDefinition>
                     <ColumnDefinition Width="70"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="ButtonYes" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
-                <Button x:Name="ButtonNo" Text="Нет" Grid.Column="1" Clicked="ButtonNo_Clicked"></Button>
-                <Button x:Name="ButtonHide" Text="Скрыть" IsVisible="false" Grid.Column="0" Clicked="ButtonHide_Clicked"></Button>
+                <Button x:Name="ButtonYes" Margin="0,10,0,0" Text="Да" Grid.Column="0" Clicked="ButtonYes_Clicked"></Button>
+                <Button x:Name="ButtonNo" Margin="0,10,0,0" Text="Нет" Grid.Column="1" Clicked="ButtonNo_Clicked"></Button>
+                <Button x:Name="ButtonHide" Margin="-40,10,0,0" Text="Скрыть" IsVisible="false" Grid.Column="0" Clicked="ButtonHide_Clicked"></Button>
             </Grid>
            
            

@@ -17,12 +17,12 @@ namespace Lo_Fi_Shop.Page
 
             if (Da)
             {
-                Obvodka1.IsVisible = false;
+                Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
             }
             else
             {
-                Obvodka1.IsVisible = true;
+                Obvodka1.Source = "Resource/drawable/Obvodka.png";
             }
             Prod = Da;
 
@@ -102,6 +102,10 @@ namespace Lo_Fi_Shop.Page
             //        break;
             //}
         }
+        private void PC_Clicked(object sender, EventArgs e)
+        {
+
+        }
 
         private void DisplayInvPath()
         {
@@ -127,12 +131,12 @@ namespace Lo_Fi_Shop.Page
                         if (i == Item.InInvItems[c].Name)
                         {
                             Color color = Color.Transparent;
-                            if (LenInv <= 4)
-                                color = Color.Red;
-                            ImageButton imageButton = new ImageButton { Margin = new Thickness(20, -20, 0, -65), Source = Item.InInvItems[c].Path, BackgroundColor = color };
+                            //if (LenInv <= 8)
+                            //    color = Color.Red;
+                            ImageButton imageButton = new ImageButton { Margin = new Thickness(20, 0, 0, 0), Source = Item.InInvItems[c].Path, BackgroundColor = color };
                             //if(LenInv%5==0)
                             //lol += 20;
-                            imageButton.Clicked += TestVideoCard_Clicked;
+                            imageButton.Clicked += PC_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }
@@ -142,6 +146,7 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
+               
                 PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryWhole;
                 int LenInv = 0;
@@ -151,9 +156,14 @@ namespace Lo_Fi_Shop.Page
                     {
                         continue;
                     }
-                    ImageButton imageButton = new ImageButton { Source = "Resources/drawable/PC.jpg", BackgroundColor = Color.Transparent };
-                    imageButton.Clicked += TestVideoCard_Clicked;
-                    Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
+                    for (int c = 0; c < Item.CreatePC().Length; c++) {
+                        if (i == Item.CreatePC()[c].Name) {
+                            ImageButton imageButton = new ImageButton { Source = Item.CreatePC()[c].Path, BackgroundColor = Color.Transparent };
+                            imageButton.Clicked += TestVideoCard_Clicked;
+                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
+                        }
+                    }
+                      
                     LenInv++;
                 }
                 LenInv = 0;
@@ -170,15 +180,19 @@ namespace Lo_Fi_Shop.Page
 
         private void Obvodka_Clicked(object sender, EventArgs e)
         {
+            
             if (Obvodka1.Source == null)
             {
-                Description.Text = "";
-                Info_name.Text = "";
-                Cost.Text = "";
-                Obvodka1.Source = "Resource/drawable/Obvodka.png";
-                Obvodka2.Source = null;
-                Sell.IsVisible = false;
-                DisplayInvPath();
+                if (!Prod)
+                {
+                    Description.Text = "";
+                    Info_name.Text = "";
+                    Cost.Text = "";
+                    Obvodka1.Source = "Resource/drawable/Obvodka.png";
+                    Obvodka2.Source = null;
+                    
+                    DisplayInvPath();
+                }
             }
         }
 
@@ -192,7 +206,7 @@ namespace Lo_Fi_Shop.Page
                 Cost.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
-                Sell.IsVisible = true;
+                
                 DisplayInvPath();
             }
         }

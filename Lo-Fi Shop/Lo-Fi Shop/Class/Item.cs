@@ -46,5 +46,12 @@ namespace Lo_Fi_Shop.Class
             return items;
 
         }
+        public static Item[] CreatePC()
+        {
+            Item EasyPC = new Item("Бюджетный ПК", 0, "Resources/drawable/Easy_DonePC.png", "");
+                Item[] pcs = { EasyPC};
+            return pcs;
+           
+        }
     }
 }

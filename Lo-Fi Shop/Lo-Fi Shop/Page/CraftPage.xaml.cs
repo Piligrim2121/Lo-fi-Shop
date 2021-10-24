@@ -88,19 +88,23 @@ namespace Lo_Fi_Shop.Page
             {
                 InvPart = new List<string>();
                 string name = "";
+                string Source = "";
                 if (Cost <= 50000)
                 {
-                    name = "Начальный корпус";
+                    name = "Бюджетный ПК";
+                    Source = "Resource/drawable/Easy_DonePC.png";
                 }
                 else if ((Cost >= 50000) && (Cost <= 120000))
                 {
-                    name = "Средний корпус";
+                    name = "Средний ПК";
+                    Source = "Resource/drawable/Medium_DonePC.png";
                 }
                 else
                 {
-                    name = "Дорогой корпус";
+                    name = "Мощный ПК";
+                    Source= "Resource/drawable/Hard_DonePC.png";
                 }
-                Item item = new Item(name, Cost, "Resources/drawable/PC.jpg");
+                Item item = new Item(name, Cost, Source, UseKomponents[0]+"\n"+UseKomponents[1]+"\n"+ UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]);
                 PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryWhole;
                 InvPart.Add(item.Name);
@@ -127,7 +131,7 @@ namespace Lo_Fi_Shop.Page
                     }
                 }    
                 PersonClass.Write_TXT(list);
-                Navigation.PushAsync(new Page.PlayPage());
+               Navigation.PopAsync();
             }
         }
         private bool Proverka() // крестик по умолчанию когда не выбран

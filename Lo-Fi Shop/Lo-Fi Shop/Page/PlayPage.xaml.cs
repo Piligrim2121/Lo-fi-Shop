@@ -52,13 +52,13 @@ public partial class PlayPage : ContentPage
             PersonClass Player = PersonClass.ReturnPerson();
             Money.Text = Player.Money.ToString() + "₽";
             Level = Player.Lvl;
-            lvl.Text = Level + " lvl";
+            lvl.Text = Level.ToString();
             //lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 100 + 1)).ToString() + "lvl";
             //if((Player.Exp - (100 * Level)) / 100 >= Level - 1)
             if (Player.Exp >= (100* Level))
             {
                 Level++;
-                lvl.Text = Level + " lvl";
+                lvl.Text = Level.ToString();
                 PersonClass.Write_TXT3(Level);
                 PersonClass.Write_TXT2(0);
                 Player = PersonClass.ReturnPerson();
