@@ -169,9 +169,9 @@ namespace Lo_Fi_Shop.Page
                     string Cost = i.Split(';')[1].Split(':')[1];
                     string Source = i.Split(';')[2].Split(':')[1];
                     string Description = i.Split(';')[3].Split(':')[1];
-                            ImageButton imageButton = new ImageButton { Source = Item.PC[c].Path, BackgroundColor = Color.Transparent };
-                            imageButton.Clicked += PC_Clicked;
-                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
+                            //ImageButton imageButton = new ImageButton { Source = Item.PC[c].Path, BackgroundColor = Color.Transparent };
+                            //imageButton.Clicked += PC_Clicked;
+                            //Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         
                     //}
 
