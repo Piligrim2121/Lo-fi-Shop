@@ -107,7 +107,7 @@ namespace Lo_Fi_Shop.Page
             //}
         }
         private void PC_Clicked(object sender, EventArgs e)
-        {
+        { 
             tempBtn = sender as ImageButton;
             if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[0].Path)
             {
