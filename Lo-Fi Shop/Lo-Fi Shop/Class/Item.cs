@@ -12,6 +12,7 @@ namespace Lo_Fi_Shop.Class
         public string Path;
         public bool InInventory;
         public static Item[] InInvItems = CreateItems();
+       static public List<Item> PC;
         /// <summary>
         /// Конструктор класса Item
         /// </summary>
