@@ -155,23 +155,6 @@ public partial class PlayPage : ContentPage
             else if (h == false)
             {
                 Navigation.PushAsync(new Page.InventoryPage(true));
-                //Client.IsVisible = false;
-                //Dialog.IsVisible = false;
-                //Answer.IsVisible = false;
-                //GridBtn.IsVisible = false;
-                //int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
-                //Money.Text = M.ToString() + "₽";
-                //PersonClass Player = PersonClass.ReturnPerson();
-                //PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
-                //if (Player.Exp >= (100 * Level - 1))
-                //{
-                //    PersonClass.Write_TXT3(Level);
-                //    PersonClass.Write_TXT2(0);
-                //}
-                //PersonClass.Write_TXT(M);
-                //Get_data();
-                //Alive = true;
-                //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
             }
         }
 
@@ -266,6 +249,13 @@ public partial class PlayPage : ContentPage
 
             ButtonYes.Text = "Да";
             ButtonNo.Text = "Нет";
+        }
+
+        private void Door_Clicked(object sender, EventArgs e)
+        {
+            Door.Source = "DoorOpen.png";
+            Thread.Sleep(2000);
+            Navigation.PushAsync(new MainMenuPage());
         }
     }
 }
