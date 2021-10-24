@@ -36,7 +36,7 @@
            
             <ImageButton x:Name="Obvodka1" Grid.Column="1" Grid.Row="0" Scale="0.5" Padding="0" Margin="-8,-20,115,20" Source="Resources/drawable/Obvodka.png" BackgroundColor="Transparent" Clicked="Obvodka_Clicked"/>
             <ImageButton x:Name="Obvodka2" Grid.Column="1" Grid.Row="0" Scale="0.5" Padding="0" Margin="-8,20,115,-20"  BackgroundColor="Transparent" Clicked="Obvodka2_Clicked"/>
-            <ImageButton x:Name="Sell" Scale="0.6" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="3" Source="Resources/drawable/Sell_btn.png" Clicked="Sell_Clicked"></ImageButton>
+            <ImageButton x:Name="Sell" Scale="0.6" IsVisible="false" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="3" Source="Resources/drawable/Sell_btn.png" Clicked="Sell_Clicked"></ImageButton>
            
         </Grid>
     </ContentPage.Content>

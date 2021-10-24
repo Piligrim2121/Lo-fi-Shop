@@ -172,8 +172,12 @@ namespace Lo_Fi_Shop.Page
         {
             if (Obvodka1.Source == null)
             {
+                Description.Text = "";
+                Info_name.Text = "";
+                Cost.Text = "";
                 Obvodka1.Source = "Resource/drawable/Obvodka.png";
                 Obvodka2.Source = null;
+                Sell.IsVisible = false;
                 DisplayInvPath();
             }
         }
@@ -183,10 +187,12 @@ namespace Lo_Fi_Shop.Page
 
             if (Obvodka2.Source == null)
             {
-
+                Description.Text = "";
+                Info_name.Text = "";
+                Cost.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
-
+                Sell.IsVisible = true;
                 DisplayInvPath();
             }
         }
