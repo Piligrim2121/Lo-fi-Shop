@@ -1,6 +1,7 @@
 ﻿using Lo_Fi_Shop.Class;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -147,7 +148,7 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-               
+
                 PersonClass Player = PersonClass.ReturnPerson();
                 InvPart = Player.InventoryWhole;
                 int LenInv = 0;
@@ -157,14 +158,16 @@ namespace Lo_Fi_Shop.Page
                     {
                         continue;
                     }
-                    for (int c = 0; c < Item.CreatePC().Length; c++) {
-                        if (i == Item.CreatePC()[c].Name) {
+                    for (int c = 0; c < Item.CreatePC().Length; c++)
+                    {
+                        if (i == Item.CreatePC()[c].Name)
+                        {
                             ImageButton imageButton = new ImageButton { Source = Item.CreatePC()[c].Path, BackgroundColor = Color.Transparent };
                             imageButton.Clicked += PC_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }
-                      
+
                     LenInv++;
                 }
                 LenInv = 0;
@@ -181,7 +184,7 @@ namespace Lo_Fi_Shop.Page
 
         private void Obvodka_Clicked(object sender, EventArgs e)
         {
-            
+
             if (Obvodka1.Source == null)
             {
                 if (!Prod)
@@ -191,7 +194,7 @@ namespace Lo_Fi_Shop.Page
                     Cost.Text = "";
                     Obvodka1.Source = "Resource/drawable/Obvodka.png";
                     Obvodka2.Source = null;
-                    
+
                     DisplayInvPath();
                 }
             }
@@ -207,11 +210,10 @@ namespace Lo_Fi_Shop.Page
                 Cost.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
-                
+
                 DisplayInvPath();
             }
         }
-
         private void Sell_Clicked(object sender, EventArgs e)
         {
             if (Prod)
@@ -238,8 +240,73 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-                // Продаем выбранный компонент за 70% от себестоимости
+                string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
+                string DelText = null;
+                if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[0].Sell * 0.8));
+                    DelText = Item.InInvItems[0].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[1].Sell * 0.8));
+                    DelText = Item.InInvItems[1].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[2].Sell * 0.8));
+                    DelText = Item.InInvItems[2].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[3].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[3].Sell * 0.8));
+                    DelText = Item.InInvItems[3].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[4].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[4].Sell * 0.8));
+                    DelText = Item.InInvItems[4].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[5].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[5].Sell * 0.8));
+                    DelText = Item.InInvItems[5].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[6].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[6].Sell * 0.8));
+                    DelText = Item.InInvItems[6].Name;
+                }
+                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[7].Path)
+                {
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[7].Sell * 0.8));
+                    DelText = Item.InInvItems[7].Name;
+                }
+                for (int j = 0; j < Text.Length; j++)
+                    if (Text[j] == DelText)
+                    {
+                        Text[j] = null;
+                        break;
+                    }
+                List<string> list = Text.ToList<string>();
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (list[j] == null)
+                    {
+                        list.RemoveAt(j);
+                    }
+                }
+                PersonClass.Write_TXT(list); 
             }
+            DisplayInvPath();
         }
     }
 }
