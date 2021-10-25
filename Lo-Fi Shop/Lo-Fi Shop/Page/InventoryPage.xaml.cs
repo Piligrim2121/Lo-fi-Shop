@@ -45,7 +45,7 @@ namespace Lo_Fi_Shop.Page
         public static List<string> InvPart { get; set; }
         public static List<Item> InvPC { get; set; }
         bool Prod = false;
-      
+
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -99,6 +99,7 @@ namespace Lo_Fi_Shop.Page
                 Info_name.Text = Item.InInvItems[7].Name;
                 Cost.Text = Item.InInvItems[7].Sell.ToString() + "₽";
             }
+            DopB = true;
             //switch ((sender as ImageButton).GetType().GUID.ToString())
             //{
             //    case "00000000-0000-0000-0000-000000000000":
@@ -107,33 +108,19 @@ namespace Lo_Fi_Shop.Page
             //}
         }
         private void PC_Clicked(object sender, EventArgs e)
-        { 
+        {
             tempBtn = sender as ImageButton;
-            
-            if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[0].Path)
+            for (int i = 0; i < InvPC.Count; i++)
             {
-                Description.Text = InvPC[0].Description;
-                Info_name.Text = InvPC[0].Name;
-                Cost.Text = InvPC[0].Sell.ToString() + "₽";
+                if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[i].Path)
+                {
+                    Description.Text = InvPC[i].Description;
+                    Info_name.Text = InvPC[i].Name;
+                    Cost.Text = InvPC[i].Sell.ToString() + "₽";
+                }
+
             }
-          else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[1].Path)
-            {
-                Description.Text = InvPC[1].Description;
-                Info_name.Text = InvPC[1].Name;
-                Cost.Text = InvPC[1].Sell.ToString() + "₽";
-            }
-            else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[2].Path)
-            {
-                Description.Text = InvPC[2].Description;
-                Info_name.Text = InvPC[2].Name;
-                Cost.Text = InvPC[2].Sell.ToString() + "₽";
-            }
-            else if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[3].Path)
-            {
-                Description.Text = InvPC[3].Description;
-                Info_name.Text = InvPC[3].Name;
-                Cost.Text = InvPC[3].Sell.ToString() + "₽";
-            }
+            DopB = true;
         }
 
         private void DisplayInvPath()
@@ -176,12 +163,9 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-               
-                PersonClass Player = PersonClass.ReturnPerson();
+                //PersonClass Player = PersonClass.ReturnPerson();
                 //InvPC = Item.PC;
-               string pcs = PersonClass.Read_PC();
-
-                
+                string pcs = PersonClass.Read_PC();
                 int LenInv = 0;
                 foreach (string i in pcs.Split('*'))
                 {
@@ -192,18 +176,16 @@ namespace Lo_Fi_Shop.Page
                     //for (int c = 0; c < Item.PC.Count; c++)
                     //{
                     //if (i == "Name:"+Item.PC[c].Name+";"+"Cost:"+Item.PC[c].Sell+";"+"Source:"+Item.PC[c].Path+";"+"Description:"+Item.PC[c].Description+";")
-                     string NameG = i.Split(';')[0].Split(':')[1];
+                    string NameG = i.Split(';')[0].Split(':')[1];
                     string CostG = i.Split(';')[1].Split(':')[1];
                     string SourceG = i.Split(';')[2].Split(':')[1];
                     string DescriptionG = i.Split(';')[3].Split(':')[1];
-                    
-                    InvPC.Add(new Item(NameG, Convert.ToInt32(CostG), SourceG, DescriptionG));
-                            ImageButton imageButton = new ImageButton { Source = SourceG, BackgroundColor = Color.Transparent };
-                            imageButton.Clicked += PC_Clicked;
-                            Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
-                        
-                    //}
 
+                    InvPC.Add(new Item(NameG, Convert.ToInt32(CostG), SourceG, DescriptionG));
+                    ImageButton imageButton = new ImageButton { Source = SourceG, BackgroundColor = Color.Transparent };
+                    imageButton.Clicked += PC_Clicked;
+                    Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
+                    //}
                     LenInv++;
                 }
                 LenInv = 0;
@@ -250,99 +232,96 @@ namespace Lo_Fi_Shop.Page
                 DisplayInvPath();
             }
         }
+        bool DopB = false;
         private void Sell_Clicked(object sender, EventArgs e)
         {
-            if (Prod)
+            if (DopB)
             {
-                // проверка на выбранный пк потом:
-
-                //Client.IsVisible = false;
-                //Dialog.IsVisible = false;
-                //Answer.IsVisible = false;
-                //GridBtn.IsVisible = false;
-                //int M = Convert.ToInt32(Money.Text.Replace("₽","")) + MoneyClient;
-                //Money.Text = M.ToString() + "₽";
-                //PersonClass Player = PersonClass.OverwriteData();
-                //PersonClass.Write_TXT2(Convert.ToInt32(Player.Exp + 30));
-                //if (Player.Exp >= (100 * Level - 1))
-                //{
-                //    PersonClass.Write_TXT3(Level);
-                //    PersonClass.Write_TXT2(0);
-                //}
-                //PersonClass.Write_TXT(M);
-                //Get_data();
-                //Alive = true;
-                //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
-            }
-            else
-            {
-                string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
-                string DelText = null;
-                if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
+                if (Prod)
                 {
                     PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[0].Sell * 0.8));
-                    DelText = Item.InInvItems[0].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[1].Sell * 0.8));
-                    DelText = Item.InInvItems[1].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[2].Sell * 0.8));
-                    DelText = Item.InInvItems[2].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[3].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[3].Sell * 0.8));
-                    DelText = Item.InInvItems[3].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[4].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[4].Sell * 0.8));
-                    DelText = Item.InInvItems[4].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[5].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[5].Sell * 0.8));
-                    DelText = Item.InInvItems[5].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[6].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[6].Sell * 0.8));
-                    DelText = Item.InInvItems[6].Name;
-                }
-                else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[7].Path)
-                {
-                    PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[7].Sell * 0.8));
-                    DelText = Item.InInvItems[7].Name;
-                }
-                for (int j = 0; j < Text.Length; j++)
-                    if (Text[j] == DelText)
+                    PersonClass.Write_TXT(Player.Money + 30000);
+                    PersonClass.Write_TXT2(Player.Exp + 30);
+                    List<string> NewPC = new List<string>();
+                    string[] vs = PersonClass.Read_PC().Split('*');
+                    for (int i = 0; i < vs.Length - 2; i++)
                     {
-                        Text[j] = null;
-                        break;
+                        NewPC.Add(vs[i]);
                     }
-                List<string> list = Text.ToList<string>();
-                for (int j = 0; j < list.Count; j++)
-                {
-                    if (list[j] == null)
-                    {
-                        list.RemoveAt(j);
-                    }
+                    PersonClass.Delet_PC(NewPC);
                 }
-                PersonClass.Write_TXT(list); 
+                else
+                {
+                    string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
+                    string DelText = null;
+                    if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[0].Sell * 0.8));
+                        DelText = Item.InInvItems[0].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[1].Sell * 0.8));
+                        DelText = Item.InInvItems[1].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[2].Sell * 0.8));
+                        DelText = Item.InInvItems[2].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[3].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[3].Sell * 0.8));
+                        DelText = Item.InInvItems[3].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[4].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[4].Sell * 0.8));
+                        DelText = Item.InInvItems[4].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[5].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[5].Sell * 0.8));
+                        DelText = Item.InInvItems[5].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[6].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[6].Sell * 0.8));
+                        DelText = Item.InInvItems[6].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[7].Path)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[7].Sell * 0.8));
+                        DelText = Item.InInvItems[7].Name;
+                    }
+                    for (int j = 0; j < Text.Length; j++)
+                        if (Text[j] == DelText)
+                        {
+                            Text[j] = null;
+                            break;
+                        }
+                    List<string> list = Text.ToList<string>();
+                    for (int j = 0; j < list.Count; j++)
+                    {
+                        if (list[j] == null)
+                        {
+                            list.RemoveAt(j);
+                        }
+                    }
+                    PersonClass.Write_TXT(list);
+                }
+                DisplayInvPath();
+                DopB = false;
+                Navigation.PushAsync(new Page.PlayPage());
             }
-            DisplayInvPath();
         }
     }
 }
