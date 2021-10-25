@@ -182,7 +182,7 @@ namespace Lo_Fi_Shop.Page
                     string DescriptionG = i.Split(';')[3].Split(':')[1];
 
                     InvPC.Add(new Item(NameG, Convert.ToInt32(CostG), SourceG, DescriptionG));
-                    ImageButton imageButton = new ImageButton { Source = SourceG, BackgroundColor = Color.Transparent };
+                    ImageButton imageButton = new ImageButton { Margin = new Thickness(20, 0, 0, 0), Source = SourceG, BackgroundColor = Color.Transparent };
                     imageButton.Clicked += PC_Clicked;
                     Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                     //}
