@@ -270,7 +270,6 @@ public partial class PlayPage : ContentPage
         private void Door_Clicked(object sender, EventArgs e)
         {
             Door.Source = "DoorOpen.png";
-            Thread.Sleep(2000);
             Navigation.PushAsync(new MainMenuPage());
         }
 
