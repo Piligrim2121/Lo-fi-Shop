@@ -86,54 +86,57 @@ namespace Lo_Fi_Shop.Page
             Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
-                InvPart = new List<string>();
-                string name = "";
-                string Source = "";
-                if (Cost <= 50000)
+                if(PersonClass.Read_PC().Split('*').Length <25)
                 {
-                    name = "Бюджетный ПК";
-                    Source = "Resource/drawable/Easy_DonePC.png";
-                }
-                else if ((Cost >= 50000) && (Cost <= 120000))
-                {
-                    name = "Средний ПК";
-                    Source = "Resource/drawable/Medium_DonePC.png";
-                }
-                else
-                {
-                    name = "Мощный ПК";
-                    Source= "Resource/drawable/Hard_DonePC.png";
-                }
-               
-                Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0]+"\n"+UseKomponents[1]+"\n"+ UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
-                PersonClass.Write_PC(Item.PC);
-                PersonClass Player = PersonClass.ReturnPerson();
-                InvPart = Player.InventoryWhole;
-                InvPart.Add(Item.PC[0].Name);
-                PersonClass.Write_TXT2(InvPart);
-                string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
-                foreach (string i in UseKomponents)
-                {
-                    for (int j = 0; j < Text.Length; j++)
+                    InvPart = new List<string>();
+                    string name = "";
+                    string Source = "";
+                    if (Cost <= 50000)
                     {
-                        if (Text[j] == i)
+                        name = "Бюджетный ПК";
+                        Source = "Resource/drawable/Easy_DonePC.png";
+                    }
+                    else if ((Cost >= 50000) && (Cost <= 120000))
+                    {
+                        name = "Средний ПК";
+                        Source = "Resource/drawable/Medium_DonePC.png";
+                    }
+                    else
+                    {
+                        name = "Мощный ПК";
+                        Source = "Resource/drawable/Hard_DonePC.png";
+                    }
+
+                    Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
+                    PersonClass.Write_PC(Item.PC);
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    InvPart = Player.InventoryWhole;
+                    InvPart.Add(Item.PC[0].Name);
+                    PersonClass.Write_TXT2(InvPart);
+                    string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
+                    foreach (string i in UseKomponents)
+                    {
+                        for (int j = 0; j < Text.Length; j++)
                         {
-                            Text[j] = null;
-                            break;
+                            if (Text[j] == i)
+                            {
+                                Text[j] = null;
+                                break;
+                            }
                         }
                     }
-                }
-                UseKomponents.Clear();
-                List<string> list = Text.ToList<string>();
-                for (int j = 0; j < list.Count; j++)
-                {
-                    if(list[j] == null)
+                    UseKomponents.Clear();
+                    List<string> list = Text.ToList<string>();
+                    for (int j = 0; j < list.Count; j++)
                     {
-                        list.RemoveAt(j);
+                        if (list[j] == null)
+                        {
+                            list.RemoveAt(j);
+                        }
                     }
-                }    
-                PersonClass.Write_TXT(list);
-               Navigation.PopAsync();
+                    PersonClass.Write_TXT(list);
+                    Navigation.PopAsync();
+                }
             }
         }
         private bool Proverka() // крестик по умолчанию когда не выбран

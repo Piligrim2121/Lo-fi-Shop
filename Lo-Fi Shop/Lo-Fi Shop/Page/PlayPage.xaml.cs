@@ -28,6 +28,7 @@ public partial class PlayPage : ContentPage
             NavigationPage.SetHasNavigationBar(this, false);
             Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
@@ -36,7 +37,7 @@ public partial class PlayPage : ContentPage
             rnd = new Random();
         }
         bool win = false;
-        private void Win()
+        private bool Win()
         {
             if (!win)
             {
@@ -48,6 +49,7 @@ public partial class PlayPage : ContentPage
                     win = true;
                 }
             }
+            return !win;
         }
         protected override bool OnBackButtonPressed()
         {

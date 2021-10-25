@@ -62,7 +62,7 @@ namespace Lo_Fi_Shop.Class
             for(int i =0; i<Item.PC.Count; i++)
             {
                 
-                 text2 += "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
+                 text2 = "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
         }
