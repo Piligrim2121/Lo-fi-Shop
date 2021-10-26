@@ -86,7 +86,7 @@ namespace Lo_Fi_Shop.Page
             Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
-                if(PersonClass.Read_PC().Split('*').Length <25)
+                if (PersonClass.Read_PC().Split('*').Length < 25)
                 {
                     InvPart = new List<string>();
                     string name = "";

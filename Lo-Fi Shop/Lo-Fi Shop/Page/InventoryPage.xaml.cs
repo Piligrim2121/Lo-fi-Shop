@@ -50,7 +50,7 @@ namespace Lo_Fi_Shop.Page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TestVideoCard_Clicked(object sender, EventArgs e)
+        private void ElementCliced(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
 
@@ -158,7 +158,7 @@ namespace Lo_Fi_Shop.Page
                         {
                             Color color = Color.Transparent;
                             ImageButton imageButton = new ImageButton { Margin = new Thickness(20, 0, 0, 0), Source = Item.InInvItems[c].Path, BackgroundColor = color };
-                            imageButton.Clicked += TestVideoCard_Clicked;
+                            imageButton.Clicked += ElementCliced;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
                     }
@@ -199,7 +199,7 @@ namespace Lo_Fi_Shop.Page
         /// </summary>
         /// <param name="Part"></param>
         public static void AddToInv(string Part)
-        {  
+        {
             PersonClass Player = PersonClass.ReturnPerson();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);
@@ -263,7 +263,7 @@ namespace Lo_Fi_Shop.Page
                     switch (PlayPage.zakaz)
                     {
                         case 1:
-                            if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽","")))
+                            if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽", "")))
                             {
                                 PersonClass.Write_TXT(Player.Money + PlayPage.MoneyClient);
                                 PersonClass.Write_TXT2(Player.Exp + 30);

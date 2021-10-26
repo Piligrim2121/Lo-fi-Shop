@@ -5,17 +5,15 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Lo_Fi_Shop.Class;
-using static System.Math;
-
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Threading;
 
 namespace Lo_Fi_Shop.Page
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class PlayPage : ContentPage
-{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PlayPage : ContentPage
+    {
         bool Alive = true;
         bool h = true;
         public Item[] MassAllItems = Item.CreateItems();
@@ -78,7 +76,7 @@ public partial class PlayPage : ContentPage
             lvl.Text = Level.ToString();
             //lvl.Text = (Math.Floor(Convert.ToDouble(Player.Exp) / 100 + 1)).ToString() + "lvl";
             //if((Player.Exp - (100 * Level)) / 100 >= Level - 1)
-            if (Player.Exp >= (100* Level))
+            if (Player.Exp >= (100 * Level))
             {
                 Level++;
                 lvl.Text = Level.ToString();
@@ -143,14 +141,14 @@ public partial class PlayPage : ContentPage
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Sky_Clicked(object sender, EventArgs e)
-        {                  
+        {
             Sky.IsVisible = false;
             Dialog.IsVisible = true;
-            Answer.IsVisible=true;
+            Answer.IsVisible = true;
             h = true;
-            GridBtn.IsVisible= true;
-            zakaz = rnd.Next(1,2);
-            switch(zakaz)
+            GridBtn.IsVisible = true;
+            zakaz = rnd.Next(1, 2);
+            switch (zakaz)
             {
                 case 1:
                     MoneyClient = rnd.Next(26, 35) * 1000;
@@ -173,7 +171,7 @@ public partial class PlayPage : ContentPage
             {
                 Dialog.IsVisible = false;
                 Answer.IsVisible = false;
-                GridBtn.IsVisible = false;                                
+                GridBtn.IsVisible = false;
                 Alive = true;
                 SkyBuy.IsVisible = true;
                 Navigation.PushAsync(new Page.QuestPage(Answer.Text));
@@ -212,7 +210,7 @@ public partial class PlayPage : ContentPage
                     ButtonNo.Text = "Нет";
                     Alive = true;
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
-                    
+
                 }
 
             }
@@ -244,7 +242,7 @@ public partial class PlayPage : ContentPage
                     if ((LastExp - 30) <= 0)
                     {
                         Console.WriteLine(100 * (Level - 1) - LastExp);
-                        PersonClass.Write_TXT2(100 * (Level-1) - LastExp);
+                        PersonClass.Write_TXT2(100 * (Level - 1) - LastExp);
                         PersonClass.Write_TXT3(Level - 1);
                     }
                     else
@@ -253,10 +251,10 @@ public partial class PlayPage : ContentPage
                         PersonClass.Write_TXT2(LastExp - 30);
                     }
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
-                    
+
                 }
             }
-           
+
         }
         /// <summary>
         /// Диалоговое окно о продаже
@@ -269,7 +267,7 @@ public partial class PlayPage : ContentPage
             Dialog.IsVisible = true;
             Answer.IsVisible = true;
             GridBtn.IsVisible = true;
-            
+
             h = false;
             Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
         }

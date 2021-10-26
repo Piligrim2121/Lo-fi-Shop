@@ -1,7 +1,6 @@
 ﻿
 using Lo_Fi_Shop.Class;
 using System;
-using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -100,13 +99,13 @@ namespace Lo_Fi_Shop.Page
         private void EmpetyMessage_Clicked(object sender, EventArgs e)
         {
             Console.WriteLine("<попытка закрытия окна  пользователем>");
-               
-                EmpetyMessage.IsVisible = false;
-                BuyInfo.IsVisible = false;
-                messageShow = false;
-            
+
+            EmpetyMessage.IsVisible = false;
+            BuyInfo.IsVisible = false;
+            messageShow = false;
+
         }
-        private bool MessageHide ()
+        private bool MessageHide()
         {
             Console.WriteLine("<попытка закрытия окна  таймером>");
             if (messageShow)
@@ -115,7 +114,7 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.IsVisible = false;
                 messageShow = false;
             }
-            
+
             return false;
         }
         bool messageShow;
