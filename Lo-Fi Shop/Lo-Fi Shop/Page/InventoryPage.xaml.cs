@@ -230,35 +230,38 @@ namespace Lo_Fi_Shop.Page
             {
                 if (Prod)
                 {
+                    bool check = false;
                     PersonClass Player = PersonClass.ReturnPerson();
                     switch (PlayPage.zakaz)
                     {
                         case 1:
-                            if (PlayPage.MoneyClient <= Convert.ToInt32(Cost.Text.Replace("₽","")))
+                            if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽","")))
                             {
                                 PersonClass.Write_TXT(Player.Money + PlayPage.MoneyClient);
                                 PersonClass.Write_TXT2(Player.Exp + 30);
+                                check = true;
                             }
                             break;
                         case 2:
-                            if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽", "")))
+                            if (PlayPage.MoneyClient <= Convert.ToInt32(Cost.Text.Replace("₽", "")))
                             {
                                 PersonClass.Write_TXT(Convert.ToInt32(Player.Money + PlayPage.MoneyClient + PlayPage.MoneyClient * 0.9));
                                 PersonClass.Write_TXT2(Player.Exp + 30);
+                                check = true;
                             }
                             break;
-                        default:
-
-                            break;
                     }
-                    List<string> NewPC = new List<string>();
-                    string[] vs = PersonClass.Read_PC().Split('*');
-                    for (int i = 0; i < vs.Length - 2; i++)
+                    if (check)
                     {
-                        NewPC.Add(vs[i]);
+                        List<string> NewPC = new List<string>();
+                        string[] vs = PersonClass.Read_PC().Split('*');
+                        for (int i = 0; i < vs.Length - 2; i++)
+                        {
+                            NewPC.Add(vs[i]);
+                        }
+                        PersonClass.Delet_PC(NewPC);
+                        Navigation.PushAsync(new Page.PlayPage());
                     }
-                    PersonClass.Delet_PC(NewPC);
-                    Navigation.PushAsync(new Page.PlayPage());
                 }
                 else
                 {
