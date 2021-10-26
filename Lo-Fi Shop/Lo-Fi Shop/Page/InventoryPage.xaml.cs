@@ -118,7 +118,6 @@ namespace Lo_Fi_Shop.Page
                     Info_name.Text = InvPC[i].Name;
                     Cost.Text = InvPC[i].Sell.ToString() + "₽";
                 }
-
             }
             DopB = true;
         }
@@ -129,7 +128,6 @@ namespace Lo_Fi_Shop.Page
             Description.Text = "";
             Info_name.Text = "";
             Cost.Text = "";
-            //int lol=-20;
             Inv_Grid.Children.Clear();
             if (Obvodka1.Source != null)
             {
@@ -148,11 +146,7 @@ namespace Lo_Fi_Shop.Page
                         if (i == Item.InInvItems[c].Name)
                         {
                             Color color = Color.Transparent;
-                            //if (LenInv <= 8)
-                            //    color = Color.Red;
                             ImageButton imageButton = new ImageButton { Margin = new Thickness(20, 0, 0, 0), Source = Item.InInvItems[c].Path, BackgroundColor = color };
-                            //if(LenInv%5==0)
-                            //lol += 20;
                             imageButton.Clicked += TestVideoCard_Clicked;
                             Inv_Grid.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5) + 1, ((LenInv / 5)));
                         }
@@ -163,8 +157,6 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-                //PersonClass Player = PersonClass.ReturnPerson();
-                //InvPC = Item.PC;
                 string pcs = PersonClass.Read_PC();
                 int LenInv = 0;
                 foreach (string i in pcs.Split('*'))
@@ -192,8 +184,7 @@ namespace Lo_Fi_Shop.Page
             }
         }
         public static void AddToInv(string Part)
-        {
-            //InvPart = new List<string>();    
+        {  
             PersonClass Player = PersonClass.ReturnPerson();
             InvPart = Player.InventoryPath;
             InvPart.Add(Part);
@@ -240,8 +231,26 @@ namespace Lo_Fi_Shop.Page
                 if (Prod)
                 {
                     PersonClass Player = PersonClass.ReturnPerson();
-                    PersonClass.Write_TXT(Player.Money + 30000);
-                    PersonClass.Write_TXT2(Player.Exp + 30);
+                    switch (PlayPage.zakaz)
+                    {
+                        case 1:
+                            if (PlayPage.MoneyClient <= Convert.ToInt32(Cost.Text.Replace("₽","")))
+                            {
+                                PersonClass.Write_TXT(Player.Money + PlayPage.MoneyClient);
+                                PersonClass.Write_TXT2(Player.Exp + 30);
+                            }
+                            break;
+                        case 2:
+                            if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽", "")))
+                            {
+                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money + PlayPage.MoneyClient + PlayPage.MoneyClient * 0.9));
+                                PersonClass.Write_TXT2(Player.Exp + 30);
+                            }
+                            break;
+                        default:
+
+                            break;
+                    }
                     List<string> NewPC = new List<string>();
                     string[] vs = PersonClass.Read_PC().Split('*');
                     for (int i = 0; i < vs.Length - 2; i++)
@@ -249,6 +258,7 @@ namespace Lo_Fi_Shop.Page
                         NewPC.Add(vs[i]);
                     }
                     PersonClass.Delet_PC(NewPC);
+                    Navigation.PushAsync(new Page.PlayPage());
                 }
                 else
                 {
@@ -320,7 +330,6 @@ namespace Lo_Fi_Shop.Page
                 }
                 DisplayInvPath();
                 DopB = false;
-                Navigation.PushAsync(new Page.PlayPage());
             }
         }
     }

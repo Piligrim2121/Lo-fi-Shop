@@ -45,7 +45,7 @@
                     />
             <Image  Grid.ColumnSpan="2" Margin="0,0,72,20" Source="progressbar.png" />
             <Label x:Name="lvl"  FontSize="24" Text="1" Margin="36,2,64,31"/>
-            <ProgressBar Margin="55,0,-20,20" x:Name="Exp" ProgressColor ="Violet" Progress="0.9"/>
+            <ProgressBar Margin="55,0,-20,20" x:Name="Exp" ProgressColor ="Violet" />
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"
                        Margin="33,60,21,10.833"  
@@ -57,8 +57,8 @@
                        Grid.ColumnSpan="2" />
 
             <Image ScaleX="0.8" x:Name="Client" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="Resources/drawable/Vasyok.png" BackgroundColor="Transparent" IsVisible="false"/>
-            <ImageButton x:Name="Sky" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
-            <ImageButton x:Name="SkyBuy" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud_Vopros.png"  Clicked="SkyBuy_Clicked" />
+            <ImageButton x:Name="Sky" BackgroundColor="Transparent" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud.png"  Clicked="Sky_Clicked" />
+            <ImageButton x:Name="SkyBuy" BackgroundColor="Transparent" Grid.Column="2" IsVisible="false" Grid.Row="2" Source="Resources/drawable/cloud_Vopros.png"  Clicked="SkyBuy_Clicked" />
             <ImageButton x:Name="ImageKassa"
                          Clicked="ImageKassa_Clicked"
                          Grid.Column="1" 
