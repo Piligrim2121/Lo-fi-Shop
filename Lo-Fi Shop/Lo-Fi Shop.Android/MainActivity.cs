@@ -16,8 +16,8 @@ namespace Lo_Fi_Shop.Droid
 {
     [Activity
         (
-        Label = "Lo_Fi_Shop", 
-        Icon = "@mipmap/icon", 
+        Label = "Lo-Fi Shop", 
+        Icon = "@drawable/iconka", 
         Theme = "@style/MainTheme", 
         MainLauncher = true, 
         NoHistory =true,
