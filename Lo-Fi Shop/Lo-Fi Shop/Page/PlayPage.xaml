@@ -98,7 +98,9 @@
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
             
             <ImageButton Clicked="WinButton_Clicked" Grid.ColumnSpan="5" HorizontalOptions="Center" Margin="100,0,0,0" Grid.RowSpan="5" x:Name="WinButton" Source="Resources/drawable/Empty_mess.png" IsVisible="false" BackgroundColor="Transparent"></ImageButton>
-            <Label x:Name="WinLable" Grid.Column="1" Grid.ColumnSpan="3"   Grid.Row="2" HorizontalOptions="Center" Margin="50,0,0,0"  Text="Поздравляем, вы победили. Ваш прогресс сохранится, вы можете играть дальше. Ждите новых обновлений!!!" IsVisible="false"></Label>
+            <Label x:Name="WinLable" Grid.Column="1" Grid.ColumnSpan="3"   Grid.Row="2" Grid.RowSpan="3" HorizontalOptions="Center" Margin="10,0,0,0"  Text="" IsVisible="false"></Label>
+            <Image x:Name="Kotik" IsVisible="false" Scale="0.6"  Grid.ColumnSpan="6" HorizontalOptions="Center" Margin="300,0,0,0" Grid.RowSpan="5" Source="Resources/drawable/sad_cat.png"/>
+            <Image x:Name="Stonks" IsVisible="false" Scale="0.4"  Grid.ColumnSpan="6" HorizontalOptions="Center" Margin="0,0,0,10" Grid.RowSpan="3" Source="Resources/drawable/stonks.jpg"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

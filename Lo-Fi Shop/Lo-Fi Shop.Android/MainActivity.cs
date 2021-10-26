@@ -1,26 +1,18 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.OS;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+using Android.Runtime;
 using Android.Views;
-
-using Android.Webkit;
-using Plugin.SimpleAudioPlayer;
-using System.Reflection;
-using System.IO;
-using Android.Media;
 
 namespace Lo_Fi_Shop.Droid
 {
     [Activity
         (
-        Label = "Lo-Fi Shop", 
-        Icon = "@drawable/iconka", 
-        Theme = "@style/MainTheme", 
-        MainLauncher = true, 
-        NoHistory =true,
+        Label = "Lo-Fi Shop",
+        Icon = "@drawable/iconka",
+        Theme = "@style/MainTheme",
+        MainLauncher = true,
+        NoHistory = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, ScreenOrientation = ScreenOrientation.UserLandscape
         )
     ]
@@ -32,7 +24,7 @@ namespace Lo_Fi_Shop.Droid
         /// </summary>
         /// <param name="savedInstanceState"></param>
         ///
- 
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -62,7 +54,7 @@ namespace Lo_Fi_Shop.Droid
             LoadApplication(new App());
         }
 
-       
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

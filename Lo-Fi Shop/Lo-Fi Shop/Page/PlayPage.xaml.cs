@@ -8,6 +8,7 @@ using Lo_Fi_Shop.Class;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.IO;
 
 namespace Lo_Fi_Shop.Page
 {
@@ -28,6 +29,7 @@ namespace Lo_Fi_Shop.Page
             Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Lose);
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
@@ -36,6 +38,7 @@ namespace Lo_Fi_Shop.Page
             rnd = new Random();
         }
         bool win = false;
+        bool lose = false;
         /// <summary>
         /// Проверка условий победы
         /// </summary>
@@ -49,10 +52,29 @@ namespace Lo_Fi_Shop.Page
                 {
                     WinButton.IsVisible = true;
                     WinLable.IsVisible = true;
+                  
+                    WinLable.Text = "Поздравляем, вы победили. Ваш прогресс сохранится, вы можете играть дальше. Ждите новых обновлений!!!";
+                    Stonks.IsVisible = true;
                     win = true;
                 }
             }
             return !win;
+        }
+        private bool Lose()
+        {
+            if (!lose)
+            {
+                PersonClass Player = PersonClass.ReturnPerson();
+                if (Player.Money <=0)
+                {
+                    WinButton.IsVisible = true;
+                    WinLable.IsVisible = true;
+                    WinLable.Text = "Вы потратили все свои деньги и проиграли!" +"\n"+"Игра закроется и весь накопленный прогресс будет утерян. Впредь продумывайте свои действия наперёд. ";
+                    Kotik.IsVisible = true;
+                    lose = true;
+                }
+            }
+            return !lose;
         }
         /// <summary>
         /// Переход в Главное меню
@@ -306,8 +328,17 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void WinButton_Clicked(object sender, EventArgs e)
         {
+            if (lose)
+            {
+                string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                File.Delete(Path.Combine(folderPath, "data"));
+                File.Delete(Path.Combine(folderPath, "pcs"));
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
             WinLable.IsVisible = false;
             WinButton.IsVisible = false;
+            Kotik.IsVisible = false;
+            Stonks.IsVisible = false;
         }
     }
 }
