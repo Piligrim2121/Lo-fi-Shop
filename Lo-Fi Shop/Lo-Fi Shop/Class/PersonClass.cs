@@ -21,6 +21,7 @@ namespace Lo_Fi_Shop.Class
         /// Список готовых пк
         /// </summary>
         public List<string> InventoryWhole;
+      
         public List<int> Settings;
         public int Lvl;
         /// <summary>
@@ -39,6 +40,7 @@ namespace Lo_Fi_Shop.Class
             this.InventoryWhole = InventoryWhole; // без ограничений
             this.Settings = Settings; // list с 3 значениями от 1 до 10
             this.Lvl = Lvl;
+            
         }
 
         /// <summary>
@@ -63,6 +65,17 @@ namespace Lo_Fi_Shop.Class
                  text2 = "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
+        }
+        public static void Delet_PC(List<string> PC)
+        {
+            string text2 = "";
+            string folderPath2 = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename2 = "pcs";
+            for (int i = 0; i < PC.Count; i++)
+            {
+                text2 += "Name:" + PC[i].Split(';')[0].Split(':')[1] + ";" + "Cost:" + PC[i].Split(';')[1].Split(':')[1] + ";" + "Source:" + PC[i].Split(';')[2].Split(':')[1] + ";" + "Description:" + PC[i].Split(';')[3].Split(':')[1] + ";" + "*";
+            }
+            File.WriteAllText(Path.Combine(folderPath2, filename2), text2);
         }
         /// <summary>
         /// Сохранения данных в файл
@@ -226,6 +239,13 @@ namespace Lo_Fi_Shop.Class
                 File.WriteAllText(Path.Combine(folderPath, "pcs"), "");
                 ReturnPerson();
             }
+        }
+        public static string Read_PC()
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
+            string text = File.ReadAllText(Path.Combine(folderPath, "pcs"));
+            return text;
         }
     }
 }

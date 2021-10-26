@@ -86,54 +86,57 @@ namespace Lo_Fi_Shop.Page
             Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
-                InvPart = new List<string>();
-                string name = "";
-                string Source = "";
-                if (Cost <= 50000)
+                if(PersonClass.Read_PC().Split('*').Length <25)
                 {
-                    name = "Бюджетный ПК";
-                    Source = "Resource/drawable/Easy_DonePC.png";
-                }
-                else if ((Cost >= 50000) && (Cost <= 120000))
-                {
-                    name = "Средний ПК";
-                    Source = "Resource/drawable/Medium_DonePC.png";
-                }
-                else
-                {
-                    name = "Мощный ПК";
-                    Source= "Resource/drawable/Hard_DonePC.png";
-                }
-                Item.PC = new List<Item>();
-                Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0]+"\n"+UseKomponents[1]+"\n"+ UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
-                PersonClass.Write_PC(Item.PC);
-                PersonClass Player = PersonClass.ReturnPerson();
-                InvPart = Player.InventoryWhole;
-                InvPart.Add(Item.PC[0].Name);
-                PersonClass.Write_TXT2(InvPart);
-                string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
-                foreach (string i in UseKomponents)
-                {
-                    for (int j = 0; j < Text.Length; j++)
+                    InvPart = new List<string>();
+                    string name = "";
+                    string Source = "";
+                    if (Cost <= 50000)
                     {
-                        if (Text[j] == i)
+                        name = "Бюджетный ПК";
+                        Source = "Resource/drawable/Easy_DonePC.png";
+                    }
+                    else if ((Cost >= 50000) && (Cost <= 120000))
+                    {
+                        name = "Средний ПК";
+                        Source = "Resource/drawable/Medium_DonePC.png";
+                    }
+                    else
+                    {
+                        name = "Мощный ПК";
+                        Source = "Resource/drawable/Hard_DonePC.png";
+                    }
+
+                    Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
+                    PersonClass.Write_PC(Item.PC);
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    InvPart = Player.InventoryWhole;
+                    InvPart.Add(Item.PC[0].Name);
+                    PersonClass.Write_TXT2(InvPart);
+                    string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
+                    foreach (string i in UseKomponents)
+                    {
+                        for (int j = 0; j < Text.Length; j++)
                         {
-                            Text[j] = null;
-                            break;
+                            if (Text[j] == i)
+                            {
+                                Text[j] = null;
+                                break;
+                            }
                         }
                     }
-                }
-                UseKomponents.Clear();
-                List<string> list = Text.ToList<string>();
-                for (int j = 0; j < list.Count; j++)
-                {
-                    if(list[j] == null)
+                    UseKomponents.Clear();
+                    List<string> list = Text.ToList<string>();
+                    for (int j = 0; j < list.Count; j++)
                     {
-                        list.RemoveAt(j);
+                        if (list[j] == null)
+                        {
+                            list.RemoveAt(j);
+                        }
                     }
-                }    
-                PersonClass.Write_TXT(list);
-               Navigation.PopAsync();
+                    PersonClass.Write_TXT(list);
+                    Navigation.PopAsync();
+                }
             }
         }
         private bool Proverka() // крестик по умолчанию когда не выбран
@@ -162,6 +165,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Процессор"))
                         UseKomponents.Remove("Начальный Процессор");
                     UseKomponents.Add(Item.CreateItems()[1].Name);
+                    Proc.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Процессор"))
                 {
@@ -189,6 +194,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Видеокарта"))
                         UseKomponents.Remove("Начальная Видеокарта");
                     UseKomponents.Add(Item.CreateItems()[0].Name);
+                    Video.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Видеокарта"))
                 {
@@ -216,6 +223,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Материнская плата"))
                         UseKomponents.Remove("Начальная Материнская плата");
                     UseKomponents.Add(Item.CreateItems()[4].Name);
+                    Mat.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Материнская плата"))
                 {
@@ -243,6 +252,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Оперативная память"))
                         UseKomponents.Remove("Начальная Оперативная память");
                     UseKomponents.Add(Item.CreateItems()[3].Name);
+                    OP.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Оперативная память"))
                 {
@@ -270,6 +281,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Жёсткий диск"))
                         UseKomponents.Remove("Начальный Жёсткий диск");
                     UseKomponents.Add(Item.CreateItems()[7].Name);
+                    HDD.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Жёсткий диск"))
                 {
@@ -297,6 +310,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Блок Питания"))
                         UseKomponents.Remove("Начальный Блок Питания");
                     UseKomponents.Add(Item.CreateItems()[6].Name);
+                    Pit.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Блок Питания"))
                 {
@@ -324,6 +339,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальная Система охлаждения"))
                         UseKomponents.Remove("Начальная Система охлаждения");
                     UseKomponents.Add(Item.CreateItems()[2].Name);
+                    Kyler.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средняя Система охлаждения"))
                 {
@@ -351,6 +368,8 @@ namespace Lo_Fi_Shop.Page
                     if (UseKomponents.Contains("Начальный Корпус"))
                         UseKomponents.Remove("Начальный Корпус");
                     UseKomponents.Add(Item.CreateItems()[5].Name);
+                    Korpus.IsEnabled = false;
+                    break;
                 }
                 else if (i.Contains("Средний Корпус"))
                 {

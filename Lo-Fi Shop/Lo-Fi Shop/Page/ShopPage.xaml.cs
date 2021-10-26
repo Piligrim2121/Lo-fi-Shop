@@ -1,6 +1,7 @@
 ﻿
 using Lo_Fi_Shop.Class;
 using System;
+using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -98,10 +99,26 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void EmpetyMessage_Clicked(object sender, EventArgs e)
         {
-            Console.WriteLine("1233213213");
-            EmpetyMessage.IsVisible = false;
-            BuyInfo.IsVisible = false;
+            Console.WriteLine("<попытка закрытия окна  пользователем>");
+               
+                EmpetyMessage.IsVisible = false;
+                BuyInfo.IsVisible = false;
+                messageShow = false;
+            
         }
+        private bool MessageHide ()
+        {
+            Console.WriteLine("<попытка закрытия окна  таймером>");
+            if (messageShow)
+            {
+                EmpetyMessage.IsVisible = false;
+                BuyInfo.IsVisible = false;
+                messageShow = false;
+            }
+            
+            return false;
+        }
+        bool messageShow;
         /// <summary>
         /// Покупка предмета и перенос его в инвентарь
         /// </summary>
@@ -109,6 +126,7 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void BuyBtn_Clicked(object sender, EventArgs e)
         {
+            messageShow = true;
             PersonClass player = PersonClass.ReturnPerson();
             EmpetyMessage.IsVisible = true;
             BuyInfo.IsVisible = true;
@@ -136,11 +154,9 @@ namespace Lo_Fi_Shop.Page
                 PersonClass Player = PersonClass.ReturnPerson();
                 Money.Text = Player.Money.ToString() + "₽";
                 InventoryPage.AddToInv(ComponentName.Text);
-                // Thread.Sleep(2000);
-
                 //Navigation.PushAsync(new Page.PlayPage());
             }
-
+            Device.StartTimer(TimeSpan.FromSeconds(2), MessageHide);
 
         }
 

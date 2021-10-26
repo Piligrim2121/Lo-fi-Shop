@@ -20,20 +20,37 @@ public partial class PlayPage : ContentPage
         bool h = true;
         public Item[] MassAllItems = Item.CreateItems();
         private Random rnd;
-        private int MoneyClient;
-        private int Level ;
+        public static int zakaz;
+        public static int MoneyClient;
+        private int Level;
         public PlayPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load(audioStream);
             player.Play();*/
             rnd = new Random();
+        }
+        bool win = false;
+        private bool Win()
+        {
+            if (!win)
+            {
+                PersonClass Player = PersonClass.ReturnPerson();
+                if (Player.Lvl >= 10 && Player.Money >= 1000000)
+                {
+                    WinButton.IsVisible = true;
+                    WinLable.IsVisible = true;
+                    win = true;
+                }
+            }
+            return !win;
         }
         protected override bool OnBackButtonPressed()
         {
@@ -135,8 +152,18 @@ public partial class PlayPage : ContentPage
             Answer.IsVisible=true;
             h = true;
             GridBtn.IsVisible= true;
-            MoneyClient = rnd.Next(20000, 30000);
-            Answer.Text = "Сделаете комп за " + MoneyClient + ", пожуй листа?";
+            zakaz = rnd.Next(1,2);
+            switch(zakaz)
+            {
+                case 1:
+                    MoneyClient = rnd.Next(26, 35) * 1000;
+                    Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    break;
+                case 2:
+                    MoneyClient = rnd.Next(15, 25) * 1000;
+                    Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    break;
+            }
         }
 
         private void ButtonYes_Clicked(object sender, EventArgs e)
@@ -254,8 +281,14 @@ public partial class PlayPage : ContentPage
         private void Door_Clicked(object sender, EventArgs e)
         {
             Door.Source = "DoorOpen.png";
-            Thread.Sleep(2000);
             Navigation.PushAsync(new MainMenuPage());
+            Door.Source = "DoorClosed.png";
+        }
+
+        private void WinButton_Clicked(object sender, EventArgs e)
+        {
+            WinLable.IsVisible = false;
+            WinButton.IsVisible = false;
         }
     }
 }
