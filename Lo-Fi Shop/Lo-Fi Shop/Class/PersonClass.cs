@@ -118,6 +118,20 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             //ReturnPerson();
         }
+
+        public static void Write_TXT(int Money)
+        {
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+            Console.WriteLine("testtt" + Data);
+            string text = "Money:" + Money.ToString() + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            // ReturnPerson();
+        }
+
         public static void Write_TXT2(List<string> InventoryWhole)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
@@ -140,20 +154,7 @@ namespace Lo_Fi_Shop.Class
         /// <summary>
         /// Сохранения данных в файл
         /// </summary>
-        /// <param name="Money">Количество денег для сохранения</param>
-        public static void Write_TXT(int Money)
-        {
-            string Data = Read_TXT();
-            string[] words = Data.Split(new char[] { ';' });
-
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string filename = "data";
-            Console.WriteLine("testtt"+Data);
-            string text = "Money:" + Money.ToString() + ";"+words[1]+";"+words[2] + ";" + words[3] + ";" + words[4] + ";" + words[5] + ";";
-            File.WriteAllText(Path.Combine(folderPath, filename), text);
-           // ReturnPerson();
-        }
-
+        /// <param name="Exp">Количество Опыта для сохранения</param>
         public static void Write_TXT2(int Exp)
         {
             string Data = Read_TXT();
