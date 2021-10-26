@@ -18,7 +18,7 @@ namespace Lo_Fi_Shop.Class
         /// </summary>
         public List<string> InventoryPath;
         /// <summary>
-        /// Список готовых пк
+        /// Список готовых ПК
         /// </summary>
         public List<string> InventoryWhole;
       
@@ -54,6 +54,10 @@ namespace Lo_Fi_Shop.Class
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
+        /// <summary>
+        /// Запись в файл информации о созданном ПК
+        /// </summary>
+        /// <param name="PC">Список компонентов входящих в ПК</param>
         public static void Write_PC(List<Item> PC)
         {
             string text2="";
@@ -66,6 +70,21 @@ namespace Lo_Fi_Shop.Class
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
         }
+        /// <summary>
+        /// Чтение файла с ПК
+        /// </summary>
+        /// <returns>возврат текста из файла</returns>
+        public static string Read_PC()
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
+            string text = File.ReadAllText(Path.Combine(folderPath, "pcs"));
+            return text;
+        }
+        /// <summary>
+        /// Удаление ПК
+        /// </summary>
+        /// <param name="PC"></param>
         public static void Delet_PC(List<string> PC)
         {
             string text2 = "";
@@ -167,7 +186,7 @@ namespace Lo_Fi_Shop.Class
         /// <summary>
         /// Сохранения данных в файл
         /// </summary>
-        /// <param name="Exp">Количество Опыта для сохранения</param>
+        /// <param name="Exp">Количество Опыта   для сохранения</param>
         public static void Write_TXT2(int Exp)
         {
             string Data = Read_TXT();
@@ -240,12 +259,7 @@ namespace Lo_Fi_Shop.Class
                 ReturnPerson();
             }
         }
-        public static string Read_PC()
-        {
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
-            string text = File.ReadAllText(Path.Combine(folderPath, "pcs"));
-            return text;
-        }
+      
+        
     }
 }
