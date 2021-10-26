@@ -45,7 +45,11 @@ namespace Lo_Fi_Shop.Page
         public static List<string> InvPart { get; set; }
         public static List<Item> InvPC { get; set; }
         bool Prod = false;
-
+        /// <summary>
+        /// Вывод информации о компонентах
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TestVideoCard_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -107,6 +111,11 @@ namespace Lo_Fi_Shop.Page
             //        break;
             //}
         }
+       /// <summary>
+       /// Отображение информации о собранном ПК
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void PC_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -121,7 +130,9 @@ namespace Lo_Fi_Shop.Page
             }
             DopB = true;
         }
-
+        /// <summary>
+        /// Отображение содержимого инвентаря
+        /// </summary>
         private void DisplayInvPath()
         {
             InvPC = new List<Item>();
@@ -183,6 +194,10 @@ namespace Lo_Fi_Shop.Page
                 LenInv = 0;
             }
         }
+        /// <summary>
+        /// Добавление компонента из магазина
+        /// </summary>
+        /// <param name="Part"></param>
         public static void AddToInv(string Part)
         {  
             PersonClass Player = PersonClass.ReturnPerson();
@@ -190,7 +205,11 @@ namespace Lo_Fi_Shop.Page
             InvPart.Add(Part);
             PersonClass.Write_TXT(InvPart);
         }
-
+        /// <summary>
+        /// Переход на вкладку Компоненты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Obvodka_Clicked(object sender, EventArgs e)
         {
 
@@ -208,7 +227,11 @@ namespace Lo_Fi_Shop.Page
                 }
             }
         }
-
+        /// <summary>
+        /// Переход на вкладку готовых ПК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Obvodka2_Clicked(object sender, EventArgs e)
         {
 
@@ -224,6 +247,11 @@ namespace Lo_Fi_Shop.Page
             }
         }
         bool DopB = false;
+        /// <summary>
+        /// Продажа компонентов в магазин или пк клиенту
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Sell_Clicked(object sender, EventArgs e)
         {
             if (DopB)

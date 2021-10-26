@@ -21,15 +21,10 @@ public partial class HowToPlayPage : ContentPage
             
         }
         /// <summary>
-        /// Создание Скролл-списка
+        /// Создании контента страницы
         /// </summary>
         public void Add_Al()
-        {
-            
-            //var AbsoluteLayoutMain = new AbsoluteLayout();
-          /*  AbsoluteLayout.SetLayoutFlags(ImgBack, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(ImgBack, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            //AbsoluteLayoutMain.Children.Add(ImgBack);*/
+        { 
             var StackMain = new StackLayout() { Spacing=0 };
             AbsoluteLayout.SetLayoutFlags(StackMain, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(StackMain, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));

@@ -38,6 +38,10 @@ public partial class PlayPage : ContentPage
             rnd = new Random();
         }
         bool win = false;
+        /// <summary>
+        /// Проверка условий победы
+        /// </summary>
+        /// <returns></returns>
         private bool Win()
         {
             if (!win)
@@ -52,9 +56,12 @@ public partial class PlayPage : ContentPage
             }
             return !win;
         }
+        /// <summary>
+        /// Переход в Главное меню
+        /// </summary>
+        /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
-            //return base.OnBackButtonPressed
             Navigation.PushAsync(new MainMenuPage());
             return true;
         }
@@ -82,12 +89,6 @@ public partial class PlayPage : ContentPage
             Exp.Progress = Convert.ToDouble(Player.Exp) / (100 * Level);
             return true;
         }
-        //public static PGetData()
-        //{
-            
-        //}
-
-
         /// <summary> 
         /// Открытие инвентаря
         /// </summary>
@@ -126,17 +127,9 @@ public partial class PlayPage : ContentPage
             Navigation.PushAsync(new Page.QuestPage());
         }
         /// <summary>
-        /// Закрытие доски задач
+        /// Запуск таймер
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void TableOfQuest_Clouse(object sender, EventArgs e)
-        //{
-            //ImageTableOfQuestOpen.IsVisible = false;
-
-        //}
-
-        // Таймер
+        /// <returns></returns>
         private bool OnTimerTick()
         {
             Client.IsVisible = true;
@@ -144,7 +137,11 @@ public partial class PlayPage : ContentPage
             Alive = false;
             return Alive;
         }
-
+        /// <summary>
+        /// вывод диалогового окна с покупателем
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Sky_Clicked(object sender, EventArgs e)
         {                  
             Sky.IsVisible = false;
@@ -165,7 +162,11 @@ public partial class PlayPage : ContentPage
                     break;
             }
         }
-
+        /// <summary>
+        /// Принятие задание покупателя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonYes_Clicked(object sender, EventArgs e)
         {
             if (h == true)
@@ -184,7 +185,11 @@ public partial class PlayPage : ContentPage
                 Navigation.PushAsync(new Page.InventoryPage(true));
             }
         }
-
+        /// <summary>
+        /// Отказ задания покупателя
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonNo_Clicked(object sender, EventArgs e)
         {
             if (h == true)
@@ -253,7 +258,11 @@ public partial class PlayPage : ContentPage
             }
            
         }
-
+        /// <summary>
+        /// Диалоговое окно о продаже
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SkyBuy_Clicked(object sender, EventArgs e)
         {
             SkyBuy.IsVisible = false;
@@ -264,7 +273,11 @@ public partial class PlayPage : ContentPage
             h = false;
             Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
         }
-
+        /// <summary>
+        /// скрытие диалогвого окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonHide_Clicked(object sender, EventArgs e)
         {
             SkyBuy.IsVisible = true;
@@ -277,14 +290,22 @@ public partial class PlayPage : ContentPage
             ButtonYes.Text = "Да";
             ButtonNo.Text = "Нет";
         }
-
+        /// <summary>
+        /// Выход в главное меню
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Door_Clicked(object sender, EventArgs e)
         {
             Door.Source = "DoorOpen.png";
             Navigation.PushAsync(new MainMenuPage());
             Door.Source = "DoorClosed.png";
         }
-
+        /// <summary>
+        /// Закрытие окна о победе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WinButton_Clicked(object sender, EventArgs e)
         {
             WinLable.IsVisible = false;
