@@ -83,6 +83,7 @@ namespace Lo_Fi_Shop.Page
         }
         private void Sborka_Clicked(object sender, EventArgs e)
         {
+            Sborka.IsEnabled = false;
             Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
@@ -110,9 +111,6 @@ namespace Lo_Fi_Shop.Page
                     Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
                     PersonClass.Write_PC(Item.PC);
                     PersonClass Player = PersonClass.ReturnPerson();
-                    InvPart = Player.InventoryWhole;
-                    InvPart.Add(Item.PC[0].Name);
-                    PersonClass.Write_TXT2(InvPart);
                     string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
                     foreach (string i in UseKomponents)
                     {

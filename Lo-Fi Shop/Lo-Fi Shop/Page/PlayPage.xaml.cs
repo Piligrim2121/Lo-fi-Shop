@@ -22,6 +22,8 @@ namespace Lo_Fi_Shop.Page
         public static int zakaz;
         public static int MoneyClient;
         private int Level;
+        List<ImageButton> AllBtn = new List<ImageButton>();
+
         public PlayPage()
         {
             InitializeComponent();
@@ -30,6 +32,12 @@ namespace Lo_Fi_Shop.Page
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             Device.StartTimer(TimeSpan.FromSeconds(2), Lose);
+            AllBtn.Add((ImageButton)(FindByName("ImageShkaf")));
+            AllBtn.Add((ImageButton)(FindByName("ImageTable")));
+            AllBtn.Add((ImageButton)(FindByName("ImageTableOfQuest")));
+            AllBtn.Add((ImageButton)(FindByName("ImageKassa")));
+            AllBtn.Add((ImageButton)(FindByName("Door")));
+
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
@@ -116,7 +124,13 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void ImageShkaf_Clicked(object sender, EventArgs e)
         {
+
             Navigation.PushAsync(new Page.InventoryPage(false));
+            EnableButton_Closed();
+            EnableButton_Opened();
+            //Task.Delay(3000).Wait();
+            //ImageShkaf.IsEnabled = true;
+           
         }
         /// <summary>
         /// Переход к  странице крафта
@@ -126,7 +140,11 @@ namespace Lo_Fi_Shop.Page
         private void ImageTable_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.CraftPage());
+            EnableButton_Closed();
+            EnableButton_Opened();
+
         }
+        
         /// <summary>
         /// Переход к  странице магазина
         /// </summary>
@@ -135,6 +153,8 @@ namespace Lo_Fi_Shop.Page
         private void ImageKassa_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.ShopPage());
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Открытие доски задач
@@ -145,6 +165,9 @@ namespace Lo_Fi_Shop.Page
         {
             //ImageTableOfQuestOpen.IsVisible = true;
             Navigation.PushAsync(new Page.QuestPage());
+            EnableButton_Closed();
+            EnableButton_Opened();
+
         }
         /// <summary>
         /// Запуск таймер
@@ -169,7 +192,7 @@ namespace Lo_Fi_Shop.Page
             Answer.IsVisible = true;
             h = true;
             GridBtn.IsVisible = true;
-            zakaz = rnd.Next(1, 2);
+            zakaz = rnd.Next(1, 3);
             switch (zakaz)
             {
                 case 1:
@@ -178,9 +201,11 @@ namespace Lo_Fi_Shop.Page
                     break;
                 case 2:
                     MoneyClient = rnd.Next(15, 25) * 1000;
-                    Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
                     break;
             }
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Принятие задание покупателя
@@ -204,6 +229,8 @@ namespace Lo_Fi_Shop.Page
             {
                 Navigation.PushAsync(new Page.InventoryPage(true));
             }
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Отказ задания покупателя
@@ -231,8 +258,7 @@ namespace Lo_Fi_Shop.Page
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
-                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
-
+                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
                 }
 
             }
@@ -276,7 +302,8 @@ namespace Lo_Fi_Shop.Page
 
                 }
             }
-
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Диалоговое окно о продаже
@@ -292,6 +319,8 @@ namespace Lo_Fi_Shop.Page
 
             h = false;
             Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// скрытие диалогвого окна
@@ -309,6 +338,8 @@ namespace Lo_Fi_Shop.Page
 
             ButtonYes.Text = "Да";
             ButtonNo.Text = "Нет";
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Выход в главное меню
@@ -317,9 +348,11 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void Door_Clicked(object sender, EventArgs e)
         {
-            Door.Source = "DoorOpen.png";
+            //Door.Source = "DoorOpen.png";
             Navigation.PushAsync(new MainMenuPage());
-            Door.Source = "DoorClosed.png";
+            //Door.Source = "DoorClosed.png";
+            EnableButton_Closed();
+            EnableButton_Opened();
         }
         /// <summary>
         /// Закрытие окна о победе
@@ -339,6 +372,26 @@ namespace Lo_Fi_Shop.Page
             WinButton.IsVisible = false;
             Kotik.IsVisible = false;
             Stonks.IsVisible = false;
+            EnableButton_Closed();
+            EnableButton_Opened();
+        }
+
+        private async void EnableButton_Opened()
+        {
+            await Task.Delay(1000);
+            for(int i = 0; i < AllBtn.Count; i++)
+            {
+                AllBtn[i].IsEnabled = true;
+            }
+        }
+
+        private void EnableButton_Closed()
+        {
+            
+            for (int i = 0; i < AllBtn.Count; i++)
+            {
+                AllBtn[i].IsEnabled = false;
+            }
         }
     }
 }
