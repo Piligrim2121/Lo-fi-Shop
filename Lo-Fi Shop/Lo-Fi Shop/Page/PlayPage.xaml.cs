@@ -173,7 +173,7 @@ namespace Lo_Fi_Shop.Page
         /// Запуск таймер
         /// </summary>
         /// <returns></returns>
-        private bool OnTimerTick()
+        public bool OnTimerTick()
         {
             Client.IsVisible = true;
             Sky.IsVisible = true;

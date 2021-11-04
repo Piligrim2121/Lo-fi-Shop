@@ -12,8 +12,8 @@ namespace Lo_Fi_Shop.Class
         public string Path;
         public bool InInventory;
         public static Item[] InInvItems = CreateItems();
-       static public List<Item> PC = new List<Item>();
-       
+        static public List<Item> PC = new List<Item>();
+
         /// <summary>
         /// Конструктор класса Item
         /// </summary>
@@ -21,7 +21,7 @@ namespace Lo_Fi_Shop.Class
         /// <param name="Sell"></param>
         /// <param name="Description"></param>
         /// <param name="InInventory"></param>
-        public Item(/*ushort ID,*/ string Name, int Sell, string Path, string Description="", bool InInventory = false)
+        public Item(/*ushort ID,*/ string Name, int Sell, string Path, string Description = "", bool InInventory = false)
         {
             //this.ID = ID;
             this.Name = Name;
@@ -69,9 +69,9 @@ namespace Lo_Fi_Shop.Class
         public static Item[] CreatePC()
         {
             Item EasyPC = new Item("Бюджетный ПК", 0, "Resources/drawable/Easy_DonePC.png", "");
-                Item[] pcs = { EasyPC};
+            Item[] pcs = { EasyPC };
             return pcs;
-           
+
         }
     }
 }

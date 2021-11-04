@@ -37,50 +37,28 @@ namespace Lo_Fi_Shop.Page
                 {
                     continue;
                 }
-                else if (i == Item.CreateItems()[0].Name)
+                else
                 {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[0].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[1].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[1].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[2].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[2].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[3].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[3].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[4].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[4].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[5].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[5].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[6].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[6].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
-                }
-                else if (i == Item.CreateItems()[7].Name)
-                {
-                    ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[7].Path, BackgroundColor = Color.Transparent };
-                    InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
+                    for (int j = 0; j < Item.CreateItems().Length; j++)
+                    {
+                        if (i == Item.CreateItems()[j].Name)
+                        {
+                            ImageButton imageButton = new ImageButton { Source = Item.CreateItems()[j].Path, BackgroundColor = Color.Transparent };
+                            InvCraft.Children.Add(imageButton, (LenInv - (LenInv / 5) * 5), ((LenInv / 5) + 1));
+                            imageButton.Clicked += ElementCliced;
+                        }
+                    }
                 }
                 LenInv++;
             }
             LenInv = 0;
         }
+
+        private void ElementCliced(object sender, EventArgs e)
+        {
+            
+        }
+
         private void Sborka_Clicked(object sender, EventArgs e)
         {
             Sborka.IsEnabled = false;
