@@ -22,12 +22,12 @@ namespace Lo_Fi_Shop.Page
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
            
-            if (Player.Lvl == 3)
+            if (Player.Lvl >= 3)
             {
                 for (int i = 36; i < 44; i++)
                     Shop_Grid.Children[i].IsVisible = false;
             }
-            if (Player.Lvl == 6)
+            if (Player.Lvl >= 6)
             {
                 for (int i = 28; i < 36; i++)
                     Shop_Grid.Children[i].IsVisible = false;
@@ -233,7 +233,7 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.Text = "Покупка не удалась. Инвентарь переполнен комплектующими.";
                 return;
             }
-            if (ComponentName.Text == "Добро пожаловать!")
+            if ((ComponentName.Text == "Добро пожаловать!")||(ComponentName.Text== "Недоступно на текущем уровне"))
             {
                 BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки.";
                 return;
