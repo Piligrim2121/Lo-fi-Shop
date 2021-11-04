@@ -174,6 +174,24 @@ namespace Lo_Fi_Shop.Page
         /// <returns></returns>
         public bool OnTimerTick()
         {
+            Random r = new Random();
+            switch(r.Next(0, 3))
+            {
+                case 0:
+                    Client.Source = @"Resources/drawable/Petka.png";
+                    Client.ScaleX = 1;
+                    Client.Scale = 0.8;
+                    break;
+                case 1:
+                    Client.Source = @"Resources/drawable/Vasyok.png";
+                    Client.ScaleX = 0.8;
+                    break;
+                case 2:
+                    Client.Source = @"Resources/drawable/Arthurka.png";
+                    Client.ScaleX = 1;
+                    Client.Scale = 0.8;
+                    break;
+            }
             Client.IsVisible = true;
             Sky.IsVisible = true;
             Alive = false;

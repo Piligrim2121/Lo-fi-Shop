@@ -53,26 +53,31 @@ namespace Lo_Fi_Shop.Page
             if (VideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[0];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(1);
             }
             else if (CPU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[1];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(2);
             }
             else if (Kuller.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[2];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(3);
             }
             else if (OZU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[3];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(4);
             }
             else if (MotherBoard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[4];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(5);
 
 
@@ -80,42 +85,50 @@ namespace Lo_Fi_Shop.Page
             else if (Corpus.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[5];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(6);
             }
             else if (BP.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[6];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(7);
             }
             else if (HDD.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[7];
+                ComponentName.TextColor = Color.White;
                 Console.WriteLine(8);
             }
             //Medium
           else if (MediumVideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[8];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(1);
             }
             else if (MediumCPU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[9];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(2);
             }
             else if (MediumKuller.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[10];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(3);
             }
             else if (MediumOZU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[11];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(4);
             }
             else if (MediumMotherBoard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[12];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(5);
 
 
@@ -123,42 +136,50 @@ namespace Lo_Fi_Shop.Page
             else if (MediumCorpus.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[13];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(6);
             }
             else if (MediumBP.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[14];
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(7);
             }
             else if (MediumHDD.Id == tempBtn.Id)
             {
-                SelectItem = Item.InInvItems[15];
+                SelectItem = Item.InInvItems[15]; 
+                ComponentName.TextColor = Color.LightBlue;
                 Console.WriteLine(8);
             }
             //Hard
            else if (HardVideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[16];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(1);
             }
             else if (HardCPU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[17];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(2);
             }
             else if (HardKuller.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[18];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(3);
             }
             else if (HardOZU.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[19];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(4);
             }
             else if (HardMotherBoard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[20];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(5);
 
 
@@ -166,21 +187,25 @@ namespace Lo_Fi_Shop.Page
             else if (HardCorpus.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[21];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(6);
             }
             else if (HardBP.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[22];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(7);
             }
             else if (HardHDD.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[23];
+                ComponentName.TextColor = Color.Gold;
                 Console.WriteLine(8);
             }
             else
             {
                 Console.WriteLine("ИД нет");
+                ComponentName.TextColor = Color.White;
                 ComponentName.Text = default;
                 return;
             }
@@ -259,6 +284,7 @@ namespace Lo_Fi_Shop.Page
 
         private void ClosedLVL(object sender, EventArgs e)
         {
+            ComponentName.TextColor = Color.White;
             ComponentName.Text = "Недоступно на текущем уровне";
             ComponentPrice.Text = "";
         }

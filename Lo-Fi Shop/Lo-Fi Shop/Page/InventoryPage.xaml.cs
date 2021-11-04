@@ -62,6 +62,18 @@ namespace Lo_Fi_Shop.Page
                     Cost.Text = Item.InInvItems[i].Sell.ToString() + "₽";
                 }
             }
+            if (Info_name.Text.Contains("Начальный")|| Info_name.Text.Contains("Начальная"))
+            {
+                Info_name.TextColor = Color.White;
+            }
+            else if(Info_name.Text.Contains("Средний")|| Info_name.Text.Contains("Средняя"))
+            {
+                Info_name.TextColor = Color.LightBlue;
+            }
+            else if (Info_name.Text.Contains("Дорогой") || Info_name.Text.Contains("Дорогая"))
+            {
+                Info_name.TextColor = Color.Gold;
+            }
             DopB = true;
         }
        /// <summary>
@@ -80,6 +92,18 @@ namespace Lo_Fi_Shop.Page
                     Info_name.Text = InvPC[i].Name;
                     Cost.Text = InvPC[i].Sell.ToString() + "₽";
                 }
+            }
+            if (Info_name.Text.Contains("Бюджетный"))
+            {
+                Info_name.TextColor = Color.White;
+            }
+            else if (Info_name.Text.Contains("Средний"))
+            {
+                Info_name.TextColor = Color.LightBlue;
+            }
+            else if (Info_name.Text.Contains("Мощный"))
+            {
+                Info_name.TextColor = Color.Gold;
             }
             DopB = true;
         }
@@ -241,6 +265,7 @@ namespace Lo_Fi_Shop.Page
                             NewPC.Add(vs[i]);
                         }
                         PersonClass.Delet_PC(NewPC);
+                        new Page.QuestPage("");
                         Navigation.PushAsync(new Page.PlayPage());
                     }
                 }
