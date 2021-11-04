@@ -22,9 +22,9 @@ namespace Lo_Fi_Shop.Page
         public static List<string> InvPart { get; set; }
         public static List<string> Items { get; set; }
 
-        public int Cost;
+        public int[] Cost = new int[8];
 
-        List<string> UseKomponents = new List<string>();
+        public string[] UseKomponents = new string[8];
 
         private void DisplayInvPath()
         {
@@ -53,14 +53,69 @@ namespace Lo_Fi_Shop.Page
             }
             LenInv = 0;
         }
-
+        ImageButton tempBtn;
         private void ElementCliced(object sender, EventArgs e)
         {
-            
+            tempBtn = sender as ImageButton;
+            for(int i = 0; i < Item.CreateItems().Length; i++)
+            {
+                if (tempBtn.Source.ToString().Replace("File: ", "") == Item.CreateItems()[i].Path)
+                {
+                    if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Proc"))
+                    {
+                        Proc.Source = Item.CreateItems()[i].Path;
+                        Cost[0] = Item.CreateItems()[i].Sell;
+                        UseKomponents[0] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Vid"))
+                    {
+                        Video.Source = Item.CreateItems()[i].Path;
+                        Cost[1] = Item.CreateItems()[i].Sell;
+                        UseKomponents[1] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Cooler"))
+                    {
+                        Kyler.Source = Item.CreateItems()[i].Path;
+                        Cost[2] = Item.CreateItems()[i].Sell;
+                        UseKomponents[2] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Mother"))
+                    {
+                        Mat.Source = Item.CreateItems()[i].Path;
+                        Cost[3] = Item.CreateItems()[i].Sell;
+                        UseKomponents[3] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("ram"))
+                    {
+                        OP.Source = Item.CreateItems()[i].Path;
+                        Cost[4] = Item.CreateItems()[i].Sell;
+                        UseKomponents[4] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("corpus"))
+                    {
+                        Korpus.Source = Item.CreateItems()[i].Path;
+                        Cost[5] = Item.CreateItems()[i].Sell;
+                        UseKomponents[5] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Power"))
+                    {
+                        Pit.Source = Item.CreateItems()[i].Path;
+                        Cost[6] = Item.CreateItems()[i].Sell;
+                        UseKomponents[6] = Item.CreateItems()[i].Name;
+                    }
+                    else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("mem"))
+                    {
+                        HDD.Source = Item.CreateItems()[i].Path;
+                        Cost[7] = Item.CreateItems()[i].Sell;
+                        UseKomponents[7] = Item.CreateItems()[i].Name;
+                    }
+                }
+            }
         }
 
         private void Sborka_Clicked(object sender, EventArgs e)
         {
+            int AllCost = Cost.Sum();
             Sborka.IsEnabled = false;
             Console.WriteLine(Cost.ToString());
             if (Proverka())
@@ -70,12 +125,12 @@ namespace Lo_Fi_Shop.Page
                     InvPart = new List<string>();
                     string name = "";
                     string Source = "";
-                    if (Cost <= 50000)
+                    if (AllCost <= 50000)
                     {
                         name = "Бюджетный ПК";
                         Source = "Resource/drawable/Easy_DonePC.png";
                     }
-                    else if ((Cost >= 50000) && (Cost <= 120000))
+                    else if ((AllCost >= 50000) && (AllCost <= 120000))
                     {
                         name = "Средний ПК";
                         Source = "Resource/drawable/Medium_DonePC.png";
@@ -86,7 +141,7 @@ namespace Lo_Fi_Shop.Page
                         Source = "Resource/drawable/Hard_DonePC.png";
                     }
 
-                    Item.PC.Add(new Item(name, Cost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
+                    Item.PC.Add(new Item(name, AllCost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
                     PersonClass.Write_PC(Item.PC);
                     PersonClass Player = PersonClass.ReturnPerson();
                     string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
@@ -101,7 +156,6 @@ namespace Lo_Fi_Shop.Page
                             }
                         }
                     }
-                    UseKomponents.Clear();
                     List<string> list = Text.ToList<string>();
                     for (int j = 0; j < list.Count; j++)
                     {
@@ -128,238 +182,6 @@ namespace Lo_Fi_Shop.Page
                 return false;
             else
                 return true;
-        }
-        private void Sborka_Proc(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальный Процессор"))
-                {
-                    Proc.Source = @"Resource/drawable/Easy_Proc.png";
-                    Cost += Item.CreateItems()[1].Sell;
-                    if (UseKomponents.Contains("Начальный Процессор"))
-                        UseKomponents.Remove("Начальный Процессор");
-                    UseKomponents.Add(Item.CreateItems()[1].Name);
-                    Proc.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средний Процессор"))
-                {
-                    //Proc.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогой Процессор"))
-                {
-                    //Proc.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_Video(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальная Видеокарта"))
-                {
-                    Video.Source = @"Resource/drawable/Easy_Vid.png";
-                    Cost += Item.CreateItems()[0].Sell;
-                    if (UseKomponents.Contains("Начальная Видеокарта"))
-                        UseKomponents.Remove("Начальная Видеокарта");
-                    UseKomponents.Add(Item.CreateItems()[0].Name);
-                    Video.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средняя Видеокарта"))
-                {
-                    //Video.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогая Видеокарта"))
-                {
-                    //Video.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_Mat(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальная Материнская плата"))
-                {
-                    Mat.Source = @"Resource/drawable/Easy_Mother.png";
-                    Cost += Item.CreateItems()[4].Sell;
-                    if (UseKomponents.Contains("Начальная Материнская плата"))
-                        UseKomponents.Remove("Начальная Материнская плата");
-                    UseKomponents.Add(Item.CreateItems()[4].Name);
-                    Mat.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средняя Материнская плата"))
-                {
-                    //Mat.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогая Материнская плата"))
-                {
-                    //Mat.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_OP(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальная Оперативная память"))
-                {
-                    OP.Source = @"Resource/drawable/Easy_ram.png";
-                    Cost += Item.CreateItems()[3].Sell;
-                    if (UseKomponents.Contains("Начальная Оперативная память"))
-                        UseKomponents.Remove("Начальная Оперативная память");
-                    UseKomponents.Add(Item.CreateItems()[3].Name);
-                    OP.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средняя Оперативная память"))
-                {
-                    //OP.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогая Оперативная память"))
-                {
-                    //OP.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_HDD(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальный Жёсткий диск"))
-                {
-                    HDD.Source = @"Resource/drawable/Easy_mem.png";
-                    Cost += Item.CreateItems()[7].Sell;
-                    if (UseKomponents.Contains("Начальный Жёсткий диск"))
-                        UseKomponents.Remove("Начальный Жёсткий диск");
-                    UseKomponents.Add(Item.CreateItems()[7].Name);
-                    HDD.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средний Жёсткий диск"))
-                {
-                    //HDD.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогой Жёсткий диск"))
-                {
-                    //HDD.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_Pit(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальный Блок Питания"))
-                {
-                    Pit.Source = @"Resource/drawable/Easy_Power.png";
-                    Cost += Item.CreateItems()[6].Sell;
-                    if (UseKomponents.Contains("Начальный Блок Питания"))
-                        UseKomponents.Remove("Начальный Блок Питания");
-                    UseKomponents.Add(Item.CreateItems()[6].Name);
-                    Pit.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средний Блок Питания"))
-                {
-                    //Pit.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогой Блок Питания"))
-                {
-                    //Pit.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_Kyler(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальная Система охлаждения"))
-                {
-                    Kyler.Source = @"Resource/drawable/Easy_Cooler.png";
-                    Cost += Item.CreateItems()[2].Sell;
-                    if (UseKomponents.Contains("Начальная Система охлаждения"))
-                        UseKomponents.Remove("Начальная Система охлаждения");
-                    UseKomponents.Add(Item.CreateItems()[2].Name);
-                    Kyler.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средняя Система охлаждения"))
-                {
-                    //Kyler.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогая Система охлаждения"))
-                {
-                    //Kyler.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
-        }
-        private void Sborka_Korpus(object sender, EventArgs e)
-        {
-            List<string> komponent = Players.InventoryPath;
-            foreach (string i in komponent)
-            {
-                if (i.Contains("Начальный Корпус"))
-                {
-                    Korpus.Source = @"Resource/drawable/Easy_corpus.png";
-                    Cost += Item.CreateItems()[5].Sell;
-                    if (UseKomponents.Contains("Начальный Корпус"))
-                        UseKomponents.Remove("Начальный Корпус");
-                    UseKomponents.Add(Item.CreateItems()[5].Name);
-                    Korpus.IsEnabled = false;
-                    break;
-                }
-                else if (i.Contains("Средний Корпус"))
-                {
-                    //Korpus.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else if (i.Contains("Дорогой Корпус"))
-                {
-                    //Korpus.Source = @"Resource/drawable/Viduha.jpg";
-                }
-                else
-                {
-                    // меняем бэк на красный
-                }
-            }
         }
     }
 }

@@ -5,7 +5,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Lo_Fi_Shop.Class;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
@@ -196,12 +195,38 @@ namespace Lo_Fi_Shop.Page
             switch (zakaz)
             {
                 case 1:
-                    MoneyClient = rnd.Next(26, 35) * 1000;
-                    Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    if(Convert.ToInt32(lvl.Text) <= 2)
+                    {
+                        MoneyClient = rnd.Next(26, 35) * 1000;
+                        Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";  
+                    }
+                    else if (Convert.ToInt32(lvl.Text) <= 5)
+                    {
+                        MoneyClient = rnd.Next(26, 80) * 1000;
+                        Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    }
+                    else
+                    {
+                        MoneyClient = rnd.Next(26, 180) * 1000;
+                        Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";
+                    }
                     break;
                 case 2:
-                    MoneyClient = rnd.Next(15, 25) * 1000;
-                    Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
+                    if (Convert.ToInt32(lvl.Text) <= 2)
+                    {
+                        MoneyClient = rnd.Next(15, 20) * 1000;
+                        Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
+                    }
+                    else if (Convert.ToInt32(lvl.Text) <= 5)
+                    {
+                        MoneyClient = rnd.Next(15, 60) * 1000;
+                        Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
+                    }
+                    else
+                    {
+                        MoneyClient = rnd.Next(15, 150000) * 1000;
+                        Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
+                    }
                     break;
             }
             EnableButton_Closed();
