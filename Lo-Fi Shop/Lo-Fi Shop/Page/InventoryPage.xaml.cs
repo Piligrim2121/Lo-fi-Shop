@@ -226,7 +226,7 @@ namespace Lo_Fi_Shop.Page
                         case 2:
                             if (PlayPage.MoneyClient <= Convert.ToInt32(Cost.Text.Replace("₽", "")))
                             {
-                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money + Cost.Text.Replace("₽", "")));
+                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money) + Convert.ToInt32(Cost.Text.Replace("₽", "")));
                                 PersonClass.Write_TXT2(Player.Exp + 30);
                                 check = true;
                             }
