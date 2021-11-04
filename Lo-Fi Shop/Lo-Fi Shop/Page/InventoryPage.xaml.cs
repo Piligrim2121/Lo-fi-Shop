@@ -248,53 +248,14 @@ namespace Lo_Fi_Shop.Page
                 {
                     string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
                     string DelText = null;
-                    if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[0].Path)
+                    for(int i = 0; i < Item.InInvItems.Length; i++)
                     {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[0].Sell * 0.8));
-                        DelText = Item.InInvItems[0].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[1].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[1].Sell * 0.8));
-                        DelText = Item.InInvItems[1].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[2].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[2].Sell * 0.8));
-                        DelText = Item.InInvItems[2].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[3].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[3].Sell * 0.8));
-                        DelText = Item.InInvItems[3].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[4].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[4].Sell * 0.8));
-                        DelText = Item.InInvItems[4].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[5].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[5].Sell * 0.8));
-                        DelText = Item.InInvItems[5].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[6].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[6].Sell * 0.8));
-                        DelText = Item.InInvItems[6].Name;
-                    }
-                    else if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[7].Path)
-                    {
-                        PersonClass Player = PersonClass.ReturnPerson();
-                        PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[7].Sell * 0.8));
-                        DelText = Item.InInvItems[7].Name;
+                        if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[i].Path)
+                        {
+                            PersonClass Player = PersonClass.ReturnPerson();
+                            PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8));
+                            DelText = Item.InInvItems[i].Name;
+                        }
                     }
                     for (int j = 0; j < Text.Length; j++)
                         if (Text[j] == DelText)
@@ -304,12 +265,8 @@ namespace Lo_Fi_Shop.Page
                         }
                     List<string> list = Text.ToList<string>();
                     for (int j = 0; j < list.Count; j++)
-                    {
                         if (list[j] == null)
-                        {
                             list.RemoveAt(j);
-                        }
-                    }
                     PersonClass.Write_TXT(list);
                 }
                 DisplayInvPath();
