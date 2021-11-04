@@ -260,6 +260,7 @@ namespace Lo_Fi_Shop.Page
         private void ClosedLVL(object sender, EventArgs e)
         {
             ComponentName.Text = "Недоступно на текущем уровне";
+            ComponentPrice.Text = "";
         }
     }
 }
