@@ -185,6 +185,7 @@ namespace Lo_Fi_Shop.Page
                 case 1:
                     Client.Source = @"Resources/drawable/Vasyok.png";
                     Client.ScaleX = 0.8;
+                    Client.Scale = 1;
                     break;
                 case 2:
                     Client.Source = @"Resources/drawable/Arthurka.png";
