@@ -80,6 +80,92 @@ namespace Lo_Fi_Shop.Page
                 SelectItem = Item.InInvItems[7];
                 Console.WriteLine(8);
             }
+            //Medium
+          else if (MediumVideoCard.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[8];
+                Console.WriteLine(1);
+            }
+            else if (MediumCPU.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[9];
+                Console.WriteLine(2);
+            }
+            else if (MediumKuller.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[10];
+                Console.WriteLine(3);
+            }
+            else if (MediumOZU.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[11];
+                Console.WriteLine(4);
+            }
+            else if (MediumMotherBoard.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[12];
+                Console.WriteLine(5);
+
+
+            }
+            else if (MediumCorpus.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[13];
+                Console.WriteLine(6);
+            }
+            else if (MediumBP.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[14];
+                Console.WriteLine(7);
+            }
+            else if (MediumHDD.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[15];
+                Console.WriteLine(8);
+            }
+            //Hard
+           else if (HardVideoCard.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[16];
+                Console.WriteLine(1);
+            }
+            else if (HardCPU.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[17];
+                Console.WriteLine(2);
+            }
+            else if (HardKuller.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[18];
+                Console.WriteLine(3);
+            }
+            else if (HardOZU.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[19];
+                Console.WriteLine(4);
+            }
+            else if (HardMotherBoard.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[20];
+                Console.WriteLine(5);
+
+
+            }
+            else if (HardCorpus.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[21];
+                Console.WriteLine(6);
+            }
+            else if (HardBP.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[22];
+                Console.WriteLine(7);
+            }
+            else if (HardHDD.Id == tempBtn.Id)
+            {
+                SelectItem = Item.InInvItems[23];
+                Console.WriteLine(8);
+            }
             else
             {
                 Console.WriteLine("ИД нет");

@@ -11,7 +11,7 @@
                 AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
                 AbsoluteLayout.LayoutFlags="PositionProportional"
                 />
-            <Label Margin="245,125,100,0" x:Name="Quest"></Label>
+            <Label Margin="220,120,180,0"  FontSize="12" x:Name="Quest"></Label>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

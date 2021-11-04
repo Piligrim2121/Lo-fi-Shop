@@ -49,7 +49,24 @@
             <ImageButton BackgroundColor="Transparent" x:Name="Corpus" Source="Resources/drawable/Easy_corpus.png" Grid.Column="6" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton BackgroundColor="Transparent" x:Name="BP" Source="Resources/drawable/Easy_Power.png" Grid.Column="7" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton BackgroundColor="Transparent" x:Name="HDD" Source="Resources/drawable/Easy_mem.png" Grid.Column="8" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
-        
+
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumVideoCard" Source="Resources/drawable/Medium_Vid.png" Grid.Column="1" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumCPU" Source="Resources/drawable/Medium_Proc.png" Grid.Column="2" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumKuller" Source="Resources/drawable/Medium_Cooler.png" Grid.Column="3" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumOZU" Source="Resources/drawable/Medium_ram.png" Grid.Column="4" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumMotherBoard" Source="Resources/drawable/Medium_Mother.png" Grid.Column="5" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumCorpus" Source="Resources/drawable/Medium_corpus.png" Grid.Column="6" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumBP" Source="Resources/drawable/Medium_Power.png" Grid.Column="7" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="MediumHDD" Source="Resources/drawable/Medium_mem.png" Grid.Column="8" Grid.Row="2" Clicked="Item_Clicked"></ImageButton>
+
+            <ImageButton BackgroundColor="Transparent" x:Name="HardVideoCard" Source="Resources/drawable/Hard_Vid.png" Grid.Column="1" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardCPU" Source="Resources/drawable/Hard_Proc.png" Grid.Column="2" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardKuller" Source="Resources/drawable/Hard_Cooler.png" Grid.Column="3" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardOZU" Source="Resources/drawable/Hard_ram.png" Grid.Column="4" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardMotherBoard" Source="Resources/drawable/Hard_Mother.png" Grid.Column="5" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardCorpus" Source="Resources/drawable/Hard_corpus.png" Grid.Column="6" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardBP" Source="Resources/drawable/Hard_Power.png" Grid.Column="7" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+            <ImageButton BackgroundColor="Transparent" x:Name="HardHDD" Source="Resources/drawable/Hard_mem.png" Grid.Column="8" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
         </Grid>
         
     </ContentPage.Content>
