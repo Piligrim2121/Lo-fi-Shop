@@ -14,12 +14,24 @@ namespace Lo_Fi_Shop.Page
         private int intMoney;
         public ShopPage()
         {
+
             PersonClass Player = PersonClass.ReturnPerson();
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
+           
+            if (Player.Lvl == 3)
+            {
+                for (int i = 36; i < 44; i++)
+                    Shop_Grid.Children[i].IsVisible = false;
+            }
+            if (Player.Lvl == 6)
+            {
+                for (int i = 28; i < 36; i++)
+                    Shop_Grid.Children[i].IsVisible = false;
+            }
         }
         //protected override bool OnBackButtonPressed()
         //{
@@ -245,5 +257,9 @@ namespace Lo_Fi_Shop.Page
 
         }
 
+        private void ClosedLVL(object sender, EventArgs e)
+        {
+            ComponentName.Text = "Недоступно на текущем уровне";
+        }
     }
 }

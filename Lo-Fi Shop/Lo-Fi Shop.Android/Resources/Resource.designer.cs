@@ -11982,6 +11982,9 @@ namespace Lo_Fi_Shop.Droid
 			// aapt resource value: 0x7F0700D0
 			public const int x_logo = 2131165392;
 			
+			// aapt resource value: 0x7F0700D1
+			public const int zamok = 2131165393;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

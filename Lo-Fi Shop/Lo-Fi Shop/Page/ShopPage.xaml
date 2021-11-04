@@ -5,7 +5,7 @@
              BackgroundImageSource="Resources/drawable/Shop.png">
     
     <ContentPage.Content >
-        <Grid>
+        <Grid x:Name="Shop_Grid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="73*"/>
                 <ColumnDefinition Width="81*"/>
@@ -33,13 +33,12 @@
             </Grid.RowDefinitions>
             <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-20,0,0,0" />
 
-            <Label x:Name="ComponentName" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="2" Text="Добро пожаловать!"></Label>
+            <Label x:Name="ComponentName" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="2"  Grid.RowSpan="2" Text="Добро пожаловать!"></Label>
             <Label x:Name="ComponentPrice" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="4" Text="Цена:"></Label>
             <ImageButton BackgroundColor="Transparent" x:Name="BuyBtn" ScaleX="1.2" Margin="-5,0,0,0" Grid.Column="12" Grid.Row="5" Clicked="BuyBtn_Clicked"></ImageButton>
 
 
-            <ImageButton x:Name="EmpetyMessage" Scale="3" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false" Clicked="EmpetyMessage_Clicked" Source="Resources/drawable/Empty_mess.png" ></ImageButton>
-            <Label x:Name="BuyInfo" Margin="30,10,0,0" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false">Покупка не удалась - недостаточно средств</Label>
+            
 
             <ImageButton BackgroundColor="Transparent" x:Name="VideoCard" Source="Resources/drawable/Easy_Vid.png" Grid.Column="1" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
             <ImageButton BackgroundColor="Transparent" x:Name="CPU" Source="Resources/drawable/Easy_Proc.png" Grid.Column="2" Grid.Row="1" Clicked="Item_Clicked"></ImageButton>
@@ -67,6 +66,26 @@
             <ImageButton BackgroundColor="Transparent" x:Name="HardCorpus" Source="Resources/drawable/Hard_corpus.png" Grid.Column="6" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
             <ImageButton BackgroundColor="Transparent" x:Name="HardBP" Source="Resources/drawable/Hard_Power.png" Grid.Column="7" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
             <ImageButton BackgroundColor="Transparent" x:Name="HardHDD" Source="Resources/drawable/Hard_mem.png" Grid.Column="8" Grid.Row="3" Clicked="Item_Clicked"></ImageButton>
+
+            <ImageButton  Grid.Column="8" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="7" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="6" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="5" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="4" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="3" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="2" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="1" Grid.Row="3" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="1" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="2" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="3" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="4" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="5" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="6" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="7" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            <ImageButton Grid.Column="8" Grid.Row="2" Clicked="ClosedLVL" BackgroundColor="Transparent" Source="Resources/drawable/zamok.png"/>
+            
+            <ImageButton x:Name="EmpetyMessage" Scale="3" BackgroundColor="Transparent" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false" Clicked="EmpetyMessage_Clicked" Source="Resources/drawable/Empty_mess.png" ></ImageButton>
+            <Label x:Name="BuyInfo" Margin="30,10,0,0" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="6" IsVisible="false">Покупка не удалась - недостаточно средств</Label>
         </Grid>
         
     </ContentPage.Content>
