@@ -44,7 +44,7 @@
                    Grid.ColumnSpan="2"
                     />
             <Image  Grid.ColumnSpan="2" Margin="0,0,72,20" Source="progressbar.png" />
-            <Label x:Name="lvl"  FontSize="24" Text="1" Margin="36,0,60,30"/>
+            <Label x:Name="lvl"  FontSize="24" Text="1" Margin="36,1,60,25"/>
             <ProgressBar Margin="56,0,-20,20" x:Name="Exp" ProgressColor ="Violet" />
             <ImageButton x:Name="ImageTable"
                        Clicked="ImageTable_Clicked"

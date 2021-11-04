@@ -341,6 +341,7 @@ namespace Lo_Fi_Shop.Page
                         if(!(Player.Lvl == 1 && Player.Exp < 30))
                         PersonClass.Write_TXT2(LastExp - 30);
                     }
+                    new Page.QuestPage("");
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
 
                 }
