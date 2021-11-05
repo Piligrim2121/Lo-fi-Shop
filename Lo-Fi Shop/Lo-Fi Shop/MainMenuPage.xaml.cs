@@ -41,6 +41,7 @@ namespace Lo_Fi_Shop
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
         Navigation.PushAsync(new Page.PlayPage());
+            new QuestPage("");
         // Navigation.PushAsync(new Page.TempPage());
         }
         /// <summary>

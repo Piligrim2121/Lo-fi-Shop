@@ -243,7 +243,7 @@ namespace Lo_Fi_Shop.Page
                     }
                     else
                     {
-                        MoneyClient = rnd.Next(15, 150000) * 1000;
+                        MoneyClient = rnd.Next(15, 150) * 1000;
                         Answer.Text = "Сделаете комп дороже " + MoneyClient + " рубликов, пожуй листа? Доплачу 5к за сборку";
                     }
                     break;
@@ -363,7 +363,7 @@ namespace Lo_Fi_Shop.Page
             GridBtn.IsVisible = true;
 
             h = false;
-            Answer.Text = "Вы сделали комп за " + MoneyClient + " ?";
+            Answer.Text = "Вы уже сделали комп?";
             EnableButton_Closed();
             EnableButton_Opened();
         }

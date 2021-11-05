@@ -25,10 +25,9 @@ namespace Lo_Fi_Shop.Droid
         /// <param name="savedInstanceState"></param>
         ///
 
-
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnResume()
         {
-            base.OnCreate(savedInstanceState);
+            base.OnResume();
             int uiOptions = (int)Window.DecorView.SystemUiVisibility;
 
             uiOptions |= (int)SystemUiFlags.LowProfile;
@@ -37,8 +36,10 @@ namespace Lo_Fi_Shop.Droid
             uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
 
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
-
-
+        }
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);       
             //var assembly = typeof(App).GetTypeInfo().Assembly;
             //System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
 
