@@ -22,11 +22,11 @@
 
                 <Label TextColor="White"  Text="НАСТРОЙКИ" HorizontalOptions="Center" FontSize="24"/>
                 <Label TextColor="White" Text="Общая громкость" HorizontalOptions="Center" FontSize="20"/>
-                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
+                <Slider ValueChanged="CommonVolume_ValueChanged" x:Name="CommonVolume" Minimum="0" Maximum="10" MinimumTrackColor="#651a87"></Slider>
                 <Label TextColor="White" Text="Громкость музыки" HorizontalOptions="Center" FontSize="20"/>
-                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
+                <Slider ValueChanged="SoundVolume_ValueChanged" x:Name="MusicVolume" Minimum="0" Maximum="10"  MinimumTrackColor="#651a87"></Slider>
                 <Label TextColor="White" Text="Громкость звуков" HorizontalOptions="Center" FontSize="20"/>
-                <Slider Minimum="0" Maximum="10" Value="10" MinimumTrackColor="#651a87"></Slider>
+                <Slider ValueChanged="SoundVolume_ValueChanged" x:Name="SoundVolume" Minimum="0" Maximum="10"  MinimumTrackColor="#651a87"></Slider>
            
             </StackLayout>
         </AbsoluteLayout>

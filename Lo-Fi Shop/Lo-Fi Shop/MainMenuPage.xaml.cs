@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Lo_Fi_Shop.Page;
+using System.IO;
+using System.Reflection;
+using Plugin.SimpleAudioPlayer;
 
 namespace Lo_Fi_Shop
 {
@@ -15,15 +18,39 @@ namespace Lo_Fi_Shop
         /// <summary>
         /// Инициализация компонентов и загрузка главного меню 
         /// </summary>
+
+        
+        //string[] st = new string[10];
         public MainMenuPage()
         {
             InitializeComponent();
+            
+            var stream = GetStreamFromFile("music.wav");
+            PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PersonClass.player.Load(stream);
             PersonClass.First_Write_TXT();
             NavigationPage.SetHasNavigationBar(this, false);
             ImageLogotip.IsAnimationPlaying = true;
-            
+            //   string [] st = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
+            //BtnPlay.Text = st[0];
+            Btnwav();
         }
-      
+
+        private void Btnwav()
+        {
+            PersonClass.player.Loop = true;
+
+            PersonClass.player.Play();
+        }
+        Stream GetStreamFromFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+
+            var stream = assembly.GetManifestResourceStream("Lo-Fi_Shop." + filename);
+
+            return stream;
+        }
+
         /// <summary>
         /// Переход к экрану "Как Играть"
         /// </summary>

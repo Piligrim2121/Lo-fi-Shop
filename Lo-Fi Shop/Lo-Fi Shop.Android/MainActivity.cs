@@ -40,15 +40,6 @@ namespace Lo_Fi_Shop.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);       
-            //var assembly = typeof(App).GetTypeInfo().Assembly;
-            //System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
-
-
-            //var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            //player.Load(audioStream);
-            //player.Play();
-
-
             //Window.SetFlags(WindowManagerFlags.Fullscreen, WindowManagerFlags.Fullscreen);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

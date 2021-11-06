@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lo_Fi_Shop.Class;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,10 +21,12 @@ namespace Lo_Fi_Shop
 
         protected override void OnSleep()
         {
+            PersonClass.player.Pause();
         }
 
         protected override void OnResume()
         {
+            PersonClass.player.Play();
         }
     }
 }

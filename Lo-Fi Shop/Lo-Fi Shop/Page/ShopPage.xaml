@@ -31,7 +31,7 @@
                 <RowDefinition Height="83*"/>
                 <RowDefinition Height="85*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-20,0,0,0" />
+            <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-35,10,0,0" />
 
             <Label x:Name="ComponentName" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="2"  Grid.RowSpan="2" Text="Добро пожаловать!"></Label>
             <Label x:Name="ComponentPrice" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="4" Text="Цена:"></Label>

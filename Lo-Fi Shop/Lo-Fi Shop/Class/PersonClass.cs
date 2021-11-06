@@ -1,4 +1,5 @@
 ﻿//using Android.Content.Res;
+using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,7 @@ namespace Lo_Fi_Shop.Class
         /// Список комплектующих
         /// </summary>
         public List<string> InventoryPath;
-      
+      public static ISimpleAudioPlayer player;
         public List<int> Settings;
         public int Lvl;
         /// <summary>
@@ -181,7 +182,27 @@ namespace Lo_Fi_Shop.Class
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // ReturnPerson();
         }
-
+        public static void Write_TXT4(List<string> Settings)
+        {
+            string Data = Read_TXT();
+            string[] words = Data.Split(new char[] { ';' });
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string filename = "data";
+           
+            Console.WriteLine("testtt" + Data);
+            string SubSett = "";
+            foreach(string i in Settings)
+            {
+                if (i != "" && i != null)
+                    if (SubSett.Length == 0)
+                        SubSett += i;
+                    else
+                        SubSett += ("," + i);
+            }
+            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + "Settings:"+ SubSett + ";"+ words[4]+ ";";
+            File.WriteAllText(Path.Combine(folderPath, filename), text);
+            // ReturnPerson();
+        }
         /// <summary>
         ///  Преобразование данных файла в характеристики игрока
         /// </summary>
@@ -191,7 +212,7 @@ namespace Lo_Fi_Shop.Class
             string Data = Read_TXT();
             int Money = Convert.ToInt32(Data.Split(';')[0].Split(':')[1]);
             int Exp = Convert.ToInt32(Data.Split(';')[1].Split(':')[1]);
-            List<string> Inv = new List<string> {  };
+            List<string> Inv = new List<string> { };
             foreach (string i in Data.Split(';')[2].Split(':')[1].Split(','))
             {
                 Inv.Add(i);
