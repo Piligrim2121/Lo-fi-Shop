@@ -1,4 +1,5 @@
 ﻿using Lo_Fi_Shop.Class;
+using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Lo_Fi_Shop.Page
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CraftPage : ContentPage
     {
+
         public CraftPage()
         {
             InitializeComponent();
@@ -17,7 +19,7 @@ namespace Lo_Fi_Shop.Page
             Players = PersonClass.ReturnPerson();
             DisplayInvPath();
         }
-
+        ISimpleAudioPlayer PageSound;
         static PersonClass Players;
         public static List<string> InvPart { get; set; }
         public static List<string> Items { get; set; }
@@ -25,6 +27,7 @@ namespace Lo_Fi_Shop.Page
         public int[] Cost = new int[8];
 
         public string[] UseKomponents = new string[8];
+        PersonClass Player = PersonClass.ReturnPerson();
 
         private void DisplayInvPath()
         {
@@ -54,6 +57,7 @@ namespace Lo_Fi_Shop.Page
             LenInv = 0;
         }
         ImageButton tempBtn;
+        
         private void ElementCliced(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -63,48 +67,97 @@ namespace Lo_Fi_Shop.Page
                 {
                     if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Proc"))
                     {
+                        
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Proc.Source = Item.CreateItems()[i].Path;
                         Cost[0] = Item.CreateItems()[i].Sell;
                         UseKomponents[0] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Vid"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Video.Source = Item.CreateItems()[i].Path;
                         Cost[1] = Item.CreateItems()[i].Sell;
                         UseKomponents[1] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Cooler"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Kyler.Source = Item.CreateItems()[i].Path;
                         Cost[2] = Item.CreateItems()[i].Sell;
                         UseKomponents[2] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Mother"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Mat.Source = Item.CreateItems()[i].Path;
                         Cost[3] = Item.CreateItems()[i].Sell;
                         UseKomponents[3] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("ram"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         OP.Source = Item.CreateItems()[i].Path;
                         Cost[4] = Item.CreateItems()[i].Sell;
                         UseKomponents[4] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("corpus"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Korpus.Source = Item.CreateItems()[i].Path;
                         Cost[5] = Item.CreateItems()[i].Sell;
                         UseKomponents[5] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("Power"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         Pit.Source = Item.CreateItems()[i].Path;
                         Cost[6] = Item.CreateItems()[i].Sell;
                         UseKomponents[6] = Item.CreateItems()[i].Name;
                     }
                     else if (tempBtn.Source.ToString().Replace("File: ", "").Contains("mem"))
                     {
+                        var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
+                        PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PageSound.Load(stream);
+                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Play();
+
                         HDD.Source = Item.CreateItems()[i].Path;
                         Cost[7] = Item.CreateItems()[i].Sell;
                         UseKomponents[7] = Item.CreateItems()[i].Name;
@@ -125,6 +178,14 @@ namespace Lo_Fi_Shop.Page
                     InvPart = new List<string>();
                     string name = "";
                     string Source = "";
+
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    var stream = PersonClass.GetStreamFromFile("songCraft.mp3");
+                    PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PageSound.Load(stream);
+                    PageSound.Volume = Player.Settings[2];
+                    PageSound.Play();
+
                     if (AllCost <= 50000)
                     {
                         name = "Бюджетный ПК";
@@ -143,7 +204,7 @@ namespace Lo_Fi_Shop.Page
 
                     Item.PC.Add(new Item(name, AllCost, Source, UseKomponents[0] + "\n" + UseKomponents[1] + "\n" + UseKomponents[2] + "\n" + UseKomponents[3] + "\n" + UseKomponents[4] + "\n" + UseKomponents[5] + "\n" + UseKomponents[6] + "\n" + UseKomponents[7]));
                     PersonClass.Write_PC(Item.PC);
-                    PersonClass Player = PersonClass.ReturnPerson();
+                    
                     string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
                     foreach (string i in UseKomponents)
                     {

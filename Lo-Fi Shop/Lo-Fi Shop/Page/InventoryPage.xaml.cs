@@ -1,4 +1,5 @@
 ﻿using Lo_Fi_Shop.Class;
+using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,7 @@ namespace Lo_Fi_Shop.Page
         }
 
         ImageButton tempBtn;
+        ISimpleAudioPlayer InvSound;
         public static List<string> InvPart { get; set; }
         public static List<Item> InvPC { get; set; }
         bool Prod = false;
@@ -53,6 +55,14 @@ namespace Lo_Fi_Shop.Page
         private void ElementCliced(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
+            InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            InvSound.Load(stream);
+            InvSound.Volume = Player.Settings[2];
+            InvSound.Play();
+
             for (int i = 0; i < Item.InInvItems.Length; i++)
             {
                 if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[i].Path)
@@ -84,6 +94,14 @@ namespace Lo_Fi_Shop.Page
         private void PC_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
+            InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            InvSound.Load(stream);
+            InvSound.Volume = Player.Settings[2];
+            InvSound.Play();
+
             for (int i = 0; i < InvPC.Count; i++)
             {
                 if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[i].Path)
@@ -200,6 +218,13 @@ namespace Lo_Fi_Shop.Page
                     Obvodka1.Source = "Resource/drawable/Obvodka.png";
                     Obvodka2.Source = null;
 
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    var stream = PersonClass.GetStreamFromFile("Page.mp3");
+                    InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    InvSound.Load(stream);
+                    InvSound.Volume = Player.Settings[2];
+                    InvSound.Play();
+
                     DisplayInvPath();
                 }
             }
@@ -219,6 +244,13 @@ namespace Lo_Fi_Shop.Page
                 Cost.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
+
+                PersonClass Player = PersonClass.ReturnPerson();
+                var stream = PersonClass.GetStreamFromFile("Page.mp3");
+                InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                InvSound.Load(stream);
+                InvSound.Volume = Player.Settings[2];
+                InvSound.Play();
 
                 DisplayInvPath();
             }
@@ -266,13 +298,16 @@ namespace Lo_Fi_Shop.Page
                         }
                         PersonClass.Delet_PC(NewPC);
                         new Page.QuestPage("");
-                        PlayPage.AddClientMoney.IsVisible = true;
-                        PlayPage.AddClientMoney.Text = "+ " + PlayPage.MoneyClient.ToString() + "₽";
-                        Device.StartTimer(TimeSpan.FromSeconds(5), () => {
-                            PlayPage.AddClientMoney.IsVisible = false;
-                            return false;
-                        });
+                        
+                        PlayPage.AddClientMoney = "+ " + PlayPage.MoneyClient.ToString() + "₽";
+                        
                         Navigation.PushAsync(new Page.PlayPage());
+
+                        var stream = PersonClass.GetStreamFromFile("songMonet.wav");
+                        InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        InvSound.Load(stream);
+                        InvSound.Volume = Player.Settings[2];
+                        InvSound.Play();
                     }
                 }
                 else
@@ -286,6 +321,11 @@ namespace Lo_Fi_Shop.Page
                             PersonClass Player = PersonClass.ReturnPerson();
                             PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8));
                             DelText = Item.InInvItems[i].Name;
+                            var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
+                            InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                            InvSound.Load(stream);
+                            InvSound.Volume = Player.Settings[2];
+                            InvSound.Play();
                         }
                     }
                     for (int j = 0; j < Text.Length; j++)
@@ -302,6 +342,8 @@ namespace Lo_Fi_Shop.Page
                 }
                 DisplayInvPath();
                 DopB = false;
+
+
             }
         }
     }

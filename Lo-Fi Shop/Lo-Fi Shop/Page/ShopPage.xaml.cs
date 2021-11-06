@@ -52,6 +52,14 @@ namespace Lo_Fi_Shop.Page
         private void Item_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
+            kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            kassa_sound.Load(stream);
+            kassa_sound.Volume = Player.Settings[2];
+            kassa_sound.Play();
+
             if (VideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[0];
@@ -276,7 +284,7 @@ namespace Lo_Fi_Shop.Page
                 intMoney = intMoney - SelectItem.Sell;
                 PersonClass.Write_TXT(intMoney);
                 
-                var stream = PersonClass.GetStreamFromFile("KassaSong.mp3");
+                var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
                 kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 kassa_sound.Load(stream);
                 kassa_sound.Volume = player.Settings[2];

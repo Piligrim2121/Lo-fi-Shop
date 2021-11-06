@@ -28,9 +28,12 @@ namespace Lo_Fi_Shop
 
         protected override void OnResume()
         {
-            PersonClass.player.Play();
-            PersonClass.player.Loop= true;
-            PersonClass.player.Volume = music.Settings[1];
+            if (!PersonClass.Playing)
+            {
+                PersonClass.player.Play();
+               
+                PersonClass.player.Volume = music.Settings[1];
+            }
         }
     }
 }

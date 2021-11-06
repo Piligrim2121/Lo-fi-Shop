@@ -8,6 +8,7 @@ using Lo_Fi_Shop.Class;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
+using Plugin.SimpleAudioPlayer;
 
 namespace Lo_Fi_Shop.Page
 {
@@ -21,18 +22,23 @@ namespace Lo_Fi_Shop.Page
         public static int zakaz;
         public static int MoneyClient;
         private int Level;
-        public static Label AddClientMoney;
+        public static string AddClientMoney="";
         List<ImageButton> AllBtn = new List<ImageButton>();
+        ISimpleAudioPlayer PlaySound;
 
-        
         public PlayPage()
         {
             InitializeComponent();
+            Get_data();
+            addMoney.IsVisible = true;
+            addMoney.Text = AddClientMoney;
+            AddClientMoney = "";
             NavigationPage.SetHasNavigationBar(this, false);
             Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             Device.StartTimer(TimeSpan.FromSeconds(2), Lose);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Radio);
             AllBtn.Add((ImageButton)(FindByName("ImageShkaf")));
             AllBtn.Add((ImageButton)(FindByName("ImageTable")));
             AllBtn.Add((ImageButton)(FindByName("ImageTableOfQuest")));
@@ -53,11 +59,18 @@ namespace Lo_Fi_Shop.Page
         /// <returns></returns>
         private bool Win()
         {
+            addMoney.IsVisible = false;
             if (!win)
             {
                 PersonClass Player = PersonClass.ReturnPerson();
                 if (Player.Lvl >= 10 && Player.Money >= 1000000)
                 {
+                    var stream = PersonClass.GetStreamFromFile("songWin.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
+
                     WinButton.IsVisible = true;
                     WinLable.IsVisible = true;
                   
@@ -68,6 +81,23 @@ namespace Lo_Fi_Shop.Page
             }
             return !win;
         }
+        private bool Radio()
+        {
+
+            if (PersonClass.player.IsPlaying == false)
+            {
+                PersonClass Player = PersonClass.ReturnPerson();
+                string[] radio = new string[] { "music.wav" ,"StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
+                Random r = new Random();
+                var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
+                PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                PersonClass.player.Load(stream);
+                PersonClass.player.Volume = Player.Settings[1];
+                PersonClass.player.Play();
+                
+            }
+            return PersonClass.player.IsPlaying;
+        }
         private bool Lose()
         {
             if (!lose)
@@ -75,6 +105,13 @@ namespace Lo_Fi_Shop.Page
                 PersonClass Player = PersonClass.ReturnPerson();
                 if (Player.Money <=0)
                 {
+                   
+                    var stream = PersonClass.GetStreamFromFile("songGameOver.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
+
                     WinButton.IsVisible = true;
                     WinLable.IsVisible = true;
                     WinLable.Text = "Вы потратили все свои деньги и проиграли!" +"\n"+"Игра закроется и весь накопленный прогресс будет утерян. Впредь продумывайте свои действия наперёд. ";
@@ -124,6 +161,12 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void ImageShkaf_Clicked(object sender, EventArgs e)
         {
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("songInventory.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
 
             Navigation.PushAsync(new Page.InventoryPage(false));
             EnableButton_Closed();
@@ -140,6 +183,14 @@ namespace Lo_Fi_Shop.Page
         private void ImageTable_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.CraftPage());
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("CraftOpenSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
+
             EnableButton_Closed();
             EnableButton_Opened();
 
@@ -153,6 +204,14 @@ namespace Lo_Fi_Shop.Page
         private void ImageKassa_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Page.ShopPage());
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("KassaOpenSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
+
             EnableButton_Closed();
             EnableButton_Opened();
         }
@@ -165,6 +224,14 @@ namespace Lo_Fi_Shop.Page
         {
             //ImageTableOfQuestOpen.IsVisible = true;
             Navigation.PushAsync(new Page.QuestPage());
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("TableOfQuestSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
+
             EnableButton_Closed();
             EnableButton_Opened();
 
@@ -175,6 +242,13 @@ namespace Lo_Fi_Shop.Page
         /// <returns></returns>
         public bool OnTimerTick()
         {
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("ClientDoorSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
+
             Random r = new Random();
             switch(r.Next(0, 3))
             {
@@ -211,6 +285,14 @@ namespace Lo_Fi_Shop.Page
             Answer.IsVisible = true;
             h = true;
             GridBtn.IsVisible = true;
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
+
             zakaz = rnd.Next(1, 3);
             switch (zakaz)
             {
@@ -268,14 +350,24 @@ namespace Lo_Fi_Shop.Page
                 SkyBuy.IsVisible = true;
                 Navigation.PushAsync(new Page.QuestPage(Answer.Text));
 
+                PersonClass Player = PersonClass.ReturnPerson();
+                var stream = PersonClass.GetStreamFromFile("QuestSound.mp3");
+                PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                PlaySound.Load(stream);
+                PlaySound.Volume = Player.Settings[2];
+                PlaySound.Play();
             }
 
             else if (h == false)
             {
-                AddClientMoney = (Label)(FindByName("addMoney"));
-
                 Navigation.PushAsync(new Page.InventoryPage(true));
 
+                PersonClass Player = PersonClass.ReturnPerson();
+                var stream = PersonClass.GetStreamFromFile("songInventory.mp3");
+                PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                PlaySound.Load(stream);
+                PlaySound.Volume = Player.Settings[2];
+                PlaySound.Play();
             }
             EnableButton_Closed();
             EnableButton_Opened();
@@ -295,6 +387,13 @@ namespace Lo_Fi_Shop.Page
                     ButtonYes.IsVisible = false;
                     Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
 
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
+
                 }
 
                 else if (ButtonNo.Text == "Ок")
@@ -306,6 +405,14 @@ namespace Lo_Fi_Shop.Page
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
+
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    var stream = PersonClass.GetStreamFromFile("ClientCloseDoorSound.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
+
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
                 }
 
@@ -319,6 +426,13 @@ namespace Lo_Fi_Shop.Page
                     ButtonYes.IsVisible = false;
                     Answer.Text = "Ну ладно, хорошее обслуживание, всем бомжам советовать буду";
                     ButtonHide.IsVisible = true;
+
+                    PersonClass Player = PersonClass.ReturnPerson();
+                    var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
 
                 }
 
@@ -347,6 +461,13 @@ namespace Lo_Fi_Shop.Page
                         PersonClass.Write_TXT2(LastExp - 30);
                     }
                     new Page.QuestPage("");
+
+                    var stream = PersonClass.GetStreamFromFile("FailSound.mp3");
+                    PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                    PlaySound.Load(stream);
+                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Play();
+
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
 
                 }
@@ -365,6 +486,13 @@ namespace Lo_Fi_Shop.Page
             Dialog.IsVisible = true;
             Answer.IsVisible = true;
             GridBtn.IsVisible = true;
+
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
 
             h = false;
             Answer.Text = "Вы уже сделали комп?";
@@ -441,6 +569,16 @@ namespace Lo_Fi_Shop.Page
             {
                 AllBtn[i].IsEnabled = false;
             }
+        }
+
+        private void Okno_Clicked(object sender, EventArgs e)
+        {
+            PersonClass Player = PersonClass.ReturnPerson();
+            var stream = PersonClass.GetStreamFromFile("WindowSound.mp3");
+            PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PlaySound.Load(stream);
+            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Play();
         }
     }
 }

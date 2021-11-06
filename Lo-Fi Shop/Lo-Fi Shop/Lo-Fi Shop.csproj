@@ -11,21 +11,56 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BackHome.mp3" />
+    <None Remove="ButtSound.mp3" />
+    <None Remove="Chillhop.mp3" />
+    <None Remove="ClickSound.mp3" />
+    <None Remove="ClientCloseDoorSound.mp3" />
+    <None Remove="ClientDoorSound.mp3" />
+    <None Remove="CraftOpenSound.mp3" />
+    <None Remove="DialogueSound.mp3" />
+    <None Remove="FailSound.mp3" />
+    <None Remove="FirstGirl.mp3" />
+    <None Remove="KassaOpenSound.mp3" />
     <None Remove="KassaSong.mp3" />
+    <None Remove="LilPeep.mp3" />
     <None Remove="MonetSong.wav" />
     <None Remove="music.wav" />
+    <None Remove="MyEyes.mp3" />
+    <None Remove="Page.mp3" />
     <None Remove="play.mp3" />
+    <None Remove="QuestSound.mp3" />
+    <None Remove="SayAnything.mp3" />
     <None Remove="songCraft.mp3" />
     <None Remove="songGameOver.mp3" />
     <None Remove="songInventory.mp3" />
     <None Remove="songKassa.mp3" />
     <None Remove="songMonet.wav" />
     <None Remove="songVhih.mp3" />
-    <None Remove="songWin_klubnichki.mp3" />
-    <None Remove="song_zvuk-perelistyivaniya-stranitsyi.mp3" />
+    <None Remove="songWin.mp3" />
+    <None Remove="StarWars.mp3" />
+    <None Remove="StudyBeat.mp3" />
+    <None Remove="TableOfQuestSound.mp3" />
+    <None Remove="TinyEvil.mp3" />
+    <None Remove="WindowSound.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="BackHome.mp3" />
+    <EmbeddedResource Include="ButtSound.mp3" />
+    <EmbeddedResource Include="Chillhop.mp3" />
+    <EmbeddedResource Include="ClickSound.mp3" />
+    <EmbeddedResource Include="ClientCloseDoorSound.mp3" />
+    <EmbeddedResource Include="ClientDoorSound.mp3" />
+    <EmbeddedResource Include="CraftOpenSound.mp3" />
+    <EmbeddedResource Include="DialogueSound.mp3" />
+    <EmbeddedResource Include="FailSound.mp3" />
+    <EmbeddedResource Include="FirstGirl.mp3" />
+    <EmbeddedResource Include="KassaOpenSound.mp3" />
+    <EmbeddedResource Include="LilPeep.mp3" />
+    <EmbeddedResource Include="MyEyes.mp3" />
+    <EmbeddedResource Include="QuestSound.mp3" />
+    <EmbeddedResource Include="SayAnything.mp3" />
     <EmbeddedResource Include="songCraft.mp3" />
     <EmbeddedResource Include="songGameOver.mp3" />
     <EmbeddedResource Include="songInventory.mp3" />
@@ -33,8 +68,13 @@
     <EmbeddedResource Include="songMonet.wav" />
     <EmbeddedResource Include="music.wav" />
     <EmbeddedResource Include="songVhih.mp3" />
-    <EmbeddedResource Include="songWin_klubnichki.mp3" />
-    <EmbeddedResource Include="song_zvuk-perelistyivaniya-stranitsyi.mp3" />
+    <EmbeddedResource Include="songWin.mp3" />
+    <EmbeddedResource Include="Page.mp3" />
+    <EmbeddedResource Include="StarWars.mp3" />
+    <EmbeddedResource Include="StudyBeat.mp3" />
+    <EmbeddedResource Include="TableOfQuestSound.mp3" />
+    <EmbeddedResource Include="TinyEvil.mp3" />
+    <EmbeddedResource Include="WindowSound.mp3" />
   </ItemGroup>
 
   <ItemGroup>

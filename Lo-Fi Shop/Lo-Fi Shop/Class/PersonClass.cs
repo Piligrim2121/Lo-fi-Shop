@@ -18,7 +18,8 @@ namespace Lo_Fi_Shop.Class
         /// Список комплектующих
         /// </summary>
         public List<string> InventoryPath;
-      public static ISimpleAudioPlayer player;
+       public static bool Playing = false;
+        public static ISimpleAudioPlayer player;
         public List<int> Settings;
         public int Lvl;
         /// <summary>
