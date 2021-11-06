@@ -11,11 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="KassaSong.mp3" />
+    <None Remove="MonetSong.wav" />
     <None Remove="music.wav" />
     <None Remove="play.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="KassaSong.mp3" />
+    <EmbeddedResource Include="MonetSong.wav" />
     <EmbeddedResource Include="music.wav" />
   </ItemGroup>
 

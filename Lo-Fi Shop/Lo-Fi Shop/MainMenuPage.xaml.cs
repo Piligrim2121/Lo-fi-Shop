@@ -25,7 +25,7 @@ namespace Lo_Fi_Shop
         {
             InitializeComponent();
             
-            var stream = GetStreamFromFile("music.wav");
+            var stream = PersonClass.GetStreamFromFile("music.wav");
             PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PersonClass.player.Load(stream);
             PersonClass.First_Write_TXT();
@@ -42,14 +42,7 @@ namespace Lo_Fi_Shop
 
             PersonClass.player.Play();
         }
-        Stream GetStreamFromFile(string filename)
-        {
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-
-            var stream = assembly.GetManifestResourceStream("Lo-Fi_Shop." + filename);
-
-            return stream;
-        }
+       
 
         /// <summary>
         /// Переход к экрану "Как Играть"
