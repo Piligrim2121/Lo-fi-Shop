@@ -11,12 +11,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="KassaSong.mp3" />
+    <None Remove="MonetSong.wav" />
     <None Remove="music.wav" />
     <None Remove="play.mp3" />
+    <None Remove="songCraft.mp3" />
+    <None Remove="songGameOver.mp3" />
+    <None Remove="songInventory.mp3" />
+    <None Remove="songKassa.mp3" />
+    <None Remove="songMonet.wav" />
+    <None Remove="songVhih.mp3" />
+    <None Remove="songWin_klubnichki.mp3" />
+    <None Remove="song_zvuk-perelistyivaniya-stranitsyi.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="songCraft.mp3" />
+    <EmbeddedResource Include="songGameOver.mp3" />
+    <EmbeddedResource Include="songInventory.mp3" />
+    <EmbeddedResource Include="songKassa.mp3" />
+    <EmbeddedResource Include="songMonet.wav" />
     <EmbeddedResource Include="music.wav" />
+    <EmbeddedResource Include="songVhih.mp3" />
+    <EmbeddedResource Include="songWin_klubnichki.mp3" />
+    <EmbeddedResource Include="song_zvuk-perelistyivaniya-stranitsyi.mp3" />
   </ItemGroup>
 
   <ItemGroup>

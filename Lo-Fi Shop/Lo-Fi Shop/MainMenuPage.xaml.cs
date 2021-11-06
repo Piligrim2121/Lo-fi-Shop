@@ -19,13 +19,13 @@ namespace Lo_Fi_Shop
         /// Инициализация компонентов и загрузка главного меню 
         /// </summary>
 
-        
+        PersonClass Music = PersonClass.ReturnPerson();
         //string[] st = new string[10];
         public MainMenuPage()
         {
             InitializeComponent();
             
-            var stream = GetStreamFromFile("music.wav");
+            var stream = PersonClass.GetStreamFromFile("music.wav");
             PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PersonClass.player.Load(stream);
             PersonClass.First_Write_TXT();
@@ -39,17 +39,10 @@ namespace Lo_Fi_Shop
         private void Btnwav()
         {
             PersonClass.player.Loop = true;
-
+            PersonClass.player.Volume = Music.Settings[1];
             PersonClass.player.Play();
         }
-        Stream GetStreamFromFile(string filename)
-        {
-            var assembly = typeof(App).GetTypeInfo().Assembly;
-
-            var stream = assembly.GetManifestResourceStream("Lo-Fi_Shop." + filename);
-
-            return stream;
-        }
+       
 
         /// <summary>
         /// Переход к экрану "Как Играть"
