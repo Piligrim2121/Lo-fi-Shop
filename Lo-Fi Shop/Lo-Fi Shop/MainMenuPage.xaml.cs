@@ -19,7 +19,7 @@ namespace Lo_Fi_Shop
         /// Инициализация компонентов и загрузка главного меню 
         /// </summary>
 
-        
+        PersonClass Music = PersonClass.ReturnPerson();
         //string[] st = new string[10];
         public MainMenuPage()
         {
@@ -39,7 +39,7 @@ namespace Lo_Fi_Shop
         private void Btnwav()
         {
             PersonClass.player.Loop = true;
-
+            PersonClass.player.Volume = Music.Settings[1];
             PersonClass.player.Play();
         }
        
