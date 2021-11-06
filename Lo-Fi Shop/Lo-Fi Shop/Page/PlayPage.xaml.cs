@@ -21,8 +21,10 @@ namespace Lo_Fi_Shop.Page
         public static int zakaz;
         public static int MoneyClient;
         private int Level;
+        public static Label AddClientMoney;
         List<ImageButton> AllBtn = new List<ImageButton>();
 
+        
         public PlayPage()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace Lo_Fi_Shop.Page
             AllBtn.Add((ImageButton)(FindByName("ImageTableOfQuest")));
             AllBtn.Add((ImageButton)(FindByName("ImageKassa")));
             AllBtn.Add((ImageButton)(FindByName("Door")));
-
             /*var assembly = typeof(App).GetTypeInfo().Assembly;
             System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
@@ -271,7 +272,10 @@ namespace Lo_Fi_Shop.Page
 
             else if (h == false)
             {
+                AddClientMoney = (Label)(FindByName("addMoney"));
+
                 Navigation.PushAsync(new Page.InventoryPage(true));
+
             }
             EnableButton_Closed();
             EnableButton_Opened();

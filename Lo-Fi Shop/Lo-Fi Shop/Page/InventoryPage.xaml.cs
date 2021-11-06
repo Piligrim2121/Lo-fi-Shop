@@ -266,6 +266,12 @@ namespace Lo_Fi_Shop.Page
                         }
                         PersonClass.Delet_PC(NewPC);
                         new Page.QuestPage("");
+                        PlayPage.AddClientMoney.IsVisible = true;
+                        PlayPage.AddClientMoney.Text = "+ " + PlayPage.MoneyClient.ToString() + "₽";
+                        Device.StartTimer(TimeSpan.FromSeconds(5), () => {
+                            PlayPage.AddClientMoney.IsVisible = false;
+                            return false;
+                        });
                         Navigation.PushAsync(new Page.PlayPage());
                     }
                 }
