@@ -66,6 +66,14 @@ namespace Lo_Fi_Shop.Class
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
         }
+      public static Stream GetStreamFromFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+
+            var stream = assembly.GetManifestResourceStream("Lo-Fi_Shop." + filename);
+
+            return stream;
+        }
         /// <summary>
         /// Чтение файла с ПК
         /// </summary>

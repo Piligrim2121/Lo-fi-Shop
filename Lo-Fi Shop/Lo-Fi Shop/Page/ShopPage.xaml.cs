@@ -1,5 +1,6 @@
 ﻿
 using Lo_Fi_Shop.Class;
+using Plugin.SimpleAudioPlayer;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,7 @@ namespace Lo_Fi_Shop.Page
 
         private Item SelectItem;
         private int intMoney;
+        ISimpleAudioPlayer kassa_sound;
         public ShopPage()
         {
 
@@ -270,8 +272,15 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
+
                 intMoney = intMoney - SelectItem.Sell;
                 PersonClass.Write_TXT(intMoney);
+                
+                var stream = PersonClass.GetStreamFromFile("KassaSong.mp3");
+                kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                kassa_sound.Load(stream);
+                kassa_sound.Volume = player.Settings[2];
+                kassa_sound.Play();
                 BuyInfo.Text = "Покупка успешна!";
                 PersonClass Player = PersonClass.ReturnPerson();
                 Money.Text = Player.Money.ToString() + "₽";

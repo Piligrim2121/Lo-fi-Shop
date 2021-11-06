@@ -14,19 +14,23 @@ namespace Lo_Fi_Shop
             //MainPage = new MainMenuPage();
 
         }
-
+        PersonClass music = PersonClass.ReturnPerson();
         protected override void OnStart()
         {
         }
 
         protected override void OnSleep()
         {
+            
             PersonClass.player.Pause();
+            
         }
 
         protected override void OnResume()
         {
             PersonClass.player.Play();
+            PersonClass.player.Loop= true;
+            PersonClass.player.Volume = music.Settings[1];
         }
     }
 }

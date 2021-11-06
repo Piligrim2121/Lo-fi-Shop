@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="KassaSong.mp3" />
+    <None Remove="MonetSong.wav" />
     <None Remove="music.wav" />
     <None Remove="play.mp3" />
     <None Remove="songCraft.mp3" />
