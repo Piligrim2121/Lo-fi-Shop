@@ -16,7 +16,9 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
-
+                PersonClass Player = PersonClass.ReturnPerson();
+                Money.Text = Player.Money.ToString() + "₽";
+           
             if (Da)
             {
                 Obvodka1.Source = null;
@@ -40,6 +42,9 @@ namespace Lo_Fi_Shop.Page
                 CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
 
             }
+          
+            
+            
         }
 
         ImageButton tempBtn;
