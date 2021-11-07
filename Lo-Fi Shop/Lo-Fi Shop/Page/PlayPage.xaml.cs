@@ -76,6 +76,7 @@ namespace Lo_Fi_Shop.Page
                 Client.IsVisible = true;
                 SkyBuy.IsVisible = true;
                 Page.QuestPage.zadacha = DataClient[1];
+                zakaz = Convert.ToInt32(DataClient[3]);
             }
         }
         bool win = false;

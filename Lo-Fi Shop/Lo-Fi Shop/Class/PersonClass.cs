@@ -233,7 +233,7 @@ namespace Lo_Fi_Shop.Class
             string text = "";            
             if (Name != "delete")
             {
-                text = Name + ";" + Order + ";" + amount.ToString() + ";";
+                text = Name + ";" + Order + ";" + amount.ToString() + ";"+Page.PlayPage.zakaz+";";
             }
             File.WriteAllText(Path.Combine(folderPath, "client"), text);
         }
