@@ -190,7 +190,6 @@ namespace Lo_Fi_Shop.Class
             string filename = "data";
             string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
-            Console.WriteLine("testtt" + Data);
             string SubSett = "";
             foreach(string i in Settings)
             {
@@ -202,7 +201,6 @@ namespace Lo_Fi_Shop.Class
             }
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + "Settings:"+ SubSett + ";"+ words[4]+ ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
-            // ReturnPerson();
         }
         /// <summary>
         ///  Преобразование данных файла в характеристики игрока

@@ -32,7 +32,7 @@
                 <RowDefinition Height="85*"/>
             </Grid.RowDefinitions>
             <Label x:Name="Money" TextColor="Green"  Grid.Column="13"  Margin="-35,10,0,0" />
-            <Label x:Name="ChangeMoney" TextColor="Red" Text="946655"  Grid.Column="13"  Margin="-35,30,0,0" IsVisible="false"/>
+            <Label x:Name="ChangeMoney" TextColor="Red" Grid.Column="13"  Margin="-35,30,0,0" IsVisible="false"/>
 
             <Label x:Name="ComponentName" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="2"  Grid.RowSpan="2" Text="Добро пожаловать!"></Label>
             <Label x:Name="ComponentPrice" TextColor="WhiteSmoke" Grid.Column="12" Grid.Row="4" Text=""></Label>

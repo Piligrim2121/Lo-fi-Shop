@@ -16,10 +16,10 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             anim.IsAnimationPlaying = true;
-            
+
+            CommonVolume.Value = Music.Settings[0];
             MusicVolume.Value = Music.Settings[1];
             SoundVolume.Value = Music.Settings[2];
-            
         }
 
         private void CommonVolume_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -31,7 +31,7 @@ namespace Lo_Fi_Shop.Page
         private void SoundVolume_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             PersonClass.player.Volume = Convert.ToDouble(MusicVolume.Value)/10;
-            PersonClass.Write_TXT4(new List<string>{CommonVolume.Value.ToString(), MusicVolume.Value.ToString(), SoundVolume.Value.ToString()});
+            PersonClass.Write_TXT4(new List<string>{Math.Round(CommonVolume.Value).ToString(), Math.Round(MusicVolume.Value).ToString(), Math.Round(SoundVolume.Value).ToString()});
         }
     }
 }
