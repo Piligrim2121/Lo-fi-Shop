@@ -125,6 +125,7 @@ namespace Lo_Fi_Shop.Page
         //    Sky.TranslateTo(0, 25, 450);
         //    return true;
         //}
+        List<int> playedTracs = new List<int>();;
         public bool Radio()
         {
             if (PersonClass.Sleep==false)
@@ -136,7 +137,38 @@ namespace Lo_Fi_Shop.Page
                         PersonClass Player = PersonClass.ReturnPerson();
                         string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
                         Random r = new Random();
-                        var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
+                        int rndint = r.Next(0, radio.Length - 1);
+                        Console.WriteLine("rndint " + rndint);
+                        bool povtor = true;
+                        while (povtor && playedTracs.Count != 0)
+                        {
+                            Console.WriteLine("dlin " + playedTracs.Count + " radio " + radio.Length);
+                            foreach (int item in playedTracs)
+                            {
+
+                                Console.WriteLine(rndint + "  " + item);
+                                if (rndint == item)
+                                {
+                                    povtor = true;
+                                    break;
+                                }
+                                else povtor = false;
+                            }
+                            if (povtor) rndint = r.Next(0, radio.Length - 1);
+                            Console.WriteLine("Rnext " + rndint);
+                        }
+                        playedTracs.Add(rndint);
+                        Console.WriteLine($"{playedTracs.Count} == {radio.Length - 1}");
+                        if (playedTracs.Count == radio.Length - 1)
+                            playedTracs.Clear();
+
+                        Console.WriteLine("dlin2: " + playedTracs.Count);
+                        foreach (int item in playedTracs)
+                            Console.Write(" " + item);
+
+
+
+                        var stream = PersonClass.GetStreamFromFile(radio[rndint]);
                         PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PersonClass.player.Load(stream);
                         PersonClass.player.Volume = Player.Settings[1];
