@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Lo_Fi_Shop.Class;
 
 namespace Lo_Fi_Shop.Page
 {
@@ -8,9 +9,10 @@ namespace Lo_Fi_Shop.Page
     {
         public QuestPage()
         {
+            string[] DataClient = PersonClass.Read_TXT("client").Split(';');
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Quest.Text = zadacha;
+            Quest.Text = DataClient[1];
         }
         public static string zadacha;
         public QuestPage(string text)

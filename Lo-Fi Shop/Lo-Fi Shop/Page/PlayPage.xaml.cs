@@ -34,7 +34,6 @@ namespace Lo_Fi_Shop.Page
             addMoney.Text = AddClientMoney;
             AddClientMoney = "";
             NavigationPage.SetHasNavigationBar(this, false);
-            Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             Device.StartTimer(TimeSpan.FromSeconds(2), Lose);
@@ -50,6 +49,24 @@ namespace Lo_Fi_Shop.Page
             player.Load(audioStream);
             player.Play();*/
             rnd = new Random();
+            ProverkaClient();
+        }
+        private void ProverkaClient()
+        {
+            if (PersonClass.Read_TXT("client") == "")
+            {
+                Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
+            }
+            else
+            {
+                string[] DataClient = PersonClass.Read_TXT("client").Split(';');
+                Client.Source = DataClient[0];
+                Answer.Text = DataClient[1];
+                MoneyClient = Convert.ToInt32(DataClient[2]);
+                Client.IsVisible = true;
+                SkyBuy.IsVisible = true;
+                Page.QuestPage.zadacha = DataClient[1];
+            }
         }
         bool win = false;
         bool lose = false;
@@ -369,6 +386,9 @@ namespace Lo_Fi_Shop.Page
                 PlaySound.Volume = Player.Settings[2];
                 PlaySound.Play();
             }
+
+            PersonClass.Write_Client(Client.Source.ToString(), Answer.Text, MoneyClient);
+
             EnableButton_Closed();
             EnableButton_Opened();
         }
@@ -552,7 +572,6 @@ namespace Lo_Fi_Shop.Page
             EnableButton_Closed();
             EnableButton_Opened();
         }
-
         private async void EnableButton_Opened()
         {
             await Task.Delay(1000);
@@ -561,16 +580,13 @@ namespace Lo_Fi_Shop.Page
                 AllBtn[i].IsEnabled = true;
             }
         }
-
         private void EnableButton_Closed()
-        {
-            
+        {      
             for (int i = 0; i < AllBtn.Count; i++)
             {
                 AllBtn[i].IsEnabled = false;
             }
         }
-
         private void Okno_Clicked(object sender, EventArgs e)
         {
             PersonClass Player = PersonClass.ReturnPerson();

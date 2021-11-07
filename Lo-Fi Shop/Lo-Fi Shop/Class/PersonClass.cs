@@ -44,10 +44,10 @@ namespace Lo_Fi_Shop.Class
         /// Чтение данных из файла 
         /// </summary>
         /// <returns>Строка содержащиеся в файле</returns>
-        public static string Read_TXT()
+        public static string Read_TXT(string path)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
+            //string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
             string text = File.ReadAllText(Path.Combine(folderPath, path));
             return text;
         }
@@ -74,17 +74,6 @@ namespace Lo_Fi_Shop.Class
             var stream = assembly.GetManifestResourceStream("Lo-Fi_Shop." + filename);
 
             return stream;
-        }
-        /// <summary>
-        /// Чтение файла с ПК
-        /// </summary>
-        /// <returns>возврат текста из файла</returns>
-        public static string Read_PC()
-        {
-            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string path = (string)Directory.GetFiles(folderPath).Select(f => Path.GetFileName(f)).FirstOrDefault();
-            string text = File.ReadAllText(Path.Combine(folderPath, "pcs"));
-            return text;
         }
         /// <summary>
         /// Удаление ПК
@@ -135,7 +124,7 @@ namespace Lo_Fi_Shop.Class
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
-            string Data = Read_TXT();
+            string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
             string SubInv = "";
             foreach (string i in InventoryParts)
@@ -153,11 +142,11 @@ namespace Lo_Fi_Shop.Class
 
         public static void Write_TXT(int Money)
         {
-            string Data = Read_TXT();
-            string[] words = Data.Split(new char[] { ';' });
-
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
+            string Data = Read_TXT(filename);
+            string[] words = Data.Split(new char[] { ';' });
+
             Console.WriteLine("testtt" + Data);
             string text = "Money:" + Money.ToString() + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
@@ -169,11 +158,11 @@ namespace Lo_Fi_Shop.Class
         /// <param name="Exp">Количество Опыта   для сохранения</param>
         public static void Write_TXT2(int Exp)
         {
-            string Data = Read_TXT();
-            string[] words = Data.Split(new char[] { ';' });
-
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
+
+            string Data = Read_TXT(filename);
+            string[] words = Data.Split(new char[] { ';' });
             Console.WriteLine("testtt" + Data);
             string text = words[0] + ";Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
@@ -182,10 +171,10 @@ namespace Lo_Fi_Shop.Class
 
         public static void Write_TXT3(int Lvl)
         {
-            string Data = Read_TXT();
-            string[] words = Data.Split(new char[] { ';' });
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
+            string Data = Read_TXT(filename);
+            string[] words = Data.Split(new char[] { ';' });
             Console.WriteLine("testtt" + Data);
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";Lvl:" + Lvl + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
@@ -193,11 +182,10 @@ namespace Lo_Fi_Shop.Class
         }
         public static void Write_TXT4(List<string> Settings)
         {
-            string Data = Read_TXT();
-            string[] words = Data.Split(new char[] { ';' });
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
-           
+            string Data = Read_TXT(filename);
+            string[] words = Data.Split(new char[] { ';' });
             Console.WriteLine("testtt" + Data);
             string SubSett = "";
             foreach(string i in Settings)
@@ -218,7 +206,7 @@ namespace Lo_Fi_Shop.Class
         /// <returns>Класс игрока</returns>
         public static PersonClass ReturnPerson()
         {
-            string Data = Read_TXT();
+            string Data = Read_TXT("data");
             int Money = Convert.ToInt32(Data.Split(';')[0].Split(':')[1]);
             int Exp = Convert.ToInt32(Data.Split(';')[1].Split(':')[1]);
             List<string> Inv = new List<string> { };
@@ -234,6 +222,16 @@ namespace Lo_Fi_Shop.Class
             int Lvl = Convert.ToInt32(Data.Split(';')[4].Split(':')[1]);
             PersonClass Player = new PersonClass(Money, Exp, Inv, Settings, Lvl);
             return Player;
+        }
+        public static void Write_Client(string Name, string Order, int amount)
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string text = "";
+            if (Name != "delete")
+            {
+                text = Name + ";" + Order + ";" + amount.ToString() + ";";
+            }
+            File.WriteAllText(Path.Combine(folderPath, "client"), text);
         }
         /// <summary>
         /// Создание начальных данных при первом запуске игры
@@ -253,8 +251,11 @@ namespace Lo_Fi_Shop.Class
                 File.WriteAllText(Path.Combine(folderPath, "pcs"), "");
                 ReturnPerson();
             }
-        }
-      
-        
+            if (!File.Exists(Path.Combine(folderPath, "client")))
+            {
+                File.WriteAllText(Path.Combine(folderPath, "client"), "");
+                ReturnPerson();
+            }
+        } 
     }
 }

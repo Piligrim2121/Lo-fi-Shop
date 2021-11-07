@@ -163,7 +163,7 @@ namespace Lo_Fi_Shop.Page
             }
             else
             {
-                string pcs = PersonClass.Read_PC();
+                string pcs = PersonClass.Read_TXT("pcs");
                 int LenInv = 0;
                 foreach (string i in pcs.Split('*'))
                 {
@@ -288,10 +288,11 @@ namespace Lo_Fi_Shop.Page
                             }
                             break;
                     }
+                    PersonClass.Write_Client("delete", "", 0);
                     if (check)
                     {
                         List<string> NewPC = new List<string>();
-                        string[] vs = PersonClass.Read_PC().Split('*');
+                        string[] vs = PersonClass.Read_TXT("pcs").Split('*');
                         for (int i = 0; i < vs.Length - 2; i++)
                         {
                             NewPC.Add(vs[i]);
@@ -312,7 +313,7 @@ namespace Lo_Fi_Shop.Page
                 }
                 else
                 {
-                    string[] Text = PersonClass.Read_TXT().Split(';')[2].Split(':')[1].Split(',');
+                    string[] Text = PersonClass.Read_TXT("data").Split(';')[2].Split(':')[1].Split(',');
                     string DelText = null;
                     for(int i = 0; i < Item.InInvItems.Length; i++)
                     {
@@ -342,8 +343,6 @@ namespace Lo_Fi_Shop.Page
                 }
                 DisplayInvPath();
                 DopB = false;
-
-
             }
         }
     }
