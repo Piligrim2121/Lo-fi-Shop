@@ -311,13 +311,16 @@
     <AndroidResource Include="Resources\drawable\Arthurka.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Dialog.png" />
+    <AndroidResource Include="Resources\drawable\e_Dialog.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\doskaTask.png" />
+    <AndroidResource Include="Resources\drawable\e_doskaTask.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\mainPage.png" />
+    <AndroidResource Include="Resources\drawable\e_doskaTask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\e_mainPage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
