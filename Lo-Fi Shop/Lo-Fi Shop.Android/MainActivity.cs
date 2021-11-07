@@ -24,7 +24,11 @@ namespace Lo_Fi_Shop.Droid
         /// </summary>
         /// <param name="savedInstanceState"></param>
         ///
-
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
         protected override void OnResume()
         {
             base.OnResume();

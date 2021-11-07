@@ -15,7 +15,7 @@ namespace Lo_Fi_Shop
             //MainPage = new MainMenuPage();
 
         }
-        
+      
         protected override void OnStart()
         {
         }

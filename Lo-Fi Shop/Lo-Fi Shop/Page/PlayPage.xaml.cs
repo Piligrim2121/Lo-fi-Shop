@@ -154,7 +154,8 @@ namespace Lo_Fi_Shop.Page
         /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
-            Navigation.PushAsync(new MainMenuPage());
+            Navigation.PopToRootAsync();
+            //Navigation.PushAsync(new MainMenuPage());
             return true;
         }
 
@@ -559,7 +560,8 @@ namespace Lo_Fi_Shop.Page
         private void Door_Clicked(object sender, EventArgs e)
         {
             //Door.Source = "DoorOpen.png";
-            Navigation.PushAsync(new MainMenuPage());
+            //Navigation.PushAsync(new MainMenuPage());
+            Navigation.PopToRootAsync();
             //Door.Source = "DoorClosed.png";
             //var existingPages = Navigation.NavigationStack.ToList();
             //foreach (var page in existingPages)
