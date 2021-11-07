@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
 using Plugin.SimpleAudioPlayer;
+using System.Threading;
 
 namespace Lo_Fi_Shop.Page
 {
@@ -38,6 +39,9 @@ namespace Lo_Fi_Shop.Page
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
             Device.StartTimer(TimeSpan.FromSeconds(2), Lose);
             Device.StartTimer(TimeSpan.FromSeconds(2), Radio);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Anim);
+            Thread.Sleep(500);
+            Device.StartTimer(TimeSpan.FromSeconds(2), Anim2);
             AllBtn.Add((ImageButton)(FindByName("ImageShkaf")));
             AllBtn.Add((ImageButton)(FindByName("ImageTable")));
             AllBtn.Add((ImageButton)(FindByName("ImageTableOfQuest")));
@@ -108,6 +112,18 @@ namespace Lo_Fi_Shop.Page
                 }
             }
             return !win;
+        }
+        public bool Anim()
+        {
+            Sky.TranslateTo(0, 40, 450);
+            SkyBuy.TranslateTo(0, 25, 450);
+            return true;
+        }
+        public bool Anim2()
+        {
+            SkyBuy.TranslateTo(0, 0, 450);
+            Sky.TranslateTo(0, 25, 450);
+            return true;
         }
         public bool Radio()
         {
