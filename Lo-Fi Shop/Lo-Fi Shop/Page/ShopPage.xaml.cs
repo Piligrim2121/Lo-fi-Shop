@@ -26,12 +26,12 @@ namespace Lo_Fi_Shop.Page
            
             if (Player.Lvl >= 3)
             {
-                for (int i = 36; i < 44; i++)
+                for (int i = 37; i < 45; i++)
                     Shop_Grid.Children[i].IsVisible = false;
             }
             if (Player.Lvl >= 6)
             {
-                for (int i = 28; i < 36; i++)
+                for (int i = 29; i < 37; i++)
                     Shop_Grid.Children[i].IsVisible = false;
             }
         }
