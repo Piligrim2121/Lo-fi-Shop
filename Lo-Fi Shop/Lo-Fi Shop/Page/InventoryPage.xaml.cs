@@ -72,11 +72,11 @@ namespace Lo_Fi_Shop.Page
                     Cost.Text = Item.InInvItems[i].Sell.ToString() + "₽";
                 }
             }
-            if (Info_name.Text.Contains("Начальный")|| Info_name.Text.Contains("Начальная"))
+            if (Info_name.Text.Contains("Начальный") || Info_name.Text.Contains("Начальная"))
             {
                 Info_name.TextColor = Color.White;
             }
-            else if(Info_name.Text.Contains("Средний")|| Info_name.Text.Contains("Средняя"))
+            else if (Info_name.Text.Contains("Средний") || Info_name.Text.Contains("Средняя"))
             {
                 Info_name.TextColor = Color.LightBlue;
             }
@@ -86,11 +86,11 @@ namespace Lo_Fi_Shop.Page
             }
             DopB = true;
         }
-       /// <summary>
-       /// Отображение информации о собранном ПК
-       /// </summary>
-       /// <param name="sender"></param>
-       /// <param name="e"></param>
+        /// <summary>
+        /// Отображение информации о собранном ПК
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PC_Clicked(object sender, EventArgs e)
         {
             tempBtn = sender as ImageButton;
@@ -269,26 +269,29 @@ namespace Lo_Fi_Shop.Page
                 {
                     bool check = false;
                     PersonClass Player = PersonClass.ReturnPerson();
+                    int Sum = 0;
                     switch (PlayPage.zakaz)
                     {
                         case 1:
                             if (PlayPage.MoneyClient >= Convert.ToInt32(Cost.Text.Replace("₽", "")))
                             {
-                                PersonClass.Write_TXT(Player.Money + PlayPage.MoneyClient);
+                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money) + PlayPage.MoneyClient);
                                 PersonClass.Write_TXT2(Player.Exp + 30);
+                                Sum = PlayPage.MoneyClient;
                                 check = true;
                             }
                             break;
                         case 2:
                             if (PlayPage.MoneyClient <= Convert.ToInt32(Cost.Text.Replace("₽", "")))
                             {
-                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money) + Convert.ToInt32(Cost.Text.Replace("₽", "")));
+                                PersonClass.Write_TXT(Convert.ToInt32(Player.Money) + Convert.ToInt32(Cost.Text.Replace("₽", "")) + 5000);
                                 PersonClass.Write_TXT2(Player.Exp + 30);
+                                Sum = Convert.ToInt32(Cost.Text.Replace("₽", "")) + 5000;
                                 check = true;
                             }
                             break;
                     }
-                   
+
                     if (check)
                     {
                         List<string> NewPC = new List<string>();
@@ -299,8 +302,9 @@ namespace Lo_Fi_Shop.Page
                         }
                         PersonClass.Delet_PC(NewPC);
                         new Page.QuestPage("");
-                        
-                        PlayPage.AddClientMoney = "+ " + PlayPage.MoneyClient.ToString() + "₽";
+
+                        PlayPage.AddClientMoney = "+ " + Sum.ToString() + "₽";
+
                         PersonClass.Write_Client("delete", "", 0);
                         Navigation.PushAsync(new Page.PlayPage());
 
@@ -315,12 +319,18 @@ namespace Lo_Fi_Shop.Page
                 {
                     string[] Text = PersonClass.Read_TXT("data").Split(';')[2].Split(':')[1].Split(',');
                     string DelText = null;
-                    for(int i = 0; i < Item.InInvItems.Length; i++)
+                    for (int i = 0; i < Item.InInvItems.Length; i++)
                     {
                         if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[i].Path)
                         {
                             PersonClass Player = PersonClass.ReturnPerson();
                             PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8));
+                            ChangeMoney.Text = "+" + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8).ToString() + "₽";
+                            ChangeMoney.IsVisible = true;
+                            Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+                                ChangeMoney.IsVisible = false;
+                                return false;
+                            });
                             DelText = Item.InInvItems[i].Name;
                             var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
                             InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();

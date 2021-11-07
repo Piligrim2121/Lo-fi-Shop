@@ -16,7 +16,8 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             anim.IsAnimationPlaying = true;
-            
+
+            CommonVolume.Value = Music.Settings[0];
             MusicVolume.Value = Music.Settings[1];
             SoundVolume.Value = Music.Settings[2];
             

@@ -25,8 +25,9 @@
                     <ColumnDefinition Width="126*"/>
                     <ColumnDefinition Width="126*"/>
                 </Grid.ColumnDefinitions>
+                <Label x:Name="ChangeMoney" TextColor="DarkGoldenrod" Grid.Column="0" Grid.Row="0" BackgroundColor="red" IsVisible="true"/>
             </Grid>
-            
+
             <Image Margin="30,-10,-10,25" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Grid.Row="1" Grid.RowSpan="3" Source="Resources/drawable/InvInfo.png" />
             <Label TextColor="White" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start"  Margin="45,20,0,0" >Информация</Label>
             <Label x:Name="Cost" TextColor="White" Grid.Row="1" Grid.RowSpan="3"  Margin="45,210,380,0" ></Label>
@@ -35,7 +36,6 @@
             <ImageButton x:Name="Obvodka1" Grid.Column="1" Grid.Row="0" Scale="0.5" Padding="0" Margin="-8,-20,115,20" Source="Resources/drawable/Obvodka.png" BackgroundColor="Transparent" Clicked="Obvodka_Clicked"/>
             <ImageButton x:Name="Obvodka2" Grid.Column="1" Grid.Row="0" Scale="0.5" Padding="0" Margin="-8,20,115,-20"  BackgroundColor="Transparent" Clicked="Obvodka2_Clicked"/>
             <ImageButton x:Name="Sell" Scale="0.6"  BackgroundColor="Transparent" Grid.Column="1" Grid.Row="3" Source="Resources/drawable/Sell_btn.png" Clicked="Sell_Clicked"></ImageButton>
-           
         </Grid>
     </ContentPage.Content>
 </ContentPage>

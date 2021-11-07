@@ -200,6 +200,7 @@ namespace Lo_Fi_Shop.Class
                     else
                         SubSett += ("," + i);
             }
+            Console.WriteLine(SubSett);
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + "Settings:"+ SubSett + ";"+ words[4]+ ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // ReturnPerson();
