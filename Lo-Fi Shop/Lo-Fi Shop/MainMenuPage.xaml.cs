@@ -42,17 +42,11 @@ namespace Lo_Fi_Shop
             //    PersonClass.player.Load(stream);
             
             Btnwav();
-            //}
-           
-            
-            
+            //}    
         }
 
         private void Btnwav()
         {
-
-            if (PersonClass.Playing == false)
-            {
                 PersonClass Player = PersonClass.ReturnPerson();
                 string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
                 Random r = new Random();
@@ -60,9 +54,7 @@ namespace Lo_Fi_Shop
                 // PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 PersonClass.player.Load(stream);
                 PersonClass.player.Volume = Player.Settings[1];
-                PersonClass.player.Play();
-                PersonClass.Playing = true;
-            }
+                PersonClass.player.Play();           
         }
        
 
@@ -102,7 +94,7 @@ namespace Lo_Fi_Shop
             if (PersonClass.FirstTime) {
              GamePlay = new PlayPage();
                 PersonClass.FirstTime = false;
-        Navigation.PushAsync(GamePlay);
+            Navigation.PushAsync(GamePlay);
             }
             else
             {

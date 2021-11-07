@@ -20,6 +20,7 @@ namespace Lo_Fi_Shop.Class
         public List<string> InventoryPath;
         public static bool Playing = false;
         public static bool FirstTime = true;
+        public static bool Sleep = false;
         public static ISimpleAudioPlayer player;
         
         public List<int> Settings;
@@ -69,6 +70,7 @@ namespace Lo_Fi_Shop.Class
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
         }
+
       public static Stream GetStreamFromFile(string filename)
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;

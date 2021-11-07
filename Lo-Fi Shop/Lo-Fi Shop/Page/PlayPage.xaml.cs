@@ -108,22 +108,26 @@ namespace Lo_Fi_Shop.Page
             }
             return !win;
         }
-        private bool Radio()
+        public bool Radio()
         {
-
-            if (PersonClass.player.IsPlaying == false)
+            if (PersonClass.Sleep==false)
             {
-                PersonClass Player = PersonClass.ReturnPerson();
-                string[] radio = new string[] { "music.wav" ,"StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
-                Random r = new Random();
-                var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
-                PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
-                PersonClass.player.Load(stream);
-                PersonClass.player.Volume = Player.Settings[1];
-                PersonClass.player.Play();
-                
+                if (PersonClass.Playing == false)
+                {
+                    if (PersonClass.player.IsPlaying==false)
+                    {
+                        PersonClass Player = PersonClass.ReturnPerson();
+                        string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
+                        Random r = new Random();
+                        var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
+                        PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                        PersonClass.player.Load(stream);
+                        PersonClass.player.Volume = Player.Settings[1];
+                        PersonClass.player.Play();
+                    }
+                }
             }
-            return PersonClass.player.IsPlaying;
+            return true;
         }
         private bool Lose()
         {

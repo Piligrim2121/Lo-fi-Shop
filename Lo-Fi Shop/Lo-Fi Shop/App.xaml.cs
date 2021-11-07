@@ -18,24 +18,22 @@ namespace Lo_Fi_Shop
       
         protected override void OnStart()
         {
+           
         }
 
         protected override void OnSleep()
         {
             
             PersonClass.player.Pause();
+            PersonClass.Sleep = true;
             
         }
 
         protected override void OnResume()
         {
-            if (!PersonClass.Playing)
-            {
-                PersonClass music = PersonClass.ReturnPerson();
-                PersonClass.player.Play();
-               
-                PersonClass.player.Volume = music.Settings[1];
-            }
+            PersonClass.Sleep = false;
+            PersonClass.Playing = false;
+
         }
     }
 }

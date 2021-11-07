@@ -23,7 +23,7 @@ namespace Lo_Fi_Shop.Droid
         /// Метод при создании активити
         /// </summary>
         /// <param name="savedInstanceState"></param>
-        ///
+        ///        
         protected override void OnDestroy()
         {
             base.OnDestroy();
