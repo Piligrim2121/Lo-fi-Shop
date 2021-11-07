@@ -125,7 +125,7 @@ namespace Lo_Fi_Shop.Page
         //    Sky.TranslateTo(0, 25, 450);
         //    return true;
         //}
-        List<int> playedTracs = new List<int>();;
+        List<int> playedTracs = new List<int>();
         public bool Radio()
         {
             if (PersonClass.Sleep==false)
