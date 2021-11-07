@@ -282,6 +282,12 @@ namespace Lo_Fi_Shop.Page
             {
 
                 intMoney = intMoney - SelectItem.Sell;
+                ChangeMoney.Text = "-" + SelectItem.Sell.ToString() + "₽";
+                ChangeMoney.IsVisible = true;
+                Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+                    ChangeMoney.IsVisible = false;
+                    return false;
+                });
                 PersonClass.Write_TXT(intMoney);
                 
                 var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
