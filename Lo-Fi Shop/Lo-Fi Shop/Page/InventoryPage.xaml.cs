@@ -16,8 +16,8 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
 
-                PersonClass Player = PersonClass.ReturnPerson();
-                Money.Text = Player.Money.ToString() + "₽";
+            PersonClass Player = PersonClass.ReturnPerson();
+            Money.Text = Player.Money.ToString() + "₽";
            
             if (Da)
             {
@@ -42,9 +42,6 @@ namespace Lo_Fi_Shop.Page
                 CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
 
             }
-          
-            
-            
         }
 
         ImageButton tempBtn;
@@ -268,12 +265,13 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void Sell_Clicked(object sender, EventArgs e)
         {
+            PersonClass Player = PersonClass.ReturnPerson();
             if (DopB)
             {
                 if (Prod)
                 {
                     bool check = false;
-                    PersonClass Player = PersonClass.ReturnPerson();
+                    Player = PersonClass.ReturnPerson();
                     int Sum = 0;
                     switch (PlayPage.zakaz)
                     {
@@ -328,7 +326,7 @@ namespace Lo_Fi_Shop.Page
                     {
                         if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[i].Path)
                         {
-                            PersonClass Player = PersonClass.ReturnPerson();
+                            Player = PersonClass.ReturnPerson();
                             PersonClass.Write_TXT(Player.Money + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8));
                             ChangeMoney.Text = "+" + Convert.ToInt32(Item.InInvItems[i].Sell * 0.8).ToString() + "₽";
                             ChangeMoney.IsVisible = true;
@@ -359,6 +357,8 @@ namespace Lo_Fi_Shop.Page
                 DisplayInvPath();
                 DopB = false;
             }
+            Player = PersonClass.ReturnPerson();
+            Money.Text = Player.Money.ToString() + "₽";
         }
     }
 }
