@@ -226,7 +226,7 @@ namespace Lo_Fi_Shop.Class
         public static void Write_Client(string Name, string Order, int amount)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string text = "";
+            string text = "";            
             if (Name != "delete")
             {
                 text = Name + ";" + Order + ";" + amount.ToString() + ";";

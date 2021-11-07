@@ -19,16 +19,14 @@ namespace Lo_Fi_Shop
         /// Инициализация компонентов и загрузка главного меню 
         /// </summary>
         ISimpleAudioPlayer ClickSound;
-        PersonClass Music = PersonClass.ReturnPerson();
+        
         //string[] st = new string[10];
         
         public MainMenuPage()
         {
             InitializeComponent();
-            
-           
-            PersonClass.First_Write_TXT();
             NavigationPage.SetHasNavigationBar(this, false);
+            PersonClass.First_Write_TXT();
             ImageLogotip.IsAnimationPlaying = true;
            // var stream = PersonClass.GetStreamFromFile("music.wav");
             PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -58,7 +56,7 @@ namespace Lo_Fi_Shop
 
         private void Btnwav()
         {
-           
+            PersonClass Music = PersonClass.ReturnPerson();
             PersonClass.player.Volume = Music.Settings[1];
             PersonClass.player.Play();
         }
@@ -71,6 +69,7 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnHowToPlay_Clicked(object sender, EventArgs e)
         {
+            PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
@@ -86,14 +85,14 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
+            PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
             ClickSound.Volume = Music.Settings[2];
             ClickSound.Play();
-
             Navigation.PushAsync(new Page.PlayPage());
-            new QuestPage("");
+           // new QuestPage("");
         // Navigation.PushAsync(new Page.TempPage());
         }
         /// <summary>
@@ -103,6 +102,7 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnSetting_Clicked(object sender, EventArgs e)
         {
+            PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
@@ -118,6 +118,7 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnAbout_Clicked(object sender, EventArgs e)
         {
+            PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
@@ -133,6 +134,7 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnExit_Clicked(object sender, EventArgs e)
         {
+            PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);

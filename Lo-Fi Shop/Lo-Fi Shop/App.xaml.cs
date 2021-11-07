@@ -11,10 +11,11 @@ namespace Lo_Fi_Shop
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainMenuPage());
+            
             //MainPage = new MainMenuPage();
 
         }
-        PersonClass music = PersonClass.ReturnPerson();
+        
         protected override void OnStart()
         {
         }
@@ -30,6 +31,7 @@ namespace Lo_Fi_Shop
         {
             if (!PersonClass.Playing)
             {
+                PersonClass music = PersonClass.ReturnPerson();
                 PersonClass.player.Play();
                
                 PersonClass.player.Volume = music.Settings[1];

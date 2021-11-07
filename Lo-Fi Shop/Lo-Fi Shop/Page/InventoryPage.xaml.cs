@@ -288,7 +288,7 @@ namespace Lo_Fi_Shop.Page
                             }
                             break;
                     }
-                    PersonClass.Write_Client("delete", "", 0);
+                   
                     if (check)
                     {
                         List<string> NewPC = new List<string>();
@@ -301,7 +301,7 @@ namespace Lo_Fi_Shop.Page
                         new Page.QuestPage("");
                         
                         PlayPage.AddClientMoney = "+ " + PlayPage.MoneyClient.ToString() + "₽";
-                        
+                        PersonClass.Write_Client("delete", "", 0);
                         Navigation.PushAsync(new Page.PlayPage());
 
                         var stream = PersonClass.GetStreamFromFile("songMonet.wav");

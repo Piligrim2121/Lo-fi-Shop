@@ -43,11 +43,6 @@ namespace Lo_Fi_Shop.Page
             AllBtn.Add((ImageButton)(FindByName("ImageTableOfQuest")));
             AllBtn.Add((ImageButton)(FindByName("ImageKassa")));
             AllBtn.Add((ImageButton)(FindByName("Door")));
-            /*var assembly = typeof(App).GetTypeInfo().Assembly;
-            System.IO.Stream audioStream = assembly.GetManifestResourceStream("Resources/drawable/" + "play.mp3");
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load(audioStream);
-            player.Play();*/
             rnd = new Random();
             ProverkaClient();
         }
@@ -61,6 +56,21 @@ namespace Lo_Fi_Shop.Page
             {
                 string[] DataClient = PersonClass.Read_TXT("client").Split(';');
                 Client.Source = DataClient[0];
+                switch (Client.Source.ToString().Replace("File: ", ""))
+                {
+                    case @"Resources/drawable/Petka.png":
+                        Client.ScaleX = 1;
+                        Client.Scale = 0.8;
+                        break;
+                    case @"Resources/drawable/Vasyok.png":
+                        Client.ScaleX = 0.8;
+                        Client.Scale = 1;
+                        break;
+                    case @"Resources/drawable/Arthurka.png":
+                        Client.ScaleX = 1;
+                        Client.Scale = 0.8;
+                        break;
+                }
                 Answer.Text = DataClient[1];
                 MoneyClient = Convert.ToInt32(DataClient[2]);
                 Client.IsVisible = true;
@@ -373,6 +383,7 @@ namespace Lo_Fi_Shop.Page
                 PlaySound.Load(stream);
                 PlaySound.Volume = Player.Settings[2];
                 PlaySound.Play();
+                PersonClass.Write_Client(Client.Source.ToString(), Answer.Text, MoneyClient);
             }
 
             else if (h == false)
@@ -387,7 +398,7 @@ namespace Lo_Fi_Shop.Page
                 PlaySound.Play();
             }
 
-            PersonClass.Write_Client(Client.Source.ToString(), Answer.Text, MoneyClient);
+            
 
             EnableButton_Closed();
             EnableButton_Opened();
@@ -425,6 +436,7 @@ namespace Lo_Fi_Shop.Page
                     Client.IsVisible = false;
                     ButtonNo.Text = "Нет";
                     Alive = true;
+                    PersonClass.Write_Client("delete", "", 0);
 
                     PersonClass Player = PersonClass.ReturnPerson();
                     var stream = PersonClass.GetStreamFromFile("ClientCloseDoorSound.mp3");
@@ -481,6 +493,7 @@ namespace Lo_Fi_Shop.Page
                         PersonClass.Write_TXT2(LastExp - 30);
                     }
                     new Page.QuestPage("");
+                    PersonClass.Write_Client("delete", "", 0);
 
                     var stream = PersonClass.GetStreamFromFile("FailSound.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -548,6 +561,11 @@ namespace Lo_Fi_Shop.Page
             //Door.Source = "DoorOpen.png";
             Navigation.PushAsync(new MainMenuPage());
             //Door.Source = "DoorClosed.png";
+            //var existingPages = Navigation.NavigationStack.ToList();
+            //foreach (var page in existingPages)
+            //{
+            //    Navigation.RemovePage(page);
+            //}
             EnableButton_Closed();
             EnableButton_Opened();
         }
@@ -563,6 +581,7 @@ namespace Lo_Fi_Shop.Page
                 string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 File.Delete(Path.Combine(folderPath, "data"));
                 File.Delete(Path.Combine(folderPath, "pcs"));
+                File.Delete(Path.Combine(folderPath, "client"));
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
             WinLable.IsVisible = false;

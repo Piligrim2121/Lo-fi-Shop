@@ -12,7 +12,8 @@ namespace Lo_Fi_Shop.Page
             string[] DataClient = PersonClass.Read_TXT("client").Split(';');
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            Quest.Text = DataClient[1];
+            if (PersonClass.Read_TXT("client") != "")
+                Quest.Text = DataClient[1];
         }
         public static string zadacha;
         public QuestPage(string text)
