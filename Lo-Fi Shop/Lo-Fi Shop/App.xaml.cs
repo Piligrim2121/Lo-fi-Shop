@@ -18,7 +18,6 @@ namespace Lo_Fi_Shop
       
         protected override void OnStart()
         {
-           
         }
 
         protected override void OnSleep()

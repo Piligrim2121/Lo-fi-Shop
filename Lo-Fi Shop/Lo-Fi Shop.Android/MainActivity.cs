@@ -13,6 +13,7 @@ namespace Lo_Fi_Shop.Droid
         Theme = "@style/MainTheme",
         MainLauncher = true,
         NoHistory = true,
+        
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, ScreenOrientation = ScreenOrientation.UserLandscape
         )
     ]

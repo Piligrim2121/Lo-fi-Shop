@@ -10,11 +10,11 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ImageButton x:Name="Sborka" Grid.Row="3" Grid.Column="1"
-                         Clicked="Sborka_Clicked"
-                          BackgroundColor="Transparent"
-                   Source="Resource/drawable/Sborka.png"  />
-            <Grid x:Name="InvCraft" Grid.Column="2" Grid.RowSpan="6">
+            <ImageButton x:Name="Sborka" Margin="-100,0,0,0" Grid.Row="3" Grid.Column="1"
+            Clicked="Sborka_Clicked"
+            BackgroundColor="Transparent"
+            Source="Resource/drawable/Sborka.png" />
+            <Grid x:Name="InvCraft" Grid.Column="1" Grid.ColumnSpan="3" Margin="25,-5,-35,15" Grid.RowSpan="6" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"/>
                     <RowDefinition Height="50*"/>
@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="50*"/>
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Grid Margin="0,0,0,0" Grid.RowSpan="6" Grid.Column="0">
+            <Grid Margin="-450,13,0,0" Grid.RowSpan="6" Grid.Column="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="447*"/>
                     <ColumnDefinition Width="101*"/>

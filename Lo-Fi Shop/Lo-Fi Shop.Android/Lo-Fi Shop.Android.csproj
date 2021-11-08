@@ -317,9 +317,6 @@
     <AndroidResource Include="Resources\drawable\e_doskaTask.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\e_doskaTask.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\e_mainPage.jpg" />
   </ItemGroup>
   <ItemGroup>
