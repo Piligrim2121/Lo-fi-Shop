@@ -3,6 +3,7 @@ using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +18,19 @@ namespace Lo_Fi_Shop.Page
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             Players = PersonClass.ReturnPerson();
+            switch (DeviceInfo.Name)
+            {
+                case "Samsung S8":
+                    Sborka.Margin = new Thickness(-100, 0, 0, 0);
+                    InvCraft.Margin = new Thickness(25, -5, -35, 15);
+                    Grid.SetColumn(InvCraft, 1);
+                    Grid.SetColumnSpan(InvCraft, 3);
+                    Grid.SetRowSpan(InvCraft,6);
+                    GR_Craft.Margin = new Thickness(-450, 13, 0, 0);
+                    //Grid.SetRowSpan(GR_Craft, 6);
+                    //Grid.SetColumn(GR_Craft, 0);
+                    break;
+            }
             DisplayInvPath();
         }
         ISimpleAudioPlayer PageSound;
