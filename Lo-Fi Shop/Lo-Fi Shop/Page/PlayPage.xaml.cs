@@ -50,10 +50,15 @@ namespace Lo_Fi_Shop.Page
             rnd = new Random();
             ProverkaClient();
         }
-        private void ProverkaClient()
+        public void ProverkaClient()
         {
             if (PersonClass.Read_TXT("client") == "")
             {
+                Client.IsVisible = false;
+                SkyBuy.IsVisible = false;
+                Dialog.IsVisible = false;
+                Answer.IsVisible = false;
+                GridBtn.IsVisible = false;
                 Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
             }
             else
@@ -80,7 +85,7 @@ namespace Lo_Fi_Shop.Page
                 Client.IsVisible = true;
                 SkyBuy.IsVisible = true;
                 Page.QuestPage.zadacha = DataClient[1];
-                zakaz = Convert.ToInt32(DataClient[3]);
+                zakaz = Convert.ToInt32(DataClient[3]); 
             }
         }
         bool win = false;
@@ -499,7 +504,8 @@ namespace Lo_Fi_Shop.Page
                     PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
-                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
+                    //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
+                    ProverkaClient();
                 }
 
             }
@@ -555,7 +561,8 @@ namespace Lo_Fi_Shop.Page
                     PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
-                    Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
+                    // Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
+                    ProverkaClient();
 
                 }
             }
