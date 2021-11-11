@@ -184,7 +184,6 @@ namespace Lo_Fi_Shop.Page
         {
             int AllCost = Cost.Sum();
             Sborka.IsEnabled = false;
-            Console.WriteLine(Cost.ToString());
             if (Proverka())
             {
                 if (PersonClass.Read_TXT("pcs").Split('*').Length < 25)

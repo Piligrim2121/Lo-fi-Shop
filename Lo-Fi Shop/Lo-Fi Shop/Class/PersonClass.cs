@@ -151,7 +151,6 @@ namespace Lo_Fi_Shop.Class
             string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
 
-            Console.WriteLine("testtt" + Data);
             string text = "Money:" + Money.ToString() + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // ReturnPerson();
@@ -167,7 +166,6 @@ namespace Lo_Fi_Shop.Class
 
             string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
-            Console.WriteLine("testtt" + Data);
             string text = words[0] + ";Exp:" + Exp + ";" + words[2] + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // ReturnPerson();
@@ -179,7 +177,6 @@ namespace Lo_Fi_Shop.Class
             string filename = "data";
             string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
-            Console.WriteLine("testtt" + Data);
             string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + words[3] + ";Lvl:" + Lvl + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             // ReturnPerson();

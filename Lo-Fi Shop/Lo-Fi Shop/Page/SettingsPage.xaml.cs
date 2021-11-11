@@ -34,9 +34,7 @@ namespace Lo_Fi_Shop.Page
         private void SoundVolume_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             PersonClass.player.Volume = Convert.ToDouble(MusicVolume.Value)/10;
-            PersonClass.Write_TXT4(new List<string>{Math.Round(CommonVolume.Value).ToString(), Math.Round(MusicVolume.Value).ToString(), Math.Round(SoundVolume.Value).ToString()});
-            Console.WriteLine(Math.Round(CommonVolume.Value).ToString(), Math.Round(MusicVolume.Value).ToString(), Math.Round(SoundVolume.Value).ToString());
-            
+            PersonClass.Write_TXT4(new List<string>{Math.Round(CommonVolume.Value).ToString(), Math.Round(MusicVolume.Value).ToString(), Math.Round(SoundVolume.Value).ToString()});            
         }
 
         private void Del_Progress_Clicked(object sender, EventArgs e)

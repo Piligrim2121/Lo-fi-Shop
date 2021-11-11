@@ -138,15 +138,12 @@ namespace Lo_Fi_Shop.Page
                         string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
                         Random r = new Random();
                         int rndint = r.Next(0, radio.Length - 1);
-                        Console.WriteLine("rndint " + rndint);
+                       
                         bool povtor = true;
                         while (povtor && playedTracs.Count != 0)
                         {
-                            Console.WriteLine("dlin " + playedTracs.Count + " radio " + radio.Length);
                             foreach (int item in playedTracs)
                             {
-
-                                Console.WriteLine(rndint + "  " + item);
                                 if (rndint == item)
                                 {
                                     povtor = true;
@@ -155,16 +152,12 @@ namespace Lo_Fi_Shop.Page
                                 else povtor = false;
                             }
                             if (povtor) rndint = r.Next(0, radio.Length - 1);
-                            Console.WriteLine("Rnext " + rndint);
                         }
                         playedTracs.Add(rndint);
-                        Console.WriteLine($"{playedTracs.Count} == {radio.Length - 1}");
                         if (playedTracs.Count == radio.Length - 1)
                             playedTracs.Clear();
 
-                        Console.WriteLine("dlin2: " + playedTracs.Count);
-                        foreach (int item in playedTracs)
-                            Console.Write(" " + item);
+
 
 
 
@@ -534,10 +527,8 @@ namespace Lo_Fi_Shop.Page
                     Alive = true;
                     PersonClass Player = PersonClass.ReturnPerson();
                     int LastExp = Player.Exp;
-                    Console.WriteLine(LastExp);
                     if ((LastExp - 30) <= 0)
                     {
-                        Console.WriteLine(100 * (Level - 1) - LastExp);
                         PersonClass.Write_TXT2(100 * (Level - 1) - LastExp);
                         PersonClass.Write_TXT3(Level - 1);
                     }
