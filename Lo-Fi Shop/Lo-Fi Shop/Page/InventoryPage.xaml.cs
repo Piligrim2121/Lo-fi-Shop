@@ -21,6 +21,7 @@ namespace Lo_Fi_Shop.Page
            
             if (Da)
             {
+                Percent.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
             }
@@ -217,6 +218,7 @@ namespace Lo_Fi_Shop.Page
                     Description.Text = "";
                     Info_name.Text = "";
                     Cost.Text = "";
+                    Percent.Text = "*за 80% от первоначальной стоимости предмета";
                     Obvodka1.Source = "Resource/drawable/Obvodka.png";
                     Obvodka2.Source = null;
 
@@ -244,6 +246,7 @@ namespace Lo_Fi_Shop.Page
                 Description.Text = "";
                 Info_name.Text = "";
                 Cost.Text = "";
+                Percent.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
 

@@ -40,6 +40,7 @@
             <ImageButton x:Name="Sell" Scale="0.6"  BackgroundColor="Transparent" Grid.Column="1" Grid.Row="3" Source="Resources/drawable/Sell_btn.png" Clicked="Sell_Clicked"></ImageButton>
             <Label x:Name="Money" Margin="0,10,30,0" TextColor="Green" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start"  />
             <Label x:Name="ChangeMoney" Margin="0,30,30,0" TextColor="DarkGoldenrod" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Start" IsVisible="false" Text="adsasd" />
+            <Label x:Name="Percent" Margin="50,0,30,4" FontSize="8" TextColor="Gray" Grid.Column="1" Grid.Row="3" HorizontalOptions="End" VerticalOptions="End"  Text="*за 80% от первоначальной стоимости предмета" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
