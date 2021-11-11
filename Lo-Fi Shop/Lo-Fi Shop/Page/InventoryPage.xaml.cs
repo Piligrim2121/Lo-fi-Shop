@@ -312,7 +312,9 @@ namespace Lo_Fi_Shop.Page
                         PlayPage.AddClientMoney = "+ " + Sum.ToString() + "₽";
 
                         PersonClass.Write_Client("delete", "", 0);
-                        Navigation.PushAsync(new Page.PlayPage());
+                         PlayPage.First = true;
+                        MainMenuPage.GamePlay.ProverkaClient();
+                        Navigation.PopAsync();
 
                         var stream = PersonClass.GetStreamFromFile("songMonet.wav");
                         InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();

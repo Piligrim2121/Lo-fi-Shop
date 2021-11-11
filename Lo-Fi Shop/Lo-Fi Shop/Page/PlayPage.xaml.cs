@@ -1,21 +1,18 @@
-﻿using System;
+﻿using Lo_Fi_Shop.Class;
+using Plugin.SimpleAudioPlayer;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
-using Lo_Fi_Shop.Class;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.IO;
-using Plugin.SimpleAudioPlayer;
-using System.Threading;
 
 namespace Lo_Fi_Shop.Page
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayPage : ContentPage
     {
+       static public bool First = true;
         bool Alive = true;
         bool h = true;
         public Item[] MassAllItems = Item.CreateItems();
@@ -23,7 +20,7 @@ namespace Lo_Fi_Shop.Page
         public static int zakaz;
         public static int MoneyClient;
         private int Level;
-        public static string AddClientMoney="";
+        public static string AddClientMoney = "";
         List<ImageButton> AllBtn = new List<ImageButton>();
         ISimpleAudioPlayer PlaySound;
 
@@ -54,12 +51,17 @@ namespace Lo_Fi_Shop.Page
         {
             if (PersonClass.Read_TXT("client") == "")
             {
-                Client.IsVisible = false;
-                SkyBuy.IsVisible = false;
-                Dialog.IsVisible = false;
-                Answer.IsVisible = false;
-                GridBtn.IsVisible = false;
-                Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
+                if (First)
+                {
+                    Client.IsVisible = false;
+                    SkyBuy.IsVisible = false;
+                    Dialog.IsVisible = false;
+                    Answer.IsVisible = false;
+                    GridBtn.IsVisible = false;
+                    Sky.IsVisible = false;
+                    Device.StartTimer(TimeSpan.FromSeconds(10), OnTimerTick);
+                    First = false;
+                }
             }
             else
             {
@@ -85,7 +87,7 @@ namespace Lo_Fi_Shop.Page
                 Client.IsVisible = true;
                 SkyBuy.IsVisible = true;
                 Page.QuestPage.zadacha = DataClient[1];
-                zakaz = Convert.ToInt32(DataClient[3]); 
+                zakaz = Convert.ToInt32(DataClient[3]);
             }
         }
         bool win = false;
@@ -110,7 +112,7 @@ namespace Lo_Fi_Shop.Page
 
                     WinButton.IsVisible = true;
                     WinLable.IsVisible = true;
-                  
+
                     WinLable.Text = "Поздравляем, вы победили. Ваш прогресс сохранится, вы можете играть дальше. Ждите новых обновлений!!!";
                     Stonks.IsVisible = true;
                     win = true;
@@ -133,17 +135,17 @@ namespace Lo_Fi_Shop.Page
         List<int> playedTracs = new List<int>();
         public bool Radio()
         {
-            if (PersonClass.Sleep==false)
+            if (PersonClass.Sleep == false)
             {
                 if (PersonClass.Playing == false)
                 {
-                    if (PersonClass.player.IsPlaying==false)
+                    if (PersonClass.player.IsPlaying == false)
                     {
                         PersonClass Player = PersonClass.ReturnPerson();
                         string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
                         Random r = new Random();
                         int rndint = r.Next(0, radio.Length - 1);
-                       
+
                         bool povtor = true;
                         while (povtor && playedTracs.Count != 0)
                         {
@@ -181,9 +183,9 @@ namespace Lo_Fi_Shop.Page
             if (!lose)
             {
                 PersonClass Player = PersonClass.ReturnPerson();
-                if (Player.Money <=0)
+                if (Player.Money <= 0)
                 {
-                   
+
                     var stream = PersonClass.GetStreamFromFile("songGameOver.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
@@ -192,7 +194,7 @@ namespace Lo_Fi_Shop.Page
 
                     WinButton.IsVisible = true;
                     WinLable.IsVisible = true;
-                    WinLable.Text = "Вы потратили все свои деньги и проиграли!" +"\n"+"Игра закроется и весь накопленный прогресс будет утерян. Впредь продумывайте свои действия наперёд. ";
+                    WinLable.Text = "Вы потратили все свои деньги и проиграли!" + "\n" + "Игра закроется и весь накопленный прогресс будет утерян. Впредь продумывайте свои действия наперёд. ";
                     Kotik.IsVisible = true;
                     lose = true;
                 }
@@ -252,7 +254,7 @@ namespace Lo_Fi_Shop.Page
             EnableButton_Opened();
             //Task.Delay(3000).Wait();
             //ImageShkaf.IsEnabled = true;
-           
+
         }
         /// <summary>
         /// Переход к  странице крафта
@@ -274,7 +276,7 @@ namespace Lo_Fi_Shop.Page
             EnableButton_Opened();
 
         }
-        
+
         /// <summary>
         /// Переход к  странице магазина
         /// </summary>
@@ -329,7 +331,7 @@ namespace Lo_Fi_Shop.Page
             PlaySound.Play();
 
             Random r = new Random();
-            switch(r.Next(0, 3))
+            switch (r.Next(0, 3))
             {
                 case 0:
                     Client.Source = @"Resources/drawable/Petka.png";
@@ -376,10 +378,10 @@ namespace Lo_Fi_Shop.Page
             switch (zakaz)
             {
                 case 1:
-                    if(Convert.ToInt32(lvl.Text) <= 2)
+                    if (Convert.ToInt32(lvl.Text) <= 2)
                     {
                         MoneyClient = rnd.Next(26, 35) * 1000;
-                        Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";  
+                        Answer.Text = "Сделаете комп не дороже " + MoneyClient + " рубликов, пожуй листа?";
                     }
                     else if (Convert.ToInt32(lvl.Text) <= 5)
                     {
@@ -450,7 +452,7 @@ namespace Lo_Fi_Shop.Page
                 PlaySound.Play();
             }
 
-            
+
 
             EnableButton_Closed();
             EnableButton_Opened();
@@ -496,7 +498,7 @@ namespace Lo_Fi_Shop.Page
                     PlaySound.Load(stream);
                     PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
-
+                    First = true;
                     //Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
                     ProverkaClient();
                 }
@@ -540,8 +542,8 @@ namespace Lo_Fi_Shop.Page
                     }
                     else
                     {
-                        if(!(Player.Lvl == 1 && Player.Exp < 30))
-                        PersonClass.Write_TXT2(LastExp - 30);
+                        if (!(Player.Lvl == 1 && Player.Exp < 30))
+                            PersonClass.Write_TXT2(LastExp - 30);
                     }
                     new Page.QuestPage("");
                     PersonClass.Write_Client("delete", "", 0);
@@ -551,7 +553,7 @@ namespace Lo_Fi_Shop.Page
                     PlaySound.Load(stream);
                     PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
-
+                    First = true;
                     // Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
                     ProverkaClient();
 
@@ -647,13 +649,13 @@ namespace Lo_Fi_Shop.Page
         private async void EnableButton_Opened()
         {
             await Task.Delay(1000);
-            for(int i = 0; i < AllBtn.Count; i++)
+            for (int i = 0; i < AllBtn.Count; i++)
             {
                 AllBtn[i].IsEnabled = true;
             }
         }
         private void EnableButton_Closed()
-        {      
+        {
             for (int i = 0; i < AllBtn.Count; i++)
             {
                 AllBtn[i].IsEnabled = false;

@@ -71,7 +71,7 @@ namespace Lo_Fi_Shop
             EnableButton_Closed();
             EnableButton_Opened();
         }
-        PlayPage GamePlay;
+         static public PlayPage GamePlay;
         /// <summary>
         /// Переход к главному  экрану игры
         /// </summary>
