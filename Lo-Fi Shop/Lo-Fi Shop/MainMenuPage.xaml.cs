@@ -1,15 +1,10 @@
-﻿using System;
-using Lo_Fi_Shop.Class;
+﻿using Lo_Fi_Shop.Class;
+using Lo_Fi_Shop.Page;
+using Plugin.SimpleAudioPlayer;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Lo_Fi_Shop.Page;
-using System.IO;
-using System.Reflection;
-using Plugin.SimpleAudioPlayer;
 
 namespace Lo_Fi_Shop
 {
@@ -40,23 +35,23 @@ namespace Lo_Fi_Shop
             //if (!PersonClass.Playing)
             //{
             //    PersonClass.player.Load(stream);
-            
+
             Btnwav();
             //}    
         }
 
         private void Btnwav()
         {
-                PersonClass Player = PersonClass.ReturnPerson();
-                string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
-                Random r = new Random();
-                var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
-                // PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
-                PersonClass.player.Load(stream);
-                PersonClass.player.Volume = Player.Settings[1];
-                PersonClass.player.Play();           
+            PersonClass Player = PersonClass.ReturnPerson();
+            string[] radio = new string[] { "music.wav", "StudyBeat.mp3", "MyEyes.mp3", "BackHome.mp3", "FirstGirl.mp3", "StarWars.mp3", "SayAnything.mp3", "TinyEvil.mp3", "LilPeep.mp3", "Chillhop.mp3" };
+            Random r = new Random();
+            var stream = PersonClass.GetStreamFromFile(radio[r.Next(0, 10)]);
+            // PersonClass.player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            PersonClass.player.Load(stream);
+            PersonClass.player.Volume = Player.Settings[1];
+            PersonClass.player.Play();
         }
-       
+
 
         /// <summary>
         /// Переход к экрану "Как Играть"
@@ -84,20 +79,22 @@ namespace Lo_Fi_Shop
         /// <param name="e"></param>
         private void BtnPlay_Clicked(object sender, EventArgs e)
         {
-            
+
             PersonClass Music = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
             ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10;
             ClickSound.Play();
-            if (PersonClass.FirstTime) {
-             GamePlay = new PlayPage();
+            if (PersonClass.FirstTime)
+            {
+                GamePlay = new PlayPage();
                 PersonClass.FirstTime = false;
-            Navigation.PushAsync(GamePlay);
+                Navigation.PushAsync(GamePlay);
             }
             else
             {
+                GamePlay.ProverkaClient();
                 Navigation.PushAsync(GamePlay);
             }
             EnableButton_Closed();
