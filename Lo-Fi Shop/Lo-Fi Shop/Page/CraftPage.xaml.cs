@@ -85,7 +85,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Proc.Source = Item.CreateItems()[i].Path;
@@ -97,7 +97,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Video.Source = Item.CreateItems()[i].Path;
@@ -109,7 +109,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Kyler.Source = Item.CreateItems()[i].Path;
@@ -121,7 +121,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Mat.Source = Item.CreateItems()[i].Path;
@@ -133,7 +133,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         OP.Source = Item.CreateItems()[i].Path;
@@ -145,7 +145,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Korpus.Source = Item.CreateItems()[i].Path;
@@ -157,7 +157,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         Pit.Source = Item.CreateItems()[i].Path;
@@ -169,7 +169,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songVhih.mp3");
                         PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         PageSound.Load(stream);
-                        PageSound.Volume = Player.Settings[2];
+                        PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         PageSound.Play();
 
                         HDD.Source = Item.CreateItems()[i].Path;
@@ -197,7 +197,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("songCraft.mp3");
                     PageSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PageSound.Load(stream);
-                    PageSound.Volume = Player.Settings[2];
+                    PageSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PageSound.Play();
 
                     if (AllCost <= 50000)

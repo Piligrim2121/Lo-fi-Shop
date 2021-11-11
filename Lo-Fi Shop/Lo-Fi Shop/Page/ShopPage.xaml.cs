@@ -57,7 +57,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
             kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             kassa_sound.Load(stream);
-            kassa_sound.Volume = Player.Settings[2];
+            kassa_sound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             kassa_sound.Play();
 
             if (VideoCard.Id == tempBtn.Id)
@@ -293,7 +293,7 @@ namespace Lo_Fi_Shop.Page
                 var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
                 kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 kassa_sound.Load(stream);
-                kassa_sound.Volume = player.Settings[2];
+                kassa_sound.Volume = Convert.ToDouble(player.Settings[2]) / 10;
                 kassa_sound.Play();
                 BuyInfo.Text = "Покупка успешна!";
                 PersonClass Player = PersonClass.ReturnPerson();

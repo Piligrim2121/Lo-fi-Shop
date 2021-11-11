@@ -62,7 +62,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
             InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             InvSound.Load(stream);
-            InvSound.Volume = Player.Settings[2];
+            InvSound.Volume = Convert.ToDouble(Player.Settings[2])/10;
             InvSound.Play();
 
             for (int i = 0; i < Item.InInvItems.Length; i++)
@@ -101,7 +101,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("ClickSound.mp3");
             InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             InvSound.Load(stream);
-            InvSound.Volume = Player.Settings[2];
+            InvSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             InvSound.Play();
 
             for (int i = 0; i < InvPC.Count; i++)
@@ -224,7 +224,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("Page.mp3");
                     InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     InvSound.Load(stream);
-                    InvSound.Volume = Player.Settings[2];
+                    InvSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     InvSound.Play();
 
                     DisplayInvPath();
@@ -251,7 +251,7 @@ namespace Lo_Fi_Shop.Page
                 var stream = PersonClass.GetStreamFromFile("Page.mp3");
                 InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 InvSound.Load(stream);
-                InvSound.Volume = Player.Settings[2];
+                InvSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                 InvSound.Play();
 
                 DisplayInvPath();
@@ -314,7 +314,7 @@ namespace Lo_Fi_Shop.Page
                         var stream = PersonClass.GetStreamFromFile("songMonet.wav");
                         InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                         InvSound.Load(stream);
-                        InvSound.Volume = Player.Settings[2];
+                        InvSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                         InvSound.Play();
                     }
                 }
@@ -338,7 +338,7 @@ namespace Lo_Fi_Shop.Page
                             var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
                             InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                             InvSound.Load(stream);
-                            InvSound.Volume = Player.Settings[2];
+                            InvSound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                             InvSound.Play();
                         }
                     }

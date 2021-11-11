@@ -100,7 +100,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("songWin.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                     WinButton.IsVisible = true;
@@ -189,7 +189,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("songGameOver.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                     WinButton.IsVisible = true;
@@ -246,7 +246,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("songInventory.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             Navigation.PushAsync(new Page.InventoryPage(false));
@@ -269,7 +269,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("CraftOpenSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             EnableButton_Closed();
@@ -290,7 +290,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("KassaOpenSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             EnableButton_Closed();
@@ -310,7 +310,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("TableOfQuestSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             EnableButton_Closed();
@@ -327,7 +327,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("ClientDoorSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             Random r = new Random();
@@ -371,7 +371,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             zakaz = rnd.Next(1, 3);
@@ -435,7 +435,7 @@ namespace Lo_Fi_Shop.Page
                 var stream = PersonClass.GetStreamFromFile("QuestSound.mp3");
                 PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 PlaySound.Load(stream);
-                PlaySound.Volume = Player.Settings[2];
+                PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                 PlaySound.Play();
                 PersonClass.Write_Client(Client.Source.ToString(), Answer.Text, MoneyClient);
             }
@@ -448,7 +448,7 @@ namespace Lo_Fi_Shop.Page
                 var stream = PersonClass.GetStreamFromFile("songInventory.mp3");
                 PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 PlaySound.Load(stream);
-                PlaySound.Volume = Player.Settings[2];
+                PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                 PlaySound.Play();
             }
 
@@ -476,7 +476,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                 }
@@ -496,7 +496,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("ClientCloseDoorSound.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(10, 40)), OnTimerTick);
@@ -517,7 +517,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                 }
@@ -552,7 +552,7 @@ namespace Lo_Fi_Shop.Page
                     var stream = PersonClass.GetStreamFromFile("FailSound.mp3");
                     PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                     PlaySound.Load(stream);
-                    PlaySound.Volume = Player.Settings[2];
+                    PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
                     PlaySound.Play();
 
                     Device.StartTimer(TimeSpan.FromSeconds(rnd.Next(30, 100)), OnTimerTick);
@@ -578,7 +578,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("DialogueSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
 
             h = false;
@@ -667,7 +667,7 @@ namespace Lo_Fi_Shop.Page
             var stream = PersonClass.GetStreamFromFile("WindowSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
-            PlaySound.Volume = Player.Settings[2];
+            PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
         }
     }

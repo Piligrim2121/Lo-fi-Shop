@@ -69,7 +69,7 @@ namespace Lo_Fi_Shop
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
-            ClickSound.Volume = Music.Settings[2];
+            ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10; ;
             ClickSound.Play();
 
             Navigation.PushAsync(new Page.HowToPlayPage());
@@ -89,7 +89,7 @@ namespace Lo_Fi_Shop
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
-            ClickSound.Volume = Music.Settings[2];
+            ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10;
             ClickSound.Play();
             if (PersonClass.FirstTime) {
              GamePlay = new PlayPage();
@@ -116,7 +116,7 @@ namespace Lo_Fi_Shop
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
-            ClickSound.Volume = Music.Settings[2];
+            ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10;
             ClickSound.Play();
 
             Navigation.PushAsync(new Page.SettingsPage());
@@ -134,7 +134,7 @@ namespace Lo_Fi_Shop
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
-            ClickSound.Volume = Music.Settings[2];
+            ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10;
             ClickSound.Play();
 
             Navigation.PushAsync(new Page.AboutAuthorsPage());
@@ -152,7 +152,7 @@ namespace Lo_Fi_Shop
             var stream = PersonClass.GetStreamFromFile("ButtSound.mp3");
             ClickSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             ClickSound.Load(stream);
-            ClickSound.Volume = Music.Settings[2];
+            ClickSound.Volume = Convert.ToDouble(Music.Settings[2]) / 10;
             ClickSound.Play();
 
             System.Diagnostics.Process.GetCurrentProcess().Kill();
