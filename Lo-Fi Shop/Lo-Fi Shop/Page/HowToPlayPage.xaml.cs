@@ -25,7 +25,7 @@ namespace Lo_Fi_Shop.Page
             /*  AbsoluteLayout.SetLayoutFlags(ImgBack, AbsoluteLayoutFlags.PositionProportional);
               AbsoluteLayout.SetLayoutBounds(ImgBack, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
               //AbsoluteLayoutMain.Children.Add(ImgBack);*/
-            var StackMain = new StackLayout() { Spacing = 0 };
+            var StackMain = new StackLayout() { WidthRequest=500, Spacing = 0 };
             AbsoluteLayout.SetLayoutFlags(StackMain, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(StackMain, new Rectangle(0.5, 0, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
             Image Logo = new Image { Source = "Resources/drawable/x_logo.gif", HeightRequest = 130, Aspect = Aspect.AspectFit, IsAnimationPlaying = true };
@@ -49,6 +49,7 @@ namespace Lo_Fi_Shop.Page
             Stack.Children.Add(new Image { Source = "Resources/drawable/e_doskaTask.jpg " });
             Stack.Children.Add(new Xamarin.Forms.Label { Text = "· Для создания ПК игрок должен проверить, есть ли у него необходимые комплектующие в «Инвентаре». В случае, если таковых нет, игрок должен зайти во вкладку «Магазин» и купить их. Собрав все необходимые компоненты, игрок переходит на вкладку «Крафт», где собирает ПК. После чего собранный ПК попадает во вкладку «Инвентарь».", HorizontalOptions = LayoutOptions.Start, FontSize = 14, TextColor = Color.White });
             Stack.Children.Add(new Image { Source = "Resources/drawable/e_craft.jpg " });
+            Stack.Children.Add(new Xamarin.Forms.Label { Text = "Желаем приятной игры!", HorizontalOptions = LayoutOptions.Start, FontSize = 14, TextColor = Color.White });
             //Если приложение вылетает то, на вашем устройстве в меню параметров разработчика вы должны включить "принудительный рендеринг gpu"
             StackMain.Children.Add(Stack);
             AL.Children.Add(StackMain);
