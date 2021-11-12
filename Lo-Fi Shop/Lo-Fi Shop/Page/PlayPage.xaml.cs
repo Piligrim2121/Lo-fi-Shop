@@ -23,14 +23,12 @@ namespace Lo_Fi_Shop.Page
         public static string AddClientMoney = "";
         List<ImageButton> AllBtn = new List<ImageButton>();
         ISimpleAudioPlayer PlaySound;
-
+       
         public PlayPage()
         {
             InitializeComponent();
             Get_data();
-            addMoney.IsVisible = true;
-            addMoney.Text = AddClientMoney;
-            AddClientMoney = "";
+            LabMoney();
             NavigationPage.SetHasNavigationBar(this, false);
             Device.StartTimer(TimeSpan.FromSeconds(2), Get_data);
             Device.StartTimer(TimeSpan.FromSeconds(2), Win);
@@ -46,6 +44,12 @@ namespace Lo_Fi_Shop.Page
             AllBtn.Add((ImageButton)(FindByName("Door")));
             rnd = new Random();
             ProverkaClient();
+        }
+        public void LabMoney()
+        {
+            addMoney.IsVisible = true;
+            addMoney.Text = AddClientMoney;
+            AddClientMoney = "";
         }
         public void ProverkaClient()
         {

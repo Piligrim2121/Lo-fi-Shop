@@ -314,6 +314,7 @@ namespace Lo_Fi_Shop.Page
                         PersonClass.Write_Client("delete", "", 0);
                          PlayPage.First = true;
                         MainMenuPage.GamePlay.ProverkaClient();
+                        MainMenuPage.GamePlay.LabMoney();
                         Navigation.PopAsync();
 
                         var stream = PersonClass.GetStreamFromFile("songMonet.wav");
