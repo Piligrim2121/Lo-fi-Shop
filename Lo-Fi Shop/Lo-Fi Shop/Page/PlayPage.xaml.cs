@@ -665,14 +665,26 @@ namespace Lo_Fi_Shop.Page
                 AllBtn[i].IsEnabled = false;
             }
         }
+        int c = 0;
         private void Okno_Clicked(object sender, EventArgs e)
         {
+            c++;
             PersonClass Player = PersonClass.ReturnPerson();
             var stream = PersonClass.GetStreamFromFile("WindowSound.mp3");
             PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             PlaySound.Load(stream);
             PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
             PlaySound.Play();
+            if (c == 16)
+            {
+                Okno.Source = @"Resources/drawable/OknoBreak.png";
+                var str = PersonClass.GetStreamFromFile("EasterSound.mp3");
+                PlaySound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                PlaySound.Load(str);
+                PlaySound.Volume = Convert.ToDouble(Player.Settings[2]) / 10;
+                PlaySound.Play();
+                Okno.IsEnabled = false;
+            }
         }
     }
 }

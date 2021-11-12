@@ -26,7 +26,7 @@
                 <Label TextColor="White" Text="Громкость музыки" HorizontalOptions="Center" FontSize="20"/>
                 <Slider ValueChanged="SoundVolume_ValueChanged" x:Name="MusicVolume" Minimum="0" Maximum="10"  MinimumTrackColor="#651a87"></Slider>
                 <Label TextColor="White" Text="Громкость звуков" HorizontalOptions="Center" FontSize="20"/>
-                <Slider ValueChanged="SoundVolume_ValueChanged" x:Name="SoundVolume" Minimum="0" Maximum="12"  MinimumTrackColor="#651a87"></Slider>
+                <Slider ValueChanged="SoundVolume_ValueChanged" x:Name="SoundVolume" Minimum="0" Maximum="10"  MinimumTrackColor="#651a87"></Slider>
                 <ImageButton Clicked="Del_Progress_Clicked"  HorizontalOptions="Center" Scale="0.5" Margin="0,10,0,0" Padding="-20" x:Name="Del_Progress" Source="Resources/drawable/dell_progress.png" />
 
             </StackLayout>

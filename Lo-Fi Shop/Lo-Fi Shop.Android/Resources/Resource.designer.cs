@@ -11959,64 +11959,67 @@ namespace Lo_Fi_Shop.Droid
 			public const int Okno = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int PC = 2131165385;
+			public const int OknoBreak = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int Petka = 2131165386;
+			public const int PC = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int progressbar = 2131165387;
+			public const int Petka = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int sad_cat = 2131165388;
+			public const int progressbar = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int Sborka = 2131165389;
+			public const int sad_cat = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int Sell_btn = 2131165390;
+			public const int Sborka = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int Shkaf = 2131165391;
+			public const int Sell_btn = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int Shop = 2131165392;
+			public const int Shkaf = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int stonks = 2131165393;
+			public const int Shop = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int Table = 2131165394;
+			public const int stonks = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int Table_of_quests = 2131165395;
+			public const int Table = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int Table_of_quests_open = 2131165396;
+			public const int Table_of_quests = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int test_custom_background = 2131165397;
+			public const int Table_of_quests_open = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int Tolyan = 2131165398;
+			public const int test_custom_background = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int tooltip_frame_dark = 2131165399;
+			public const int Tolyan = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int tooltip_frame_light = 2131165400;
+			public const int tooltip_frame_dark = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int Vasyok = 2131165401;
+			public const int tooltip_frame_light = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int Viduha = 2131165402;
+			public const int Vasyok = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int x_logo = 2131165403;
+			public const int Viduha = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int zamok = 2131165404;
+			public const int x_logo = 2131165404;
+			
+			// aapt resource value: 0x7F0700DD
+			public const int zamok = 2131165405;
 			
 			static Drawable()
 			{
