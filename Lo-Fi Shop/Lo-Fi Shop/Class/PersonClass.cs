@@ -3,10 +3,7 @@ using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using Xamarin.Essentials;
 
 namespace Lo_Fi_Shop.Class
 {
@@ -22,7 +19,7 @@ namespace Lo_Fi_Shop.Class
         public static bool FirstTime = true;
         public static bool Sleep = false;
         public static ISimpleAudioPlayer player;
-        
+
         public List<int> Settings;
         public int Lvl;
         /// <summary>
@@ -40,7 +37,7 @@ namespace Lo_Fi_Shop.Class
             this.InventoryPath = InventoryPath; // без ограничений
             this.Settings = Settings; // list с 3 значениями от 1 до 10
             this.Lvl = Lvl;
-            
+
         }
 
         /// <summary>
@@ -60,18 +57,18 @@ namespace Lo_Fi_Shop.Class
         /// <param name="PC">Список компонентов входящих в ПК</param>
         public static void Write_PC(List<Item> PC)
         {
-            string text2="";
+            string text2 = "";
             string folderPath2 = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename2 = "pcs";
-            for(int i =0; i<Item.PC.Count; i++)
+            for (int i = 0; i < Item.PC.Count; i++)
             {
-                
-                 text2 = "Name:" + Item.PC[i].Name+";"+"Cost:"+Item.PC[i].Sell+";"+"Source:"+Item.PC[i].Path+";"+"Description:"+Item.PC[i].Description+";"+"*";
+
+                text2 = "Name:" + Item.PC[i].Name + ";" + "Cost:" + Item.PC[i].Sell + ";" + "Source:" + Item.PC[i].Path + ";" + "Description:" + Item.PC[i].Description + ";" + "*";
             }
             File.AppendAllText(Path.Combine(folderPath2, filename2), text2);
         }
 
-      public static Stream GetStreamFromFile(string filename)
+        public static Stream GetStreamFromFile(string filename)
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;
 
@@ -107,9 +104,9 @@ namespace Lo_Fi_Shop.Class
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = "data";
             string SubInv = "";
-            foreach(string i in InventoryParts)
+            foreach (string i in InventoryParts)
             {
-                SubInv += (i+",");
+                SubInv += (i + ",");
             }
             string SubSett = "";
             foreach (int i in Settings)
@@ -139,7 +136,7 @@ namespace Lo_Fi_Shop.Class
                     else
                         SubInv += ("," + i);
             }
-            string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] +";";
+            string text = words[0] + ";" + words[1] + ";InventoryParts:" + SubInv + ";" + words[3] + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
             //ReturnPerson();
         }
@@ -188,7 +185,7 @@ namespace Lo_Fi_Shop.Class
             string Data = Read_TXT(filename);
             string[] words = Data.Split(new char[] { ';' });
             string SubSett = "";
-            foreach(string i in Settings)
+            foreach (string i in Settings)
             {
                 if (i != "" && i != null)
                     if (SubSett.Length == 0)
@@ -196,7 +193,7 @@ namespace Lo_Fi_Shop.Class
                     else
                         SubSett += ("," + i);
             }
-            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + "Settings:"+ SubSett + ";"+ words[4]+ ";";
+            string text = words[0] + ";" + words[1] + ";" + words[2] + ";" + "Settings:" + SubSett + ";" + words[4] + ";";
             File.WriteAllText(Path.Combine(folderPath, filename), text);
         }
         /// <summary>
@@ -214,7 +211,7 @@ namespace Lo_Fi_Shop.Class
                 Inv.Add(i);
             }
             List<int> Settings = new List<int> { };
-            foreach(string i in Data.Split(';')[3].Split(':')[1].Split(','))
+            foreach (string i in Data.Split(';')[3].Split(':')[1].Split(','))
             {
                 Settings.Add(Convert.ToInt32(i));
             }
@@ -225,10 +222,10 @@ namespace Lo_Fi_Shop.Class
         public static void Write_Client(string Name, string Order, int amount)
         {
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            string text = "";            
+            string text = "";
             if (Name != "delete")
             {
-                text = Name + ";" + Order + ";" + amount.ToString() + ";"+Page.PlayPage.zakaz+";";
+                text = Name + ";" + Order + ";" + amount.ToString() + ";" + Page.PlayPage.zakaz + ";";
             }
             File.WriteAllText(Path.Combine(folderPath, "client"), text);
         }
@@ -255,6 +252,6 @@ namespace Lo_Fi_Shop.Class
                 File.WriteAllText(Path.Combine(folderPath, "client"), "");
                 ReturnPerson();
             }
-        } 
+        }
     }
 }

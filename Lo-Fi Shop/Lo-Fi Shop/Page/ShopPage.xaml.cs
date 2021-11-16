@@ -23,7 +23,7 @@ namespace Lo_Fi_Shop.Page
 
             intMoney = Convert.ToInt32(Player.Money.ToString());
             Money.Text = Player.Money.ToString() + "₽";
-           
+
             if (Player.Lvl >= 3)
             {
                 for (int i = 37; i < 45; i++)
@@ -103,7 +103,7 @@ namespace Lo_Fi_Shop.Page
                 ComponentName.TextColor = Color.White;
             }
             //Medium
-          else if (MediumVideoCard.Id == tempBtn.Id)
+            else if (MediumVideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[8];
                 ComponentName.TextColor = Color.LightBlue;
@@ -142,11 +142,11 @@ namespace Lo_Fi_Shop.Page
             }
             else if (MediumHDD.Id == tempBtn.Id)
             {
-                SelectItem = Item.InInvItems[15]; 
+                SelectItem = Item.InInvItems[15];
                 ComponentName.TextColor = Color.LightBlue;
             }
             //Hard
-           else if (HardVideoCard.Id == tempBtn.Id)
+            else if (HardVideoCard.Id == tempBtn.Id)
             {
                 SelectItem = Item.InInvItems[16];
                 ComponentName.TextColor = Color.Gold;
@@ -211,6 +211,7 @@ namespace Lo_Fi_Shop.Page
             messageShow = false;
 
         }
+        bool messageShow;
         private bool MessageHide()
         {
             if (messageShow)
@@ -222,7 +223,7 @@ namespace Lo_Fi_Shop.Page
 
             return false;
         }
-        bool messageShow;
+
         /// <summary>
         /// Покупка предмета и перенос его в инвентарь
         /// </summary>
@@ -240,7 +241,7 @@ namespace Lo_Fi_Shop.Page
                 BuyInfo.Text = "Покупка не удалась. Инвентарь переполнен комплектующими.";
                 return;
             }
-            if ((ComponentName.Text == "Добро пожаловать!")||(ComponentName.Text== "Недоступно на текущем уровне"))
+            if ((ComponentName.Text == "Добро пожаловать!") || (ComponentName.Text == "Недоступно на текущем уровне"))
             {
                 BuyInfo.Text = "Покупка не удалась. Не выбран предмет для покупки.";
                 return;
@@ -255,12 +256,13 @@ namespace Lo_Fi_Shop.Page
                 intMoney = intMoney - SelectItem.Sell;
                 ChangeMoney.Text = "-" + SelectItem.Sell.ToString() + "₽";
                 ChangeMoney.IsVisible = true;
-                Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+                Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+                {
                     ChangeMoney.IsVisible = false;
                     return false;
                 });
                 PersonClass.Write_TXT(intMoney);
-                
+
                 var stream = PersonClass.GetStreamFromFile("songKassa.mp3");
                 kassa_sound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
                 kassa_sound.Load(stream);

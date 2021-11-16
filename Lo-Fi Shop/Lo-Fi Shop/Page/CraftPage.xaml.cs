@@ -179,10 +179,13 @@ namespace Lo_Fi_Shop.Page
                 }
             }
         }
-
+        public static int SummaPC(int [] el)
+        {
+            return el.Sum();
+        }
         private void Sborka_Clicked(object sender, EventArgs e)
         {
-            int AllCost = Cost.Sum();
+            int AllCost = SummaPC(Cost);
             Sborka.IsEnabled = false;
             if (Proverka())
             {

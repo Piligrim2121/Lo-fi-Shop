@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lo-Fi Shop.Android", "Lo-Fi Shop\Lo-Fi Shop.Android\Lo-Fi Shop.Android.csproj", "{B0F3C17C-2C55-4796-81B2-520BCDD85503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lo-Fi Shop", "Lo-Fi Shop\Lo-Fi Shop\Lo-Fi Shop.csproj", "{011D3775-23A2-4410-9F27-65D4B609AAB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lo-Fi Shop", "Lo-Fi Shop\Lo-Fi Shop\Lo-Fi Shop.csproj", "{011D3775-23A2-4410-9F27-65D4B609AAB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lo-Fi ShopTests", "Lo-Fi Shop\Lo-Fi ShopTests\Lo-Fi ShopTests.csproj", "{3ACE35A7-B5E0-4C85-A561-CAA32EECF9CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{011D3775-23A2-4410-9F27-65D4B609AAB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011D3775-23A2-4410-9F27-65D4B609AAB0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{011D3775-23A2-4410-9F27-65D4B609AAB0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3ACE35A7-B5E0-4C85-A561-CAA32EECF9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACE35A7-B5E0-4C85-A561-CAA32EECF9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACE35A7-B5E0-4C85-A561-CAA32EECF9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACE35A7-B5E0-4C85-A561-CAA32EECF9CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
