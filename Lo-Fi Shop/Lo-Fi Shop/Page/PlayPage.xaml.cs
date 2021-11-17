@@ -50,6 +50,10 @@ namespace Lo_Fi_Shop.Page
             addMoney.IsVisible = true;
             addMoney.Text = AddClientMoney;
             AddClientMoney = "";
+            Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+                addMoney.IsVisible = false;
+                return false;
+            });
         }
         public void ProverkaClient()
         {
