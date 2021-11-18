@@ -222,6 +222,15 @@ namespace Lo_Fi_Shop.Page
                     Obvodka1.Source = "Resource/drawable/Obvodka.png";
                     Obvodka2.Source = null;
 
+                    if (Inv_Grid.Children.Count > 0)
+                    {
+                        CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
+                    }
+                    else if (Inv_Grid.Children.Count == 0)
+                    {
+                        CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
+                    }
+
                     PersonClass Player = PersonClass.ReturnPerson();
                     var stream = PersonClass.GetStreamFromFile("Page.mp3");
                     InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -249,6 +258,17 @@ namespace Lo_Fi_Shop.Page
                 Percent.Text = "";
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
+
+                if (Inv_Grid.Children.Count > 0)
+                {
+                    CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
+
+                }
+                else if (Inv_Grid.Children.Count == 0)
+                {
+                    CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
+
+                }
 
                 PersonClass Player = PersonClass.ReturnPerson();
                 var stream = PersonClass.GetStreamFromFile("Page.mp3");
