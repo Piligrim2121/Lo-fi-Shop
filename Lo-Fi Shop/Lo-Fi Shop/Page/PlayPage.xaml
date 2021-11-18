@@ -96,7 +96,7 @@
 
             <!--<ImageButton IsVisible="false" x:Name="ImageTableOfQuestOpen" BackgroundColor="Transparent" Clicked="TableOfQuest_Clouse" Grid.ColumnSpan="6" Margin="76,38,108,40" Grid.RowSpan="6" Source="Resources/drawable/doska.png" />-->
             <Label x:Name="Money" TextColor="Green"  Grid.Column="5"  Margin="40,10,0,10" />
-            <Label x:Name="addMoney" TextColor="DarkGoldenrod"  Grid.Column="5" Grid.RowSpan="2" Margin="40,30,0,10" />
+            <Label x:Name="addMoney" TextColor="DarkGoldenrod"  Grid.Column="5" Grid.RowSpan="2" Margin="40,30,0,10" IsVisible="false"/>
             <ImageButton Clicked="WinButton_Clicked" Grid.ColumnSpan="5" HorizontalOptions="Center" Margin="100,0,0,0" Grid.RowSpan="5" x:Name="WinButton" Source="Resources/drawable/Empty_mess.png" IsVisible="false" BackgroundColor="Transparent"></ImageButton>
             <Label x:Name="WinLable" Grid.Column="1" Grid.ColumnSpan="3"   Grid.Row="2" Grid.RowSpan="3" HorizontalOptions="Center" Margin="10,0,0,0"  Text="" IsVisible="false"></Label>
             <Image x:Name="Kotik" IsVisible="false" Scale="0.6"  Grid.ColumnSpan="6" HorizontalOptions="Center" Margin="300,0,0,0" Grid.RowSpan="5" Source="Resources/drawable/sad_cat.png"/>

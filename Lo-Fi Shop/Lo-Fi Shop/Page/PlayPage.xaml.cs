@@ -50,7 +50,8 @@ namespace Lo_Fi_Shop.Page
             addMoney.IsVisible = true;
             addMoney.Text = AddClientMoney;
             AddClientMoney = "";
-            Device.StartTimer(TimeSpan.FromSeconds(2), () => {
+            Device.StartTimer(TimeSpan.FromSeconds(2), () =>
+            {
                 addMoney.IsVisible = false;
                 return false;
             });
@@ -106,7 +107,6 @@ namespace Lo_Fi_Shop.Page
         /// <returns></returns>
         private bool Win()
         {
-            addMoney.IsVisible = false;
             if (!win)
             {
                 PersonClass Player = PersonClass.ReturnPerson();
