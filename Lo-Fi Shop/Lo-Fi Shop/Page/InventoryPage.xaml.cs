@@ -109,11 +109,14 @@ namespace Lo_Fi_Shop.Page
 
             for (int i = 0; i < InvPC.Count; i++)
             {
-                if (tempBtn.Source.ToString().Replace("File: ", "") == InvPC[i].Path)
+                Console.WriteLine(Inv_Grid.Children.Count);
+                //if (tempBtn.Source.ToString().Replace("File: ", "") == Item.InInvItems[i].Path)
+                if (Inv_Grid.Children[i] == tempBtn)
                 {
                     Description.Text = InvPC[i].Description;
                     Info_name.Text = InvPC[i].Name;
                     Cost.Text = InvPC[i].Sell.ToString() + "₽";
+                    break;
                 }
             }
             if (Info_name.Text.Contains("Бюджетный"))
