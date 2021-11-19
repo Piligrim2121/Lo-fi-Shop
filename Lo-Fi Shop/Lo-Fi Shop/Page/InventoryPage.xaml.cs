@@ -30,9 +30,12 @@ namespace Lo_Fi_Shop.Page
                 Obvodka1.Source = "Resource/drawable/Obvodka.png";
             }
             Prod = Da;
-
-
             DisplayInvPath();
+            ProverkaWeb();
+        }
+
+        private void ProverkaWeb()
+        {
             if (Inv_Grid.Children.Count > 0)
             {
                 CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
@@ -44,7 +47,6 @@ namespace Lo_Fi_Shop.Page
 
             }
         }
-
         ImageButton tempBtn;
         ISimpleAudioPlayer InvSound;
         public static List<string> InvPart { get; set; }
@@ -210,7 +212,6 @@ namespace Lo_Fi_Shop.Page
         /// <param name="e"></param>
         private void Obvodka_Clicked(object sender, EventArgs e)
         {
-
             if (Obvodka1.Source == null)
             {
                 if (!Prod)
@@ -222,15 +223,6 @@ namespace Lo_Fi_Shop.Page
                     Obvodka1.Source = "Resource/drawable/Obvodka.png";
                     Obvodka2.Source = null;
 
-                    if (Inv_Grid.Children.Count > 0)
-                    {
-                        CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
-                    }
-                    else if (Inv_Grid.Children.Count == 0)
-                    {
-                        CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
-                    }
-
                     PersonClass Player = PersonClass.ReturnPerson();
                     var stream = PersonClass.GetStreamFromFile("Page.mp3");
                     InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -239,6 +231,7 @@ namespace Lo_Fi_Shop.Page
                     InvSound.Play();
 
                     DisplayInvPath();
+                    ProverkaWeb();
                 }
             }
         }
@@ -259,17 +252,6 @@ namespace Lo_Fi_Shop.Page
                 Obvodka1.Source = null;
                 Obvodka2.Source = "Resource/drawable/Obvodka.png";
 
-                if (Inv_Grid.Children.Count > 0)
-                {
-                    CP_Inv.BackgroundImageSource = "Resources/drawable/InventoryDefault.png";
-
-                }
-                else if (Inv_Grid.Children.Count == 0)
-                {
-                    CP_Inv.BackgroundImageSource = "Resources/drawable/EmptyInventory.png";
-
-                }
-
                 PersonClass Player = PersonClass.ReturnPerson();
                 var stream = PersonClass.GetStreamFromFile("Page.mp3");
                 InvSound = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
@@ -278,6 +260,7 @@ namespace Lo_Fi_Shop.Page
                 InvSound.Play();
 
                 DisplayInvPath();
+                ProverkaWeb();
             }
         }
         bool DopB = false;
